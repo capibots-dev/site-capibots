@@ -1,4 +1,3 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -18,7 +17,9 @@ const CardapioFutsal = () => {
 
   const bebidas = [
     { nome: 'Água', preco: 3.00, descricao: 'Com ou sem gás' },
-    { nome: 'Refrigerante', preco: 4.00, descricao: '200ml' }
+    { nome: 'Refrigerante', preco: 4.00, descricao: '200ml' },
+    { nome: 'Suco Kapo', preco: 4.00, descricao: '200ml' },
+    { nome: 'Suco natural', preco: 7.00, descricao: 'Laranja ou maracujá 250ml' }
   ];
 
   return (
