@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -31,6 +30,11 @@ const Index = () => {
   ];
 
   const recentNews = [
+    {
+      title: 'Equipe Capibots promove ação de empreendedorismo no Torneio de Futsal',
+      date: '14/06/2025',
+      summary: 'Equipe organiza venda de lanches e bebidas durante campeonato para arrecadar fundos para o TBR 2025'
+    },
     {
       title: 'Equipe Capibots participa de Caminhada Ecológica na Semana de Meio Ambiente',
       date: '07/06/2025',
@@ -154,7 +158,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {recentNews.map((news, index) => (
               <Card key={news.title} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <CardContent className="p-6">

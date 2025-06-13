@@ -10,27 +10,60 @@ import { Calendar, User, ArrowRight } from 'lucide-react';
 const Blog = () => {
   const posts = [
     {
-      id: 'caminhada-ecologica',
-      title: 'Equipe Capibots participa de Caminhada Ecológica na Semana de Meio Ambiente',
-      date: '07/06/2025',
+      id: 'empreendedorismo-futsal',
+      title: 'Equipe Capibots promove ação de empreendedorismo no Torneio de Futsal',
+      date: '14/06/2025',
       author: 'Equipe Capibots',
-      excerpt: 'Integrantes da equipe participaram de evento educativo promovido pelo Praia Clube de Uberlândia, aprendendo sobre sustentabilidade e meio ambiente.',
-      content: `Os integrantes Arthur, Augusto, Lucca e Nicolas da equipe Capibots participaram de uma emocionante Caminhada Ecológica durante a Semana de Meio Ambiente. O evento foi promovido pelo Praia Clube de Uberlândia e foi muito bem organizado e instrutivo para as crianças.
+      excerpt: 'Durante o campeonato de futsal do Colégio Batista Mineiro, nossa equipe organizou uma ação de vendas para arrecadar fundos para o TBR 2025.',
+      content: `A equipe Capibots realizou uma importante ação de empreendedorismo durante o Torneio de Futsal do Colégio Batista Mineiro, Unidade Martins, que aconteceu na manhã do dia 14 de junho de 2025.
 
-Durante a atividade, nossos jovens robóticos tiveram oportunidades únicas de aprendizado:
+## Uma Oportunidade de Empreendedorismo
 
-🌱 **Plantio de Mudas**: Cada participante teve a chance de plantar uma muda de Aroeirinha, contribuindo diretamente para o reflorestamento e aprendendo sobre a importância das árvores nativas.
+O campeonato, que foi uma disputa entre as crianças do 4º e 5º ano do Colégio Batista Mineiro, se tornou uma excelente oportunidade para nossa equipe colocar em prática conceitos de empreendedorismo e gestão de negócios.
 
-🦎 **Fauna do Cerrado**: Conheceram diversos animais típicos do cerrado que vivem na região, entendendo melhor o ecossistema local e a importância da conservação.
+## Produtos Oferecidos
 
-🌿 **Flora Regional**: Descobriram espécies novas de plantas, ampliando seus conhecimentos sobre a biodiversidade de nossa região.
+Nossa equipe foi a única autorizada a vender produtos durante o evento, oferecendo uma variedade de itens:
 
-♻️ **Sustentabilidade**: Aprenderam sobre processos fundamentais como descarte correto, reciclagem e compostagem de resíduos, conhecimentos que se alinham perfeitamente com nossos valores de responsabilidade ambiental.
+### 🍴 Lanches e Snacks
+- Combo Salgadinhos (5 unidades) - R$ 8,00
+- Cachorro Quente completo - R$ 8,00
 
-Esta experiência foi muito enriquecedora para nossa equipe, reforçando nosso compromisso não apenas com a tecnologia, mas também com a sustentabilidade e preservação do meio ambiente. Como uma equipe de robótica, entendemos a importância de desenvolver soluções tecnológicas que sejam ambientalmente responsáveis.`,
-      category: 'Eventos',
-      readTime: '3 min',
-      image: '🌱'
+### 🍭 Sobremesas
+- Balas Fini variadas - R$ 8,00
+- Chocolates diversos
+
+### 🥤 Bebidas
+- Água (com ou sem gás) - R$ 3,00
+- Refrigerante 200ml - R$ 4,00
+
+## Objetivo da Ação
+
+Todo valor arrecadado durante esta ação será destinado exclusivamente às ações de preparação da equipe Capibots para o TBR 2025 (Torneio Brasileiro de Robótica), que terá sua primeira fase interna acontecendo no dia 28 de junho.
+
+## Aprendizados Importantes
+
+Esta experiência proporcionou aos integrantes da equipe:
+
+✅ **Gestão de Estoque**: Controle de produtos e quantidades
+✅ **Atendimento ao Cliente**: Relacionamento com compradores
+✅ **Gestão Financeira**: Controle de vendas e troco
+✅ **Trabalho em Equipe**: Coordenação entre todos os membros
+✅ **Responsabilidade**: Cumprimento de horários e compromissos
+
+## Conexão com a Robótica
+
+Esta ação de empreendedorismo demonstra que os valores da robótica educacional vão além da programação e construção de robôs. Incluem também:
+
+- **Inovação**: Encontrar soluções criativas para arrecadar fundos
+- **Planejamento**: Organizar toda a logística da venda
+- **Sustentabilidade**: Garantir recursos para projetos futuros
+- **Responsabilidade Social**: Contribuir com a comunidade escolar
+
+Estamos muito orgulhosos desta iniciativa que demonstra o espírito empreendedor e a determinação da equipe Capibots em buscar recursos próprios para participar do TBR 2025! 🤖🏆`,
+      category: 'Empreendedorismo',
+      readTime: '4 min',
+      image: '🏆'
     },
     {
       id: 'divulgacao-batista-mineiro',

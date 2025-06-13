@@ -1,17 +1,69 @@
-
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { Calendar, User, ArrowLeft, Clock, Share2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
 
 const BlogPost = () => {
   const { slug } = useParams();
 
   const posts = {
+    'empreendedorismo-futsal': {
+      title: 'Equipe Capibots promove ação de empreendedorismo no Torneio de Futsal',
+      date: '14/06/2025',
+      author: 'Equipe Capibots',
+      category: 'Empreendedorismo',
+      readTime: '4 min',
+      image: '🏆',
+      content: `A equipe Capibots realizou uma importante ação de empreendedorismo durante o Torneio de Futsal do Colégio Batista Mineiro, Unidade Martins, que aconteceu na manhã do dia 14 de junho de 2025.
+
+## Uma Oportunidade de Empreendedorismo
+
+O campeonato, que foi uma disputa entre as crianças do 4º e 5º ano do Colégio Batista Mineiro, se tornou uma excelente oportunidade para nossa equipe colocar em prática conceitos de empreendedorismo e gestão de negócios.
+
+## Produtos Oferecidos
+
+Nossa equipe foi a única autorizada a vender produtos durante o evento, oferecendo uma variedade de itens:
+
+### 🍴 Lanches e Snacks
+- Combo Salgadinhos (5 unidades) - R$ 8,00
+- Cachorro Quente completo - R$ 8,00
+
+### 🍭 Sobremesas
+- Balas Fini variadas - R$ 8,00
+- Chocolates diversos
+
+### 🥤 Bebidas
+- Água (com ou sem gás) - R$ 3,00
+- Refrigerante 200ml - R$ 4,00
+
+## Objetivo da Ação
+
+Todo valor arrecadado durante esta ação será destinado exclusivamente às ações de preparação da equipe Capibots para o TBR 2025 (Torneio Brasileiro de Robótica), que terá sua primeira fase interna acontecendo no dia 28 de junho.
+
+## Aprendizados Importantes
+
+Esta experiência proporcionou aos integrantes da equipe:
+
+✅ **Gestão de Estoque**: Controle de produtos e quantidades
+✅ **Atendimento ao Cliente**: Relacionamento com compradores
+✅ **Gestão Financeira**: Controle de vendas e troco
+✅ **Trabalho em Equipe**: Coordenação entre todos os membros
+✅ **Responsabilidade**: Cumprimento de horários e compromissos
+
+## Conexão com a Robótica
+
+Esta ação de empreendedorismo demonstra que os valores da robótica educacional vão além da programação e construção de robôs. Incluem também:
+
+- **Inovação**: Encontrar soluções criativas para arrecadar fundos
+- **Planejamento**: Organizar toda a logística da venda
+- **Sustentabilidade**: Garantir recursos para projetos futuros
+- **Responsabilidade Social**: Contribuir com a comunidade escolar
+
+Estamos muito orgulhosos desta iniciativa que demonstra o espírito empreendedor e a determinação da equipe Capibots em buscar recursos próprios para participar do TBR 2025! 🤖🏆`
+    },
     'caminhada-ecologica': {
       id: 'caminhada-ecologica',
       title: 'Equipe Capibots participa de Caminhada Ecológica na Semana de Meio Ambiente',
@@ -129,13 +181,9 @@ Agradecemos a todos que nos seguiram e continuam acompanhando nossa jornada. Jun
       <div className="min-h-screen">
         <Header />
         <div className="container mx-auto px-4 py-20 text-center">
-          <h1 className="text-4xl font-bold mb-4">Post não encontrado</h1>
-          <p className="text-muted-foreground mb-8">O artigo que você está procurando não existe.</p>
+          <h1 className="text-2xl font-bold mb-4">Post não encontrado</h1>
           <Button asChild>
-            <Link to="/blog">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Voltar ao Blog
-            </Link>
+            <Link to="/blog">Voltar ao Blog</Link>
           </Button>
         </div>
         <Footer />
@@ -143,61 +191,31 @@ Agradecemos a todos que nos seguiram e continuam acompanhando nossa jornada. Jun
     );
   }
 
-  const formatContent = (content: string) => {
-    return content.split('\n').map((paragraph, index) => {
-      if (paragraph.startsWith('## ')) {
-        return (
-          <h2 key={index} className="text-2xl font-bold mt-8 mb-4 text-gradient">
-            {paragraph.replace('## ', '')}
-          </h2>
-        );
-      }
-      if (paragraph.startsWith('### ')) {
-        return (
-          <h3 key={index} className="text-xl font-semibold mt-6 mb-3">
-            {paragraph.replace('### ', '')}
-          </h3>
-        );
-      }
-      if (paragraph.trim() === '') {
-        return <br key={index} />;
-      }
-      return (
-        <p key={index} className="mb-4 text-muted-foreground leading-relaxed">
-          {paragraph}
-        </p>
-      );
-    });
-  };
-
   return (
     <div className="min-h-screen">
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 gradient-orange-green text-white">
+      <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4">
-          <Button asChild variant="outline" className="mb-8 border-white text-white hover:bg-white hover:text-primary">
+          <Button asChild variant="outline" className="mb-6">
             <Link to="/blog">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Voltar ao Blog
             </Link>
           </Button>
           
-          <div className="max-w-4xl">
-            <div className="flex items-center gap-4 mb-6">
-              <span className="text-6xl">{post.image}</span>
-              <div className="flex-1">
-                <Badge className="bg-white/20 text-white border-white/30 mb-4">
-                  {post.category}
-                </Badge>
-                <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                  {post.title}
-                </h1>
-              </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center gap-4 mb-4">
+              <Badge>{post.category}</Badge>
+              <span className="text-sm text-muted-foreground">{post.readTime} de leitura</span>
             </div>
             
-            <div className="flex flex-wrap gap-6 items-center text-white/80">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+              {post.title}
+            </h1>
+            
+            <div className="flex items-center gap-6 text-muted-foreground mb-8">
               <div className="flex items-center">
                 <Calendar className="h-4 w-4 mr-2" />
                 {post.date}
@@ -206,128 +224,83 @@ Agradecemos a todos que nos seguiram e continuam acompanhando nossa jornada. Jun
                 <User className="h-4 w-4 mr-2" />
                 {post.author}
               </div>
-              <div className="flex items-center">
-                <Clock className="h-4 w-4 mr-2" />
-                {post.readTime} de leitura
-              </div>
+            </div>
+            
+            <div className="flex gap-4">
+              <Button variant="outline" size="sm">
+                <Share2 className="h-4 w-4 mr-2" />
+                Compartilhar
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Article Content */}
-      <section className="py-20 bg-background">
+      <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {/* Main Content */}
-            <article className="lg:col-span-3">
-              <div className="prose prose-lg max-w-none">
-                {formatContent(post.content)}
-              </div>
-
-              {/* Share Section */}
-              <div className="mt-12 pt-8 border-t">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="font-semibold mb-2">Gostou do artigo?</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Compartilhe com seus amigos!
-                    </p>
-                  </div>
-                  <Button variant="outline">
-                    <Share2 className="h-4 w-4 mr-2" />
-                    Compartilhar
-                  </Button>
+          <div className="max-w-4xl mx-auto">
+            <Card>
+              <CardContent className="p-8">
+                <div className="h-64 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-8">
+                  <span className="text-8xl">{post.image}</span>
                 </div>
-              </div>
-            </article>
+                
+                <div className="prose prose-lg max-w-none">
+                  {post.content.split('\n').map((paragraph, index) => {
+                    if (paragraph.startsWith('## ')) {
+                      return (
+                        <h2 key={index} className="text-2xl font-bold mt-8 mb-4 text-gradient">
+                          {paragraph.replace('## ', '')}
+                        </h2>
+                      );
+                    }
+                    if (paragraph.startsWith('### ')) {
+                      return (
+                        <h3 key={index} className="text-xl font-semibold mt-6 mb-3">
+                          {paragraph.replace('### ', '')}
+                        </h3>
+                      );
+                    }
+                    if (paragraph.startsWith('- ')) {
+                      return (
+                        <li key={index} className="ml-4 mb-2">
+                          {paragraph.replace('- ', '')}
+                        </li>
+                      );
+                    }
+                    if (paragraph.startsWith('✅ ')) {
+                      return (
+                        <p key={index} className="mb-2 flex items-start">
+                          <span className="mr-2">✅</span>
+                          {paragraph.replace('✅ ', '')}
+                        </p>
+                      );
+                    }
+                    if (paragraph.trim()) {
+                      return (
+                        <p key={index} className="mb-4 text-muted-foreground leading-relaxed">
+                          {paragraph}
+                        </p>
+                      );
+                    }
+                    return null;
+                  })}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
 
-            {/* Sidebar */}
-            <div className="space-y-6">
-              {/* Article Info */}
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-bold mb-4">Sobre este artigo</h3>
-                  <div className="space-y-3 text-sm">
-                    <div>
-                      <span className="font-medium">Categoria:</span>
-                      <Badge variant="secondary" className="ml-2">
-                        {post.category}
-                      </Badge>
-                    </div>
-                    <div>
-                      <span className="font-medium">Data:</span>
-                      <span className="ml-2 text-muted-foreground">{post.date}</span>
-                    </div>
-                    <div>
-                      <span className="font-medium">Tempo de leitura:</span>
-                      <span className="ml-2 text-muted-foreground">{post.readTime}</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Participants */}
-              {post.participants && (
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="font-bold mb-4">Participantes</h3>
-                    <div className="space-y-2">
-                      {post.participants.map((participant, index) => (
-                        <div key={index} className="flex items-center space-x-2">
-                          <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">
-                              {participant.charAt(0)}
-                            </span>
-                          </div>
-                          <span className="text-sm">{participant}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              )}
-
-              {/* Related Posts */}
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-bold mb-4">Outros artigos</h3>
-                  <div className="space-y-4">
-                    {Object.values(posts)
-                      .filter(p => p.id !== post.id)
-                      .map((relatedPost) => (
-                        <Link
-                          key={relatedPost.id}
-                          to={`/blog/${relatedPost.id}`}
-                          className="block group"
-                        >
-                          <div className="text-sm font-medium group-hover:text-primary transition-colors line-clamp-2">
-                            {relatedPost.title}
-                          </div>
-                          <div className="text-xs text-muted-foreground mt-1">
-                            {relatedPost.date}
-                          </div>
-                        </Link>
-                      ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* CTA */}
-              <Card className="gradient-orange-green text-white">
-                <CardContent className="p-6 text-center">
-                  <h3 className="font-bold mb-2">Siga a Capibots</h3>
-                  <p className="text-sm text-white/80 mb-4">
-                    Acompanhe todas as nossas aventuras!
-                  </p>
-                  <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-                    <a href="https://instagram.com/equipecapibots" target="_blank" rel="noopener noreferrer">
-                      Seguir Instagram
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
+      {/* Related Posts */}
+      <section className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl font-bold mb-8">Continue Lendo</h2>
+            <Button asChild size="lg">
+              <Link to="/blog">Ver Mais Posts</Link>
+            </Button>
           </div>
         </div>
       </section>
