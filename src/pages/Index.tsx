@@ -23,9 +23,9 @@ const Index = () => {
   const projects = [
     {
       title: 'TBR 2025',
-      description: 'Desenvolvimento da plataforma robótica para o Torneio Brasileiro de Robótica 2025',
+      description: 'Desenvolvimento da plataforma CerradoTech para o Torneio Brasil de Robótica 2025',
       status: 'Em desenvolvimento',
-      technologies: ['Arduino', 'Sensores', 'Programação C++']
+      technologies: ['Website', 'Geolocalização', 'Cruzamento de Dados', 'Inteligência Artificial']
     }
   ];
 
