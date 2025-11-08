@@ -10,168 +10,159 @@ const BlogPost = () => {
   const { slug } = useParams();
 
   const posts = {
-    'empreendedorismo-futsal': {
-      title: 'Equipe Capibots promove ação de empreendedorismo no Torneio de Futsal',
-      date: '14/06/2025',
-      author: 'Equipe Capibots',
-      category: 'Empreendedorismo',
-      readTime: '4 min',
-      image: '🏆',
-      content: `A equipe Capibots realizou uma importante ação de empreendedorismo durante o Torneio de Futsal do Colégio Batista Mineiro, Unidade Martins, que aconteceu na manhã do dia 14 de junho de 2025.
-
-## Uma Oportunidade de Empreendedorismo
-
-O campeonato, que foi uma disputa entre as crianças do 4º e 5º ano do Colégio Batista Mineiro, se tornou uma excelente oportunidade para nossa equipe colocar em prática conceitos de empreendedorismo e gestão de negócios.
-
-## Produtos Oferecidos
-
-Nossa equipe foi a única autorizada a vender produtos durante o evento, oferecendo uma variedade de itens:
-
-### 🍴 Lanches e Snacks
-- Combo Salgadinhos (5 unidades) - R$ 8,00
-- Cachorro Quente completo - R$ 8,00
-
-### 🍭 Sobremesas
-- Balas Fini variadas - R$ 8,00
-- Chocolates diversos
-
-### 🥤 Bebidas
-- Água (com ou sem gás) - R$ 3,00
-- Refrigerante 200ml - R$ 4,00
-
-## Objetivo da Ação
-
-Todo valor arrecadado durante esta ação será destinado exclusivamente às ações de preparação da equipe Capibots para o TBR 2025 (Torneio Brasileiro de Robótica), que terá sua primeira fase interna acontecendo no dia 28 de junho.
-
-## Aprendizados Importantes
-
-Esta experiência proporcionou aos integrantes da equipe:
-
-✅ **Gestão de Estoque**: Controle de produtos e quantidades
-✅ **Atendimento ao Cliente**: Relacionamento com compradores
-✅ **Gestão Financeira**: Controle de vendas e troco
-✅ **Trabalho em Equipe**: Coordenação entre todos os membros
-✅ **Responsabilidade**: Cumprimento de horários e compromissos
-
-## Conexão com a Robótica
-
-Esta ação de empreendedorismo demonstra que os valores da robótica educacional vão além da programação e construção de robôs. Incluem também:
-
-- **Inovação**: Encontrar soluções criativas para arrecadar fundos
-- **Planejamento**: Organizar toda a logística da venda
-- **Sustentabilidade**: Garantir recursos para projetos futuros
-- **Responsabilidade Social**: Contribuir com a comunidade escolar
-
-Estamos muito orgulhosos desta iniciativa que demonstra o espírito empreendedor e a determinação da equipe Capibots em buscar recursos próprios para participar do TBR 2025! 🤖🏆`
-    },
-    'caminhada-ecologica': {
-      id: 'caminhada-ecologica',
-      title: 'Equipe Capibots participa de Caminhada Ecológica na Semana de Meio Ambiente',
-      date: '07/06/2025',
-      author: 'Equipe Capibots',
-      content: `Os integrantes Arthur, Augusto, Lucca e Nicolas da equipe Capibots participaram de uma emocionante Caminhada Ecológica durante a Semana de Meio Ambiente. O evento foi promovido pelo Praia Clube de Uberlândia e foi muito bem organizado e instrutivo para as crianças.
-
-Durante a atividade, nossos jovens robóticos tiveram oportunidades únicas de aprendizado:
-
-## 🌱 Plantio de Mudas
-Cada participante teve a chance de plantar uma muda de Aroeirinha, contribuindo diretamente para o reflorestamento e aprendendo sobre a importância das árvores nativas do cerrado.
-
-## 🦎 Fauna do Cerrado
-Conheceram diversos animais típicos do cerrado que vivem na região, entendendo melhor o ecossistema local e a importância da conservação da biodiversidade.
-
-## 🌿 Flora Regional
-Descobriram espécies novas de plantas, ampliando seus conhecimentos sobre a biodiversidade de nossa região e as características únicas do bioma cerrado.
-
-## ♻️ Sustentabilidade
-Aprenderam sobre processos fundamentais como descarte correto, reciclagem e compostagem de resíduos, conhecimentos que se alinham perfeitamente com nossos valores de responsabilidade ambiental.
-
-## Reflexões da Equipe
-
-Esta experiência foi muito enriquecedora para nossa equipe, reforçando nosso compromisso não apenas com a tecnologia, mas também com a sustentabilidade e preservação do meio ambiente. 
-
-Como uma equipe de robótica, entendemos a importância de desenvolver soluções tecnológicas que sejam ambientalmente responsáveis. A caminhada ecológica nos mostrou na prática como pequenas ações podem ter um grande impacto positivo no meio ambiente.
-
-## Próximos Passos
-
-Inspirados por esta experiência, estamos planejando incorporar mais elementos de sustentabilidade em nossos projetos futuros. Queremos desenvolver robôs que não apenas demonstrem nossas habilidades técnicas, mas que também contribuam para a preservação ambiental.
-
-Agradecemos ao Praia Clube de Uberlândia pela organização exemplar deste evento educativo!`,
-      category: 'Eventos',
-      readTime: '3 min',
-      image: '🌱',
-      participants: ['Arthur', 'Augusto', 'Lucca', 'Nicolas']
-    },
-    'divulgacao-batista-mineiro': {
-      id: 'divulgacao-batista-mineiro',
-      title: 'Equipe Capibots promove ação de divulgação no Colégio Batista Mineiro',
-      date: '06/06/2025',
-      author: 'Equipe Capibots',
-      content: `A equipe Capibots realizou uma ação especial de divulgação no Colégio Batista Mineiro que foi um verdadeiro sucesso! Esta iniciativa marcou um momento importante em nossa estratégia de crescimento e engajamento com a comunidade.
-
-## A Estratégia
-
-Nossa abordagem foi simples, mas efetiva:
-
-**📅 Quando**: Durante o horário de início das aulas do período da tarde
-**👥 Participação**: Todas as crianças da equipe estiveram presentes
-**🍭 Estratégia**: Distribuição de pirulitos para alunos e pais
-**📱 Objetivo**: Convidar pessoas a seguir nosso Instagram @equipecapibots
-
-## Resultados Incríveis!
-
-Nossa estratégia de divulgação teve resultados que superaram nossas expectativas:
-
-### ✅ Meta Alcançada
-Ultrapassamos a marca de 300 seguidores no Instagram! Este marco representa muito mais do que números - representa uma comunidade crescente de pessoas interessadas em robótica educacional.
-
-### 🎯 Próximo Objetivo
-Estamos a caminho dos 400 seguidores! Cada novo seguidor nos motiva a continuar compartilhando nossa jornada e inspirando outros jovens.
-
-### 🤝 Engajamento
-Notamos um aumento significativo na interação com nossa comunidade escolar, com mais comentários, curtidas e compartilhamentos.
-
-### 🌟 Visibilidade
-Houve um crescimento notável da consciência sobre nosso trabalho em robótica dentro da comunidade escolar.
-
-## A Importância da Comunidade
-
-Esta ação demonstra como o apoio da comunidade é fundamental para o crescimento da nossa equipe. Cada novo seguidor representa:
-
-- Uma pessoa interessada em robótica educacional
-- Potencial apoio para nossos projetos futuros  
-- Ampliação da rede de pessoas que valorizam STEM
-- Oportunidade de inspirar outros jovens a se interessarem por tecnologia
-
-## Lições Aprendidas
-
-### Simplicidade Funciona
-Às vezes, as estratégias mais simples são as mais efetivas. A distribuição de pirulitos criou um momento de conexão genuína com as pessoas.
-
-### Presença da Equipe
-Ter toda a equipe presente foi fundamental. Isso mostrou nosso comprometimento e permitiu que as pessoas conhecessem todos os integrantes.
-
-### Timing Perfeito
-Escolher o horário de entrada das aulas garantiu que alcançássemos tanto alunos quanto pais, maximizando nosso alcance.
-
-## Próximas Ações
-
-Motivados pelo sucesso desta iniciativa, já estamos planejando:
-
-1. **Apresentações em outras escolas** da região
-2. **Participação em eventos** da comunidade
-3. **Criação de conteúdo** mais engajador para redes sociais
-4. **Parcerias estratégicas** com instituições locais
-
-## Agradecimentos
-
-Agradecemos a todos que nos seguiram e continuam acompanhando nossa jornada. Juntos, estamos construindo uma comunidade que valoriza a ciência, tecnologia e inovação!
-
-**Siga nosso Instagram @equipecapibots e acompanhe todas as novidades dos nossos projetos de robótica! 🤖✨**`,
-      category: 'Divulgação',
-      readTime: '2 min',
-      image: '📱',
-      participants: ['Toda a equipe']
-    }
+      'empreendedorismo-futsal': {
+          title: 'Equipe Capibots promove ação de empreendedorismo no Torneio de Futsal',
+          date: '14/06/2025',
+          author: 'Equipe Capibots',
+          excerpt: 'Durante o campeonato de futsal do Colégio Batista Mineiro, nossa equipe organizou uma ação de vendas para arrecadar fundos para o TBR 2025.',
+          content: `A equipe Capibots realizou uma importante ação de empreendedorismo durante o Torneio de Futsal do Colégio Batista Mineiro, Unidade Martins, que aconteceu na manhã do dia 14 de junho de 2025.
+    
+    ## Uma Oportunidade de Empreendedorismo
+    
+    O campeonato, que foi uma disputa entre as crianças do 4º e 5º ano do Colégio Batista Mineiro, se tornou uma excelente oportunidade para nossa equipe colocar em prática conceitos de empreendedorismo e gestão de negócios.
+    
+    ## Produtos Oferecidos
+    
+    Nossa equipe foi a única autorizada a vender produtos durante o evento, oferecendo uma variedade de itens:
+    
+    ### 🍴 Lanches e Snacks
+    - Combo Salgadinhos (5 unidades) - R$ 8,00
+    - Cachorro Quente completo - R$ 8,00
+    
+    ### 🍭 Sobremesas
+    - Balas Fini variadas - R$ 8,00
+    - Chocolates diversos
+    
+    ### 🥤 Bebidas
+    - Água (com ou sem gás) - R$ 3,00
+    - Refrigerante 200ml - R$ 4,00
+    
+    ## Objetivo da Ação
+    
+    Todo valor arrecadado durante esta ação será destinado exclusivamente às ações de preparação da equipe Capibots para o TBR 2025 (Torneio Brasil de Robótica), que terá sua primeira fase interna acontecendo no dia 28 de junho.
+    
+    ## Aprendizados Importantes
+    
+    Esta experiência proporcionou aos integrantes da equipe:
+    
+    ✅ **Gestão de Estoque**: Controle de produtos e quantidades
+    ✅ **Atendimento ao Cliente**: Relacionamento com compradores
+    ✅ **Gestão Financeira**: Controle de vendas e troco
+    ✅ **Trabalho em Equipe**: Coordenação entre todos os membros
+    ✅ **Responsabilidade**: Cumprimento de horários e compromissos
+    
+    ## Conexão com a Robótica
+    
+    Esta ação de empreendedorismo demonstra que os valores da robótica educacional vão além da programação e construção de robôs. Incluem também:
+    
+    - **Inovação**: Encontrar soluções criativas para arrecadar fundos
+    - **Planejamento**: Organizar toda a logística da venda
+    - **Sustentabilidade**: Garantir recursos para projetos futuros
+    - **Responsabilidade Social**: Contribuir com a comunidade escolar
+    
+    Estamos muito orgulhosos desta iniciativa que demonstra o espírito empreendedor e a determinação da equipe Capibots em buscar recursos próprios para participar do TBR 2025! 🤖🏆`,
+          category: 'Ações Empreendedoras',
+          readTime: '4 min',
+          image: '🏆'
+        },
+        'divulgacao-batista-mineiro': {
+          title: 'Equipe Capibots promove ação de divulgação no Colégio Batista Mineiro',
+          date: '06/06/2025',
+          author: 'Equipe Capibots',
+          excerpt: 'Ação de divulgação no período da tarde resultou em crescimento significativo de seguidores e maior visibilidade da equipe.',
+          content: `A equipe Capibots realizou uma ação especial de divulgação no Colégio Batista Mineiro que foi um verdadeiro sucesso!
+    
+    📅 **Quando**: Durante o horário de início das aulas do período da tarde
+    👥 **Participação**: Todas as crianças da equipe estiveram presentes
+    🍭 **Estratégia**: Distribuição de pirulitos para alunos e pais
+    📱 **Objetivo**: Convidar pessoas a seguir nosso Instagram @equipecapibots
+    
+    ## Resultados Incríveis!
+    
+    Nossa estratégia de divulgação teve resultados que superaram nossas expectativas:
+    
+    ✅ **Meta Alcançada**: Ultrapassamos a marca de 300 seguidores no Instagram
+    🎯 **Próximo Objetivo**: Estamos a caminho dos 400 seguidores!
+    🤝 **Engajamento**: Maior interação com a comunidade escolar
+    🌟 **Visibilidade**: Crescimento da consciência sobre nosso trabalho em robótica
+    
+    ## A Importância da Comunidade
+    
+    Esta ação demonstra como o apoio da comunidade é fundamental para o crescimento da nossa equipe. Cada novo seguidor representa:
+    
+    - Uma pessoa interessada em robótica educacional
+    - Potencial apoio para nossos projetos futuros
+    - Ampliação da rede de pessoas que valorizam STEM
+    - Oportunidade de inspirar outros jovens
+    
+    Agradecemos a todos que nos seguiram e continuam acompanhando nossa jornada. Juntos, estamos construindo uma comunidade que valoriza a ciência, tecnologia e inovação!
+    
+    Siga nosso Instagram @equipecapibots e acompanhe todas as novidades dos nossos projetos de robótica! 🤖✨`,
+          category: 'Divulgação',
+          readTime: '2 min',
+          image: '📱'
+        },
+        'capibots-campea-torneio-interno-2025': 
+        {
+          "title": "Capibots é campeã do Torneio Interno do Colégio Batista Mineiro",
+          "date": "2025-06-28",
+          "author": "Equipe Capibots",
+          "excerpt": "A equipe Capibots conquistou o título de campeã do Torneio Interno de Robótica do Colégio Batista Mineiro, etapa preparatória para o TBR 2025.",
+          "content": "A equipe Capibots venceu o torneio interno realizado no Colégio Batista Mineiro, unidade Granja Marileusa, em Uberlândia. O evento, que contou com o apoio das famílias e professores, foi uma oportunidade de testar os conhecimentos adquiridos ao longo do semestre e fortalecer a integração entre as equipes. Além das provas de campo, os Capibots apresentaram seu projeto científico CerradoTech, recebendo elogios pela criatividade e impacto ambiental da proposta.",
+          "category": "Competições",
+          "readTime": "4 min",
+          "image": "🏆"
+        },
+        'capibots-visita-nepsem-ufu': {
+          "title": "Capibots apresenta CerradoTech ao Núcleo de Estudos e Pesquisa em Sementes da UFU",
+          "date": "2025-04-05",
+          "author": "Equipe Capibots",
+          "excerpt": "A equipe apresentou o projeto CerradoTech a pesquisadores da UFU, discutindo a importância da regeneração do bioma e o papel da tecnologia.",
+          "content": "Os integrantes da Capibots realizaram uma visita técnica ao Núcleo de Estudos e Pesquisa em Sementes (NEPSEM) da Universidade Federal de Uberlândia (UFU). Durante o encontro, os alunos apresentaram o CerradoTech — uma plataforma colaborativa voltada à regeneração inteligente do Cerrado — e conheceram o trabalho dos pesquisadores em coleta, armazenamento e germinação de sementes nativas. A atividade contribuiu para o aprimoramento científico do projeto e fortaleceu a integração entre educação básica e universidade.",
+          "category": "Trabalhos de Campo",
+          "readTime": "4 min",
+          "image": "🌱"
+        },
+        'capibots-visita-peiropolis': {
+          "title": "Capibots realiza visita técnica ao Museu de Peirópolis",
+          "date": "2025-05-11",
+          "author": "Equipe Capibots",
+          "excerpt": "A visita ao Complexo Paleontológico de Peirópolis ampliou os conhecimentos científicos e ambientais dos integrantes da equipe.",
+          "content": "A equipe Capibots realizou uma visita ao Museu dos Dinossauros e ao Centro de Pesquisas Paleontológicas Llewellyn Ivor Price, em Peirópolis (Uberaba-MG). A atividade integrou o plano de formação científica da equipe e permitiu aos alunos compreender a importância do patrimônio natural e da preservação ambiental. O grupo também fez conexões entre a história geológica da região e os ecossistemas atuais do Cerrado.",
+          "category": "Educação Científica",
+          "readTime": "3 min",
+          "image": "🦖"
+        },
+        'capibots-participa-vi-simposio-biodiversidade': {
+          "title": "Capibots participa do VI Simpósio de Conservação da Biodiversidade do Cerrado",
+          "date": "2025-10-20",
+          "author": "Equipe Capibots",
+          "excerpt": "Projeto CerradoTech foi apresentado no VI Simpósio de Conservação da Biodiversidade do Cerrado, realizado na Universidade Federal de Uberlândia.",
+          "content": "A equipe Capibots participou do VI Simpósio de Conservação da Biodiversidade do Cerrado, evento científico que reuniu pesquisadores, estudantes e organizações ambientais na UFU. O grupo apresentou o projeto CerradoTech na forma de banner, destacando sua contribuição para a regeneração inteligente do bioma e o uso da tecnologia como ferramenta de educação e engajamento. A participação marcou a integração entre ciência, tecnologia e conservação ambiental.",
+          "category": "Divulgação Científica",
+          "readTime": "4 min",
+          "image": "🎓"
+        },
+        'capibots-divulga-parceria-soucerrado': {
+          "title": "Capibots firma parceria com o perfil @soucerrado",
+          "date": "2025-09-12",
+          "author": "Equipe Capibots",
+          "excerpt": "A equipe estabeleceu uma parceria de comunicação e divulgação com o projeto @soucerrado, ampliando o alcance do CerradoTech nas redes sociais.",
+          "content": "Com o objetivo de ampliar o impacto de suas ações e difundir informações sobre o bioma Cerrado, a Capibots estabeleceu uma parceria com o perfil ambiental @soucerrado, reconhecido por promover a conscientização ecológica e valorizar a biodiversidade brasileira. A colaboração tem permitido a divulgação de conteúdos educativos, curiosidades sobre espécies nativas e atualizações sobre o desenvolvimento da plataforma CerradoTech.",
+          "category": "Parcerias",
+          "readTime": "3 min",
+          "image": "🤝"
+        },
+        'capibots-acao-estande-paufurado': {
+          "title": "Capibots participa de evento ambiental no Parque Pau Furado",
+          "date": "2025-09-22",
+          "author": "Equipe Capibots",
+          "excerpt": "Equipe apresentou o projeto CerradoTech em estande interativo durante evento de educação ambiental no Parque Estadual do Pau Furado.",
+          "content": "Durante o evento de educação ambiental promovido no Parque Estadual do Pau Furado, a equipe Capibots montou um estande interativo apresentando o CerradoTech. Os visitantes puderam conhecer as funcionalidades da plataforma, como o simulador de reflorestamento e o banco de sementes. Além disso, os alunos explicaram a importância da regeneração do Cerrado e promoveram atividades educativas para o público infantil e adulto.",
+          "category": "Trabalhos de Campo",
+          "readTime": "4 min",
+          "image": "🌳"
+        }
   };
 
   const post = posts[slug as keyof typeof posts];

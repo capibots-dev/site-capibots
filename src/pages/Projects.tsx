@@ -12,14 +12,14 @@ const Projects = () => {
     {
       id: 'tbr-2025',
       title: 'TBR 2025',
-      subtitle: 'Torneio Brasileiro de Robótica 2025',
-      description: 'Desenvolvimento completo da plataforma robótica para participação no Torneio Brasileiro de Robótica 2025. O projeto envolve design mecânico, programação de sensores e estratégias de competição.',
+      subtitle: 'Torneio Brasil de Robótica 2025',
+      description: 'Desenvolvimento da CerradoTech para participação no Torneio Brasil de Robótica 2025. O projeto envolve cruzamento de dados públicos de fontes confiáveis (MapBiomas, IBGE, Embrapa) para indicar a planta ideal para cada localidade específica do Cerrado Brasileiro à partir de informações de fitofisionomia, solo e relevo.',
       status: 'Em desenvolvimento',
-      startDate: 'Janeiro 2025',
-      technologies: ['Arduino', 'Sensores Ultrassônicos', 'C++', 'Design Mecânico', 'Estratégia'],
+      startDate: 'Abr/2025 a Dez/2025',
+      technologies: ['Geolocalização', 'Cruzamento de Dados', 'IA', 'API Python'],
       image: '🤖',
-      category: 'Competição',
-      progress: 65
+      category: 'Kids 2',
+      progress: 75
     }
   ];
 
@@ -195,7 +195,7 @@ const Projects = () => {
             <h2 className="text-4xl font-bold mb-6 text-gradient">Próximos Passos</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Estamos sempre pensando no futuro! Aqui estão algumas das ideias e 
-              projetos que pretendemos desenvolver.
+              projetos que discutimos e que talvez possamos desenvolver futuramente.
             </p>
           </div>
 
@@ -212,10 +212,10 @@ const Projects = () => {
 
             <Card className="text-center group hover:shadow-lg transition-all duration-300">
               <CardContent className="p-6">
-                <div className="text-4xl mb-4">🏠</div>
-                <h3 className="font-semibold mb-2">Casa Inteligente</h3>
+                <div className="text-4xl mb-4">🌎</div>
+                <h3 className="font-semibold mb-2">Rede de Protetores</h3>
                 <p className="text-sm text-muted-foreground">
-                  Sistema de automação residencial com sensores e controle remoto
+                  Difundir a relevândia dos ODS (Objetivos de Desenvolvimento Sustentável) para o futuro da humanidade.
                 </p>
               </CardContent>
             </Card>
@@ -225,7 +225,7 @@ const Projects = () => {
                 <div className="text-4xl mb-4">🎮</div>
                 <h3 className="font-semibold mb-2">Jogos Educativos</h3>
                 <p className="text-sm text-muted-foreground">
-                  Desenvolvimento de jogos interativos para ensinar programação
+                  Desenvolvimento de jogos interativos para ensinar programação.
                 </p>
               </CardContent>
             </Card>

@@ -116,8 +116,7 @@ const Contact = () => {
                 <CardContent className="p-6">
                   <h3 className="font-bold mb-3 text-primary">Como funciona o projeto TBR 2025?</h3>
                   <p className="text-muted-foreground text-sm">
-                    Estamos desenvolvendo uma plataforma robótica para competir no Torneio Brasileiro 
-                    de Robótica. Acompanhe nossas redes para ver o progresso!
+                    Estamos desenvolvendo a CerradoTech, uma plataforma na internet com ferramentas e muito conteúdo para ajudar na criação de uma rede de colaboradores com o propósito de regenerar a vegetação do Cerrado.
                   </p>
                 </CardContent>
               </Card>

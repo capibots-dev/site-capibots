@@ -39,7 +39,7 @@ Nossa equipe foi a única autorizada a vender produtos durante o evento, oferece
 
 ## Objetivo da Ação
 
-Todo valor arrecadado durante esta ação será destinado exclusivamente às ações de preparação da equipe Capibots para o TBR 2025 (Torneio Brasileiro de Robótica), que terá sua primeira fase interna acontecendo no dia 28 de junho.
+Todo valor arrecadado durante esta ação será destinado exclusivamente às ações de preparação da equipe Capibots para o TBR 2025 (Torneio Brasil de Robótica), que terá sua primeira fase interna acontecendo no dia 28 de junho.
 
 ## Aprendizados Importantes
 
@@ -61,7 +61,7 @@ Esta ação de empreendedorismo demonstra que os valores da robótica educaciona
 - **Responsabilidade Social**: Contribuir com a comunidade escolar
 
 Estamos muito orgulhosos desta iniciativa que demonstra o espírito empreendedor e a determinação da equipe Capibots em buscar recursos próprios para participar do TBR 2025! 🤖🏆`,
-      category: 'Empreendedorismo',
+      category: 'Ações Empreendedoras',
       readTime: '4 min',
       image: '🏆'
     },
@@ -102,10 +102,76 @@ Siga nosso Instagram @equipecapibots e acompanhe todas as novidades dos nossos p
       category: 'Divulgação',
       readTime: '2 min',
       image: '📱'
+    },
+    {
+      "id": "capibots-campea-torneio-interno-2025",
+      "title": "Capibots é campeã do Torneio Interno do Colégio Batista Mineiro",
+      "date": "2025-06-28",
+      "author": "Equipe Capibots",
+      "excerpt": "A equipe Capibots conquistou o título de campeã do Torneio Interno de Robótica do Colégio Batista Mineiro, etapa preparatória para o TBR 2025.",
+      "content": "A equipe Capibots venceu o torneio interno realizado no Colégio Batista Mineiro, unidade Granja Marileusa, em Uberlândia. O evento, que contou com o apoio das famílias e professores, foi uma oportunidade de testar os conhecimentos adquiridos ao longo do semestre e fortalecer a integração entre as equipes. Além das provas de campo, os Capibots apresentaram seu projeto científico CerradoTech, recebendo elogios pela criatividade e impacto ambiental da proposta.",
+      "category": "Competições",
+      "readTime": "4 min",
+      "image": "🏆"
+    },
+    {
+      "id": "capibots-visita-nepsem-ufu",
+      "title": "Capibots apresenta CerradoTech ao Núcleo de Estudos e Pesquisa em Sementes da UFU",
+      "date": "2025-04-05",
+      "author": "Equipe Capibots",
+      "excerpt": "A equipe apresentou o projeto CerradoTech a pesquisadores da UFU, discutindo a importância da regeneração do bioma e o papel da tecnologia.",
+      "content": "Os integrantes da Capibots realizaram uma visita técnica ao Núcleo de Estudos e Pesquisa em Sementes (NEPSEM) da Universidade Federal de Uberlândia (UFU). Durante o encontro, os alunos apresentaram o CerradoTech — uma plataforma colaborativa voltada à regeneração inteligente do Cerrado — e conheceram o trabalho dos pesquisadores em coleta, armazenamento e germinação de sementes nativas. A atividade contribuiu para o aprimoramento científico do projeto e fortaleceu a integração entre educação básica e universidade.",
+      "category": "Trabalhos de Campo",
+      "readTime": "4 min",
+      "image": "🌱"
+    },
+    {
+      "id": "capibots-visita-peiropolis",
+      "title": "Capibots realiza visita técnica ao Museu de Peirópolis",
+      "date": "2025-05-11",
+      "author": "Equipe Capibots",
+      "excerpt": "A visita ao Complexo Paleontológico de Peirópolis ampliou os conhecimentos científicos e ambientais dos integrantes da equipe.",
+      "content": "A equipe Capibots realizou uma visita ao Museu dos Dinossauros e ao Centro de Pesquisas Paleontológicas Llewellyn Ivor Price, em Peirópolis (Uberaba-MG). A atividade integrou o plano de formação científica da equipe e permitiu aos alunos compreender a importância do patrimônio natural e da preservação ambiental. O grupo também fez conexões entre a história geológica da região e os ecossistemas atuais do Cerrado.",
+      "category": "Educação Científica",
+      "readTime": "3 min",
+      "image": "🦖"
+    },
+    {
+      "id": "capibots-participa-vi-simposio-biodiversidade",
+      "title": "Capibots participa do VI Simpósio de Conservação da Biodiversidade do Cerrado",
+      "date": "2025-10-20",
+      "author": "Equipe Capibots",
+      "excerpt": "Projeto CerradoTech foi apresentado no VI Simpósio de Conservação da Biodiversidade do Cerrado, realizado na Universidade Federal de Uberlândia.",
+      "content": "A equipe Capibots participou do VI Simpósio de Conservação da Biodiversidade do Cerrado, evento científico que reuniu pesquisadores, estudantes e organizações ambientais na UFU. O grupo apresentou o projeto CerradoTech na forma de banner, destacando sua contribuição para a regeneração inteligente do bioma e o uso da tecnologia como ferramenta de educação e engajamento. A participação marcou a integração entre ciência, tecnologia e conservação ambiental.",
+      "category": "Divulgação Científica",
+      "readTime": "4 min",
+      "image": "🎓"
+    },
+    {
+      "id": "capibots-divulga-parceria-soucerrado",
+      "title": "Capibots firma parceria com o perfil @soucerrado",
+      "date": "2025-09-12",
+      "author": "Equipe Capibots",
+      "excerpt": "A equipe estabeleceu uma parceria de comunicação e divulgação com o projeto @soucerrado, ampliando o alcance do CerradoTech nas redes sociais.",
+      "content": "Com o objetivo de ampliar o impacto de suas ações e difundir informações sobre o bioma Cerrado, a Capibots estabeleceu uma parceria com o perfil ambiental @soucerrado, reconhecido por promover a conscientização ecológica e valorizar a biodiversidade brasileira. A colaboração tem permitido a divulgação de conteúdos educativos, curiosidades sobre espécies nativas e atualizações sobre o desenvolvimento da plataforma CerradoTech.",
+      "category": "Parcerias",
+      "readTime": "3 min",
+      "image": "🤝"
+    },
+    {
+      "id": "capibots-acao-estande-paufurado",
+      "title": "Capibots participa de evento ambiental no Parque Pau Furado",
+      "date": "2025-09-22",
+      "author": "Equipe Capibots",
+      "excerpt": "Equipe apresentou o projeto CerradoTech em estande interativo durante evento de educação ambiental no Parque Estadual do Pau Furado.",
+      "content": "Durante o evento de educação ambiental promovido no Parque Estadual do Pau Furado, a equipe Capibots montou um estande interativo apresentando o CerradoTech. Os visitantes puderam conhecer as funcionalidades da plataforma, como o simulador de reflorestamento e o banco de sementes. Além disso, os alunos explicaram a importância da regeneração do Cerrado e promoveram atividades educativas para o público infantil e adulto.",
+      "category": "Trabalhos de Campo",
+      "readTime": "4 min",
+      "image": "🌳"
     }
   ];
 
-  const categories = ['Todos', 'Eventos', 'Divulgação', 'Projetos', 'Competições'];
+  const categories = ['Pesquisa de Campo', 'Ações Empreendedoras', 'Divulgação', 'Competições'];
 
   return (
     <div className="min-h-screen">
