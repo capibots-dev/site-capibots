@@ -6,9 +6,11 @@ interface TeamMemberCardProps {
   name: string;
   role: string;
   category: string;
+  minibio?: string;
+  image?: string;
 }
 
-const TeamMemberCard = ({ name, role, category }: TeamMemberCardProps) => {
+const TeamMemberCard = ({ name, role, category, minibio, image }: TeamMemberCardProps) => {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'Programação':
@@ -29,11 +31,15 @@ const TeamMemberCard = ({ name, role, category }: TeamMemberCardProps) => {
   return (
     <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
       <CardContent className="p-6 text-center">
-        <div className="mx-auto w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-          <User className="h-8 w-8 text-white" />
+        <div className="mx-auto w-16 h-16 rounded-full mb-4 group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+          {image
+            ? <img src={image} alt={name} className="w-full h-full object-cover" />
+            : <div className="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center"><User className="h-8 w-8 text-white" /></div>
+          }
         </div>
         <h3 className="font-semibold text-lg mb-2">{name}</h3>
         <p className="text-muted-foreground mb-3">{role}</p>
+        {minibio && <p className="text-sm text-muted-foreground mb-3">{minibio}</p>}
         <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(category)}`}>
           {category}
         </span>
