@@ -29,17 +29,17 @@ const TeamMemberCard = ({ name, role, category, minibio, image }: TeamMemberCard
   };
 
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-      <CardContent className="p-6 text-center">
-        <div className="mx-auto w-16 h-16 rounded-full mb-4 group-hover:scale-110 transition-transform duration-300 overflow-hidden">
-          {image
-            ? <img src={image} alt={name} className="w-full h-full object-cover" />
-            : <div className="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center"><User className="h-8 w-8 text-white" /></div>
-          }
-        </div>
-        <h3 className="font-semibold text-lg mb-2">{name}</h3>
-        <p className="text-muted-foreground mb-3">{role}</p>
-        {minibio && <p className="text-sm text-muted-foreground mb-3">{minibio}</p>}
+    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+      <div className="h-52 bg-gradient-to-br from-primary to-secondary overflow-hidden">
+        {image
+          ? <img src={image} alt={name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          : <div className="w-full h-full flex items-center justify-center"><User className="h-20 w-20 text-white/60" /></div>
+        }
+      </div>
+      <CardContent className="p-5 text-center">
+        <h3 className="font-semibold text-lg mb-1">{name}</h3>
+        <p className="text-muted-foreground text-sm mb-3">{role}</p>
+        {minibio && <p className="text-xs text-muted-foreground mb-3 leading-relaxed">{minibio}</p>}
         <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(category)}`}>
           {category}
         </span>
