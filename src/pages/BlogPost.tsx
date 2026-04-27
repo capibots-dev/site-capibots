@@ -5,11 +5,13 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
+import blogData from '@/data/blog.json';
 
 const BlogPost = () => {
   const { slug } = useParams();
+  const post = blogData.find((p) => p.id === slug);
 
-  const posts = {
+  const _legacy = {
       'empreendedorismo-futsal': {
           title: 'Equipe Capibots promove ação de empreendedorismo no Torneio de Futsal',
           date: '14/06/2025',
@@ -164,8 +166,6 @@ const BlogPost = () => {
           "image": "🌳"
         }
   };
-
-  const post = posts[slug as keyof typeof posts];
 
   if (!post) {
     return (

@@ -6,22 +6,10 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
 import { Calendar, Code, Cpu, Wrench } from 'lucide-react';
+import projectsData from '@/data/projects.json';
 
 const Projects = () => {
-  const projects = [
-    {
-      id: 'tbr-2025',
-      title: 'TBR 2025',
-      subtitle: 'Torneio Brasil de Robótica 2025',
-      description: 'Desenvolvimento da CerradoTech para participação no Torneio Brasil de Robótica 2025. O projeto envolve cruzamento de dados públicos de fontes confiáveis (MapBiomas, IBGE, Embrapa) para indicar a planta ideal para cada localidade específica do Cerrado Brasileiro à partir de informações de fitofisionomia, solo e relevo.',
-      status: 'Em desenvolvimento',
-      startDate: 'Abr/2025 a Dez/2025',
-      technologies: ['Geolocalização', 'Cruzamento de Dados', 'IA', 'API Python'],
-      image: '🤖',
-      category: 'Kids 2',
-      progress: 75
-    }
-  ];
+  const projects = projectsData;
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -137,7 +125,7 @@ const Projects = () => {
                       </Badge>
                       <div className="flex items-center text-sm text-muted-foreground">
                         <Calendar className="h-4 w-4 mr-1" />
-                        {project.startDate}
+                        {project.period}
                       </div>
                     </div>
 
@@ -146,7 +134,7 @@ const Projects = () => {
                     </h3>
                     <h4 className="text-lg text-muted-foreground mb-4">{project.subtitle}</h4>
                     
-                    <p className="text-muted-foreground mb-6">{project.description}</p>
+                    <p className="text-muted-foreground mb-6">{project.summary}</p>
 
                     {/* Progress Bar */}
                     <div className="mb-6">

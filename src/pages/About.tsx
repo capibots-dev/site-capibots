@@ -4,19 +4,10 @@ import Footer from '@/components/Footer';
 import TeamMemberCard from '@/components/TeamMemberCard';
 import { Card, CardContent } from '@/components/ui/card';
 import { Target, Heart, Zap, Users } from 'lucide-react';
+import teamData from '@/data/team.json';
 
 const About = () => {
-  const teamMembers = [
-    { name: 'Lucca', role: 'Programador', category: 'Programação' },
-    { name: 'Nicolas', role: 'Programador', category: 'Programação' },
-    { name: 'Luisa', role: 'Posicionadora', category: 'Posicionamento' },
-    { name: 'Arthur', role: 'Posicionador', category: 'Posicionamento' },
-    { name: 'Augusto', role: 'Cientista', category: 'Ciência' },
-    { name: 'João Gomes', role: 'Engenheiro', category: 'Engenharia' },
-    { name: 'Gabriela', role: 'Organizadora', category: 'Organização' },
-    { name: 'Sophia', role: 'Organizadora', category: 'Organização' },
-    { name: 'Manuela', role: 'Organizadora', category: 'Organização' },
-  ];
+  const teamMembers = teamData;
 
   const values = [
     {

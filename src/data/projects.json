@@ -1,0 +1,52 @@
+[
+  {
+    "id": "tbr-2025",
+    "image": "🤖",
+    "title": "TBR 2025",
+    "subtitle": "Torneio Brasil de Robótica 2025",
+    "summary": "Desenvolvimento da CerradoTech para o TBR 2025, com o desafio do ODS 15 - Vida Terrestre",
+    "description": "Desenvolvimento da CerradoTech, uma plataforma na internet com ferramentas e muito conteúdo para ajudar na criação de uma rede de colaboradores com o propósito de regenerar a vegetação do Cerrado. Além da plataforma, que cobre a proposta de Mérito Científico do TBR, também utilizamos o robô Lego Spike para cumprir com as missões do Desafio Prático da categoria Kids 2.",
+    "status": "Em desenvolvimento",
+    "period": "Abr/2025 a Dez/2025",
+    "startDate": "Abril 2025",
+    "expectedCompletion": "Dezembro 2025",
+    "technologies": ["Geolocalização", "Cruzamento de Dados", "Inteligência Artificial", "APIs Python", "Ferramentas de Prototipação", "Lego Spike"],
+    "category": "Kids 2",
+    "progress": 80,
+    "challenges": [
+      "Aprender novas tecnologias",
+      "Custo para viabilizar o projeto",
+      "Dedicar tempo às atividades"
+    ],
+    "solutions": [
+      "Contar com apoio dos professores e mentora",
+      "Realizar ações empreendedoras",
+      "Apoio incondicional das famílias"
+    ],
+    "goals": [
+      "Participar com sucesso no TBR 2025",
+      "Demonstrar capacidades técnicas da equipe",
+      "Aprender novas tecnologias e metodologias",
+      "Representar nossa região com excelência"
+    ],
+    "teamMembers": [
+      "Tia Lorena [Técnica]",
+      "Tia Karol [Mentora]",
+      "Arthur",
+      "Augusto",
+      "Gabriela",
+      "João Gomes",
+      "Lucca",
+      "Luisa",
+      "Manuela",
+      "Nicolas",
+      "Sophia"
+    ],
+    "timeline": [
+      { "label": "Formação do Time",                     "date": "Abril 2025",    "completed": true  },
+      { "label": "TBR - Etapa Interna (CBM Uberlândia)", "date": "Junho 2025",    "completed": true  },
+      { "label": "TBR - Etapa Regional Triângulo Mineiro","date": "Novembro 2025", "completed": false },
+      { "label": "TBR - Etapa Nacional",                 "date": "Dezembro 2025", "completed": false }
+    ]
+  }
+]

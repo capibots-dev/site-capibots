@@ -1,0 +1,11 @@
+[
+  { "name": "Lucca",      "role": "Programador",   "category": "Programação",    "minibio": "", "image": "" },
+  { "name": "Nicolas",    "role": "Programador",   "category": "Programação",    "minibio": "", "image": "" },
+  { "name": "Luisa",      "role": "Posicionadora", "category": "Posicionamento", "minibio": "", "image": "" },
+  { "name": "Arthur",     "role": "Posicionador",  "category": "Posicionamento", "minibio": "", "image": "" },
+  { "name": "Augusto",    "role": "Cientista",     "category": "Ciência",        "minibio": "", "image": "" },
+  { "name": "João Gomes", "role": "Engenheiro",    "category": "Engenharia",     "minibio": "", "image": "" },
+  { "name": "Gabriela",   "role": "Organizadora",  "category": "Organização",    "minibio": "", "image": "" },
+  { "name": "Sophia",     "role": "Organizadora",  "category": "Organização",    "minibio": "", "image": "" },
+  { "name": "Manuela",    "role": "Organizadora",  "category": "Organização",    "minibio": "", "image": "" }
+]

@@ -7,43 +7,13 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Calendar, Users, Target, Cpu, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import projectsData from '@/data/projects.json';
 
 const ProjectDetail = () => {
   const { slug } = useParams();
+  const project = projectsData.find((p) => p.id === slug);
 
-  // For now, we'll handle only the TBR 2025 project
-  const project = {
-    id: 'tbr-2025',
-    title: 'TBR 2025',
-    subtitle: 'Torneio Brasil de Robótica 2025',
-    description: 'Desenvolvimento da CerradoTech, uma plataforma na internet com ferramentas e muito conteúdo para ajudar na criação de uma rede de colaboradores com o propósito de regenerar a vegetação do Cerrado. Além da plataforma, que cobre a proposta de Mérito Científico do TBR, também utilizamos o robô Lego Spike para cumprir com as missões do Desafio Prático da categoria Kids 2.',
-    status: 'Em desenvolvimento',
-    startDate: 'Abril 2025',
-    expectedCompletion: 'Dezembro 2025',
-    technologies: ['Geolocalização', 'Cruzamento de Dados', 'Inteligência Artificial', 'APIs Python', 'Ferramentas de Prototipação', 'Lego Spike'],
-    teamMembers: ['Tia Lorena [Técnica]', 'Tia Karol [Mentora]', 'Arthur', 'Augusto', 'Gabriela', 'João Gomes', 'Lucca', 'Luisa', 'Manuela', 'Nicolas', 'Sophia'],
-    image: '🤖',
-    category: 'Kids 2',
-    progress: 80,
-    challenges: [
-      'Aprender novas tecnologias',
-      'Custo para viabilizar o projeto',
-      'Dedicar tempo às atividades'
-    ],
-    solutions: [
-      'Contar com apoio dos professores e mentora',
-      'Realizar ações empreendedoras',
-      'Apoio incondicional das famílias'
-    ],
-    goals: [
-      'Participar com sucesso no TBR 2025',
-      'Demonstrar capacidades técnicas da equipe',
-      'Aprender novas tecnologias e metodologias',
-      'Representar nossa região com excelência'
-    ]
-  };
-
-  if (slug !== 'tbr-2025') {
+  if (!project) {
     return (
       <div className="min-h-screen">
         <Header />
@@ -109,6 +79,7 @@ const ProjectDetail = () => {
                 <Calendar className="h-4 w-4 mr-2" />
                 {project.startDate} - {project.expectedCompletion}
               </div>
+
             </div>
           </div>
         </div>
@@ -243,34 +214,15 @@ const ProjectDetail = () => {
                 <CardContent className="p-6">
                   <h3 className="font-bold mb-4">Timeline</h3>
                   <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-3 h-3 bg-primary rounded-full"></div>
-                      <div>
-                        <p className="text-sm font-medium">Formação do Time</p>
-                        <p className="text-xs text-muted-foreground">Abril 2025</p>
+                    {project.timeline.map((item, index) => (
+                      <div key={index} className="flex items-center space-x-3">
+                        <div className={`w-3 h-3 rounded-full ${item.completed ? 'bg-primary' : 'bg-muted border-2 border-primary'}`}></div>
+                        <div>
+                          <p className="text-sm font-medium">{item.label}</p>
+                          <p className="text-xs text-muted-foreground">{item.date}</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-3 h-3 bg-secondary rounded-full"></div>
-                      <div>
-                        <p className="text-sm font-medium">TBR - Etapa Interna (CBM Uberlândia)(</p>
-                        <p className="text-xs text-muted-foreground">Junho 2025</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-3 h-3 bg-muted border-2 border-primary rounded-full"></div>
-                      <div>
-                        <p className="text-sm font-medium">TBR - Etapa Regional Triângulo Mineiro</p>
-                        <p className="text-xs text-muted-foreground">Novembro 2025</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-3 h-3 bg-muted border-2 border-primary rounded-full"></div>
-                      <div>
-                        <p className="text-sm font-medium">TBR - Etapa Nacional</p>
-                        <p className="text-xs text-muted-foreground">Dezembro 2025</p>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
