@@ -1,16 +1,18 @@
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import FeaturedCarousel from '@/components/FeaturedCarousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
-import { Calendar, User, ArrowRight } from 'lucide-react';
+import { Calendar, ArrowRight } from 'lucide-react';
 import blogData from '@/data/blog.json';
 
 const Blog = () => {
-  const posts = [...blogData].sort((a, b) => b.date.localeCompare(a.date));
-  const categories = [...new Set(posts.map((p) => p.category))];
+  const allPosts = [...blogData].sort((a, b) => b.date.localeCompare(a.date));
+  const featured = allPosts.filter((p) => p.featured).slice(0, 3);
+  const categories = [...new Set(allPosts.map((p) => p.category))];
 
   return (
     <div className="min-h-screen">
@@ -27,6 +29,9 @@ const Blog = () => {
         </div>
       </section>
 
+      {/* Featured Carousel */}
+      <FeaturedCarousel posts={featured} />
+
       {/* Categories Filter */}
       <section className="py-8 bg-background border-b">
         <div className="container mx-auto px-4">
@@ -41,46 +46,49 @@ const Blog = () => {
       </section>
 
       {/* Posts Grid */}
-      <section className="py-20 bg-background">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {posts.map((post) => (
-              <Card key={post.id} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
+            {allPosts.map((post) => (
+              <Card key={post.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                 <CardContent className="p-0">
-                  <div className="h-48 bg-gradient-to-br from-primary to-secondary flex items-center justify-center relative">
-                    <span className="text-6xl">{post.image}</span>
-                    <div className="absolute top-4 left-4">
-                      <Badge className="bg-white/20 text-white border-white/30">
+                  <div className="h-32 bg-gradient-to-br from-primary to-secondary flex items-center justify-center relative">
+                    {post.image.startsWith('/') ? (
+                      <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                    ) : (
+                      <span className="text-4xl">{post.image}</span>
+                    )}
+                    <div className="absolute top-2 left-2">
+                      <Badge className="bg-white/20 text-white border-white/30 text-xs">
                         {post.category}
                       </Badge>
                     </div>
+                    {post.featured && (
+                      <div className="absolute top-2 right-2">
+                        <Badge className="bg-yellow-400 text-yellow-900 border-0 text-xs">★</Badge>
+                      </div>
+                    )}
                   </div>
 
-                  <div className="p-6">
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
-                      <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        {post.date}
-                      </div>
-                      <div className="flex items-center">
-                        <User className="h-4 w-4 mr-1" />
-                        {post.author}
-                      </div>
-                      <span>{post.readTime} de leitura</span>
+                  <div className="p-4">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
+                      <Calendar className="h-3 w-3" />
+                      {post.date}
+                      <span className="ml-auto">{post.readTime}</span>
                     </div>
 
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                    <h3 className="text-sm font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
                       {post.title}
                     </h3>
 
-                    <p className="text-muted-foreground mb-6 line-clamp-3">
+                    <p className="text-xs text-muted-foreground mb-4 line-clamp-2">
                       {post.excerpt}
                     </p>
 
-                    <Button asChild className="w-full group">
+                    <Button asChild size="sm" className="w-full text-xs h-8">
                       <Link to={`/blog/${post.id}`}>
-                        Ler Artigo Completo
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        Ler Mais
+                        <ArrowRight className="ml-1 h-3 w-3" />
                       </Link>
                     </Button>
                   </div>
@@ -91,8 +99,8 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Newsletter CTA */}
-      <section className="py-20 bg-muted/30">
+      {/* CTA */}
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold mb-4 text-gradient">Fique por Dentro</h2>

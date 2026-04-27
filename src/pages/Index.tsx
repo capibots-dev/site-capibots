@@ -2,18 +2,18 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import TeamMemberCard from '@/components/TeamMemberCard';
+
 import PartnersCarousel from '@/components/PartnersCarousel';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowDown, Users, Instagram } from 'lucide-react';
+import LatestNews from '@/components/LatestNews';
 import teamData from '@/data/team.json';
 import projectsData from '@/data/projects.json';
-import blogData from '@/data/blog.json';
 
 const Index = () => {
   const teamMembers = teamData;
   const projects = projectsData;
-  const recentNews = [...blogData].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
 
   return (
     <>
@@ -117,42 +117,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* News Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-gradient">Últimas Notícias</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Fique por dentro das nossas últimas atividades, conquistas e participações em eventos.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {recentNews.map((news) => (
-              <Card key={news.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm text-primary font-medium">{news.date}</span>
-                  </div>
-                  <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors">
-                    {news.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4">{news.excerpt}</p>
-                  <Button asChild variant="outline" size="sm">
-                    <Link to={`/blog/${news.id}`}>Ler Mais</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button asChild size="lg">
-              <Link to="/blog">Ver Todas as Notícias</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <LatestNews />
 
       {/* Partners Section */}
       <section className="py-20 bg-muted/30">
