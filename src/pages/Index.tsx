@@ -6,7 +6,6 @@ import PartnersCarousel from '@/components/PartnersCarousel';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowDown, Users, Instagram } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
 
 const Index = () => {
   const teamMembers = [
@@ -48,56 +47,8 @@ const Index = () => {
     }
   ];
 
-  const [showSplash, setShowSplash] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowSplash(false), 15000); // 3 segundos
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <>
-        {showSplash && (
-          <div
-            style={{
-              position: 'fixed',
-              zIndex: 9999,
-              inset: 0,
-              background: '#fff',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexDirection: 'column'
-            }}
-          >
-            <button
-              onClick={() => setShowSplash(false)}
-              style={{
-                position: 'absolute',
-                top: 24,
-                right: 24,
-                background: 'transparent',
-                border: 'none',
-                fontSize: 28,
-                cursor: 'pointer',
-                color: '#888'
-              }}
-              aria-label="Fechar"
-            >
-              &times;
-            </button>
-            <img src="/lovable-uploads/splash-cerradotech.png" alt="Splash" style={{ maxWidth: 800, marginBottom: 20 }} />
-            <a
-              href="https://cerradotech.capibots.com.br"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ fontSize: 20, color: '#1a7f37', textDecoration: 'underline' }}
-            >
-              Conheça a plataforma CerradoTech
-            </a>
-          </div>
-        )}
-
     <div className="min-h-screen">
       <Header />
 

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz do Cerrado - CAPIBOTS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-container"></div>
+    <div class="container">
+        <!-- Tela inicial -->
+        <div id="tela-inicial" class="tela">
+            <div class="logo-container">
+                <img src="images/logo.jpg" alt="Logo CAPIBOTS" class="logo">
+            </div>
+            <h1>Quiz do Cerrado</h1>
+            <p class="descricao">Teste seus conhecimentos sobre o bioma Cerrado e ganhe brindes!</p>
+            
+            <div id="ranking-container" class="ranking-container">
+                <h2>TOP 10 - Melhores Pontuações</h2>
+                <table id="ranking-table" class="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>Posição</th>
+                            <th>Nome</th>
+                            <th>Contato</th>
+                            <th>Pontuação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ranking-body">
+                        <!-- Ranking será preenchido via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <button id="btn-iniciar-quiz" class="btn btn-primary btn-large">Iniciar Quiz</button>
+        </div>
+        
+        <!-- Tela de identificação -->
+        <div id="tela-identificacao" class="tela hidden">
+            <div class="logo-container">
+                <img src="images/logo.jpg" alt="Logo CAPIBOTS" class="logo">
+            </div>
+            <h1>Identificação</h1>
+            <p class="descricao">Preencha seus dados para começar o quiz</p>
+            
+            <form id="form-registro" class="form-container">
+                <div class="form-group">
+                    <label for="nome">Nome completo:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Contato:</label>
+                    <div class="contato-opcoes">
+                        <div class="opcao-contato">
+                            <input type="radio" id="email-opcao" name="tipo-contato" value="email">
+                            <label for="email-opcao">E-mail</label>
+                        </div>
+                        <div class="opcao-contato">
+                            <input type="radio" id="instagram-opcao" name="tipo-contato" value="instagram" checked>
+                            <label for="instagram-opcao">Instagram</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="email-container" class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div id="instagram-container" class="form-group hidden">
+                    <label for="instagram">Usuário do Instagram:</label>
+                    <input type="text" id="instagram" name="instagram">
+                </div>
+                
+                <button type="submit" class="btn-iniciar">Iniciar Quiz</button>
+            </form>
+        </div>
+
+        <!-- Tela de pergunta -->
+        <div id="tela-pergunta" class="tela hidden">
+            <div class="logo-container-pequeno">
+                <img src="images/logo.jpg" alt="Logo CAPIBOTS" class="logo-pequeno">
+            </div>
+            <div class="progresso-container">
+                <div class="progresso-texto">Pergunta <span id="pergunta-atual">1</span> de <span id="total-perguntas">7</span></div>
+                <div class="progresso-barra-container">
+                    <div class="progresso-barra" id="progresso-barra"></div>
+                </div>
+                <div class="timer-container">
+                    <div class="timer-texto">Tempo restante: <span id="timer-contador">00:00</span></div>
+                    <div class="timer-barra-container">
+                        <div class="timer-barra" id="timer-barra"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="pergunta-container">
+                <h2 id="pergunta-texto">Carregando pergunta...</h2>
+                <div id="opcoes-container" class="opcoes-container">
+                    <!-- Opções serão inseridas dinamicamente -->
+                </div>
+            </div>
+            <button id="btn-proxima" class="btn-proxima">Próxima</button>
+        </div>
+
+        <!-- Tela de resultado -->
+        <div id="tela-resultado" class="tela hidden">
+            <div class="logo-container">
+                <img src="images/logo.jpg" alt="Logo CAPIBOTS" class="logo">
+            </div>
+            <h1>Resultado</h1>
+            <div class="resultado-container">
+                <div class="pontuacao-container">
+                    <h2>Sua pontuação:</h2>
+                    <div class="pontuacao">
+                        <span id="pontos">0</span>/<span id="pontos-total">100</span>
+                    </div>
+                    <div class="percentual">
+                        <span id="percentual">0</span>%
+                    </div>
+                </div>
+                <div class="mensagem-container">
+                    <p id="mensagem-resultado">Parabéns por participar do nosso quiz sobre o Cerrado!</p>
+                </div>
+                <div class="brinde-container">
+                    <h3>Seu brinde:</h3>
+                    <div class="brinde-imagem-container">
+                        <img id="brinde-imagem" src="" alt="Brinde" class="brinde-imagem">
+                    </div>
+                    <p id="brinde-nome" class="brinde-nome">Carregando...</p>
+                </div>
+                <button id="btn-finalizar" class="btn-finalizar">Finalizar</button>
+            </div>
+        </div>
+    </div>
+
+    <button id="btn-modal-premios" class="btn-modal-premios">
+        <span class="icon">🎁</span> Prêmios
+    </button>
+
+    <!-- Modal de Prêmios -->
+    <div id="modal-premios" class="modal-premios hidden">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Inventário de Prêmios</h2>
+            <div id="lista-premios" class="lista-premios">
+                <!-- Prêmios serão inseridos via JavaScript -->
+            </div>
+            <p class="aviso-brindes">Os brindes são distribuídos por faixa de pontuação e estão sujeitos à disponibilidade de estoque.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

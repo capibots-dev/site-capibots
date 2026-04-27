@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Kit Capibots 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#2D6A2E;--green-light:#57C45A;--orange:#E07B1A;--orange-light:#F5A623;
+  --cream:#FDF8F0;--dark:#111111;--gray:#5A5A5A;
+  --master:#0D0D1A;--ouro:#C8960C;--prata:#6B7280;--bronze:#9B5B2A;
+}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;background:#000;color:#fff}
+
+/* ═══ PRESENTATION SHELL ═══ */
+#presentation{
+  width:100vw;height:100vh;position:relative;overflow:hidden;
+}
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.55s ease, transform 0.55s ease;
+  transform:translateX(60px);
+  overflow:hidden;
+}
+.slide.active{opacity:1;pointer-events:all;transform:translateX(0)}
+.slide.exit-left{opacity:0;transform:translateX(-60px)}
+
+/* NAV CONTROLS */
+#nav-prev,#nav-next{
+  position:fixed;top:50%;z-index:200;
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
+  color:white;cursor:pointer;font-size:18px;
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  transform:translateY(-50%);
+  transition:background 0.2s;
+  backdrop-filter:blur(8px);
+}
+#nav-prev{left:16px}#nav-next{right:16px}
+#nav-prev:hover,#nav-next:hover{background:rgba(255,255,255,0.18)}
+
+#slide-counter{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  z-index:200;display:flex;gap:8px;align-items:center;
+}
+.dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,0.25);cursor:pointer;
+  transition:all 0.3s;border:none;
+}
+.dot.active{background:var(--green-light);transform:scale(1.4)}
+
+#progress{
+  position:fixed;top:0;left:0;height:3px;
+  background:linear-gradient(90deg,var(--green),var(--orange));
+  z-index:300;transition:width 0.4s ease;
+}
+
+/* ═══════════════════════════
+   SLIDE 1 — CAPA
+═══════════════════════════ */
+.s1{
+  background:var(--dark);
+  flex-direction:row;
+}
+.s1-left{
+  width:42%;background:var(--green);
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:72px 56px;position:relative;overflow:hidden;flex-shrink:0;
+}
+.s1-left::before{
+  content:'';position:absolute;
+  width:500px;height:500px;border-radius:50%;
+  background:rgba(0,0,0,0.12);bottom:-180px;right:-160px;
+}
+.s1-left::after{
+  content:'';position:absolute;
+  width:240px;height:240px;border-radius:50%;
+  background:rgba(255,255,255,0.06);top:-60px;left:-80px;
+}
+.s1-logo{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.s1-logo img{width:160px;height:160px;object-fit:contain;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.4))}
+.s1-school{position:relative;z-index:2;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5)}
+.s1-right{
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+  padding:72px 64px;gap:32px;
+}
+.s1-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--orange-light);font-weight:600}
+.s1-headline{font-family:'Plus Jakarta Sans',sans-serif;font-size:46px;font-weight:800;line-height:1.1;color:white}
+.s1-headline span{color:var(--orange-light)}
+.s1-desc{font-size:15px;line-height:1.8;color:rgba(255,255,255,0.55);max-width:420px}
+.s1-badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{padding:6px 16px;border-radius:20px;font-size:12px;font-weight:500}
+.bg{background:rgba(87,196,90,0.15);color:var(--green-light);border:1px solid rgba(87,196,90,0.3)}
+.bo{background:rgba(245,166,35,0.15);color:var(--orange-light);border:1px solid rgba(245,166,35,0.3)}
+.bw{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15)}
+
+/* ═══════════════════════════
+   SLIDE 2 — QUEM SOMOS
+═══════════════════════════ */
+.s2{background:#fff;color:var(--dark);flex-direction:column;justify-content:center;padding:60px 80px}
+.sec-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:14px}
+.sec-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:44px;font-weight:800;line-height:1.1;color:var(--dark);margin-bottom:36px}
+.sec-title .hl{color:var(--green)}
+.s2-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:start}
+.quem-text{font-size:15px;line-height:1.75;color:var(--gray);margin-bottom:20px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.stat-card{background:var(--cream);border-radius:14px;padding:20px;border-left:4px solid var(--green)}
+.stat-n{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:800;color:var(--green);line-height:1}
+.stat-l{font-size:12px;color:var(--gray);margin-top:3px}
+.values{display:flex;flex-direction:column;gap:14px}
+.vi{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border-radius:12px;background:var(--cream)}
+.vi-icon{width:38px;height:38px;border-radius:9px;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.vi-t{font-weight:600;font-size:13px;margin-bottom:2px;color:var(--dark)}
+.vi-d{font-size:12px;color:var(--gray);line-height:1.4}
+
+/* ═══════════════════════════
+   SLIDE 3 — CONQUISTAS
+═══════════════════════════ */
+.s3{background:var(--dark);color:white;padding:52px 80px;flex-direction:column;justify-content:center}
+.s3-grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto;gap:18px;margin-top:28px}
+.tc{border-radius:18px;padding:26px 24px;position:relative;overflow:hidden;transition:transform 0.25s}
+.tc:hover{transform:translateY(-3px)}
+.tc.nat{
+  background:linear-gradient(135deg,#1A1A2E,#0D0D1A);
+  border:1px solid rgba(200,150,12,0.5);
+  grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;
+  padding:32px 36px;
+}
+.tc.int{background:linear-gradient(135deg,#1E3A1E,#122012);border:1px solid rgba(87,196,90,0.3)}
+.tc.reg{background:linear-gradient(135deg,#2D2010,#1A1000);border:1px solid rgba(245,166,35,0.35)}
+.tc.ext{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1)}
+.tc-icon{font-size:52px}
+.tc-icon.big{font-size:88px}
+.nat-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(200,150,12,0.15);border:1px solid rgba(200,150,12,0.4);
+  color:var(--ouro);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:5px 12px;border-radius:20px;margin-bottom:12px;
+}
+.tc-place{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange-light);margin-bottom:6px;font-weight:500}
+.tc-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700;line-height:1.2;margin-bottom:6px}
+.tc-name.big{font-size:30px}
+.tc-desc{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.5}
+
+/* ═══════════════════════════
+   SLIDE 4 — VISIBILIDADE
+═══════════════════════════ */
+.s4{background:var(--cream);color:var(--dark);padding:52px 80px;flex-direction:column;justify-content:center}
+.s4-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:28px}
+.metrics{display:flex;flex-direction:column;gap:16px}
+.mr{
+  display:flex;align-items:center;gap:18px;
+  padding:18px 22px;background:#fff;border-radius:14px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+.mi{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.mi.ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.mi.gr{background:linear-gradient(135deg,#2D6A2E,#4CAF50)}
+.mi.tv{background:linear-gradient(135deg,#1A1A2E,#3A3A6E)}
+.mi.sc{background:linear-gradient(135deg,#9B5B2A,#C8960C)}
+.mv{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:800;color:var(--dark);line-height:1}
+.ml{font-size:12px;color:var(--gray);margin-top:2px}
+.exp-box{background:var(--green);border-radius:22px;padding:36px;color:white}
+.exp-t{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700;margin-bottom:18px}
+.exp-i{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:13px;color:rgba(255,255,255,0.82);line-height:1.45}
+.exp-i::before{content:"→";color:var(--orange-light);font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* ═══════════════════════════
+   SLIDE 5 — COTAS
+═══════════════════════════ */
+.s5{background:#fff;color:var(--dark);padding:44px 72px 36px;flex-direction:column;justify-content:center}
+.cotas{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:28px}
+.cc{border-radius:18px;padding:24px 20px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform 0.25s,box-shadow 0.25s}
+.cc:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(0,0,0,0.12)}
+.cc.master{background:var(--master);color:white}
+.cc.ouro{background:linear-gradient(160deg,#FFF9E8,#FFF3CC);border:2px solid var(--ouro)}
+.cc.prata{background:linear-gradient(160deg,#F5F6F7,#EAECEE);border:2px solid var(--prata)}
+.cc.bronze{background:linear-gradient(160deg,#FDF0E8,#FAE0CC);border:2px solid var(--bronze)}
+.ct{font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+.master .ct{color:var(--ouro)}.ouro .ct{color:var(--ouro)}.prata .ct{color:var(--prata)}.bronze .ct{color:var(--bronze)}
+.cn{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:800;line-height:1;margin-bottom:3px}
+.master .cn{color:white}.ouro .cn{color:var(--ouro)}.prata .cn{color:var(--prata)}.bronze .cn{color:var(--bronze)}
+.cv{font-size:10px;margin-bottom:12px;opacity:0.55;font-weight:500}
+.cp{font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:800;line-height:1;margin-bottom:3px}
+.master .cp{color:white}
+.cpn{font-size:10px;opacity:0.45;margin-bottom:14px}
+.cdiv{height:1px;background:rgba(0,0,0,0.08);margin:12px 0}
+.master .cdiv{background:rgba(255,255,255,0.12)}
+.cbs{list-style:none;display:flex;flex-direction:column;gap:9px;flex:1}
+.cb{display:flex;align-items:flex-start;gap:7px;font-size:11.5px;line-height:1.35}
+.master .cb{color:rgba(255,255,255,0.78)}
+.cbd{width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;flex-shrink:0;margin-top:1px}
+.master .cbd{background:rgba(200,150,12,0.2);color:var(--ouro)}
+.ouro .cbd{background:rgba(200,150,12,0.18);color:var(--ouro)}
+.prata .cbd{background:rgba(107,114,128,0.15);color:var(--prata)}
+.bronze .cbd{background:rgba(155,91,42,0.15);color:var(--bronze)}
+.crown-bg{position:absolute;top:-20px;right:-20px;font-size:80px;opacity:0.06;transform:rotate(15deg)}
+.ctag{display:inline-block;margin-top:14px;padding:5px 12px;border-radius:20px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;align-self:flex-start}
+.master .ctag{background:rgba(200,150,12,0.18);color:var(--ouro)}
+.s5-note{margin-top:16px;font-size:11px;color:var(--gray);text-align:center}
+
+/* ═══════════════════════════
+   SLIDE 6 — POR QUE APOIAR
+═══════════════════════════ */
+.s6{background:var(--green);color:white;padding:52px 80px;flex-direction:column;justify-content:center}
+.s6 .sec-label{color:var(--orange-light)}
+.s6 .sec-title{color:white}
+.pq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+.pqc{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.13);border-radius:18px;padding:24px;backdrop-filter:blur(8px);transition:background 0.2s}
+.pqc:hover{background:rgba(255,255,255,0.14)}
+.pqi{font-size:32px;margin-bottom:12px}
+.pqt{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;margin-bottom:8px;color:white}
+.pqd{font-size:13px;color:rgba(255,255,255,0.62);line-height:1.55}
+
+/* ═══════════════════════════
+   SLIDE 7 — CONTATO
+═══════════════════════════ */
+.s7{background:var(--dark);color:white;padding:60px 80px;flex-direction:column;justify-content:center}
+.s7 .sec-label{color:var(--orange-light)}
+.s7-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:28px}
+.s7-head{font-family:'Plus Jakarta Sans',sans-serif;font-size:40px;font-weight:800;line-height:1.1;margin-bottom:18px}
+.s7-head .hl{color:var(--orange-light)}
+.s7-desc{font-size:14px;color:rgba(255,255,255,0.48);line-height:1.7}
+.s7-logo{display:flex;align-items:center;gap:18px;margin-top:28px}
+.s7-logo img{width:72px;height:72px;object-fit:contain}
+.s7-logoname{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;color:white}
+.s7-logosub{font-size:12px;color:rgba(255,255,255,0.38);letter-spacing:1.5px;text-transform:uppercase}
+.links{display:flex;flex-direction:column;gap:14px}
+.lnk{
+  display:flex;align-items:center;gap:16px;padding:16px 22px;
+  border-radius:13px;background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.09);text-decoration:none;color:white;
+  transition:background 0.2s,border-color 0.2s;font-size:14px;
+}
+.lnk:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2)}
+.li{width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.li.ig{background:linear-gradient(135deg,#f09433,#dc2743,#bc1888)}
+.li.st{background:var(--green)}
+.li.sk{background:var(--orange)}
+.ll{font-size:10px;opacity:0.4;letter-spacing:1px;text-transform:uppercase}
+.lv{font-weight:500;margin-top:1px}
+.fn{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.07);font-size:11px;color:rgba(255,255,255,0.22);letter-spacing:0.5px}
+
+/* ════════ KEYBOARD HINT ════════ */
+#keyhint{
+  position:fixed;bottom:20px;right:20px;z-index:300;
+  font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:1px;
+  pointer-events:none;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE RESPONSIVE — portrait ≤ 600px
+═══════════════════════════════════════════ */
+@media (max-width: 600px) {
+
+  /* ── Shell ── */
+  html,body{overflow:hidden}
+  #presentation{overflow:hidden}
+  /* Todos os slides rolam verticalmente */
+  .slide{
+    overflow-y:auto;overflow-x:hidden;
+    -webkit-overflow-scrolling:touch;
+    /* padding-bottom extra garante que conteúdo não fique atrás da barra de nav */
+    padding-bottom:0;
+  }
+
+  /* ── Barra de nav — fixa na base ── */
+  #nav-prev,#nav-next{
+    width:36px;height:36px;font-size:15px;
+    top:auto !important;bottom:58px;
+    transform:none !important;
+  }
+  #nav-prev{left:12px}
+  #nav-next{right:12px}
+  #slide-counter{bottom:14px;gap:6px}
+  .dot{width:6px;height:6px}
+  #keyhint{display:none}
+
+  /* ══════════════════════════════════
+     SLIDE 1 — CAPA
+  ══════════════════════════════════ */
+  .s1{flex-direction:column;overflow-y:auto}
+  .s1-left{
+    width:100%;flex-shrink:0;
+    padding:32px 24px 24px;
+    min-height:auto;
+    flex-direction:row;align-items:center;justify-content:space-between;
+  }
+  .s1-left::before{width:260px;height:260px;bottom:-100px;right:-80px}
+  .s1-left::after{width:120px;height:120px;top:-30px;left:-40px}
+  .s1-logo{flex-direction:row;align-items:center;gap:14px}
+  .s1-logo img{width:68px;height:68px}
+  .s1-school{font-size:10px;letter-spacing:1px;text-align:right;max-width:140px;line-height:1.4}
+  .s1-right{padding:22px 22px 90px;gap:18px;flex:none}
+  .s1-label{font-size:10px;letter-spacing:2px}
+  .s1-headline{font-size:28px;line-height:1.15}
+  .s1-desc{font-size:13px;line-height:1.65;max-width:100%}
+  .s1-badges{gap:7px}
+  .badge{font-size:11px;padding:5px 12px}
+
+  /* ══════════════════════════════════
+     SLIDE TBR — O TORNEIO
+  ══════════════════════════════════ */
+  .s_tbr{flex-direction:column;overflow-y:auto}
+  .s_tbr-left{
+    flex:none;
+    padding:32px 22px 18px;
+    border-right:none;
+    border-bottom:1px solid rgba(255,255,255,0.07);
+  }
+  .s_tbr-right{flex:none;padding:18px 22px 90px}
+  .s_tbr-title{font-size:24px}
+  .s_tbr-desc{font-size:13px}
+  .s_tbr-cards{grid-template-columns:1fr;gap:8px}
+  .s_tbr-card{padding:12px}
+  .s_tbr-card-icon{font-size:18px;margin-bottom:4px}
+  .s_tbr-card-title{font-size:12px}
+  .s_tbr-card-desc{font-size:11px}
+  .s_tbr-etapas{padding:10px 14px;gap:6px}
+  .s_tbr-etapa-label{font-size:10px}
+  .s_tbr-stat-big{padding:14px 18px}
+  .s_tbr-stat-n{font-size:26px}
+  .s_tbr-stat-l{font-size:11px}
+  .s_tbr-theme{padding:14px 18px}
+  .s_tbr-theme-title{font-size:24px}
+  .s_tbr-theme-sub{font-size:12px}
+  .s_tbr-overline{font-size:10px;letter-spacing:2px}
+
+  /* ══════════════════════════════════
+     SLIDE 2 — QUEM SOMOS
+     Coluna única com scroll
+  ══════════════════════════════════ */
+  .s2{
+    flex-direction:column;
+    justify-content:flex-start;
+    padding:28px 20px 90px;
+    overflow-y:auto;
+  }
+  .sec-title{font-size:24px;margin-bottom:14px}
+  .sec-label{font-size:10px;letter-spacing:2px;margin-bottom:8px}
+  /* grade vira coluna única — sem exceção */
+  .s2-grid{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:18px;
+  }
+  .quem-text{font-size:13px;margin-bottom:12px}
+  .stats{grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+  .stat-card{padding:14px 12px;border-radius:10px}
+  .stat-n{font-size:22px}
+  .stat-l{font-size:11px}
+  .values{gap:10px}
+  .vi{padding:12px;border-radius:10px}
+  .vi-icon{width:32px;height:32px;font-size:14px;border-radius:8px}
+  .vi-t{font-size:12px}
+  .vi-d{font-size:11px}
+
+  /* ══════════════════════════════════
+     SLIDE A — EQUIPE FOTOS
+     Banner no topo + coluna única com scroll
+  ══════════════════════════════════ */
+  .s2b{
+    display:flex !important;
+    flex-direction:column !important;
+    overflow-y:auto;
+  }
+  .s2b-left{
+    flex:none !important;
+    width:100% !important;
+    height:48vw;
+    min-height:190px;
+    max-height:250px;
+    overflow:hidden;
+    position:relative;
+  }
+  .s2b-left::after{
+    content:'';position:absolute;bottom:0;left:0;right:0;height:40px;
+    background:linear-gradient(to bottom,transparent,#111);
+  }
+  .s2b-right{
+    flex:none !important;
+    width:100% !important;
+    padding:22px 20px 90px !important;
+    gap:14px;
+    display:flex;flex-direction:column;justify-content:flex-start;
+  }
+  .s2b-right .sec-title{color:white;font-size:21px}
+  .s2b-right .sec-label{color:var(--orange-light)}
+  .s2b-grid2{gap:6px}
+  .s2b-grid2 img{height:100px;border-radius:8px}
+
+  /* ══════════════════════════════════
+     SLIDE 3 — CONQUISTAS
+  ══════════════════════════════════ */
+  .s3{padding:32px 22px 90px;justify-content:flex-start;overflow-y:auto}
+  .s3-grid{grid-template-columns:1fr;gap:12px;margin-top:14px}
+  .tc{padding:16px 14px;border-radius:14px}
+  .tc.nat{
+    grid-column:1;
+    display:flex;flex-direction:column;gap:10px;
+    padding:18px 16px;
+  }
+  .tc-icon{font-size:40px}
+  .tc-icon.big{font-size:48px}
+  .tc-name{font-size:16px}
+  .tc-name.big{font-size:19px}
+  .tc-desc{font-size:11.5px}
+  .nat-badge{font-size:9px}
+
+  /* ══════════════════════════════════
+     SLIDE B — PÓDIO FOTOS
+     Banner no topo + coluna única com scroll
+  ══════════════════════════════════ */
+  .s3b{
+    display:flex !important;
+    flex-direction:column !important;
+    overflow-y:auto;
+  }
+  /* bloco de fotos vira banner horizontal no topo */
+  .s3b-photos{
+    flex:none !important;
+    width:100% !important;
+    height:48vw !important;
+    min-height:190px !important;
+    max-height:250px !important;
+    display:block !important;   /* uma foto só, as outras ocultas */
+    overflow:hidden;
+    position:relative;
+  }
+  /* mostra apenas a primeira foto como banner */
+  .s3b-photos img{
+    position:absolute;inset:0;
+    width:100% !important;height:100% !important;
+    object-fit:cover;display:none !important;
+  }
+  .s3b-photos img:first-child{display:block !important}
+  /* conteúdo em coluna única abaixo */
+  .s3b-content{
+    flex:none !important;
+    width:100% !important;
+    padding:22px 20px 90px !important;
+    gap:14px;
+    display:flex;flex-direction:column;justify-content:flex-start;
+  }
+  .s3b-content .sec-title{font-size:21px;max-width:100%}
+  .s3b-content img{height:160px !important;width:100% !important;object-fit:cover;border-radius:10px}
+
+  /* ══════════════════════════════════
+     SLIDE 4 — VISIBILIDADE
+  ══════════════════════════════════ */
+  .s4{padding:32px 22px 90px;justify-content:flex-start;overflow-y:auto}
+  .s4-grid{grid-template-columns:1fr;gap:18px;margin-top:14px}
+  .mr{padding:14px 16px;gap:12px;border-radius:12px}
+  .mi{width:38px;height:38px;font-size:17px;border-radius:9px}
+  .mv{font-size:20px}
+  .ml{font-size:11px}
+  .exp-box{padding:20px 18px;border-radius:16px}
+  .exp-t{font-size:15px;margin-bottom:12px}
+  .exp-i{font-size:12px;margin-bottom:9px}
+
+  /* ══════════════════════════════════
+     SLIDE C — MÍDIA / PATROCÍNIO FOTOS
+     Banner no topo + coluna única com scroll
+  ══════════════════════════════════ */
+  .s_pat{
+    display:flex !important;
+    flex-direction:column !important;
+    overflow-y:auto;
+  }
+  .s_pat-img{
+    flex:none !important;
+    width:100% !important;
+    height:48vw;
+    min-height:190px;
+    max-height:250px;
+    position:relative;
+    overflow:hidden;
+  }
+  /* gradiente de baixo para transição suave ao conteúdo */
+  .s_pat-img::after{
+    background:linear-gradient(to bottom,transparent 50%,#111 100%) !important;
+  }
+  .s_pat-content{
+    flex:none !important;
+    width:100% !important;
+    padding:22px 20px 90px !important;
+    gap:14px;
+    display:flex;flex-direction:column;justify-content:flex-start;
+  }
+  .s_pat-content .sec-title{font-size:21px}
+  .s_pat-shirts{grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+  .s_pat-shirts img{height:85px;border-radius:8px}
+
+  /* ══════════════════════════════════
+     SLIDE 5 — COTAS
+  ══════════════════════════════════ */
+  .s5{padding:32px 22px 90px;justify-content:flex-start;overflow-y:auto}
+  .s5 .sec-title{font-size:22px}
+  .cotas{grid-template-columns:1fr;gap:14px;margin-top:14px}
+  .cc{padding:20px 18px;border-radius:14px}
+  .cn{font-size:22px}
+  .cp{font-size:26px}
+  .cb{font-size:11px}
+  .s5-note{font-size:10px;margin-top:12px}
+
+  /* ══════════════════════════════════
+     SLIDE 6 — POR QUE APOIAR
+  ══════════════════════════════════ */
+  .s6{padding:32px 22px 90px;justify-content:flex-start;overflow-y:auto}
+  .s6 .sec-title{font-size:22px}
+  .pq-grid{grid-template-columns:1fr;gap:10px;margin-top:14px}
+  .pqc{padding:16px;border-radius:14px}
+  .pqi{font-size:26px;margin-bottom:8px}
+  .pqt{font-size:14px;margin-bottom:5px}
+  .pqd{font-size:12px}
+
+  /* ══════════════════════════════════
+     SLIDE 7 — CONTATO
+  ══════════════════════════════════ */
+  .s7{padding:32px 22px 90px;justify-content:flex-start;overflow-y:auto}
+  .s7-grid{grid-template-columns:1fr;gap:24px;margin-top:14px}
+  .s7-head{font-size:24px;margin-bottom:14px}
+  .s7-desc{font-size:13px}
+  .s7-logo{margin-top:18px;gap:12px}
+  .s7-logo img{width:52px;height:52px}
+  .s7-logoname{font-size:18px}
+  .s7-logosub{font-size:10px}
+  .fn{margin-top:18px;padding-top:16px;font-size:10px}
+  .links{gap:10px}
+  .lnk{padding:13px 16px;gap:12px;border-radius:10px;font-size:13px}
+  .li{width:36px;height:36px;font-size:16px;border-radius:8px}
+  .ll{font-size:9px}
+  .lv{font-size:13px}
+}
+
+
+/* ═══ PHOTO STYLES ═══ */
+.photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.photo-strip img{width:100%;height:160px;object-fit:cover;border-radius:12px;display:block}
+.photo-full{width:100%;height:100%;object-fit:cover;display:block}
+.photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;height:100%}
+.photo-pair img{width:100%;height:100%;object-fit:cover;border-radius:0}
+
+/* ═══ SLIDE: EQUIPE (photo-heavy) ═══ */
+.s2b{background:#111;color:white;padding:0;flex-direction:row}
+.s2b-left{flex:1.1;position:relative;overflow:hidden}
+.s2b-right{flex:0.9;padding:60px 52px;display:flex;flex-direction:column;justify-content:center;gap:20px}
+.s2b-right .sec-label{color:var(--orange-light)}
+.s2b-right .sec-title{color:white;font-size:36px}
+.s2b-grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1}
+.s2b-grid2 img{width:100%;height:140px;object-fit:cover;border-radius:10px}
+
+/* ═══ SLIDE: CONQUISTAS FOTO ═══ */
+.s3b{background:var(--dark);color:white;padding:0;flex-direction:row}
+.s3b-photos{flex:1.2;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:0;overflow:hidden}
+.s3b-photos img{width:100%;height:100%;object-fit:cover;display:block}
+.s3b-photos img:first-child{grid-row:1/-1}
+.s3b-content{flex:0.8;padding:60px 48px;display:flex;flex-direction:column;justify-content:center;gap:20px}
+.s3b-content .sec-label{color:var(--orange-light)}
+.s3b-content .sec-title{color:white;font-size:36px;max-width:400px}
+
+/* ═══ SLIDE: VISIBILIDADE FOTO ═══ */
+.s4b{background:var(--cream);color:var(--dark);padding:0;flex-direction:row}
+.s4b-left{flex:1;padding:52px 60px;display:flex;flex-direction:column;justify-content:center}
+.s4b-photos{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;padding:20px;background:white}
+.s4b-photos img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+
+/* ═══ SLIDE: PATROCÍNIO FOTO ═══ */
+.s_pat{background:#111;color:white;padding:0;flex-direction:row}
+.s_pat-img{flex:1;position:relative;overflow:hidden}
+.s_pat-img img{width:100%;height:100%;object-fit:cover}
+.s_pat-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,#111 100%)}
+.s_pat-content{flex:0.8;padding:52px 48px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.s_pat-content .sec-label{color:var(--orange-light)}
+.s_pat-content .sec-title{color:white;font-size:32px}
+.s_pat-shirts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.s_pat-shirts img{width:100%;height:120px;object-fit:cover;border-radius:10px}
+
+/* CAPTION */
+.photo-caption{font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:1px;text-transform:uppercase;margin-top:4px;text-align:center}
+
+/* ═══ SLIDE TBR ═══ */
+.s_tbr{
+  background:var(--dark);color:white;
+  flex-direction:row;padding:0;
+}
+.s_tbr-left{
+  flex:1.3;padding:52px 60px;display:flex;flex-direction:column;justify-content:center;gap:20px;
+  border-right:1px solid rgba(255,255,255,0.07);
+}
+.s_tbr-right{
+  flex:0.7;padding:52px 48px;display:flex;flex-direction:column;justify-content:center;gap:24px;
+  background:rgba(255,255,255,0.02);
+}
+.s_tbr-overline{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--orange-light);font-weight:600}
+.s_tbr-title{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:38px;font-weight:800;line-height:1.1;color:white;
+}
+.s_tbr-title span{color:var(--green-light)}
+.s_tbr-desc{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.75;max-width:560px}
+.s_tbr-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.s_tbr-card{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);
+  border-radius:14px;padding:16px;
+}
+.s_tbr-card-icon{font-size:22px;margin-bottom:8px}
+.s_tbr-card-title{font-size:13px;font-weight:700;color:white;margin-bottom:5px}
+.s_tbr-card-desc{font-size:11.5px;color:rgba(255,255,255,0.45);line-height:1.5}
+.s_tbr-etapas{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,0.04);border-radius:12px;padding:14px 18px;
+  border:1px solid rgba(255,255,255,0.08);
+}
+.s_tbr-etapa{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1}
+.s_tbr-etapa-num{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:800;
+  color:var(--green-light);letter-spacing:1px;
+}
+.s_tbr-etapa-label{font-size:11px;color:rgba(255,255,255,0.5);text-align:center}
+.s_tbr-etapa-dest .s_tbr-etapa-num{color:var(--ouro)}
+.s_tbr-etapa-dest .s_tbr-etapa-label{color:rgba(255,255,255,0.8);font-weight:600}
+.s_tbr-etapa-arrow{font-size:16px;color:rgba(255,255,255,0.2);flex-shrink:0}
+.s_tbr-stat-big{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);
+  border-radius:16px;padding:20px 24px;
+}
+.s_tbr-stat-n{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:34px;font-weight:800;
+  color:var(--green-light);line-height:1;margin-bottom:4px;
+}
+.s_tbr-stat-l{font-size:12px;color:rgba(255,255,255,0.45)}
+.s_tbr-theme{
+  background:linear-gradient(135deg,rgba(45,106,46,0.3),rgba(87,196,90,0.1));
+  border:1px solid rgba(87,196,90,0.25);border-radius:16px;padding:20px 24px;
+}
+.s_tbr-theme-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--green-light);margin-bottom:6px;font-weight:600}
+.s_tbr-theme-title{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:800;
+  color:white;line-height:1;margin-bottom:4px;
+}
+.s_tbr-theme-sub{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.5}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<button id="nav-prev" onclick="changeSlide(-1)">&#8592;</button>
+<button id="nav-next" onclick="changeSlide(1)">&#8594;</button>
+<div id="slide-counter"></div>
+<div id="keyhint">← → ESC · SPACE</div>
+
+<div id="presentation">
+
+<!-- ══ SLIDE 1: CAPA ══ -->
+<section class="slide s1 active" data-idx="0">
+  <div class="s1-left">
+    <div class="s1-logo">
+      <img src="https://capibots.com.br/capibots-logo.png" alt="Capibots Logo">
+    </div>
+    <div class="s1-school">Colégio Batista Mineiro · Uberlândia, MG</div>
+  </div>
+  <div class="s1-right">
+    <div>
+      <div class="s1-label">Media Kit · Temporada 2026</div>
+      <h1 class="s1-headline">Junte-se a quem<br>chegou ao <span>topo</span><br>do Brasil 🏆</h1>
+    </div>
+    <p class="s1-desc">A Capibots é a equipe de robótica do Colégio Batista Mineiro que conquistou o <strong style="color:white">3º lugar geral nacional</strong> na categoria Kids 2 do TBR. Em 2026, seguimos crescendo — e queremos você nessa jornada.</p>
+    <div class="s1-badges">
+      <span class="badge bg">🏆 3º Nacional Kids 2</span>
+      <span class="badge bo">📸 +800 seguidores</span>
+      <span class="badge bw">🏆🏆 2 Troféus de Desafio Prático</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE TBR: O TORNEIO ══ -->
+<section class="slide s_tbr" data-idx="1">
+  <div class="s_tbr-left">
+    <div class="s_tbr-overline">Entenda o contexto</div>
+    <h2 class="s_tbr-title">O que é o <span>Torneio<br>Brasil de Robótica?</span></h2>
+    <p class="s_tbr-desc">O TBR é uma das maiores competições de robótica educacional do Brasil, reunindo equipes de todo o país em torno de um propósito: formar jovens para o futuro por meio da tecnologia, da ciência e dos Objetivos de Desenvolvimento Sustentável da ONU.</p>
+    <div class="s_tbr-cards">
+      <div class="s_tbr-card">
+        <div class="s_tbr-card-icon">🤖</div>
+        <div class="s_tbr-card-title">Desafio Prático</div>
+        <div class="s_tbr-card-desc">A equipe constrói e programa um robô autônomo para cumprir missões em um tapete temático — sem interferência humana durante a partida.</div>
+      </div>
+      <div class="s_tbr-card">
+        <div class="s_tbr-card-icon">🔬</div>
+        <div class="s_tbr-card-title">Mérito Científico</div>
+        <div class="s_tbr-card-desc">As equipes desenvolvem um projeto de pesquisa real relacionado ao tema do ano, com metodologia científica e impacto na comunidade.</div>
+      </div>
+      <div class="s_tbr-card">
+        <div class="s_tbr-card-icon">📋</div>
+        <div class="s_tbr-card-title">Organização & Método</div>
+        <div class="s_tbr-card-desc">Avalia como a equipe se planeja, documenta seu trabalho e se organiza ao longo da temporada — do planejamento à execução.</div>
+      </div>
+    </div>
+    <div class="s_tbr-etapas">
+      <div class="s_tbr-etapa">
+        <span class="s_tbr-etapa-num">01</span>
+        <span class="s_tbr-etapa-label">Torneio Interno</span>
+      </div>
+      <div class="s_tbr-etapa-arrow">→</div>
+      <div class="s_tbr-etapa">
+        <span class="s_tbr-etapa-num">02</span>
+        <span class="s_tbr-etapa-label">Etapa Regional</span>
+      </div>
+      <div class="s_tbr-etapa-arrow">→</div>
+      <div class="s_tbr-etapa s_tbr-etapa-dest">
+        <span class="s_tbr-etapa-num">03</span>
+        <span class="s_tbr-etapa-label">Etapa Nacional</span>
+      </div>
+    </div>
+  </div>
+  <div class="s_tbr-right">
+    <div class="s_tbr-stat-big">
+      <div class="s_tbr-stat-n">+200</div>
+      <div class="s_tbr-stat-l">equipes na etapa nacional</div>
+    </div>
+    <div class="s_tbr-stat-big">
+      <div class="s_tbr-stat-n">15+</div>
+      <div class="s_tbr-stat-l">anos de história do TBR</div>
+    </div>
+    <div class="s_tbr-stat-big">
+      <div class="s_tbr-stat-n">+ 300</div>
+      <div class="s_tbr-stat-l">escolas participantes em todos estados do Brasil</div>
+    </div>
+    <div class="s_tbr-theme">
+      <div class="s_tbr-theme-label">Tema 2026</div>
+      <div class="s_tbr-theme-title">ODS 4</div>
+      <div class="s_tbr-theme-sub">Educação, Trabalho<br>e Sustentabilidade</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE 2: QUEM SOMOS ══ -->
+<section class="slide s2" data-idx="2">
+  <div class="sec-label">A equipe</div>
+  <h2 class="sec-title">Tecnologia, <span class="hl">propósito</span><br>e muito trabalho em equipe</h2>
+  <div class="s2-grid">
+    <div>
+      <p class="quem-text">A Capibots é formada por estudantes do Ensino Fundamental do Colégio Batista Mineiro. Competimos no Torneio Brasil de Robótica (TBR), uma das maiores competições de robótica educacional do país.</p>
+      <p class="quem-text">Desenvolvemos projeto científico, robô autônomo e apresentamos soluções criativas ligadas a ODS. Em 2026, o tema é o <strong>ODS 4 — Educação, Trabalho e Sustentabilidade</strong>.</p>
+      <div class="stats">
+        <div class="stat-card"><div class="stat-n">9</div><div class="stat-l">integrantes ativos</div></div>
+        <div class="stat-card"><div class="stat-n">2ª</div><div class="stat-l">temporada da equipe</div></div>
+        <div class="stat-card"><div class="stat-n">3</div><div class="stat-l">etapas competitivas</div></div>
+        <div class="stat-card"><div class="stat-n">Milhares</div><div class="stat-l">pessoas impactadas pela solução CerradoTech em 2025</div></div>
+      </div>
+    </div>
+    <div class="values">
+      <div class="vi"><div class="vi-icon">🔬</div><div><div class="vi-t">Projeto científico real</div><div class="vi-d">Pesquisa com metodologia validada por especialistas e instituições externas.</div></div></div>
+      <div class="vi"><div class="vi-icon">🤖</div><div><div class="vi-t">Robótica competitiva</div><div class="vi-d">Construímos e programamos nosso robô para missões em competições nacionais.</div></div></div>
+      <div class="vi"><div class="vi-icon">🌱</div><div><div class="vi-t">Impacto social e educativo</div><div class="vi-d">Levamos ciência e tecnologia para além da escola, engajando a comunidade.</div></div></div>
+      <div class="vi"><div class="vi-icon">🏅</div><div><div class="vi-t">Reconhecimento nacional</div><div class="vi-d">Campeãs internas, campeãs regionais e pódio nacional. Competimos em alto nível.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE A: EQUIPE FOTOS ══ -->
+<section class="slide s2b" data-idx="3">
+  <div class="s2b-left">
+    <img src="./fotos-media-kit/integrantes-equipe-capibots.jpg" alt="Integrantes da equipe Capibots" style="width:100%;height:100%;object-fit:cover">
+  </div>
+  <div class="s2b-right">
+    <div class="sec-label">Quem somos</div>
+    <h2 class="sec-title" style="font-family:'Plus Jakarta Sans',sans-serif">Uma equipe unida, apaixonada por robótica e pronta para <span style="color:var(--orange-light)">2026</span></h2>
+    <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7">9 estudantes, um técnico, uma mentora e muita dedicação. Nos reunimos semanas antes das competições, desenvolvemos o robô, planejamos e executamos diversas ações empreendedoras, o projeto científico e trabalhamos juntos em cada detalhe.</p>
+    <div class="s2b-grid2">
+      <img src="./fotos-media-kit/treino-laboratorio-robotica.jpg" alt="Treino no laboratório de robótica">
+      <img src="./fotos-media-kit/trabalho-campo-ufu-camiseta-patrocinadores.jpg" alt="Trabalho de campo UFU">
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE 3: CONQUISTAS ══ -->
+<section class="slide s3" data-idx="4">
+  <div class="sec-label" style="color:var(--orange-light)">Conquistas</div>
+  <h2 class="sec-title" style="color:white;max-width:680px">Uma trajetória que prova<br>que a equipe <span style="color:var(--orange-light)">entrega resultados</span></h2>
+  <div class="s3-grid">
+    <div class="tc nat">
+      <div class="tc-icon big">🏆</div>
+      <div>
+        <div class="nat-badge">⭐ Destaque principal</div>
+        <div class="tc-place">Etapa Nacional · TBR · Categoria Kids 2</div>
+        <div class="tc-name big">3º Lugar Geral Nacional</div>
+        <div class="tc-desc">Entre todas as equipes do Brasil na categoria Kids 2, a Capibots subiu ao pódio nacional — resultado que representa o mais alto nível competitivo para estudantes do nosso nível.</div>
+      </div>
+    </div>
+    <div class="tc int">
+      <div class="tc-icon">🥇</div>
+      <div class="tc-place">Torneio Interno · CBM</div>
+      <div class="tc-name">Campeã Geral</div>
+      <div class="tc-desc">1º lugar geral no torneio interno do Colégio Batista Mineiro, etapa inaugural da temporada.</div>
+    </div>
+    <div class="tc reg">
+      <div class="tc-icon">🏅</div>
+      <div class="tc-place">Etapa Regional · Triângulo Mineiro</div>
+      <div class="tc-name">Campeã do Desafio Prático</div>
+      <div class="tc-desc">1º lugar no desafio prático e 2º lugar geral na regional — garantindo vaga na etapa nacional.</div>
+    </div>
+    <div class="tc ext">
+      <div class="tc-icon">🎖️</div>
+      <div class="tc-place">Além do pódio</div>
+      <div class="tc-name">Premiações nos cadernos</div>
+      <div class="tc-desc">Destaques em Mérito Científico e Organização & Método. Reconhecimento pela UFU e entidades ambientais.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE B: PÓDIO FOTOS ══ -->
+<section class="slide s3b" data-idx="5">
+  <div class="s3b-photos">
+    <img src="./fotos-media-kit/premiacao-3olugar-nacional.jpg" alt="Premiação 3º lugar nacional" style="grid-row:1/-1">
+    <img src="./fotos-media-kit/stand-etapa-regional.jpg" alt="Stand etapa regional">
+    <img src="./fotos-media-kit/premiacao-vice-campeonato-regional.jpg" alt="Premiação regional">
+  </div>
+  <div class="s3b-content">
+    <div class="sec-label">Do regional ao nacional</div>
+    <h2 class="sec-title" style="font-family:'Plus Jakarta Sans',sans-serif">Da etapa regional ao <span style="color:var(--orange-light)">pódio nacional</span></h2>
+    <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7">Cada etapa foi conquistada com muito treino, estratégia e espírito de equipe. Na etapa regional, campeãs do desafio prático. Na etapa nacional, pódio entre as melhores equipes do Brasil.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+      <span style="background:rgba(200,150,12,0.15);border:1px solid rgba(200,150,12,0.4);color:var(--ouro);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px">🏆 3º Lugar Nacional</span>
+      <span style="background:rgba(87,196,90,0.12);border:1px solid rgba(87,196,90,0.3);color:var(--green-light);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px">🥇 Campeã Regional Desafio Prático</span>
+    </div>
+    <div style="margin-top:16px">
+      <img src="./fotos-media-kit/multidao-etapa-nacional.jpg" alt="Multidão etapa nacional" style="width:100%;height:300px;object-fit:cover;border-radius:12px;object-position:center 70%">
+      <p class="photo-caption">Etapa nacional TBR — centenas de equipes de todo o Brasil</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE 4: VISIBILIDADE ══ -->
+<section class="slide s4" data-idx="6">
+  <div class="sec-label">Visibilidade & alcance</div>
+  <h2 class="sec-title">Sua marca onde as<br><span class="hl">pessoas nos seguem</span></h2>
+  <div class="s4-grid">
+    <div class="metrics">
+      <div class="mr"><div class="mi ig">📸</div><div><div class="mv">+800</div><div class="ml">Seguidores no Instagram @equipecapibots</div></div></div>
+      <div class="mr"><div class="mi gr">👁️</div><div><div class="mv">Milhares</div><div class="ml">de visualizações nos conteúdos publicados</div></div></div>
+      <div class="mr"><div class="mi tv">📺</div><div><div class="mv">TV Paranaíba</div><div class="ml">Entrevista com repercussão regional</div></div></div>
+      <div class="mr"><div class="mi sc">🎓</div><div><div class="mv">Simpósio UFU</div><div class="ml">Apresentação em evento científico universitário</div></div></div>
+    </div>
+    <div class="exp-box">
+      <div class="exp-t">🔊 Onde sua marca aparece</div>
+      <div class="exp-i">Posts e stories nas redes ao longo de toda a temporada</div>
+      <div class="exp-i">Uniforme usado nas 3 etapas (interna, regional, nacional)</div>
+      <div class="exp-i">Cadernos oficiais entregues às bancas do TBR</div>
+      <div class="exp-i">Materiais de divulgação: banners, cartazes, apresentações, álbum de figurinhas</div>
+      <div class="exp-i">Eventos e feiras científicas com público externo</div>
+      <div class="exp-i">Site oficial: capibots.com.br</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE C: MÍDIA FOTOS ══ -->
+<section class="slide s_pat" data-idx="7">
+  <div class="s_pat-img">
+    <img src="./fotos-media-kit/entrevista-tv-paranaiba.jpg" alt="Entrevista TV Paranaíba">
+  </div>
+  <div class="s_pat-content">
+    <div class="sec-label">Sua marca em evidência</div>
+    <h2 class="sec-title" style="font-family:'Plus Jakarta Sans',sans-serif">Patrocinadores aparecem em <span style="color:var(--orange-light)">cada momento</span> da temporada</h2>
+    <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65">Da camiseta usada em campo à entrevista na TV, sua marca viaja junto com a equipe. O uniforme apareceu em três etapas competitivas, em campo de pesquisa e até na televisão regional.</p>
+    <div class="s_pat-shirts">
+      <img src="./fotos-media-kit/arte-camiseta-patrocinio-costas-manga.jpg" alt="Arte camiseta patrocínio costas">
+      <img src="./fotos-media-kit/robo e tapete.jpg" alt="Robô no tapete de competição">
+      <img src="./fotos-media-kit/entrevista-tv-paranaiba2.jpg" alt="Entrevista TV Paranaíba 2">
+      <img src="./fotos-media-kit/multidao-etapa-nacional2.jpg" alt="Multidão etapa nacional" style="object-position:center 20%">
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE 5: COTAS ══ -->
+<section class="slide s5" data-idx="8">
+  <div class="sec-label">Plano de patrocínio 2026</div>
+  <h2 class="sec-title" style="font-size:38px;margin-bottom:4px">Escolha sua cota e <span class="hl">faça parte da equipe</span></h2>
+  <div class="cotas">
+    <!-- MASTER -->
+    <div class="cc master">
+      <div class="crown-bg">👑</div>
+      <div class="ct">⭐ Exclusiva</div>
+      <div class="cn">Master</div>
+      <div class="cv">Máximo de 2 vagas</div>
+      <div class="cp">R$ 2.500</div>
+      <div class="cpn">patrocínio único por temporada</div>
+      <div class="cdiv"></div>
+      <ul class="cbs">
+        <li class="cb"><span class="cbd">★</span>Logo em destaque no uniforme (manga)</li>
+        <li class="cb"><span class="cbd">★</span>Logo em destaque no windbanner da equipe</li>
+        <li class="cb"><span class="cbd">★</span>Campanha de 3 postagens com vídeo personalizado no feed do Instagram</li>
+        <li class="cb"><span class="cbd">★</span>Logomarca nos cadernos oficiais do TBR</li>
+        <li class="cb"><span class="cbd">★</span>Menção verbal nas apresentações competitivas</li>
+        <li class="cb"><span class="cbd">★</span>Certificado + foto com a equipe</li>
+        <li class="cb"><span class="cbd">★</span>Destaque no site capibots.com.br</li>
+      </ul>
+      <span class="ctag">👑 Maior visibilidade</span>
+    </div>
+    <!-- OURO -->
+    <div class="cc ouro">
+      <div class="ct">🥇 Ouro</div>
+      <div class="cn">Ouro</div>
+      <div class="cv">9 vagas disponíveis</div>
+      <div class="cp" style="color:var(--ouro)">R$ 500</div>
+      <div class="cpn" style="color:var(--gray)">por temporada</div>
+      <div class="cdiv" style="background:rgba(200,150,12,0.2)"></div>
+      <ul class="cbs">
+        <li class="cb" style="color:var(--dark)"><span class="cbd">✓</span>Logo no uniforme — 9 espaços disponíveis</li>
+        <li class="cb" style="color:var(--dark)"><span class="cbd">✓</span>Post + story no Instagram</li>
+        <li class="cb" style="color:var(--dark)"><span class="cbd">✓</span>Logomarca nos cadernos oficiais do TBR</li>
+        <li class="cb" style="color:var(--dark)"><span class="cbd">✓</span>Logomarca na capa do site capibots.com.br</li>
+        <li class="cb" style="color:var(--dark)"><span class="cbd">✓</span>Certificado de apoiador</li>
+      </ul>
+    </div>
+    <!-- PRATA -->
+    <div class="cc prata">
+      <div class="ct">🥈 Prata</div>
+      <div class="cn">Prata</div>
+      <div class="cv">Vagas abertas</div>
+      <div class="cp" style="color:var(--prata)">R$ 300</div>
+      <div class="cpn" style="color:var(--gray)">por temporada</div>
+      <div class="cdiv" style="background:rgba(107,114,128,0.2)"></div>
+      <ul class="cbs">
+        <li class="cb" style="color:var(--dark)"><span class="cbd">✓</span>Story de agradecimento no Instagram</li>
+        <li class="cb" style="color:var(--dark)"><span class="cbd">✓</span>Logomarca nos cadernos oficiais do TBR</li>
+        <li class="cb" style="color:var(--dark)"><span class="cbd">✓</span>Logomarca na página de apoiadores do site</li>
+        <li class="cb" style="color:var(--dark)"><span class="cbd">✓</span>Certificado de apoiador</li>
+      </ul>
+    </div>
+    <!-- BRONZE -->
+    <div class="cc bronze">
+      <div class="ct">🥉 Bronze</div>
+      <div class="cn">Bronze</div>
+      <div class="cv">Vagas abertas</div>
+      <div class="cp" style="color:var(--bronze)">R$ 150</div>
+      <div class="cpn" style="color:var(--gray)">por temporada</div>
+      <div class="cdiv" style="background:rgba(155,91,42,0.2)"></div>
+      <ul class="cbs">
+        <li class="cb" style="color:var(--dark)"><span class="cbd">✓</span>Postagem coletiva de apoiadores no Instagram (story)</li>
+        <li class="cb" style="color:var(--dark)"><span class="cbd">✓</span>Logomarca nos cadernos oficiais do TBR</li>
+        <li class="cb" style="color:var(--dark)"><span class="cbd">✓</span>Certificado de apoiador</li>
+      </ul>
+    </div>
+  </div>
+  <p class="s5-note">* Roteiro e formato da campanha Master a definir em conjunto com o patrocinador. Valores negociáveis para apoio em produtos ou serviços.</p>
+</section>
+
+<!-- ══ SLIDE 6: POR QUE APOIAR ══ -->
+<section class="slide s6" data-idx="9">
+  <div class="sec-label">Por que patrocinar a Capibots?</div>
+  <h2 class="sec-title">Mais do que visibilidade —<br>é fazer parte de <span style="color:var(--orange-light)">algo real</span></h2>
+  <div class="pq-grid">
+    <div class="pqc"><div class="pqi">🏆</div><div class="pqt">Equipe que prova resultados</div><div class="pqd">3º lugar nacional Kids 2, campeã interna e campeã regional. Sua marca estará associada a uma equipe vencedora.</div></div>
+    <div class="pqc"><div class="pqi">📱</div><div class="pqt">Alcance digital crescente</div><div class="pqd">Instagram com +800 seguidores, milhares de visualizações e conteúdo constante durante toda a temporada.</div></div>
+    <div class="pqc"><div class="pqi">🧒</div><div class="pqt">Associação com educação</div><div class="pqd">Apoiar a Capibots é apoiar ciência, tecnologia e educação. Imagem positiva de responsabilidade social para sua marca.</div></div>
+    <div class="pqc"><div class="pqi">🎯</div><div class="pqt">Público local engajado</div><div class="pqd">Famílias, professores e comunidade de Uberlândia acompanham de perto a equipe. Conexão genuína com o público local.</div></div>
+    <div class="pqc"><div class="pqi">📺</div><div class="pqt">Repercussão na mídia</div><div class="pqd">Entrevista na TV Paranaíba, apresentação no Simpósio da UFU, conexão com redes de alcance nacional.</div></div>
+    <div class="pqc"><div class="pqi">🤝</div><div class="pqt">Equipe séria e organizada</div><div class="pqd">Gestão financeira transparente, cronograma e uma equipe que cumpre o que promete — do planejamento ao pódio.</div></div>
+  </div>
+</section>
+
+<!-- ══ SLIDE 7: CONTATO ══ -->
+<section class="slide s7" data-idx="10">
+  <div class="sec-label">Vamos conversar</div>
+  <div class="s7-grid">
+    <div>
+      <h2 class="s7-head">Pronto para apoiar a <span class="hl">Capibots 2026?</span></h2>
+      <p class="s7-desc">Entre em contato para receber mais informações, tirar dúvidas ou fechar sua cota. Também estamos abertos a apoio em produtos ou serviços, a combinar.</p>
+      <div class="s7-logo">
+        <img src="https://capibots.com.br/capibots-logo.png" alt="Capibots">
+        <div>
+          <div class="s7-logoname">Capibots</div>
+          <div class="s7-logosub">Equipe de robótica · TBR 2026</div>
+        </div>
+      </div>
+      <div class="fn">Colégio Batista Mineiro · Martins · Uberlândia, MG</div>
+    </div>
+    <div class="links">
+      <a class="lnk" href="https://instagram.com/equipecapibots" target="_blank">
+        <div class="li ig">📸</div>
+        <div><div class="ll">Instagram</div><div class="lv">@equipecapibots</div></div>
+      </a>
+      <a class="lnk" href="https://capibots.com.br" target="_blank">
+        <div class="li st">🌐</div>
+        <div><div class="ll">Site oficial</div><div class="lv">capibots.com.br</div></div>
+      </a>
+      <a class="lnk" href="#">
+        <div class="li sk">🏫</div>
+        <div><div class="ll">Escola</div><div class="lv">Colégio Batista Mineiro — Unidade Martins</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</div><!-- /presentation -->
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const counter = document.getElementById('slide-counter');
+const progress = document.getElementById('progress');
+let current = 0;
+let isAnimating = false;
+
+// Build dots
+slides.forEach((_, i) => {
+  const d = document.createElement('button');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => goTo(i);
+  counter.appendChild(d);
+});
+const dots = counter.querySelectorAll('.dot');
+
+function updateUI() {
+  dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  const pct = (current / (slides.length - 1)) * 100;
+  progress.style.width = pct + '%';
+}
+
+function goTo(idx) {
+  if (isAnimating || idx === current || idx < 0 || idx >= slides.length) return;
+  isAnimating = true;
+
+  const prev = slides[current];
+  const next = slides[idx];
+  const dir = idx > current ? 1 : -1;
+
+  // Setup incoming slide off-screen
+  next.style.transform = `translateX(${dir * 60}px)`;
+  next.style.opacity = '0';
+  next.style.pointerEvents = 'none';
+  next.classList.remove('exit-left');
+  next.classList.add('active');
+
+  // Trigger transition
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      next.style.transform = 'translateX(0)';
+      next.style.opacity = '1';
+      prev.style.transform = `translateX(${-dir * 60}px)`;
+      prev.style.opacity = '0';
+    });
+  });
+
+  setTimeout(() => {
+    prev.classList.remove('active');
+    prev.style.transform = '';
+    prev.style.opacity = '';
+    next.style.pointerEvents = '';
+    current = idx;
+    updateUI();
+    isAnimating = false;
+  }, 560);
+}
+
+function changeSlide(dir) { goTo(current + dir); }
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); changeSlide(1); }
+  if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); changeSlide(-1); }
+  if (e.key === 'Home') goTo(0);
+  if (e.key === 'End') goTo(slides.length - 1);
+  if (e.key === 'Escape') goTo(0);
+});
+
+// Touch swipe — horizontal only, don't block vertical scroll
+let tx = 0, ty = 0, swipeLocked = false;
+document.addEventListener('touchstart', e => {
+  tx = e.touches[0].clientX;
+  ty = e.touches[0].clientY;
+  swipeLocked = false;
+}, {passive:true});
+document.addEventListener('touchmove', e => {
+  if (swipeLocked) return;
+  const dx = Math.abs(e.touches[0].clientX - tx);
+  const dy = Math.abs(e.touches[0].clientY - ty);
+  if (dy > dx + 5) swipeLocked = true;
+}, {passive:true});
+document.addEventListener('touchend', e => {
+  if (swipeLocked) return;
+  const dx = tx - e.changedTouches[0].clientX;
+  const dy = ty - e.changedTouches[0].clientY;
+  if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+    changeSlide(dx > 0 ? 1 : -1);
+  }
+}, {passive:true});
+
+updateUI();
+</script>
+</body>
+</html>
