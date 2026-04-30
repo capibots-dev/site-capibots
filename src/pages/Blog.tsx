@@ -10,7 +10,10 @@ import { Calendar, ArrowRight } from 'lucide-react';
 import blogData from '@/data/blog.json';
 
 const Blog = () => {
-  const allPosts = [...blogData].sort((a, b) => b.date.localeCompare(a.date));
+  const today = new Date().toISOString().slice(0, 10);
+  const allPosts = [...blogData]
+    .filter((p) => p.date <= today)
+    .sort((a, b) => b.date.localeCompare(a.date));
   const featured = allPosts.filter((p) => p.featured).slice(0, 3);
   const categories = [...new Set(allPosts.map((p) => p.category))];
 
