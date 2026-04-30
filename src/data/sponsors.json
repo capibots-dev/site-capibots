@@ -1,0 +1,132 @@
+[
+  {
+    "id": "vanilla-cestas-finas",
+    "nome": "Vanilla Cestas Finas",
+    "edicoes": [2025],
+    "tipo": "ouro",
+    "imagem": "/images/patrocinadores/vanilla-cestas-finas.png",
+    "link": null,
+    "instagram": null,
+    "descricao": "Empresa de cestas e presentes especiais de Uberlândia."
+  },
+  {
+    "id": "publicenter",
+    "nome": "Publicenter",
+    "edicoes": [2025],
+    "tipo": "ouro",
+    "imagem": "/images/patrocinadores/publicenter.png",
+    "link": null,
+    "instagram": null,
+    "descricao": "Empresa de comunicação e publicidade."
+  },
+  {
+    "id": "farmacia-kalayasa",
+    "nome": "Farmácia Kalayasa",
+    "edicoes": [2025],
+    "tipo": "ouro",
+    "imagem": "/images/patrocinadores/farmacia-kalayasa.png",
+    "link": null,
+    "instagram": null,
+    "descricao": "Farmácia de manipulação e produtos de saúde."
+  },
+  {
+    "id": "eduardo-monique-imoveis",
+    "nome": "Eduardo e Monique Negócios Imobiliários",
+    "edicoes": [2025],
+    "tipo": "ouro",
+    "imagem": "/images/patrocinadores/eduardo-monique-imoveis.png",
+    "link": null,
+    "instagram": null,
+    "descricao": "Consultoria e negócios no mercado imobiliário de Uberlândia."
+  },
+  {
+    "id": "grafica-hebrom",
+    "nome": "Gráfica Hebrom",
+    "edicoes": [2025],
+    "tipo": "ouro",
+    "imagem": "/images/patrocinadores/grafica-hebrom.png",
+    "link": null,
+    "instagram": null,
+    "descricao": "Gráfica parceira responsável pelo uniforme oficial da equipe."
+  },
+  {
+    "id": "babuska",
+    "nome": "Babuska",
+    "edicoes": [2025],
+    "tipo": "ouro",
+    "imagem": "/images/patrocinadores/babuska.png",
+    "link": null,
+    "instagram": null,
+    "descricao": "Apoiador da equipe Capibots na temporada 2025."
+  },
+  {
+    "id": "clinica-orthus-fisioterapia",
+    "nome": "Clínica Orthus Fisioterapia",
+    "edicoes": [2025],
+    "tipo": "ouro",
+    "imagem": "/images/patrocinadores/clinica-orthus.png",
+    "link": null,
+    "instagram": null,
+    "descricao": "Clínica de fisioterapia e reabilitação em Uberlândia."
+  },
+  {
+    "id": "rezende-solar",
+    "nome": "Rezende Solar",
+    "edicoes": [2025],
+    "tipo": "prata",
+    "imagem": "/images/patrocinadores/rezende-solar.png",
+    "link": null,
+    "instagram": null,
+    "descricao": "Empresa de energia solar fotovoltaica."
+  },
+  {
+    "id": "ml-acabamentos",
+    "nome": "ML Acabamentos",
+    "edicoes": [2025],
+    "tipo": "prata",
+    "imagem": "/images/patrocinadores/ml-acabamentos.png",
+    "link": null,
+    "instagram": null,
+    "descricao": "Empresa de acabamentos e construção civil."
+  },
+  {
+    "id": "methos-corretora",
+    "nome": "Methos Corretora",
+    "edicoes": [2025],
+    "tipo": "prata",
+    "imagem": "/images/patrocinadores/methos-corretora.png",
+    "link": null,
+    "instagram": null,
+    "descricao": "Corretora de seguros e soluções financeiras."
+  },
+  {
+    "id": "calixto-imoveis",
+    "nome": "Calixto Negócios Imobiliários",
+    "edicoes": [2025],
+    "tipo": "bronze",
+    "imagem": "/images/patrocinadores/calixto-imoveis.png",
+    "link": null,
+    "instagram": null,
+    "descricao": "Empresa de intermediação e consultoria imobiliária."
+  },
+  {
+    "id": "projet-equipamentos",
+    "nome": "Projet Equipamentos",
+    "edicoes": [2025],
+    "tipo": "bronze",
+    "imagem": "/images/patrocinadores/projet-equipamentos.png",
+    "link": null,
+    "instagram": null,
+    "descricao": "Empresa de equipamentos e soluções industriais."
+  },
+  {
+    "id": "flor-du-quintal",
+    "nome": "Flor Du Quintal",
+    "edicoes": [2025],
+    "tipo": "bronze",
+    "imagem": "/images/patrocinadores/flor-du-quintal.png",
+    "link": null,
+    "instagram": null,
+    "descricao": "Apoiador da equipe Capibots na temporada 2025."
+  }
+]

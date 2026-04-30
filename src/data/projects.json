@@ -43,37 +43,73 @@
       "Sophia"
     ],
     "timeline": [
-      { "label": "Formação do Time",                     "date": "Abril 2025",    "completed": true },
-      { "label": "TBR - Etapa Interna (CBM Uberlândia)", "date": "Junho 2025",    "completed": true },
-      { "label": "TBR - Etapa Regional Triângulo Mineiro","date": "Agosto 2025",  "completed": true },
-      { "label": "TBR - Etapa Nacional",                 "date": "Dezembro 2025", "completed": true }
+      { "label": "Formação do Time",                      "date": "Abril 2025",    "completed": true },
+      { "label": "TBR - Etapa Interna (CBM Uberlândia)",  "date": "Junho 2025",    "completed": true },
+      { "label": "TBR - Etapa Regional Triângulo Mineiro", "date": "Agosto 2025",  "completed": true },
+      { "label": "TBR - Etapa Nacional",                  "date": "Dezembro 2025", "completed": true }
     ]
   },
   {
     "id": "tbr-2026",
-    "image": "/images/projects/logo_tbr_2026.png",
+    "image": "/images/projects/logo-tbr-2026.png",
     "title": "TBR 2026",
     "subtitle": "Torneio Brasil de Robótica 2026",
-    "summary": "Nova temporada dos Capibots no TBR 2026 — a jornada está apenas começando.",
-    "description": "Os Capibots estão se preparando para mais uma temporada no Torneio Brasil de Robótica. Com a experiência conquistada em 2025 e o espírito de quem subiu ao pódio nacional na primeira participação, a equipe chega em 2026 ainda mais motivada. Os detalhes do projeto serão revelados ao longo da temporada.",
+    "summary": "Nova temporada dos Capibots no TBR 2026 — tema ODS 4, Educação, Trabalho e Sustentabilidade.",
+    "description": "Desenvolvimento de uma solução inovadora voltada à garantia de uma educação inclusiva e de qualidade para crianças e jovens, cobrindo a proposta de Mérito Científico do TBR alinhada ao ODS 4 — Educação de Qualidade. Além do projeto científico, utilizamos o robô Lego Spike Prime para cumprir com as missões do Desafio Prático da categoria Kids 2, cujo tapete desta temporada representa um ambiente escolar com desafios ligados ao acesso e à qualidade da educação.",
     "status": "Em desenvolvimento",
-    "period": "2026",
-    "startDate": "2026",
+    "period": "Abr/2026 a Dez/2026",
+    "startDate": "Abril 2026",
     "expectedCompletion": "Dezembro 2026",
-    "technologies": ["Lego Spike"],
+    "technologies": [
+      "Lego Spike Prime",
+      "Ferramentas de Prototipação Digital",
+      "Inteligência Artificial",
+      "Pesquisa de Dados Educacionais",
+      "Google Formulários",
+      "Trello",
+      "Canva"
+    ],
     "category": "Kids 2",
-    "progress": 5,
-    "challenges": [],
-    "solutions": [],
+    "progress": 15,
+    "challenges": [
+      "Compreender e pesquisar um tema novo com profundidade (ODS 4)",
+      "Desenvolver uma solução científica inovadora para o contexto educacional",
+      "Aprender as missões do novo tapete e adaptar a estratégia do robô",
+      "Custo para viabilizar o projeto e as participações nas etapas",
+      "Conciliar dedicação ao projeto com as atividades escolares"
+    ],
+    "solutions": [
+      "Apoio da técnica e da mentora",
+      "Ações empreendedoras para captação de recursos",
+      "Apoio incondicional das famílias",
+      "Planejamento estruturado desde o início da temporada"
+    ],
     "goals": [
-      "Superar os resultados da temporada 2025"
+      "Participar com sucesso no TBR 2026",
+      "Desenvolver uma solução científica relevante para o tema Educação, Trabalho e Sustentabilidade",
+      "Evoluir as capacidades técnicas da equipe em programação e robótica",
+      "Aprender novas tecnologias e metodologias",
+      "Representar nossa região com excelência",
+      "Ampliar o impacto e as parcerias da equipe"
     ],
     "teamMembers": [
       "Tia Lorena [Técnica]",
-      "Tia Karol [Mentora]"
+      "Tia Karol [Mentora]",
+      "Arthur",
+      "Augusto",
+      "Gabriela",
+      "João Gomes",
+      "Lucca",
+      "Luisa",
+      "Manuela",
+      "Nicolas",
+      "Sophia"
     ],
     "timeline": [
-      { "label": "Início da temporada 2026", "date": "2026", "completed": false }
+      { "label": "Formação do Time e Início da Temporada",  "date": "Abril 2026",            "completed": true  },
+      { "label": "TBR - Etapa Interna (CBM Uberlândia)",    "date": "Junho 2026",            "completed": false },
+      { "label": "TBR - Etapa Regional Triângulo Mineiro",  "date": "Agosto / Setembro 2026","completed": false },
+      { "label": "TBR - Etapa Nacional",                    "date": "Novembro / Dezembro 2026","completed": false }
     ]
   }
 ]
