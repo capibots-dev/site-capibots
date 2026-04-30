@@ -12,10 +12,74 @@ import {
   Calendar,
   CheckCircle2,
   Circle,
+  FlaskConical,
+  Bot,
+  ClipboardList,
+  Sprout,
 } from 'lucide-react';
 import projectsData from '@/data/projects.json';
 import achievementsData from '@/data/achievements.json';
 import blogData from '@/data/blog.json';
+import teamData from '@/data/team.json';
+
+const dimensoes = [
+  {
+    icon: FlaskConical,
+    label: 'Mérito Científico',
+    color: 'from-orange-400 to-orange-600',
+    badgeClass: 'bg-orange-100 text-orange-700 border-orange-200',
+    items: [
+      'Tema: ODS 4 — Educação de Qualidade',
+      'Pesquisa sobre inclusão e acesso à educação',
+      'Solução digital inovadora em desenvolvimento',
+    ],
+    cta: { label: 'Ver projeto', to: '/projetos/tbr-2026', external: false },
+  },
+  {
+    icon: Bot,
+    label: 'Desafio Prático',
+    color: 'from-blue-400 to-blue-600',
+    badgeClass: 'bg-blue-100 text-blue-700 border-blue-200',
+    items: [
+      'Robô: Lego Spike Prime',
+      'Tapete 2026: missões em ambiente escolar',
+      '1º lugar no Desafio Prático — Regional 2025',
+    ],
+    cta: { label: 'Por Dentro do Robô', to: '/blog', external: false },
+  },
+  {
+    icon: ClipboardList,
+    label: 'Organização & Método',
+    color: 'from-purple-400 to-purple-600',
+    badgeClass: 'bg-purple-100 text-purple-700 border-purple-200',
+    items: [
+      '9 integrantes com papéis definidos',
+      'Trello, Google Forms e Canva',
+      'Reuniões semanais e cronograma estruturado',
+    ],
+    cta: { label: 'Conheça a equipe', to: '/sobre', external: false },
+  },
+  {
+    icon: Sprout,
+    label: 'Desenvolvimento Humano',
+    color: 'from-green-400 to-green-600',
+    badgeClass: 'bg-green-100 text-green-700 border-green-200',
+    items: [
+      'Entrevista na TV Paranaíba',
+      '800+ seguidores no Instagram',
+      'Impacto real: doação de mudas nativas',
+    ],
+    cta: { label: 'Nossa história', to: '/sobre', external: false },
+  },
+];
+
+const categoryColor: Record<string, string> = {
+  Programação: 'bg-primary/10 text-primary border-primary/20',
+  Posicionamento: 'bg-secondary/10 text-secondary border-secondary/20',
+  Ciência: 'bg-orange-100 text-orange-700 border-orange-200',
+  Engenharia: 'bg-purple-100 text-purple-700 border-purple-200',
+  Organização: 'bg-pink-100 text-pink-700 border-pink-200',
+};
 
 const Index = () => {
   const activeProject =
@@ -37,7 +101,7 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto animate-fade-in">
             <Badge className="mb-6 bg-white/20 text-white border-white/30 text-sm px-4 py-1">
-              🤖 Temporada TBR 2026 em andamento
+              🤖 Temporada TBR 2026 em andamento · ODS 4 — Educação de Qualidade
             </Badge>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Unidos como capivaras,
@@ -45,23 +109,14 @@ const Index = () => {
               <span className="text-yellow-300">espertos como robôs!</span>
             </h1>
             <p className="text-xl md:text-2xl mb-10 text-white/90 max-w-2xl mx-auto">
-              Jovens inovadores de 9 e 10 anos de Uberlândia, apaixonados por
-              robótica, tecnologia e trabalho em equipe.
+              9 jovens inovadores de Uberlândia competindo no Torneio Brasil de Robótica
+              com tecnologia, ciência e muito trabalho em equipe.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-white text-primary hover:bg-white/90 text-base px-8"
-              >
-                <Link to="/projetos">Ver Nossos Projetos</Link>
+              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 text-base px-8">
+                <Link to="/projetos">Nossos Projetos</Link>
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="bg-transparent border-white text-white hover:bg-white hover:text-primary text-base px-8"
-              >
+              <Button asChild variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-primary text-base px-8">
                 <Link to="/sobre">Conhecer a Equipe</Link>
               </Button>
             </div>
@@ -69,7 +124,26 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── Projeto em andamento ── */}
+      {/* ── Stats strip ── */}
+      <section className="bg-foreground text-background py-6">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { value: '9', label: 'Integrantes' },
+              { value: 'TBR 2026', label: '2ª Temporada' },
+              { value: 'ODS 4', label: 'Educação de Qualidade' },
+              { value: '🏆 3º', label: 'Etapa Nacional 2025' },
+            ].map((s) => (
+              <div key={s.label}>
+                <p className="text-2xl md:text-3xl font-bold text-primary">{s.value}</p>
+                <p className="text-xs uppercase tracking-widest opacity-70 mt-1">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Projeto TBR 2026 ── */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -81,36 +155,38 @@ const Index = () => {
           </div>
 
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-            {/* Info + progresso */}
+            {/* Problema & Solução */}
             <div>
               <div className="flex items-center gap-4 mb-6">
                 {activeProject.image.startsWith('/') ? (
-                  <img
-                    src={activeProject.image}
-                    alt={activeProject.title}
-                    className="h-16 w-16 object-contain"
-                  />
+                  <img src={activeProject.image} alt={activeProject.title} className="h-16 w-16 object-contain" />
                 ) : (
                   <span className="text-5xl">{activeProject.image}</span>
                 )}
                 <div>
                   <div className="flex gap-2 flex-wrap mb-1">
-                    <Badge className="bg-primary/10 text-primary border-0">
-                      {activeProject.category}
-                    </Badge>
-                    <Badge className="bg-green-100 text-green-700 border-0">
-                      {activeProject.status}
-                    </Badge>
+                    <Badge className="bg-primary/10 text-primary border-0">{activeProject.category}</Badge>
+                    <Badge className="bg-green-100 text-green-700 border-0">{activeProject.status}</Badge>
                   </div>
                   <p className="text-sm text-muted-foreground">{activeProject.period}</p>
                 </div>
               </div>
 
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                {activeProject.description.slice(0, 280)}…
-              </p>
+              <div className="space-y-4 mb-6">
+                <div className="p-4 bg-orange-50 border border-orange-200 rounded-lg">
+                  <p className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-1">O Problema</p>
+                  <p className="text-sm text-foreground leading-relaxed">
+                    Como garantir educação inclusiva e de qualidade para crianças e jovens? O ODS 4 aponta que milhões ainda enfrentam barreiras de acesso, permanência e aprendizagem.
+                  </p>
+                </div>
+                <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="text-xs font-bold uppercase tracking-wider text-green-600 mb-1">Nossa Solução</p>
+                  <p className="text-sm text-foreground leading-relaxed">
+                    {activeProject.description.slice(0, 220)}…
+                  </p>
+                </div>
+              </div>
 
-              {/* Barra de progresso */}
               <div className="mb-6">
                 <div className="flex justify-between text-sm mb-2">
                   <span className="font-medium">Progresso da temporada</span>
@@ -126,10 +202,7 @@ const Index = () => {
 
               <div className="flex flex-wrap gap-2 mb-8">
                 {activeProject.technologies.slice(0, 4).map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
-                  >
+                  <span key={tech} className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
                     {tech}
                   </span>
                 ))}
@@ -143,7 +216,7 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Timeline vertical de etapas */}
+            {/* Timeline de etapas */}
             <div>
               <h3 className="font-semibold text-lg mb-6">Etapas da temporada</h3>
               <div className="space-y-1">
@@ -164,19 +237,11 @@ const Index = () => {
                         )}
                       </div>
                       {i < activeProject.timeline.length - 1 && (
-                        <div
-                          className={`w-0.5 h-10 mt-1 ${
-                            item.completed ? 'bg-primary' : 'bg-border'
-                          }`}
-                        />
+                        <div className={`w-0.5 h-10 mt-1 ${item.completed ? 'bg-primary' : 'bg-border'}`} />
                       )}
                     </div>
                     <div className="pb-2 pt-1">
-                      <p
-                        className={`font-medium text-sm leading-snug ${
-                          item.completed ? 'text-foreground' : 'text-muted-foreground'
-                        }`}
-                      >
+                      <p className={`font-medium text-sm leading-snug ${item.completed ? 'text-foreground' : 'text-muted-foreground'}`}>
                         {item.label}
                       </p>
                       <p className="text-xs text-muted-foreground mt-0.5">{item.date}</p>
@@ -189,55 +254,101 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── Banner Loja ── */}
-      <section className="py-10 bg-muted/30">
+      {/* ── As 4 Dimensões ── */}
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <a
-            href="https://capibots-dev.github.io/loja-capibots/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block max-w-5xl mx-auto group"
-          >
-            <div className="bg-gradient-to-r from-yellow-400 via-orange-400 to-orange-500 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-[1.01]">
-              <div className="flex items-center gap-5">
-                <div className="bg-white/30 rounded-2xl p-4 flex-shrink-0">
-                  <ShoppingBag className="h-10 w-10 text-white" />
+          <div className="text-center mb-4">
+            <Badge variant="outline" className="text-primary border-primary mb-3">
+              Fichas de Avaliação TBR
+            </Badge>
+            <h2 className="text-4xl font-bold text-gradient">As 4 Dimensões</h2>
+            <p className="text-muted-foreground mt-3 text-lg max-w-2xl mx-auto">
+              O TBR avalia equipes em quatro dimensões. Veja como os Capibots trabalham cada uma delas.
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {dimensoes.map((d) => (
+              <Card key={d.label} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                <CardContent className="p-0">
+                  <div className={`h-2 bg-gradient-to-r ${d.color}`} />
+                  <div className="p-5">
+                    <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border mb-4 ${d.badgeClass}`}>
+                      <d.icon className="h-3.5 w-3.5" />
+                      {d.label}
+                    </div>
+                    <ul className="space-y-2 mb-5">
+                      {d.items.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button asChild variant="outline" size="sm" className="w-full text-xs">
+                      <Link to={d.cta.to}>
+                        {d.cta.label}
+                        <ArrowRight className="ml-1 h-3 w-3" />
+                      </Link>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── A Equipe ── */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gradient">A Equipe</h2>
+            <p className="text-muted-foreground mt-3 text-lg max-w-2xl mx-auto">
+              9 integrantes com papéis complementares — de programadores a organizadores, cientistas e posicionadores.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-3 max-w-5xl mx-auto mb-8">
+            {teamData.map((member) => (
+              <div key={member.name} className="flex flex-col items-center text-center group">
+                <div className="w-16 h-16 md:w-14 md:h-14 rounded-full overflow-hidden bg-gradient-to-br from-primary to-secondary mb-2 flex-shrink-0 ring-2 ring-transparent group-hover:ring-primary transition-all duration-200">
+                  {member.image ? (
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-white text-xl font-bold">
+                      {member.name[0]}
+                    </div>
+                  )}
                 </div>
-                <div className="text-white">
-                  <p className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1">
-                    Novidade
-                  </p>
-                  <h3 className="text-2xl md:text-3xl font-bold leading-tight">
-                    Loja Capibots 🛒
-                  </h3>
-                  <p className="text-white/90 mt-1 text-sm md:text-base">
-                    Produtos exclusivos da equipe. Apoie e vista a camisa do time!
-                  </p>
-                </div>
+                <p className="text-xs font-semibold leading-tight">{member.name}</p>
+                <span className={`mt-1 px-1.5 py-0.5 rounded text-[10px] font-medium border ${categoryColor[member.category] ?? 'bg-muted text-muted-foreground border-border'}`}>
+                  {member.role}
+                </span>
               </div>
-              <div className="flex-shrink-0">
-                <div className="bg-white text-orange-500 font-bold px-8 py-3 rounded-full text-base group-hover:bg-orange-50 transition-colors flex items-center gap-2 whitespace-nowrap">
-                  Acessar a Loja
-                  <ArrowRight className="h-4 w-4" />
-                </div>
-              </div>
-            </div>
-          </a>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Button asChild variant="outline" size="lg">
+              <Link to="/sobre">
+                Conheça cada integrante
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
       {/* ── Timeline horizontal de conquistas ── */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <h2 className="text-4xl font-bold mb-4 text-gradient">Conquistas</h2>
-            <p className="text-xl text-muted-foreground">
-              Nossa jornada de vitórias e aprendizados
-            </p>
+            <p className="text-xl text-muted-foreground">Nossa jornada de vitórias e aprendizados</p>
           </div>
 
           <div className="max-w-5xl mx-auto relative">
-            {/* Linha conectora — desktop */}
             <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-primary via-secondary to-primary" />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -246,16 +357,11 @@ const Index = () => {
                   <div className="relative z-10 h-16 w-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg mb-4">
                     <Trophy className="h-7 w-7 text-white" />
                   </div>
-                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
-                    {ach.date}
-                  </p>
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">{ach.date}</p>
                   <h3 className="font-bold text-sm mb-4 leading-snug px-2">{ach.title}</h3>
                   <div className="flex flex-col gap-1.5 items-center">
                     {ach.awards.map((award) => (
-                      <Badge
-                        key={award}
-                        className="bg-primary/10 text-primary border-0 text-xs px-3"
-                      >
+                      <Badge key={award} className="bg-primary/10 text-primary border-0 text-xs px-3">
                         🏆 {award}
                       </Badge>
                     ))}
@@ -273,7 +379,40 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── Últimas notícias em destaque ── */}
+      {/* ── Banner Loja ── */}
+      <section className="py-10 bg-background">
+        <div className="container mx-auto px-4">
+          <a
+            href="https://capibots-dev.github.io/loja-capibots/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block max-w-5xl mx-auto group"
+          >
+            <div className="bg-gradient-to-r from-yellow-400 via-orange-400 to-orange-500 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-[1.01]">
+              <div className="flex items-center gap-5">
+                <div className="bg-white/30 rounded-2xl p-4 flex-shrink-0">
+                  <ShoppingBag className="h-10 w-10 text-white" />
+                </div>
+                <div className="text-white">
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1">Novidade</p>
+                  <h3 className="text-2xl md:text-3xl font-bold leading-tight">Loja Capibots 🛒</h3>
+                  <p className="text-white/90 mt-1 text-sm md:text-base">
+                    Produtos exclusivos da equipe. Apoie e vista a camisa do time!
+                  </p>
+                </div>
+              </div>
+              <div className="flex-shrink-0">
+                <div className="bg-white text-orange-500 font-bold px-8 py-3 rounded-full text-base group-hover:bg-orange-50 transition-colors flex items-center gap-2 whitespace-nowrap">
+                  Acessar a Loja
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      {/* ── Últimas notícias ── */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -284,17 +423,12 @@ const Index = () => {
           </div>
 
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-            {/* Post em destaque */}
             {latestPosts[0] && (
               <Card className="md:col-span-2 group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                 <CardContent className="p-0">
                   <div className="h-56 bg-gradient-to-br from-primary to-secondary flex items-center justify-center overflow-hidden">
                     {latestPosts[0].image.startsWith('/') ? (
-                      <img
-                        src={latestPosts[0].image}
-                        alt={latestPosts[0].title}
-                        className="w-full h-full object-cover"
-                      />
+                      <img src={latestPosts[0].image} alt={latestPosts[0].title} className="w-full h-full object-cover" />
                     ) : (
                       <span className="text-7xl">{latestPosts[0].image}</span>
                     )}
@@ -303,20 +437,15 @@ const Index = () => {
                     <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
                       <Calendar className="h-3 w-3" />
                       {latestPosts[0].date}
-                      <Badge variant="outline" className="ml-auto text-xs">
-                        {latestPosts[0].category}
-                      </Badge>
+                      <Badge variant="outline" className="ml-auto text-xs">{latestPosts[0].category}</Badge>
                     </div>
                     <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors line-clamp-2">
                       {latestPosts[0].title}
                     </h3>
-                    <p className="text-sm text-muted-foreground mb-5 line-clamp-3">
-                      {latestPosts[0].excerpt}
-                    </p>
+                    <p className="text-sm text-muted-foreground mb-5 line-clamp-3">{latestPosts[0].excerpt}</p>
                     <Button asChild size="sm">
                       <Link to={`/blog/${latestPosts[0].id}`}>
-                        Ler Mais
-                        <ArrowRight className="ml-2 h-3 w-3" />
+                        Ler Mais <ArrowRight className="ml-2 h-3 w-3" />
                       </Link>
                     </Button>
                   </div>
@@ -324,21 +453,13 @@ const Index = () => {
               </Card>
             )}
 
-            {/* Posts menores */}
             <div className="flex flex-col gap-6">
               {latestPosts.slice(1).map((post) => (
-                <Card
-                  key={post.id}
-                  className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden flex-1"
-                >
+                <Card key={post.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden flex-1">
                   <CardContent className="p-0">
                     <div className="h-28 bg-gradient-to-br from-primary to-secondary flex items-center justify-center overflow-hidden">
                       {post.image.startsWith('/') ? (
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-full object-cover"
-                        />
+                        <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
                       ) : (
                         <span className="text-4xl">{post.image}</span>
                       )}
@@ -353,8 +474,7 @@ const Index = () => {
                       </h3>
                       <Button asChild variant="outline" size="sm" className="w-full text-xs h-7">
                         <Link to={`/blog/${post.id}`}>
-                          Ler Mais
-                          <ArrowRight className="ml-1 h-3 w-3" />
+                          Ler Mais <ArrowRight className="ml-1 h-3 w-3" />
                         </Link>
                       </Button>
                     </div>
@@ -388,24 +508,11 @@ const Index = () => {
             Conecte-se conosco nas redes sociais!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-white text-primary hover:bg-white/90"
-            >
+            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
               <Link to="/contato">Entre em Contato</Link>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
-            >
-              <a
-                href="https://instagram.com/equipecapibots"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            <Button asChild variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
+              <a href="https://instagram.com/equipecapibots" target="_blank" rel="noopener noreferrer">
                 Siga no Instagram
               </a>
             </Button>

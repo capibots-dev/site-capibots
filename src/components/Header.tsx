@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShoppingBag } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,9 +23,9 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <img 
-              src="/lovable-uploads/b61c479b-20cc-4f10-a78f-3e1eed742e8e.png" 
-              alt="Capibots Logo" 
+            <img
+              src="/lovable-uploads/b61c479b-20cc-4f10-a78f-3e1eed742e8e.png"
+              alt="Capibots Logo"
               className="h-10 w-auto"
             />
             <span className="font-bold text-xl text-gradient">Capibots</span>
@@ -38,14 +38,21 @@ const Header = () => {
                 key={item.name}
                 to={item.href}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(item.href) 
-                    ? 'text-primary' 
-                    : 'text-muted-foreground'
+                  isActive(item.href) ? 'text-primary' : 'text-muted-foreground'
                 }`}
               >
                 {item.name}
               </Link>
             ))}
+            <a
+              href="https://capibots-dev.github.io/loja-capibots/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm font-semibold text-orange-500 hover:text-orange-600 transition-colors"
+            >
+              <ShoppingBag className="h-4 w-4" />
+              Loja
+            </a>
           </nav>
 
           {/* Mobile menu button */}
@@ -68,15 +75,23 @@ const Header = () => {
                   key={item.name}
                   to={item.href}
                   className={`text-sm font-medium transition-colors hover:text-primary ${
-                    isActive(item.href) 
-                      ? 'text-primary' 
-                      : 'text-muted-foreground'
+                    isActive(item.href) ? 'text-primary' : 'text-muted-foreground'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
+              <a
+                href="https://capibots-dev.github.io/loja-capibots/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-sm font-semibold text-orange-500 hover:text-orange-600 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <ShoppingBag className="h-4 w-4" />
+                Loja
+              </a>
             </nav>
           </div>
         )}
