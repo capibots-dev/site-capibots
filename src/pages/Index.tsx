@@ -124,18 +124,22 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── Stats strip ── */}
+      {/* ── Stats strip — Conquistas 2025 ── */}
       <section className="bg-foreground text-background py-5">
         <div className="container mx-auto px-4">
+          <p className="text-center text-[9px] md:text-[10px] uppercase tracking-widest opacity-50 font-semibold mb-3 flex items-center justify-center gap-1.5">
+            <Trophy className="h-3 w-3 text-primary" />
+            Conquistas da Temporada 2025
+          </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             {[
-              { value: '9', label: 'Integrantes' },
-              { value: 'TBR 2026', label: '2ª Temporada' },
-              { value: 'ODS 4', label: 'Educação de Qualidade' },
-              { value: '🏆 3º', label: 'Etapa Nacional 2025' },
+              { value: '🏆 Campeã Geral', label: 'Torneio Interno · Mar/2025' },
+              { value: '🥇 1º Desafio Prático', label: 'Etapa Regional · Ago/2025' },
+              { value: '🥈 2º lugar geral', label: 'Etapa Regional · Ago/2025' },
+              { value: '🥉 3º lugar nacional', label: 'Etapa Nacional · Dez/2025' },
             ].map((s) => (
               <div key={s.label}>
-                <p className="text-xl md:text-2xl font-bold text-primary">{s.value}</p>
+                <p className="text-sm md:text-base font-bold text-primary leading-snug">{s.value}</p>
                 <p className="text-[10px] md:text-xs uppercase tracking-widest opacity-70 mt-0.5">{s.label}</p>
               </div>
             ))}
