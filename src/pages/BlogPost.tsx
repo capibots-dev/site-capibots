@@ -196,13 +196,13 @@ const BlogPost = () => {
             </Link>
           </Button>
           
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-4 mb-4">
               <Badge>{post.category}</Badge>
               <span className="text-sm text-muted-foreground">{post.readTime} de leitura</span>
             </div>
-            
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+
+            <h1 className="text-2xl md:text-4xl font-bold mb-5 text-gradient">
               {post.title}
             </h1>
             
@@ -230,18 +230,18 @@ const BlogPost = () => {
       {/* Article Content */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <Card>
-              <CardContent className="p-8">
-                <div className="h-64 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-8">
+              <CardContent className="p-6 md:p-8">
+                <div className="h-56 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-8">
                   {post.image.startsWith('/') ? (
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover rounded-lg" />
                   ) : (
                     <span className="text-8xl">{post.image}</span>
                   )}
                 </div>
-                
-                <div className="prose prose-lg max-w-none">
+
+                <div className="prose prose-lg max-w-prose mx-auto">
                   {post.content.split('\n').map((paragraph, index) => {
                     if (paragraph.startsWith('## ')) {
                       return (
@@ -289,9 +289,9 @@ const BlogPost = () => {
       </section>
 
       {/* Related Posts */}
-      <section className="py-12 bg-muted/30">
+      <section className="py-8 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl font-bold mb-8">Continue Lendo</h2>
             <Button asChild size="lg">
               <Link to="/blog">Ver Mais Posts</Link>

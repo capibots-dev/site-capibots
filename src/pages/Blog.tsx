@@ -22,10 +22,10 @@ const Blog = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="py-20 gradient-orange-green text-white">
+      <section className="py-10 md:py-14 gradient-orange-green text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-6">Blog & Notícias</h1>
-          <p className="text-xl max-w-3xl mx-auto text-white/90">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">Blog & Notícias</h1>
+          <p className="text-base md:text-lg max-w-2xl mx-auto text-white/90">
             Acompanhe nossas últimas atividades, conquistas, aprendizados e
             todas as novidades da equipe Capibots.
           </p>
@@ -49,7 +49,7 @@ const Blog = () => {
       </section>
 
       {/* Posts Grid */}
-      <section className="py-16 bg-background">
+      <section className="py-10 md:py-14 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
             {allPosts.map((post) => (
@@ -103,7 +103,7 @@ const Blog = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-10 md:py-14 bg-muted/30">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold mb-4 text-gradient">Fique por Dentro</h2>

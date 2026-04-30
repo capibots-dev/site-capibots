@@ -50,25 +50,25 @@ const ProjectDetail = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 gradient-orange-green text-white">
+      <section className="py-10 md:py-14 gradient-orange-green text-white">
         <div className="container mx-auto px-4">
-          <Button asChild variant="outline" className="mb-8 bg-transparent border-white text-white hover:bg-white hover:text-primary">
+          <Button asChild variant="outline" className="mb-6 bg-transparent border-white text-white hover:bg-white hover:text-primary">
             <Link to="/projetos">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Voltar aos Projetos
             </Link>
           </Button>
-          
+
           <div className="max-w-4xl">
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center gap-4 mb-5">
               {project.image.startsWith('/') ? (
-                <img src={project.image} alt={project.title} className="h-20 w-auto object-contain" />
+                <img src={project.image} alt={project.title} className="h-16 w-auto object-contain" />
               ) : (
-                <span className="text-6xl">{project.image}</span>
+                <span className="text-5xl">{project.image}</span>
               )}
               <div>
-                <h1 className="text-5xl font-bold mb-2">{project.title}</h1>
-                <p className="text-2xl text-white/80">{project.subtitle}</p>
+                <h1 className="text-3xl md:text-4xl font-bold mb-1">{project.title}</h1>
+                <p className="text-lg text-white/80">{project.subtitle}</p>
               </div>
             </div>
             
@@ -90,7 +90,7 @@ const ProjectDetail = () => {
       </section>
 
       {/* Project Overview */}
-      <section className="py-20 bg-background">
+      <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
