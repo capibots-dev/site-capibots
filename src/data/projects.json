@@ -1,27 +1,27 @@
 [
   {
     "id": "tbr-2025",
-    "image": "🤖",
+    "image": "/images/projects/logo-tbr-2025.png",
     "title": "TBR 2025",
     "subtitle": "Torneio Brasil de Robótica 2025",
     "summary": "Desenvolvimento da CerradoTech para o TBR 2025, com o desafio do ODS 15 - Vida Terrestre",
     "description": "Desenvolvimento da CerradoTech, uma plataforma na internet com ferramentas e muito conteúdo para ajudar na criação de uma rede de colaboradores com o propósito de regenerar a vegetação do Cerrado. Além da plataforma, que cobre a proposta de Mérito Científico do TBR, também utilizamos o robô Lego Spike para cumprir com as missões do Desafio Prático da categoria Kids 2.",
-    "status": "Em desenvolvimento",
+    "status": "Concluído",
     "period": "Abr/2025 a Dez/2025",
     "startDate": "Abril 2025",
     "expectedCompletion": "Dezembro 2025",
     "technologies": ["Geolocalização", "Cruzamento de Dados", "Inteligência Artificial", "APIs Python", "Ferramentas de Prototipação", "Lego Spike"],
     "category": "Kids 2",
-    "progress": 80,
+    "progress": 100,
     "challenges": [
       "Aprender novas tecnologias",
       "Custo para viabilizar o projeto",
       "Dedicar tempo às atividades"
     ],
     "solutions": [
-      "Contar com apoio dos professores e mentora",
-      "Realizar ações empreendedoras",
-      "Apoio incondicional das famílias"
+      "Cerrado Tech",
+      "Quiz sobre o Cerrado",
+      "Jogo: Capivara e Robozinho - Cuidando do Cerrado"
     ],
     "goals": [
       "Participar com sucesso no TBR 2025",
@@ -43,10 +43,37 @@
       "Sophia"
     ],
     "timeline": [
-      { "label": "Formação do Time",                     "date": "Abril 2025",    "completed": true  },
-      { "label": "TBR - Etapa Interna (CBM Uberlândia)", "date": "Junho 2025",    "completed": true  },
-      { "label": "TBR - Etapa Regional Triângulo Mineiro","date": "Novembro 2025", "completed": false },
-      { "label": "TBR - Etapa Nacional",                 "date": "Dezembro 2025", "completed": false }
+      { "label": "Formação do Time",                     "date": "Abril 2025",    "completed": true },
+      { "label": "TBR - Etapa Interna (CBM Uberlândia)", "date": "Junho 2025",    "completed": true },
+      { "label": "TBR - Etapa Regional Triângulo Mineiro","date": "Agosto 2025",  "completed": true },
+      { "label": "TBR - Etapa Nacional",                 "date": "Dezembro 2025", "completed": true }
+    ]
+  },
+  {
+    "id": "tbr-2026",
+    "image": "/images/projects/logo_tbr_2026.png",
+    "title": "TBR 2026",
+    "subtitle": "Torneio Brasil de Robótica 2026",
+    "summary": "Nova temporada dos Capibots no TBR 2026 — a jornada está apenas começando.",
+    "description": "Os Capibots estão se preparando para mais uma temporada no Torneio Brasil de Robótica. Com a experiência conquistada em 2025 e o espírito de quem subiu ao pódio nacional na primeira participação, a equipe chega em 2026 ainda mais motivada. Os detalhes do projeto serão revelados ao longo da temporada.",
+    "status": "Em desenvolvimento",
+    "period": "2026",
+    "startDate": "2026",
+    "expectedCompletion": "Dezembro 2026",
+    "technologies": ["Lego Spike"],
+    "category": "Kids 2",
+    "progress": 5,
+    "challenges": [],
+    "solutions": [],
+    "goals": [
+      "Superar os resultados da temporada 2025"
+    ],
+    "teamMembers": [
+      "Tia Lorena [Técnica]",
+      "Tia Karol [Mentora]"
+    ],
+    "timeline": [
+      { "label": "Início da temporada 2026", "date": "2026", "completed": false }
     ]
   }
 ]

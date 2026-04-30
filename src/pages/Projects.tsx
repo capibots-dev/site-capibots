@@ -109,7 +109,11 @@ const Projects = () => {
                 <CardContent className="p-0">
                   {/* Project Header */}
                   <div className="h-48 bg-gradient-to-br from-primary to-secondary flex items-center justify-center relative overflow-hidden">
-                    <span className="text-8xl">{project.image}</span>
+                    {project.image.startsWith('/') ? (
+                      <img src={project.image} alt={project.title} className="h-full w-full object-contain p-6" />
+                    ) : (
+                      <span className="text-8xl">{project.image}</span>
+                    )}
                     <div className="absolute top-4 right-4">
                       <Badge className={`${getStatusColor(project.status)} border`}>
                         {project.status}

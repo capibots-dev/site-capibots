@@ -3,11 +3,13 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import TeamMemberCard from '@/components/TeamMemberCard';
 import { Card, CardContent } from '@/components/ui/card';
-import { Target, Heart, Zap, Users } from 'lucide-react';
+import { Target, Heart, Zap, Users, Trophy } from 'lucide-react';
 import teamData from '@/data/team.json';
+import achievementsData from '@/data/achievements.json';
 
 const About = () => {
   const teamMembers = teamData;
+  const achievements = achievementsData;
 
   const values = [
     {
@@ -198,8 +200,64 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Members Grid */}
+      {/* Achievements Timeline */}
       <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-gradient">Nossas Conquistas</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Cada troféu é o resultado do esforço coletivo, da dedicação e do espírito de equipe que nos une como capivaras.
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto relative">
+            {/* vertical line */}
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent" />
+
+            <div className="space-y-10">
+              {achievements.map((achievement) => (
+                <div key={achievement.id} className="relative flex gap-6 items-start">
+                  {/* dot */}
+                  <div className={`relative z-10 flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center shadow-lg ${achievement.highlight ? 'bg-gradient-to-br from-primary to-secondary' : 'bg-muted border-2 border-primary/30'}`}>
+                    <Trophy className={`h-7 w-7 ${achievement.highlight ? 'text-white' : 'text-primary'}`} />
+                  </div>
+
+                  {/* card */}
+                  <Card className={`flex-1 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${achievement.highlight ? 'border-primary/30' : ''}`}>
+                    {achievement.image && (
+                      <img
+                        src={achievement.image}
+                        alt={achievement.title}
+                        className="w-full h-56 object-cover rounded-t-lg"
+                      />
+                    )}
+                    <CardContent className="p-6">
+                      <div className="flex flex-wrap items-center gap-3 mb-2">
+                        <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{achievement.date}</span>
+                        {achievement.highlight && (
+                          <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 border border-yellow-200">Destaque</span>
+                        )}
+                      </div>
+                      <h3 className="text-xl font-bold mb-3">{achievement.title}</h3>
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {achievement.awards.map((award) => (
+                          <span key={award} className="px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
+                            🏆 {award}
+                          </span>
+                        ))}
+                      </div>
+                      <p className="text-sm text-muted-foreground">{achievement.description}</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Members Grid */}
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-6 text-gradient">Membros da Equipe</h2>

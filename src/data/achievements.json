@@ -1,0 +1,40 @@
+[
+  {
+    "id": "torneio-interno-2025",
+    "year": "2025",
+    "date": "Março 2025",
+    "title": "Torneio Interno 2025",
+    "awards": [
+      "Campeã Geral",
+      "Campeão do Desafio Prático"
+    ],
+    "description": "Na primeira competição interna da temporada, os Capibots dominaram as duas principais categorias, confirmando a força do time antes de partir para os desafios regionais.",
+    "image": "/images/achievments/2025/premiacao-capibots-interno-2025.jpg",
+    "highlight": true
+  },
+  {
+    "id": "etapa-regional-2025",
+    "year": "2025",
+    "date": "Agosto 2025",
+    "title": "Etapa Regional do TBR 2025 — Triângulo Mineiro",
+    "awards": [
+      "1º lugar no Desafio Prático",
+      "2º lugar geral"
+    ],
+    "description": "Na etapa regional realizada no Triângulo Mineiro, os Capibots brilharam no tapete com o Robôvara e conquistaram o troféu do Desafio Prático, além do 2º lugar na classificação geral — garantindo vaga na etapa nacional.",
+    "image": "/images/achievments/2025/premiacao-capibots-regional-2025.jpg",
+    "highlight": true
+  },
+  {
+    "id": "etapa-nacional-2025",
+    "year": "2025",
+    "date": "Dezembro 2025",
+    "title": "Etapa Nacional do TBR 2025",
+    "awards": [
+      "3º lugar geral — categoria Kids 2"
+    ],
+    "description": "Em sua primeira participação na etapa nacional, os Capibots subiram ao pódio com o 3º lugar geral na categoria Kids 2 — resultado que reflete excelência em todas as quatro dimensões avaliadas: Desafio Prático, Mérito Científico, Organização & Método e Desenvolvimento Humano.",
+    "image": "/images/achievments/2025/premiacao-capibots-nacional-2025.jpg",
+    "highlight": true
+  }
+]

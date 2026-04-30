@@ -61,7 +61,11 @@ const ProjectDetail = () => {
           
           <div className="max-w-4xl">
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-6xl">{project.image}</span>
+              {project.image.startsWith('/') ? (
+                <img src={project.image} alt={project.title} className="h-20 w-auto object-contain" />
+              ) : (
+                <span className="text-6xl">{project.image}</span>
+              )}
               <div>
                 <h1 className="text-5xl font-bold mb-2">{project.title}</h1>
                 <p className="text-2xl text-white/80">{project.subtitle}</p>

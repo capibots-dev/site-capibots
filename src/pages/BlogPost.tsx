@@ -234,7 +234,11 @@ const BlogPost = () => {
             <Card>
               <CardContent className="p-8">
                 <div className="h-64 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-8">
-                  <span className="text-8xl">{post.image}</span>
+                  {post.image.startsWith('/') ? (
+                    <img src={post.image} alt={post.title} className="w-full h-full object-cover rounded-lg" />
+                  ) : (
+                    <span className="text-8xl">{post.image}</span>
+                  )}
                 </div>
                 
                 <div className="prose prose-lg max-w-none">

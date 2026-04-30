@@ -92,8 +92,12 @@ const Index = () => {
             {projects.map((project) => (
               <Card key={project.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
                 <CardContent className="p-6">
-                  <div className="h-40 bg-gradient-to-br from-primary to-secondary rounded-lg mb-4 flex items-center justify-center">
-                    <span className="text-white text-6xl">🤖</span>
+                  <div className="h-40 bg-gradient-to-br from-primary to-secondary rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                    {project.image.startsWith('/') ? (
+                      <img src={project.image} alt={project.title} className="h-full w-full object-contain p-4" />
+                    ) : (
+                      <span className="text-white text-6xl">{project.image}</span>
+                    )}
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                   <p className="text-muted-foreground mb-4">{project.summary}</p>
