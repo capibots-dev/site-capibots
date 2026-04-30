@@ -5,7 +5,9 @@ import { Calendar, ArrowRight } from 'lucide-react';
 import blogData from '@/data/blog.json';
 
 const LatestNews = () => {
+  const today = new Date().toISOString().slice(0, 10);
   const posts = [...blogData]
+    .filter((p) => p.date <= today)
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, 3);
 
