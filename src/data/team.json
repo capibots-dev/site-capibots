@@ -1,5 +1,6 @@
 [
   {
+    "slug": "arthur",
     "name": "Arthur",
     "role": "Posicionador",
     "category": "Posicionamento",
@@ -7,6 +8,7 @@
     "minibio": "O idealizador! Foi Arthur quem sonhou com a equipe antes mesmo de ela existir. Posicionador nato no robô e líder de espírito. Prova de que uma grande ideia pode mudar tudo."
   },
   {
+    "slug": "augusto",
     "name": "Augusto",
     "role": "Cientista",
     "category": "Ciência",
@@ -14,6 +16,7 @@
     "minibio": "Engenheiro de mãos habilidosas! Augusto é a força por trás da estrutura do robô, garantindo que cada peça encaixe perfeitamente. Resolve com criatividade o que a missão exige."
   },
   {
+    "slug": "gabriela",
     "name": "Gabriela",
     "role": "Organizadora",
     "category": "Organização",
@@ -21,6 +24,7 @@
     "minibio": "Triple ameaça! Gabriela atua como programadora, cientista e organizadora. Versátil e dedicada, é uma das pilares mais completas da equipe."
   },
   {
+    "slug": "joao-gomes",
     "name": "João Gomes",
     "role": "Engenheiro",
     "category": "Engenharia",
@@ -28,6 +32,7 @@
     "minibio": "Cientista e engenheiro! João combina raciocínio científico com habilidade técnica para entender os problemas e construir soluções sólidas. A base racional da equipe."
   },
   {
+    "slug": "lucca",
     "name": "Lucca",
     "role": "Programador",
     "category": "Programação",
@@ -35,6 +40,7 @@
     "minibio": "Código é a sua língua! Lucca é um dos programadores do robô, transformando lógica em movimento com precisão. Adora um desafio e não descansa até o código rodar certo."
   },
   {
+    "slug": "luisa",
     "name": "Luisa",
     "role": "Posicionadora",
     "category": "Posicionamento",
@@ -42,6 +48,7 @@
     "minibio": "Olho no alvo! Luísa é posicionadora, responsável por garantir que o robô parta do lugar certo na hora certa. Concentração e calma são as suas marcas registradas."
   },
   {
+    "slug": "manuela",
     "name": "Manuela",
     "role": "Organizadora",
     "category": "Organização",
@@ -49,6 +56,7 @@
     "minibio": "Organização é o seu superpoder! Manuela garante que a equipe funcione como uma máquina bem azeitada, mantendo tudo nos trilhos com eficiência e cuidado."
   },
   {
+    "slug": "nicolas",
     "name": "Nicolas",
     "role": "Programador",
     "category": "Programação",
@@ -56,6 +64,7 @@
     "minibio": "Programador de plantão! Nicolas escreve os comandos que fazem o robô tomar decisões certeiras no tapete. Tranquilo na aparência, estratégico na essência."
   },
   {
+    "slug": "sophia",
     "name": "Sophia",
     "role": "Organizadora",
     "category": "Organização",

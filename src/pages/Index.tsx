@@ -309,9 +309,13 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-3 max-w-5xl mx-auto mb-8">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 gap-3 max-w-5xl mx-auto">
             {teamData.map((member) => (
-              <div key={member.name} className="flex flex-col items-center text-center group">
+              <Link
+                key={member.name}
+                to={`/equipe/${member.slug}`}
+                className="flex flex-col items-center text-center group"
+              >
                 <div className="w-16 h-16 md:w-14 md:h-14 rounded-full overflow-hidden bg-gradient-to-br from-primary to-secondary mb-2 flex-shrink-0 ring-2 ring-transparent group-hover:ring-primary transition-all duration-200">
                   {member.image ? (
                     <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
@@ -321,21 +325,12 @@ const Index = () => {
                     </div>
                   )}
                 </div>
-                <p className="text-xs font-semibold leading-tight">{member.name}</p>
+                <p className="text-xs font-semibold leading-tight group-hover:text-primary transition-colors">{member.name}</p>
                 <span className={`mt-1 px-1.5 py-0.5 rounded text-[10px] font-medium border ${categoryColor[member.category] ?? 'bg-muted text-muted-foreground border-border'}`}>
                   {member.role}
                 </span>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Button asChild variant="outline" size="lg">
-              <Link to="/sobre">
-                Conheça cada integrante
-                <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
-            </Button>
+            ))}
           </div>
         </div>
       </section>
