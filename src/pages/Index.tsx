@@ -37,7 +37,7 @@ const Index = () => {
               <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
                 <Link to="/projetos">Conheça Nossos Projetos</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+              <Button asChild variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
                 <Link to="/sobre">Sobre a Equipe</Link>
               </Button>
             </div>
@@ -142,7 +142,7 @@ const Index = () => {
             <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
               <Link to="/contato">Entre em Contato</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+            <Button asChild variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
               <a href="https://instagram.com/equipecapibots" target="_blank" rel="noopener noreferrer">
                 <Instagram className="mr-2 h-4 w-4" />
                 Siga no Instagram

@@ -52,7 +52,7 @@ const ProjectDetail = () => {
       {/* Hero Section */}
       <section className="py-20 gradient-orange-green text-white">
         <div className="container mx-auto px-4">
-          <Button asChild variant="outline" className="mb-8 border-white text-white hover:bg-white hover:text-primary">
+          <Button asChild variant="outline" className="mb-8 bg-transparent border-white text-white hover:bg-white hover:text-primary">
             <Link to="/projetos">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Voltar aos Projetos
