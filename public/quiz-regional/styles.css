@@ -22,6 +22,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
 }
 
 body {
@@ -29,6 +31,9 @@ body {
     color: var(--cor-texto-escuro);
     position: relative;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 .background-container {
@@ -37,7 +42,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/cerrado_background.jpg');
+    background-image: url('images/educacao_background.jpg');
     background-size: cover;
     background-position: center;
     opacity: 0.3;
@@ -177,8 +182,10 @@ input[type="email"] {
     padding: 12px;
     border: 2px solid var(--cor-borda);
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 16px; /* >= 16px previne zoom automático no Android */
     transition: border-color 0.3s;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 input[type="text"]:focus,
@@ -198,9 +205,22 @@ input[type="email"]:focus {
     align-items: center;
 }
 
+.opcao-contato {
+    touch-action: manipulation;
+}
+
+.opcao-contato label {
+    cursor: pointer;
+    touch-action: manipulation;
+    padding: 8px 4px;
+}
+
 .opcao-contato input[type="radio"] {
     margin-right: 8px;
     accent-color: var(--cor-verde-primaria);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 
 .btn-iniciar {
@@ -216,10 +236,41 @@ input[type="email"]:focus {
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 30px;
+    touch-action: manipulation;
 }
 
 .btn-iniciar:hover {
     background-color: var(--cor-laranja-escura);
+}
+
+/* Botão da tela inicial */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    touch-action: manipulation;
+}
+
+.btn-primary {
+    background-color: var(--cor-laranja-primaria);
+    color: var(--cor-texto-claro);
+}
+
+.btn-primary:hover {
+    background-color: var(--cor-laranja-escura);
+}
+
+.btn-large {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    font-size: 1.3rem;
+    margin-top: 10px;
 }
 
 /* Tela de pergunta */
@@ -334,6 +385,9 @@ input[type="email"]:focus {
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .opcao:hover {
@@ -359,6 +413,7 @@ input[type="email"]:focus {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+    touch-action: manipulation;
 }
 
 .btn-proxima:hover {
@@ -448,6 +503,7 @@ input[type="email"]:focus {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+    touch-action: manipulation;
 }
 
 .btn-finalizar:hover {
@@ -529,6 +585,7 @@ input[type="email"]:focus {
     display: flex;
     align-items: center;
     gap: 8px;
+    touch-action: manipulation;
 }
 
 .btn-modal-premios:hover {
@@ -585,6 +642,13 @@ input[type="email"]:focus {
     top: 10px;
     right: 20px;
     cursor: pointer;
+    touch-action: manipulation;
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .close-button:hover,
