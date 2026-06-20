@@ -40,7 +40,7 @@ const quizDataEmbutido = {
       },
       {
         "nome": "Chaveiro Capiney",
-        "imagem": "images/robo_capibots.png",
+        "imagem": "images/chaveiro_capiney.jpeg",
         "quantidade": 34,
         "notaMinima": 85,
         "notaMaxima": 100
