@@ -25,394 +25,952 @@ const quizDataEmbutido = {
     "numeroQuestoesDificeis": 2,
     "brindes": [
       {
-        "nome": "Bottom Capibots",
-        "imagem": "images/bottom_capibots.jpg",
-        "quantidade": 60,
-        "notaMinima": 0,
-        "notaMaxima": 36
-      },
-      {
         "nome": "Lápis Ecológico",
         "imagem": "images/lapis_ecologico.jpg",
-        "quantidade": 70,
-        "notaMinima": 37,
-        "notaMaxima": 67
+        "quantidade": 33,
+        "notaMinima": 0,
+        "notaMaxima": 69
       },
       {
-        "nome": "Chaveiro de Capivara",
+        "nome": "Tag Capivara",
         "imagem": "images/chaveiro_capivara.jpg",
-        "quantidade": 100,
-        "notaMinima": 68,
-        "notaMaxima": 86
+        "quantidade": 48,
+        "notaMinima": 70,
+        "notaMaxima": 84
       },
       {
-        "nome": "Robô Capibots",
+        "nome": "Chaveiro Capiney",
         "imagem": "images/robo_capibots.png",
-        "quantidade": 70,
-        "notaMinima": 87,
+        "quantidade": 34,
+        "notaMinima": 85,
         "notaMaxima": 100
       }
     ]
   },
-  "perguntas": [
-    // Questões Fáceis
-    {
-      "id": 1,
-      "pergunta": "Qual destes animais é típico do Cerrado?",
-      "opcoes": ["Capivara", "Foca", "Urso Polar", "Águia Careca"],
-      "resposta": 0,
-      "pontos": 10,
-      "dificuldade": "Fácil"
+  "quiz": {
+    "titulo": "Capibot Aprende+ — Quiz do Estande",
+    "descricao": "50 questões de múltipla escolha para ativação no estande — conectividade, educação e tecnologia offline",
+    "equipe": "Capibots · TBR Kids 2 · Temporada 2026",
+    "tema": "ODS 4 — Educação, Trabalho e Sustentabilidade",
+    "total_questoes": 65,
+    "niveis": {
+      "1": "Fácil",
+      "2": "Médio",
+      "3": "Difícil",
+      "4": "Especialista"
     },
-    {
-      "id": 2,
-      "pergunta": "Qual fruta é conhecida pelo cheiro forte e sabor marcante no Cerrado?",
-      "opcoes": ["Banana", "Pequi", "Maçã", "Cajá"],
-      "resposta": 1,
-      "pontos": 10,
-      "dificuldade": "Fácil"
-    },
-    {
-      "id": 3,
-      "pergunta": "As árvores do Cerrado geralmente têm casca grossa para:",
-      "opcoes": ["Se proteger do frio", "Proteger-se contra o fogo", "Evitar o ataque de aves", "Guardar água"],
-      "resposta": 1,
-      "pontos": 10,
-      "dificuldade": "Fácil"
-    },
-    {
-      "id": 4,
-      "pergunta": "A regeneração do solo com plantas nativas é importante porque:",
-      "opcoes": ["Aumenta a venda de frutas", "Ajuda a reter água e nutrientes", "Evita o crescimento de grama", "Reduz o calor do verão"],
-      "resposta": 1,
-      "pontos": 10,
-      "dificuldade": "Fácil"
-    },
-    {
-      "id": 5,
-      "pergunta": "A cor da flor do ipê-roxo é:",
-      "opcoes": ["Amarela", "Branca", "Roxa", "Azul"],
-      "resposta": 2,
-      "pontos": 10,
-      "dificuldade": "Fácil"
-    },
-    {
-      "id": 6,
-      "pergunta": "Qual dessas ações ajuda a preservar o Cerrado?",
-      "opcoes": ["Queimar mato no verão", "Plantar espécies exóticas", "Reflorestar com espécies nativas", "Desmatar áreas para pasto"],
-      "resposta": 2,
-      "pontos": 10,
-      "dificuldade": "Fácil"
-    },
-    {
-      "id": 7,
-      "pergunta": "Quantos biomas existem no Brasil?",
-      "opcoes": ["3", "5", "6", "8"],
-      "resposta": 2,
-      "pontos": 10,
-      "dificuldade": "Fácil"
-    },
-    {
-      "id": 8,
-      "pergunta": "Cerrado é um bioma que se espalha principalmente pelo:",
-      "opcoes": ["Nordeste", "Centro-Oeste", "Sul", "Sudeste"],
-      "resposta": 1,
-      "pontos": 10,
-      "dificuldade": "Fácil"
-    },
-    {
-      "id": 9,
-      "pergunta": "Qual destes alimentos vem do Cerrado?",
-      "opcoes": ["Amora", "Pequi", "Morango", "Melancia"],
-      "resposta": 1,
-      "pontos": 10,
-      "dificuldade": "Fácil"
-    },
-    {
-      "id": 10,
-      "pergunta": "A palmeira buriti cresce principalmente em:",
-      "opcoes": ["Locais secos", "Áreas encharcadas como veredas", "Campos abertos", "Montanhas"],
-      "resposta": 1,
-      "pontos": 10,
-      "dificuldade": "Fácil"
-    },
-    {
-      "id": 11,
-      "pergunta": "O Cerrado é importante para o abastecimento de água porque:",
-      "opcoes": ["Tem muitas chuvas no verão", "Abriga nascentes de grandes rios", "Produz muita lama", "Fica perto do oceano"],
-      "resposta": 1,
-      "pontos": 10,
-      "dificuldade": "Fácil"
-    },
-    {
-      "id": 12,
-      "pergunta": "Qual é a principal característica das árvores do Cerrado?",
-      "opcoes": ["Troncos finos e retos", "Troncos tortuosos e cascas grossas", "Folhas grandes e largas", "Ausência de raízes profundas"],
-      "resposta": 1,
-      "pontos": 10,
-      "dificuldade": "Fácil"
-    },
-    {
-      "id": 13,
-      "pergunta": "O Cerrado é considerado o segundo maior bioma do Brasil. Qual é a sua área aproximada?",
-      "opcoes": ["1 milhão de km²", "2 milhões de km²", "3 milhões de km²", "4 milhões de km²"],
-      "resposta": 1,
-      "pontos": 10,
-      "dificuldade": "Fácil"
-    },
-    {
-      "id": 14,
-      "pergunta": "Qual é a principal adaptação das plantas do Cerrado para sobreviver à seca?",
-      "opcoes": ["Folhas pequenas", "Raízes profundas", "Caules ocos", "Flores grandes"],
-      "resposta": 1,
-      "pontos": 10,
-      "dificuldade": "Fácil"
-    },
-    {
-      "id": 15,
-      "pergunta": "Qual é a principal ameaça à biodiversidade do Cerrado atualmente?",
-      "opcoes": ["Caça predatória", "Mudanças climáticas", "Expansão da fronteira agrícola", "Extração de madeira"],
-      "resposta": 2,
-      "pontos": 10,
-      "dificuldade": "Fácil"
-    },
-    
-    // Questões Médias
-    {
-      "id": 16,
-      "pergunta": "O que significa a palavra 'fitofisionomia' no contexto do Cerrado?",
-      "opcoes": ["Tipo de clima", "Forma da vegetação", "Composição do solo", "Quantidade de água"],
-      "resposta": 1,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 17,
-      "pergunta": "Qual é a principal função das raízes profundas nas plantas do Cerrado?",
-      "opcoes": ["Captar luz solar", "Evitar erosão", "Buscar água em camadas profundas", "Fixar nutrientes"],
-      "resposta": 2,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 18,
-      "pergunta": "Por que o Cerrado é considerado um hotspot?",
-      "opcoes": ["Porque faz muito calor", "Por ter pouca água", "Por ser rico em biodiversidade e estar ameaçado", "Por ter vulcões"],
-      "resposta": 2,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 19,
-      "pergunta": "Qual desses nomes é uma planta do Cerrado?",
-      "opcoes": ["Girassol", "Laranjeira", "Ipê-roxo", "Jatobá"],
-      "resposta": 3,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 20,
-      "pergunta": "O que acontece quando se planta uma espécie no lugar errado no Cerrado?",
-      "opcoes": ["Ela cresce mais rápido", "Ajuda o solo", "Pode não sobreviver ou prejudicar o ambiente", "Aumenta os frutos"],
-      "resposta": 2,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 21,
-      "pergunta": "As fitofisionomias ajudam a entender:",
-      "opcoes": ["O que plantar em cada área do Cerrado", "O clima da região sul", "O número de animais", "O volume de chuvas no verão"],
-      "resposta": 0,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 22,
-      "pergunta": "O nome dado a áreas com árvores baixas e gramíneas no Cerrado é:",
-      "opcoes": ["Mata Atlântica", "Campo Limpo", "Pantanal", "Vereda"],
-      "resposta": 1,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 23,
-      "pergunta": "O que diferencia uma vereda de outras formações do Cerrado?",
-      "opcoes": ["Presença de árvores altas", "Solo seco e pedregoso", "Presença constante de água e buritis", "Vegetação rasteira e aberta"],
-      "resposta": 2,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 24,
-      "pergunta": "Por que a fitofisionomia é importante na escolha das espécies para plantio?",
-      "opcoes": ["Ajuda a deixar o solo mais fértil", "Define o tipo de animal que será atraído", "Indica quais espécies são mais adequadas ao local", "Evita a proliferação de insetos"],
-      "resposta": 2,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 25,
-      "pergunta": "O que significa dizer que o Cerrado é uma 'floresta invertida'?",
-      "opcoes": ["Tem árvores que crescem para baixo", "A maior parte da planta está no subsolo", "As folhas crescem no chão", "Os animais vivem enterrados"],
-      "resposta": 1,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 26,
-      "pergunta": "Por que a regeneração com espécies nativas é mais eficiente?",
-      "opcoes": ["São mais bonitas", "Crescem mais rápido", "Estão adaptadas ao ambiente e ajudam a recuperar o solo", "Necessitam de menos água"],
-      "resposta": 2,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 27,
-      "pergunta": "Por que a vegetação do Cerrado é considerada resiliente?",
-      "opcoes": ["Cresce muito rápido", "Tem folhas grandes", "Resiste ao fogo e à seca", "Tem flores coloridas"],
-      "resposta": 2,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 28,
-      "pergunta": "A escolha incorreta de uma espécie pode:",
-      "opcoes": ["Enriquecer o solo", "Aumentar a biodiversidade", "Prejudicar a regeneração e o equilíbrio do ecossistema", "Ajudar no reflorestamento"],
-      "resposta": 2,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 29,
-      "pergunta": "Qual dessas ações ajuda a manter a biodiversidade do Cerrado?",
-      "opcoes": ["Plantar eucalipto em grandes áreas", "Eliminar cupinzeiros", "Preservar áreas naturais e espécies nativas", "Caçar animais de grande porte"],
-      "resposta": 2,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 30,
-      "pergunta": "Qual é o principal fator que contribui para a degradação do Cerrado?",
-      "opcoes": ["Turismo excessivo", "Expansão urbana", "Expansão agropecuária", "Extração de minérios"],
-      "resposta": 2,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 31,
-      "pergunta": "Qual é a importância das veredas para o ecossistema do Cerrado?",
-      "opcoes": ["São áreas de reprodução de peixes", "São fontes de alimento para os animais", "São áreas úmidas que mantêm a biodiversidade", "São barreiras naturais contra incêndios"],
-      "resposta": 2,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    {
-      "id": 32,
-      "pergunta": "Qual é o nome da palmeira típica do Cerrado, muito utilizada para extração de palmito?",
-      "opcoes": ["Açaí", "Buriti", "Guariroba", "Babaçu"],
-      "resposta": 2,
-      "pontos": 15,
-      "dificuldade": "Médio"
-    },
-    
-    // Questões Difíceis
-    {
-      "id": 33,
-      "pergunta": "Qual das seguintes espécies é endêmica do Cerrado brasileiro?",
-      "opcoes": ["Jatobá-do-cerrado", "Eucalipto", "Pinheiro-do-paraná", "Seringueira"],
-      "resposta": 0,
-      "pontos": 20,
-      "dificuldade": "Difícil"
-    },
-    {
-      "id": 34,
-      "pergunta": "Qual fenômeno natural é essencial para a quebra de dormência de muitas sementes do Cerrado?",
-      "opcoes": ["Inundações sazonais", "Geadas noturnas", "Queimadas naturais", "Ventos fortes"],
-      "resposta": 2,
-      "pontos": 20,
-      "dificuldade": "Difícil"
-    },
-    {
-      "id": 35,
-      "pergunta": "O que é o fenômeno da 'estacionalidade' no Cerrado?",
-      "opcoes": ["Variação de temperatura entre dia e noite", "Alternância bem definida entre estação seca e chuvosa", "Migração sazonal de aves", "Floração sincronizada de todas as espécies"],
-      "resposta": 1,
-      "pontos": 20,
-      "dificuldade": "Difícil"
-    },
-    {
-      "id": 36,
-      "pergunta": "Qual característica do solo do Cerrado representa um desafio para a agricultura?",
-      "opcoes": ["Alta acidez e presença de alumínio tóxico", "Excesso de matéria orgânica", "Salinidade elevada", "Compactação natural"],
-      "resposta": 0,
-      "pontos": 20,
-      "dificuldade": "Difícil"
-    },
-    {
-      "id": 37,
-      "pergunta": "Qual das seguintes formações vegetais NÃO é encontrada no bioma Cerrado?",
-      "opcoes": ["Mata de Galeria", "Campo Rupestre", "Mangue", "Cerradão"],
-      "resposta": 2,
-      "pontos": 20,
-      "dificuldade": "Difícil"
-    },
-    {
-      "id": 38,
-      "pergunta": "Qual processo ecológico é interrompido com a fragmentação do Cerrado?",
-      "opcoes": ["Fotossíntese", "Fluxo gênico entre populações", "Decomposição da matéria orgânica", "Ciclo do nitrogênio"],
-      "resposta": 1,
-      "pontos": 20,
-      "dificuldade": "Difícil"
-    },
-    {
-      "id": 39,
-      "pergunta": "Qual é o principal agente polinizador das flores do pequizeiro no Cerrado?",
-      "opcoes": ["Vento", "Abelhas nativas", "Morcegos", "Beija-flores"],
-      "resposta": 2,
-      "pontos": 20,
-      "dificuldade": "Difícil"
-    },
-    {
-      "id": 40,
-      "pergunta": "Qual adaptação morfológica é comum em gramíneas do Cerrado para sobreviver a queimadas?",
-      "opcoes": ["Folhas largas e finas", "Rizomas subterrâneos", "Caules ocos com água armazenada", "Sementes que germinam apenas após 10 anos"],
-      "resposta": 1,
-      "pontos": 20,
-      "dificuldade": "Difícil"
-    },
-    {
-      "id": 41,
-      "pergunta": "Qual das seguintes bacias hidrográficas NÃO tem nascentes no Cerrado brasileiro?",
-      "opcoes": ["Bacia do São Francisco", "Bacia Amazônica", "Bacia do Paraguai", "Bacia do Rio Uruguai"],
-      "resposta": 3,
-      "pontos": 20,
-      "dificuldade": "Difícil"
-    },
-    {
-      "id": 42,
-      "pergunta": "Qual fenômeno está causando a redução do volume de água nas nascentes do Cerrado nas últimas décadas?",
-      "opcoes": ["Aumento das chuvas", "Expansão das áreas urbanas", "Conversão de áreas nativas em agricultura intensiva", "Aumento da temperatura global"],
-      "resposta": 2,
-      "pontos": 20,
-      "dificuldade": "Difícil"
-    },
-    {
-      "id": 43,
-      "pergunta": "Qual é a principal estratégia de regeneração do Cerrado após uma queimada?",
-      "opcoes": ["Dispersão de sementes pelo vento", "Rebrota a partir de estruturas subterrâneas", "Germinação rápida de novas sementes", "Crescimento de plantas exóticas invasoras"],
-      "resposta": 1,
-      "pontos": 20,
-      "dificuldade": "Difícil"
-    },
-    {
-      "id": 44,
-      "pergunta": "Qual é o papel dos cupinzeiros no ecossistema do Cerrado?",
-      "opcoes": ["Servem apenas como abrigo para cupins", "Prejudicam o crescimento da vegetação", "Contribuem para a ciclagem de nutrientes e aeração do solo", "Causam a morte de árvores"],
-      "resposta": 2,
-      "pontos": 20,
-      "dificuldade": "Difícil"
-    }
-  ],
+    "perguntas": [
+      {
+        "id": 1,
+        "pergunta": "O que significa uma criança não ter internet em casa?",
+        "opcoes": [
+          "Ela não pode assistir filmes em casa",
+          "Ela não consegue estudar, pesquisar ou fazer trabalhos escolares online em casa",
+          "Ela não pode usar o celular",
+          "Ela não tem televisão"
+        ],
+        "resposta": 1,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "Sem internet em casa, a criança perde acesso à pesquisa, videoaulas e ferramentas de estudo que ajudam no aprendizado fora da escola."
+      },
+      {
+        "id": 2,
+        "pergunta": "Em quais regiões do Brasil o problema de falta de internet em casa é mais grave?",
+        "opcoes": [
+          "Sul e Sudeste",
+          "Centro-Oeste",
+          "Norte e Nordeste, especialmente na zona rural",
+          "Somente nas capitais"
+        ],
+        "resposta": 2,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "As regiões Norte e Nordeste e a zona rural concentram os maiores índices de crianças sem acesso à internet em casa."
+      },
+      {
+        "id": 3,
+        "pergunta": "O que significa um aplicativo funcionar 'offline'?",
+        "opcoes": [
+          "Ele funciona só de noite",
+          "Ele funciona sem precisar de internet",
+          "Ele funciona só com Wi-Fi",
+          "Ele não precisa de celular"
+        ],
+        "resposta": 1,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "Offline significa que o aplicativo roda sem necessidade de conexão com a internet, usando apenas o que foi baixado no dispositivo."
+      },
+      {
+        "id": 4,
+        "pergunta": "O que é o ODS 4?",
+        "opcoes": [
+          "Um programa de saúde pública",
+          "Um objetivo global que fala sobre educação de qualidade para todos",
+          "Uma lei brasileira sobre tecnologia",
+          "Um torneio de robótica"
+        ],
+        "resposta": 1,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "O ODS 4 é o Objetivo de Desenvolvimento Sustentável que busca garantir educação de qualidade, inclusiva e equitativa para todas as pessoas."
+      },
+      {
+        "id": 5,
+        "pergunta": "Qual das seguintes ferramentas de inteligência artificial você PRECISA de internet para usar?",
+        "opcoes": [
+          "Uma calculadora instalada no celular",
+          "ChatGPT, Gemini e Claude",
+          "Um dicionário baixado no aparelho",
+          "Um jogo instalado no celular"
+        ],
+        "resposta": 1,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "Ferramentas como ChatGPT, Gemini e Claude rodam em servidores gigantes na nuvem — sem internet, elas param completamente. É exatamente esse o problema para quem não tem conexão em casa!"
+      },
+      {
+        "id": 6,
+        "pergunta": "O que é o IBGE?",
+        "opcoes": [
+          "Um aplicativo de estudos",
+          "Um instituto que faz pesquisas e coleta dados sobre o Brasil",
+          "Um programa do governo para conectar escolas",
+          "Uma empresa de tecnologia"
+        ],
+        "resposta": 1,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "O IBGE (Instituto Brasileiro de Geografia e Estatística) é o órgão responsável por coletar e divulgar dados sobre a população e a realidade brasileira."
+      },
+      {
+        "id": 7,
+        "pergunta": "O que acontece com os aplicativos que precisam de internet quando os dados móveis do celular acabam?",
+        "opcoes": [
+          "Eles ficam mais lentos, mas continuam funcionando",
+          "Somente as redes sociais são bloqueadas",
+          "Todos os aplicativos que dependem de conexão param de funcionar",
+          "O celular desliga automaticamente para economizar bateria"
+        ],
+        "resposta": 2,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "Sem dados e sem Wi-Fi, qualquer app que depende de internet simplesmente para. Para 22% das crianças mais pobres do Brasil, acabar os créditos é uma realidade frequente — e significa parar de estudar."
+      },
+      {
+        "id": 8,
+        "pergunta": "Qual é a atividade número 1 que as crianças fazem na internet, segundo a TIC Kids Online?",
+        "opcoes": [
+          "Assistir vídeos engraçados",
+          "Jogar videogame",
+          "Pesquisar para trabalhos da escola",
+          "Ouvir músicas"
+        ],
+        "resposta": 2,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "81% das crianças entrevistadas na TIC Kids Online 2025 declararam que pesquisam para trabalhos escolares — a atividade mais realizada na internet."
+      },
+      {
+        "id": 9,
+        "pergunta": "O que o governo brasileiro está fazendo para levar internet às escolas?",
+        "opcoes": [
+          "Nada ainda",
+          "Distribuindo celulares para os alunos",
+          "Investindo em programas como ENEC e GESAC para conectar as escolas públicas",
+          "Construindo novas escolas"
+        ],
+        "resposta": 2,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "O governo investe por meio da ENEC (Estratégia Nacional de Escolas Conectadas) e do GESAC/Wi-Fi Brasil para levar internet às escolas públicas."
+      },
+      {
+        "id": 10,
+        "pergunta": "Como a equipe Capibots fez a pesquisa nesta primeira fase?",
+        "opcoes": [
+          "Viajando para escolas rurais do Brasil",
+          "Pesquisando dados públicos e oficiais de fontes confiáveis",
+          "Criando um aplicativo e testando com crianças",
+          "Fazendo entrevistas nas ruas"
+        ],
+        "resposta": 1,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "Na primeira fase, a equipe focou em pesquisa bibliográfica e documental, lendo dados de fontes como IBGE, INEP, CETIC e OCDE."
+      },
+      {
+        "id": 11,
+        "pergunta": "Qual desses conteúdos você consegue acessar no celular SEM precisar de internet?",
+        "opcoes": [
+          "Um vídeo do YouTube",
+          "Uma pesquisa no Google",
+          "Um livro ou jogo que você baixou antes",
+          "Uma mensagem no WhatsApp"
+        ],
+        "resposta": 2,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "Conteúdos baixados ficam guardados no celular e funcionam sem conexão — mesmo em locais sem sinal! Livros, jogos e até modelos de IA podem ser baixados com antecedência e usados depois, em qualquer lugar."
+      },
+      {
+        "id": 12,
+        "pergunta": "Qual aparelho as crianças mais pobres usam para acessar a internet?",
+        "opcoes": [
+          "Computador de mesa",
+          "Notebook",
+          "Celular",
+          "Tablet"
+        ],
+        "resposta": 2,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "Nas classes D e E, só 7% das crianças têm computador em casa, mas o celular é acessível à maioria. Isso significa que qualquer solução educativa para crianças de baixa renda precisa funcionar bem no celular."
+      },
+      {
+        "id": 13,
+        "pergunta": "Quantas crianças e adolescentes de 9 a 17 anos não têm internet em casa no Brasil?",
+        "opcoes": [
+          "1 milhão",
+          "4,8 milhões",
+          "10 milhões",
+          "500 mil"
+        ],
+        "resposta": 1,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "Segundo a TIC Kids Online, 4,8 milhões de crianças e adolescentes de 9 a 17 anos vivem em domicílios sem acesso à internet."
+      },
+      {
+        "id": 14,
+        "pergunta": "Qual percentual das crianças na zona rural não tem internet em casa?",
+        "opcoes": [
+          "5%",
+          "10%",
+          "25%",
+          "50%"
+        ],
+        "resposta": 2,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "Na zona rural, 25% das crianças de 9 a 17 anos não têm internet em casa, uma taxa muito acima da média nacional de 17%."
+      },
+      {
+        "id": 15,
+        "pergunta": "Segundo o Censo Escolar 2024, qual percentual das escolas públicas tinha internet?",
+        "opcoes": [
+          "50%",
+          "70%",
+          "90%",
+          "100%"
+        ],
+        "resposta": 2,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "O Censo Escolar 2024 mostrou que 90% das escolas públicas já tinham internet, evidenciando o avanço da conectividade escolar."
+      },
+      {
+        "id": 16,
+        "pergunta": "Qual percentual das escolas de Ensino Fundamental disponibilizava internet para os alunos usarem?",
+        "opcoes": [
+          "90%",
+          "75%",
+          "48,8%",
+          "20%"
+        ],
+        "resposta": 2,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "Apesar de 90% das escolas terem internet, só 48,8% das escolas de Ensino Fundamental a disponibilizavam para uso dos alunos."
+      },
+      {
+        "id": 17,
+        "pergunta": "Quanto o governo federal investiu na Estratégia Nacional de Escolas Conectadas (ENEC)?",
+        "opcoes": [
+          "R$ 500 milhões",
+          "R$ 2 bilhões",
+          "R$ 8,8 bilhões",
+          "R$ 50 bilhões"
+        ],
+        "resposta": 2,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "A ENEC prevê investimento de R$ 8,8 bilhões para conectar todas as escolas públicas brasileiras até o final de 2026."
+      },
+      {
+        "id": 18,
+        "pergunta": "Segundo a TIC Kids Online 2025, qual percentual das crianças acessava a internet de casa?",
+        "opcoes": [
+          "60%",
+          "75%",
+          "85%",
+          "95%"
+        ],
+        "resposta": 3,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "95% das crianças acessavam a internet de casa — confirmando que o domicílio é o principal local de acesso, o que torna a exclusão domiciliar ainda mais grave."
+      },
+      {
+        "id": 19,
+        "pergunta": "Segundo a TIC Kids Online 2025, qual percentual das crianças já usou inteligência artificial?",
+        "opcoes": [
+          "20%",
+          "40%",
+          "65%",
+          "90%"
+        ],
+        "resposta": 2,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "65% das crianças e adolescentes já usaram ferramentas de IA generativa, sendo que 59% usaram para fazer pesquisas escolares ou estudar."
+      },
+      {
+        "id": 20,
+        "pergunta": "O acesso à internet na escola, segundo a TIC Kids 2025, caiu para qual percentual?",
+        "opcoes": [
+          "70%",
+          "55%",
+          "37%",
+          "20%"
+        ],
+        "resposta": 2,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "O acesso na escola caiu de 51% (2024) para 37% (2025) após a lei que restringiu celulares nas escolas, tornando a criança ainda mais dependente da internet em casa."
+      },
+      {
+        "id": 21,
+        "pergunta": "Quantos pontos de diferença o PISA 2022 registrou entre alunos ricos e pobres em matemática no Brasil?",
+        "opcoes": [
+          "20 pontos",
+          "45 pontos",
+          "77 pontos",
+          "102 pontos"
+        ],
+        "resposta": 2,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "O PISA 2022 mostrou diferença de 77 pontos em matemática entre os 25% mais ricos e os 25% mais pobres dos estudantes brasileiros."
+      },
+      {
+        "id": 22,
+        "pergunta": "O que é o programa GESAC / Wi-Fi Brasil?",
+        "opcoes": [
+          "Um aplicativo educativo do governo",
+          "Um programa que leva internet via satélite para escolas em locais remotos",
+          "Uma rede social para professores",
+          "Um sistema de avaliação de alunos"
+        ],
+        "resposta": 1,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "O GESAC/Wi-Fi Brasil é um programa do Ministério das Comunicações que usa satélites para levar internet a escolas em regiões remotas onde o cabo não chega."
+      },
+      {
+        "id": 23,
+        "pergunta": "Qual percentual de alunos buscou na internet sobre uma matéria que não entendeu, segundo a TIC Educação 2024?",
+        "opcoes": [
+          "30%",
+          "55%",
+          "86%",
+          "100%"
+        ],
+        "resposta": 2,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "86% dos alunos buscaram na internet conteúdo sobre matérias que não entenderam — mostrando como a internet em casa é essencial para o estudo."
+      },
+      {
+        "id": 24,
+        "pergunta": "O que é o CETIC.br?",
+        "opcoes": [
+          "Um sistema de matrícula escolar",
+          "Um centro de pesquisas sobre uso de tecnologia e internet no Brasil",
+          "Uma empresa privada de tecnologia",
+          "Um órgão do Ministério da Educação"
+        ],
+        "resposta": 1,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "O CETIC.br (Centro Regional de Estudos para o Desenvolvimento da Sociedade da Informação) realiza pesquisas sobre o uso de internet no Brasil, como a TIC Kids e a TIC Educação."
+      },
+      {
+        "id": 25,
+        "pergunta": "Como a equipe Capibots escolheu o tema da pesquisa?",
+        "opcoes": [
+          "O professor escolheu por eles",
+          "Sortearam entre os temas",
+          "Votaram com adesivos coloridos num mural, avaliando critérios como tamanho do problema e possibilidade de solução",
+          "Escolheram o tema mais fácil de pesquisar"
+        ],
+        "resposta": 2,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "A equipe usou uma dinâmica de votação por critérios, com bolinhas coloridas num mural, avaliando cada tema por impacto, pesquisabilidade e possibilidade de criar uma solução."
+      },
+      {
+        "id": 26,
+        "pergunta": "O que é um Small Language Model (SLM)?",
+        "opcoes": [
+          "Um aplicativo infantil de idiomas",
+          "Um modelo de inteligência artificial com poucos parâmetros, capaz de rodar em dispositivos com recursos limitados",
+          "Uma linguagem de programação para crianças",
+          "Um tipo de celular pequeno"
+        ],
+        "resposta": 1,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "SLMs são modelos de IA menores que os grandes modelos de nuvem, projetados para rodar localmente em dispositivos comuns, sem precisar de servidores ou internet."
+      },
+      {
+        "id": 27,
+        "pergunta": "Por que o ChatGPT para de funcionar imediatamente quando a internet cai?",
+        "opcoes": [
+          "Porque a empresa desliga os servidores durante falhas de rede",
+          "Porque toda a inteligência do ChatGPT está em servidores na nuvem — sem internet, não há como acessar o processamento",
+          "Porque o celular superaquece sem internet e desativa os aplicativos",
+          "Porque o ChatGPT só funciona com Wi-Fi, e não com dados móveis"
+        ],
+        "resposta": 1,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "O ChatGPT não está 'dentro' do seu celular — ele existe apenas nos servidores da OpenAI. Seu celular é só uma janela para acessá-los. Sem internet, a janela fecha e a IA desaparece. Por isso IA offline é tão difícil — e tão importante!"
+      },
+      {
+        "id": 28,
+        "pergunta": "O que é necessário para que uma inteligência artificial funcione completamente offline, sem internet?",
+        "opcoes": [
+          "Uma antena especial instalada no celular",
+          "O modelo de IA precisa estar inteiramente instalado no dispositivo, com todo o processamento acontecendo localmente",
+          "Um contrato especial com uma operadora de telefonia",
+          "Conexão via satélite para funcionar em zonas rurais"
+        ],
+        "resposta": 1,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "Para uma IA funcionar offline, ela precisa estar completamente 'dentro' do aparelho — como um livro que você carrega na mochila. É diferente de um site, que só existe na internet. Isso exige modelos menores e muito mais eficientes."
+      },
+      {
+        "id": 29,
+        "pergunta": "O GPT-4 precisa de centenas de servidores para funcionar. Qual a diferença de tamanho estimada entre ele e um modelo pequeno de 3,8 bilhões de parâmetros?",
+        "opcoes": [
+          "O dobro — cerca de 7 bilhões de parâmetros",
+          "Cinco vezes maior — cerca de 20 bilhões",
+          "Mais de 260 vezes maior — o GPT-4 tem estimados mais de 1 trilhão de parâmetros",
+          "São praticamente iguais — a diferença está só na velocidade"
+        ],
+        "resposta": 2,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "Modelos gigantes como o GPT-4 têm estimados mais de 1 trilhão de parâmetros, por isso precisam de centenas de servidores potentes. Modelos pequenos têm 3,8 bilhões e cabem em celulares. É como comparar um navio a uma bicicleta!"
+      },
+      {
+        "id": 30,
+        "pergunta": "Qual região do Brasil apresentou menor percentual de alunos com acesso ao computador da escola, segundo a TIC Educação 2024?",
+        "opcoes": [
+          "Sul (87%)",
+          "Sudeste (64%)",
+          "Centro-Oeste (54%)",
+          "Norte (29%)"
+        ],
+        "resposta": 3,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "A região Norte registrou apenas 29% de alunos com acesso ao computador da escola, contrastando com os 87% do Sul, evidenciando a enorme desigualdade regional."
+      },
+      {
+        "id": 31,
+        "pergunta": "Segundo o estudo da OCDE (2025) sobre impacto de tecnologias digitais, o que realmente melhora o aprendizado?",
+        "opcoes": [
+          "Dar um celular para cada aluno",
+          "Aumentar o número de computadores nas escolas",
+          "Ter uma ferramenta pensada pedagogicamente, não apenas o acesso à tecnologia",
+          "Conectar todas as casas à internet"
+        ],
+        "resposta": 2,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "O estudo da OCDE concluiu que o acesso à tecnologia sozinho não garante ganhos educacionais — é preciso uma solução pedagógica, não apenas técnica."
+      },
+      {
+        "id": 32,
+        "pergunta": "Qual percentual dos professores já usa inteligência artificial para preparar aulas, segundo a TIC Educação 2024?",
+        "opcoes": [
+          "10%",
+          "25%",
+          "43%",
+          "80%"
+        ],
+        "resposta": 2,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "43% dos professores já usam IA para preparar aulas, mostrando que a inteligência artificial está cada vez mais presente na educação."
+      },
+      {
+        "id": 33,
+        "pergunta": "Segundo o Censo Escolar 2024, qual percentual das escolas indígenas tinha internet adequada?",
+        "opcoes": [
+          "90%",
+          "75%",
+          "60%",
+          "44,1%"
+        ],
+        "resposta": 3,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "Apenas 44,1% das escolas indígenas tinham internet adequada, contra 90% da média geral das escolas públicas de Ensino Fundamental."
+      },
+      {
+        "id": 34,
+        "pergunta": "Após a ENEC, qual foi o crescimento de conectividade nas escolas do campo?",
+        "opcoes": [
+          "De 10% para 20%",
+          "De 38,4% para 71,3%",
+          "De 60% para 90%",
+          "De 70% para 95%"
+        ],
+        "resposta": 1,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "Com a ENEC, as escolas do campo saltaram de 38,4% para 71,3% de conectividade adequada — um avanço significativo, mas que ainda não resolve a falta de internet nas casas."
+      },
+      {
+        "id": 35,
+        "pergunta": "Qual percentual dos estudantes brasileiros não atingiu o nível básico de matemática no PISA 2022?",
+        "opcoes": [
+          "30%",
+          "50%",
+          "73%",
+          "90%"
+        ],
+        "resposta": 2,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "73% dos estudantes brasileiros avaliados pelo PISA 2022 não alcançaram o nível básico de proficiência em matemática, evidenciando a necessidade de reforço no aprendizado."
+      },
+      {
+        "id": 36,
+        "pergunta": "Por que usar o ChatGPT ou o Gemini no celular consome dados móveis a cada mensagem enviada?",
+        "opcoes": [
+          "Porque fazem download de vídeos em alta definição automaticamente",
+          "Porque cada mensagem é enviada pela internet até servidores poderosos, que a processam e devolvem a resposta — tudo trafegando pela rede",
+          "Porque atualizam automaticamente a cada minuto em segundo plano",
+          "Porque sincronizam o histórico de conversa com outros dispositivos"
+        ],
+        "resposta": 1,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "Cada mensagem ao ChatGPT viaja pela internet até servidores nos EUA, é processada lá, e a resposta volta para o celular. Esse vai e vem consome dados — e para quem tem pouco crédito no celular, isso é um problema real de todos os dias."
+      },
+      {
+        "id": 37,
+        "pergunta": "Por que é difícil provar que a falta de internet é a única causa do baixo desempenho escolar de uma criança?",
+        "opcoes": [
+          "Porque as escolas brasileiras são muito bem equipadas",
+          "Porque crianças sem internet tendem a ser também as mais pobres, com pais menos escolarizados e em regiões com menos recursos — vários fatores aparecem juntos ao mesmo tempo",
+          "Porque o PISA não avalia crianças sem internet",
+          "Porque crianças sem internet estudam apenas em escolas particulares"
+        ],
+        "resposta": 1,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "Este é um dos desafios da ciência: quando vários fatores ruins aparecem juntos — pobreza, falta de internet, pais com menos estudo — fica difícil dizer qual deles, sozinho, é o culpado pelo baixo desempenho. Por isso a pesquisa continua nas próximas fases!"
+      },
+      {
+        "id": 38,
+        "pergunta": "Qual é o significado da expressão 'conectar a escola não é o mesmo que conectar o estudante'?",
+        "opcoes": [
+          "As escolas não precisam de internet",
+          "Mesmo quando a escola tem internet, a criança passa a maior parte do tempo em casa, onde pode não ter conexão",
+          "Os estudantes não sabem usar a internet",
+          "A internet da escola é muito lenta"
+        ],
+        "resposta": 1,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "Este é o insight central da pesquisa: mesmo com a escola conectada, a criança passa a maior parte do tempo em casa, onde a exclusão digital continua e impacta seu aprendizado."
+      },
+      {
+        "id": 39,
+        "pergunta": "Quando uma inteligência artificial é desenvolvida para ser usada por crianças, qual é a principal preocupação além do conteúdo educativo?",
+        "opcoes": [
+          "Que a IA tenha personagens famosos e coloridos para atrair as crianças",
+          "Que a IA não produza conteúdo impróprio, respeite a privacidade infantil e use linguagem adequada para a faixa etária",
+          "Que a IA responda mais rápido do que as IAs desenvolvidas para adultos",
+          "Que a IA possa substituir completamente o papel do professor em sala de aula"
+        ],
+        "resposta": 1,
+        "pontos": 40,
+        "dificuldade": "Especialista",
+        "explicacao": "Criar IA para crianças exige cuidado extra: ela não pode produzir conteúdo inadequado, precisa proteger dados pessoais (exigido por lei no Brasil pelo ECA Digital e pela LGPD) e usar linguagem que a criança entenda. Segurança sempre em primeiro lugar!"
+      },
+      {
+        "id": 40,
+        "pergunta": "Por que ainda é um desafio rodar um modelo de inteligência artificial completo em um celular comum?",
+        "opcoes": [
+          "Porque celulares não têm tela grande o suficiente",
+          "Porque modelos de IA grandes consomem muita memória e processamento — o que exige soluções como modelos menores (SLMs) e técnicas de compressão",
+          "Porque a Apple e o Google bloqueiam IA em celulares",
+          "Porque modelos de IA precisam de conexão constante para funcionar"
+        ],
+        "resposta": 1,
+        "pontos": 40,
+        "dificuldade": "Especialista",
+        "explicacao": "Os grandes modelos de IA como o ChatGPT rodam em servidores enormes com centenas de gigabytes de memória. Para caber num celular, é preciso criar versões menores e comprimidas — usando técnicas como quantização e modelos especialmente projetados para hardware limitado."
+      },
+      {
+        "id": 41,
+        "pergunta": "Um modelo de inteligência artificial pode ter bilhões de 'parâmetros'. O que são esses parâmetros?",
+        "opcoes": [
+          "Os usuários cadastrados que já interagiram com o modelo",
+          "Os valores numéricos que o modelo aprendeu durante o treinamento e que determinam como ele responde a cada pergunta",
+          "Os servidores físicos onde o modelo está hospedado",
+          "As versões e atualizações lançadas pela empresa ao longo do tempo"
+        ],
+        "resposta": 1,
+        "pontos": 40,
+        "dificuldade": "Especialista",
+        "explicacao": "Parâmetros são como o 'cérebro' da IA — bilhões de números ajustados durante o treinamento para que ela aprenda a responder bem. Quanto mais parâmetros, mais o modelo 'sabe' — mas também mais memória ocupa. Por isso é tão difícil caber num celular!"
+      },
+      {
+        "id": 42,
+        "pergunta": "Qual língua domina a internet e, por isso, é usada para treinar a maioria dos modelos de inteligência artificial do mundo?",
+        "opcoes": [
+          "Espanhol — por ser falado em mais de 20 países",
+          "Chinês — por ter o maior número de falantes nativos no mundo",
+          "Inglês — estima-se que mais da metade de todo o conteúdo da internet está em inglês",
+          "Francês — por ser língua oficial da ONU e de organizações internacionais"
+        ],
+        "resposta": 2,
+        "pontos": 40,
+        "dificuldade": "Especialista",
+        "explicacao": "Mais de 50% do conteúdo da internet está em inglês, mesmo que apenas 17% da população mundial fale esse idioma. Isso faz com que modelos de IA 'saibam muito mais' inglês do que português — algo crucial para pensar em soluções educativas no Brasil!"
+      },
+      {
+        "id": 43,
+        "pergunta": "A OCDE descobriu que crianças que aprendem a programar com Scratch ficam melhores também em matemática, criatividade e na forma de pensar. Como se chama esse fenômeno?",
+        "opcoes": [
+          "Efeito dominó educacional",
+          "Efeito de transferência — quando aprender algo em uma área melhora o desempenho em outras áreas também",
+          "Efeito placebo",
+          "Efeito cascata"
+        ],
+        "resposta": 1,
+        "pontos": 40,
+        "dificuldade": "Especialista",
+        "explicacao": "Aprender a programar não melhora só programação! A ciência mostrou que o raciocínio lógico que a criança treina ao criar no Scratch se transfere para matemática, escrita criativa e até para a forma como resolve problemas do dia a dia. Incrível, né?"
+      },
+      {
+        "id": 44,
+        "pergunta": "Por que os dados do PISA não permitem atribuir o baixo desempenho à falta de internet isoladamente?",
+        "opcoes": [
+          "O PISA não mede desempenho em português",
+          "Porque os fatores socioeconômicos (renda, escolaridade dos pais, localização) estão correlacionados com a falta de internet e com o baixo desempenho ao mesmo tempo, tornando difícil isolar o efeito de apenas uma variável",
+          "Porque o PISA foi aplicado só em escolas particulares",
+          "Porque a internet no Brasil é sempre de boa qualidade"
+        ],
+        "resposta": 1,
+        "pontos": 40,
+        "dificuldade": "Especialista",
+        "explicacao": "Esta é a principal limitação metodológica identificada pela equipe. Crianças sem internet tendem a ser também as mais pobres, com pais menos escolarizados, morando em regiões com menos recursos — o que dificulta isolar o impacto específico da internet."
+      },
+      {
+        "id": 45,
+        "pergunta": "Qual é a vantagem do uso de um SLM local em relação à privacidade dos dados da criança?",
+        "opcoes": [
+          "O SLM local armazena os dados em nuvem criptografada",
+          "Nenhum dado da criança sai do dispositivo, pois toda a computação é feita localmente — sem enviar informações para servidores externos",
+          "O SLM local compartilha os dados apenas com o governo",
+          "O SLM local não armazena nenhum dado, nem mesmo o progresso da criança"
+        ],
+        "resposta": 1,
+        "pontos": 40,
+        "dificuldade": "Especialista",
+        "explicacao": "Como o modelo roda localmente, todas as conversas e dados permanecem no dispositivo da criança, sem envio para servidores externos — o que é especialmente importante para proteger a privacidade de crianças e adolescentes."
+      },
+      {
+        "id": 46,
+        "pergunta": "O que é uma 'revisão sistemática da literatura' como a feita pelo estudo da OCDE 2025?",
+        "opcoes": [
+          "Um processo de ler um único artigo muito longo",
+          "Uma pesquisa que analisa e sintetiza os resultados de vários estudos científicos já publicados, chegando a conclusões baseadas no conjunto das evidências",
+          "Uma pesquisa feita com entrevistas sistemáticas em escolas",
+          "Um sistema de avaliação de livros didáticos"
+        ],
+        "resposta": 1,
+        "pontos": 40,
+        "dificuldade": "Especialista",
+        "explicacao": "A revisão sistemática é uma metodologia científica que reúne, analisa e sintetiza evidências de múltiplos estudos sobre um tema, produzindo conclusões mais robustas do que um único experimento."
+      },
+      {
+        "id": 47,
+        "pergunta": "Segundo a OCDE, o que transforma uma ferramenta tecnológica em uma ferramenta verdadeiramente educativa?",
+        "opcoes": [
+          "Ter muitas cores, animações e sons chamativos que prendem a atenção",
+          "Ser fabricada por uma grande empresa de tecnologia reconhecida",
+          "Ter um propósito pedagógico claro — ser projetada para ajudar a aprender, e não apenas para entreter",
+          "Custar pouco e ser acessível financeiramente a qualquer criança"
+        ],
+        "resposta": 2,
+        "pontos": 40,
+        "dificuldade": "Especialista",
+        "explicacao": "A OCDE descobriu que simplesmente dar tecnologia para as crianças não melhora o aprendizado. O que faz diferença é a ferramenta ter objetivo educativo claro — com atividades com propósito, feedback que orienta e linguagem que ensina. Tecnologia com propósito!"
+      },
+      {
+        "id": 48,
+        "pergunta": "Qual é a importância do dado de que 43% das escolas não monitoram a qualidade da sua internet (Censo Escolar 2024)?",
+        "opcoes": [
+          "Mostra que as escolas não precisam de internet",
+          "Revela que ter internet não garante ter internet de qualidade suficiente para uso pedagógico — reforçando que a conectividade escolar ainda é um desafio mesmo onde existe",
+          "Significa que 43% das escolas estão sem internet",
+          "Indica que os diretores não sabem usar tecnologia"
+        ],
+        "resposta": 1,
+        "pontos": 40,
+        "dificuldade": "Especialista",
+        "explicacao": "Este dado revela que 'ter internet' e 'ter internet adequada para aprender' são coisas distintas — reforçando tanto o problema da conectividade escolar quanto a relevância de uma solução que não dependa da qualidade da conexão."
+      },
+      {
+        "id": 49,
+        "pergunta": "Uma pessoa entra num avião sem Wi-Fi para uma viagem longa. O que ela deveria ter feito ANTES de embarcar para aproveitar o tempo de voo?",
+        "opcoes": [
+          "Ativar o modo avião — isso libera um tipo especial de internet",
+          "Baixar os filmes, músicas e conteúdos que vai querer usar enquanto ainda tinha internet disponível",
+          "Contratar um pacote de dados internacionais de roaming",
+          "Não há nada que se possa fazer — sem internet, nada funciona no celular"
+        ],
+        "resposta": 1,
+        "pontos": 40,
+        "dificuldade": "Especialista",
+        "explicacao": "Conteúdos baixados ficam no dispositivo e funcionam sem internet em qualquer lugar! É a mesma lógica de uma solução educativa offline: baixa quando tem conexão, usa depois — seja num avião, numa área rural ou em casa sem internet."
+      },
+      {
+        "id": 50,
+        "pergunta": "Na ciência, qual é a diferença entre dizer que uma ideia é 'promissora' e dizer que é 'comprovada'?",
+        "opcoes": [
+          "Não há diferença prática — as duas palavras são usadas como sinônimos",
+          "'Promissora' significa que os indícios são positivos, mas ainda faltam testes e evidências para confirmar. 'Comprovada' exige validação real com resultados confiáveis",
+          "'Comprovada' é um termo técnico usado apenas por universidades renomadas",
+          "'Promissora' significa que vai funcionar com certeza no futuro próximo"
+        ],
+        "resposta": 1,
+        "pontos": 40,
+        "dificuldade": "Especialista",
+        "explicacao": "Honestidade científica é um dos valores mais importantes da ciência. Dizer que algo é 'promissor' mostra que você tem evidências positivas mas ainda não testou o suficiente. Só se pode dizer que algo está 'comprovado' após testes reais com resultados verificáveis. Ética na ciência!"
+      },
+      {
+        "id": 51,
+        "pergunta": "Em qual escola a equipe Capibots está e fica localizada em qual cidade?",
+        "opcoes": [
+          "Escola Estadual Mineirão, em Belo Horizonte",
+          "Colégio Batista Mineiro, em Uberlândia",
+          "Colégio Tiradentes, em Uberlândia",
+          "Escola Municipal Cerrado, em Uberaba"
+        ],
+        "resposta": 1,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "A equipe Capibots é do Colégio Batista Mineiro, unidade Martins, em Uberlândia, no Triângulo Mineiro — região rodeada pelo bioma Cerrado."
+      },
+      {
+        "id": 52,
+        "pergunta": "Qual foi o tema do projeto de pesquisa da equipe Capibots na temporada de 2025?",
+        "opcoes": [
+          "Educação e conectividade digital",
+          "Regeneração do bioma Cerrado",
+          "Energia solar em escolas públicas",
+          "Redução do desperdício de água"
+        ],
+        "resposta": 1,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "Em 2025, alinhados ao ODS 15 (Vida Terrestre), os Capibots pesquisaram como ajudar a regenerar áreas degradadas do Cerrado — um dos biomas mais ameaçados do planeta!"
+      },
+      {
+        "id": 53,
+        "pergunta": "Qual foi o nome da solução criada pelos Capibots na temporada de 2025?",
+        "opcoes": [
+          "CerradoTech",
+          "VerdeApp",
+          "BioScan",
+          "PlantaIA"
+        ],
+        "resposta": 0,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "A CerradoTech foi uma plataforma digital com o princípio 'plantar a planta certa no lugar certo' — com simulador de regeneração, catálogo de espécies nativas e rede colaborativa entre escolas, viveiros e ONGs."
+      },
+      {
+        "id": 54,
+        "pergunta": "Qual conquista a equipe Capibots alcançou na etapa regional do TBR em 2025?",
+        "opcoes": [
+          "1º lugar geral e melhor projeto científico",
+          "3º lugar no desafio prático e 1º no científico",
+          "Campeã do desafio prático e 2º lugar na classificação geral",
+          "Classificação direta para o nacional sem competir no regional"
+        ],
+        "resposta": 2,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "Na etapa regional do Triângulo Mineiro, os Capibots conquistaram o troféu de campeões do desafio prático — com mais de 400 pontos — e ficaram em 2º lugar na classificação geral! Uma temporada de estreia incrível."
+      },
+      {
+        "id": 55,
+        "pergunta": "Com quais instituições a equipe validou o projeto CerradoTech em 2025?",
+        "opcoes": [
+          "UNICEF, ONU e Ministério da Educação",
+          "NEPSEM/UFU, Rede Sou Cerrado, Associação Cerrado de Pé e Simpósio de Conservação do Cerrado",
+          "Embrapa, IBGE e MapBiomas",
+          "Google, Microsoft e Meta"
+        ],
+        "resposta": 1,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "A equipe foi além da competição: apresentou a CerradoTech no Simpósio de Conservação do Cerrado da UFU, foi reconhecida pelo NEPSEM/UFU e integrou a Rede Sou Cerrado. Ciência de verdade começa cedo!"
+      },
+      {
+        "id": 56,
+        "pergunta": "O que significa a sigla TBR?",
+        "opcoes": [
+          "Tecnologia Brasileira de Robôs",
+          "Torneio Brasil de Robótica",
+          "Time Brasileiro de Robótica",
+          "Teste Básico de Robótica"
+        ],
+        "resposta": 1,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "O TBR — Torneio Brasil de Robótica — é uma das maiores competições educacionais de ciência, tecnologia e robótica do país, com equipes de 3 anos de idade até universitários!"
+      },
+      {
+        "id": 57,
+        "pergunta": "Qual é o tema do TBR na temporada de 2026?",
+        "opcoes": [
+          "Vida Terrestre e Biodiversidade",
+          "Saúde e Bem-Estar",
+          "Educação, Trabalho e Sustentabilidade",
+          "Cidades e Comunidades Sustentáveis"
+        ],
+        "resposta": 2,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "Em 2026, o TBR tem como tema 'Educação, Trabalho e Sustentabilidade' — alinhado ao ODS 4, que trata de educação de qualidade e equitativa para todos."
+      },
+      {
+        "id": 58,
+        "pergunta": "Quanto tempo dura uma partida do desafio prático no TBR, nas categorias Kids 2 e acima?",
+        "opcoes": [
+          "60 segundos",
+          "90 segundos",
+          "120 segundos",
+          "180 segundos"
+        ],
+        "resposta": 2,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "Cada partida dura exatamente 120 segundos — 2 minutos cronometrados sem pausa! O robô precisa completar o máximo de missões nesse tempo. Cada segundo conta!"
+      },
+      {
+        "id": 59,
+        "pergunta": "Quantos integrantes da equipe podem ficar na mesa de competição durante uma partida?",
+        "opcoes": [
+          "Todos os integrantes",
+          "Apenas 1",
+          "Apenas 2",
+          "Até 4"
+        ],
+        "resposta": 2,
+        "pontos": 10,
+        "dificuldade": "Fácil",
+        "explicacao": "Apenas 2 integrantes — o posicionador e o operador — podem estar na mesa durante a partida. O restante da equipe acompanha de longe. Pressão máxima para a dupla!"
+      },
+      {
+        "id": 60,
+        "pergunta": "Em quantos quesitos principais as equipes são avaliadas no TBR?",
+        "opcoes": [
+          "2 — robótica e ciência",
+          "3 — ciência, robótica e criatividade",
+          "4 — Mérito Científico, Organização & Método, Tecnologia & Engenharia e Desafio Prático",
+          "5 — incluindo apresentação oral e portfólio"
+        ],
+        "resposta": 2,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "O TBR avalia 4 quesitos: Mérito Científico (a pesquisa), Organização & Método (como a equipe se organiza), Tecnologia & Engenharia (o robô) e Desafio Prático (as missões). Nota máxima: 500 pontos em cada!"
+      },
+      {
+        "id": 61,
+        "pergunta": "No TBR, qual é o quesito que observa o comportamento da equipe durante todo o evento — mesmo fora das salas de avaliação?",
+        "opcoes": [
+          "Mérito Científico",
+          "Desafio Prático",
+          "Desenvolvimento Humano",
+          "Tecnologia & Engenharia"
+        ],
+        "resposta": 2,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "O Desenvolvimento Humano é o quesito que coloca os valores do TBR acima de qualquer outro — a equipe é observada em todos os espaços do evento, o tempo todo. Respeito, postura e espírito de equipe valem pontos!"
+      },
+      {
+        "id": 62,
+        "pergunta": "O que acontece quando o operador toca no robô fora da base durante uma partida no TBR?",
+        "opcoes": [
+          "A partida é encerrada imediatamente",
+          "O robô é retirado de campo e a equipe perde todos os pontos",
+          "O robô fica inativo e é colocado um material de penalidade no tapete",
+          "A equipe perde 50 pontos por toque"
+        ],
+        "resposta": 2,
+        "pontos": 20,
+        "dificuldade": "Médio",
+        "explicacao": "Tocar no robô fora da base gera penalidade: o robô fica inativo e o juiz coloca um material escolar no tapete (caderno, lápis, tesoura ou borracha). A equipe pode reverter a penalidade levando o material ao almoxarifado — mas perde tempo precioso!"
+      },
+      {
+        "id": 63,
+        "pergunta": "No TBR, como funciona a regra das partidas em relação à pontuação final?",
+        "opcoes": [
+          "A média das partidas é usada para o placar final",
+          "Apenas a última partida conta",
+          "Apenas a melhor pontuação dentre todas as partidas é somada aos demais quesitos",
+          "As pontuações de todas as partidas são somadas"
+        ],
+        "resposta": 2,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "Cada partida é uma nova chance! Só a melhor pontuação do Desafio Prático entra no placar final — o que significa que uma ótima segunda partida pode mudar tudo na classificação geral."
+      },
+      {
+        "id": 64,
+        "pergunta": "Qual é a faixa etária mínima que pode participar do TBR?",
+        "opcoes": [
+          "6 anos — a partir do 1º ano do Ensino Fundamental",
+          "8 anos — a partir do 3º ano do Ensino Fundamental",
+          "3 anos — desde a Educação Infantil, na categoria Baby",
+          "10 anos — a partir do 5º ano do Ensino Fundamental"
+        ],
+        "resposta": 2,
+        "pontos": 30,
+        "dificuldade": "Difícil",
+        "explicacao": "A categoria Baby do TBR aceita crianças a partir dos 3 anos! Isso faz do TBR uma das competições educacionais com o maior alcance de faixa etária do Brasil — de 3 anos até universitários."
+      },
+      {
+        "id": 65,
+        "pergunta": "Para a categoria Kids 2, qual é o documento que a equipe deve entregar com antecedência mínima de 14 dias para o torneio, e o que acontece se entregar fora do prazo?",
+        "opcoes": [
+          "O diário de bordo — sem penalidade por atraso",
+          "O paper no formato ABNT — a entrega fora do prazo gera penalidade de 10% na nota desse quesito",
+          "O vídeo de apresentação — a equipe é desclassificada",
+          "O formulário de inscrição — sem penalidade"
+        ],
+        "resposta": 1,
+        "pontos": 40,
+        "dificuldade": "Especialista",
+        "explicacao": "O paper no formato ABNT é obrigatório para Kids 2 e deve ser entregue com pelo menos 14 dias de antecedência para que os jurados possam analisá-lo. Atraso gera penalidade de 10% na nota do Mérito Científico — todo dia conta!"
+      }
+    ]},
   "participantes": []
 };
 
@@ -689,9 +1247,9 @@ function sortearPerguntas() {
     const numDificeis = quizData.configuracao.numeroQuestoesDificeis;
     
     // Separar perguntas por dificuldade
-    const perguntasFaceis = quizData.perguntas.filter(p => p.dificuldade === "Fácil");
-    const perguntasMedias = quizData.perguntas.filter(p => p.dificuldade === "Médio");
-    const perguntasDificeis = quizData.perguntas.filter(p => p.dificuldade === "Difícil");
+    const perguntasFaceis = quizData.quiz.perguntas.filter(p => p.dificuldade === "Fácil");
+    const perguntasMedias = quizData.quiz.perguntas.filter(p => p.dificuldade === "Médio");
+    const perguntasDificeis = quizData.quiz.perguntas.filter(p => p.dificuldade === "Difícil");
     
     // Embaralhar cada conjunto de perguntas
     embaralharArray(perguntasFaceis);
@@ -807,7 +1365,7 @@ function proximaPergunta() {
 // Calcular resultado do quiz
 function calcularResultado() {
     pontuacaoTotal = 0;
-    const pontuacaoMaxima = 100;
+    const pontuacaoMaxima = perguntasSorteadas.reduce((sum, p) => sum + p.pontos, 0);
     
     // Calcular pontuação
     perguntasSorteadas.forEach((pergunta, i) => {
@@ -1076,22 +1634,22 @@ function configurarModalEventos() {
     const span = document.querySelector('.close-button');
 
     // Abrir o modal
-    btn.onclick = function() {
+    btn.addEventListener('click', function() {
         popularModalPremios();
         modal.classList.remove('hidden');
-    }
+    });
 
     // Fechar o modal pelo 'x'
-    span.onclick = function() {
+    span.addEventListener('click', function() {
         modal.classList.add('hidden');
-    }
+    });
 
-    // Fechar o modal clicando fora
-    window.onclick = function(event) {
-        if (event.target == modal) {
+    // Fechar o modal clicando/tocando fora
+    modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
             modal.classList.add('hidden');
         }
-    }
+    });
 }
 
 // Adicionar a configuração do modal na inicialização do quiz
