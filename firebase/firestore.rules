@@ -1,0 +1,32 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Ranking público do quiz do Desafio Prático (public/quiz-2026-desafio-pratico).
+    // Qualquer pessoa lê e cria uma entrada; ninguém edita nem apaga pelo navegador.
+    match /ranking/{entrada} {
+      allow read: if true;
+
+      allow create: if request.resource.data.keys().hasOnly(
+                         ['nome', 'equipe', 'pontuacao', 'percentual', 'tempoSegundos', 'data'])
+                    && request.resource.data.nome is string
+                    && request.resource.data.nome.size() >= 2
+                    && request.resource.data.nome.size() <= 40
+                    && request.resource.data.equipe is string
+                    && request.resource.data.equipe.size() >= 2
+                    && request.resource.data.equipe.size() <= 50
+                    && request.resource.data.pontuacao is int
+                    && request.resource.data.pontuacao >= 0
+                    && request.resource.data.pontuacao <= 150
+                    && request.resource.data.percentual is int
+                    && request.resource.data.percentual >= 0
+                    && request.resource.data.percentual <= 100
+                    && request.resource.data.tempoSegundos is int
+                    && request.resource.data.tempoSegundos >= 0
+                    && request.resource.data.tempoSegundos <= 600
+                    && request.resource.data.data is timestamp;
+
+      allow update, delete: if false;
+    }
+  }
+}
