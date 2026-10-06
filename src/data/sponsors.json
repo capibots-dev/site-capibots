@@ -2,9 +2,13 @@
   {
     "id": "vanilla-cestas-finas",
     "nome": "Vanilla Cestas Finas",
-    "edicoes": [2025],
-    "tipo": "ouro",
-    "imagem": "/images/patrocinadores/vanilla-cestas-finas.png",
+    "edicoes": [
+      {
+        "ano": 2025,
+        "tipo": "ouro"
+      }
+    ],
+    "imagem": "/images/sponsors/vanilla.png",
     "link": null,
     "instagram": null,
     "descricao": "Empresa de cestas e presentes especiais de Uberlândia."
@@ -12,29 +16,45 @@
   {
     "id": "publicenter",
     "nome": "Publicenter",
-    "edicoes": [2025],
-    "tipo": "ouro",
-    "imagem": "/images/patrocinadores/publicenter.png",
+    "edicoes": [
+      {
+        "ano": 2025,
+        "tipo": "ouro"
+      }
+    ],
+    "imagem": "/images/sponsors/publicenter-square.png",
     "link": null,
     "instagram": null,
     "descricao": "Empresa de comunicação e publicidade."
   },
   {
     "id": "farmacia-kalayasa",
-    "nome": "Farmácia Kalayasa",
-    "edicoes": [2025],
-    "tipo": "ouro",
-    "imagem": "/images/patrocinadores/farmacia-kalayasa.png",
-    "link": null,
-    "instagram": null,
-    "descricao": "Farmácia de manipulação e produtos de saúde."
+    "nome": "Farmácia Kalayasa Aushadi",
+    "edicoes": [
+      {
+        "ano": 2025,
+        "tipo": "ouro"
+      },
+      {
+        "ano": 2026,
+        "tipo": "ouro"
+      }
+    ],
+    "imagem": "/images/sponsors/Logo Kalayasa.jpeg",
+    "link": "https://www.farmaciakalayasa.com/",
+    "instagram": "@farmaciakalayasa",
+    "descricao": "Farmácia de Manipulação especializada em produtos, medicamentos e cuidados com a saúde."
   },
   {
     "id": "eduardo-monique-imoveis",
     "nome": "Eduardo e Monique Negócios Imobiliários",
-    "edicoes": [2025],
-    "tipo": "ouro",
-    "imagem": "/images/patrocinadores/eduardo-monique-imoveis.png",
+    "edicoes": [
+      {
+        "ano": 2025,
+        "tipo": "ouro"
+      }
+    ],
+    "imagem": "/images/sponsors/eduardoemonique-square.jpeg",
     "link": null,
     "instagram": null,
     "descricao": "Consultoria e negócios no mercado imobiliário de Uberlândia."
@@ -42,9 +62,13 @@
   {
     "id": "grafica-hebrom",
     "nome": "Gráfica Hebrom",
-    "edicoes": [2025],
-    "tipo": "ouro",
-    "imagem": "/images/patrocinadores/grafica-hebrom.png",
+    "edicoes": [
+      {
+        "ano": 2025,
+        "tipo": "ouro"
+      }
+    ],
+    "imagem": "/images/sponsors/hebrom-square.png",
     "link": null,
     "instagram": null,
     "descricao": "Gráfica parceira responsável pelo uniforme oficial da equipe."
@@ -52,9 +76,13 @@
   {
     "id": "babuska",
     "nome": "Babuska",
-    "edicoes": [2025],
-    "tipo": "ouro",
-    "imagem": "/images/patrocinadores/babuska.png",
+    "edicoes": [
+      {
+        "ano": 2025,
+        "tipo": "ouro"
+      }
+    ],
+    "imagem": "/images/sponsors/babuska-square.png",
     "link": null,
     "instagram": null,
     "descricao": "Apoiador da equipe Capibots na temporada 2025."
@@ -62,29 +90,49 @@
   {
     "id": "clinica-orthus-fisioterapia",
     "nome": "Clínica Orthus Fisioterapia",
-    "edicoes": [2025],
-    "tipo": "ouro",
-    "imagem": "/images/patrocinadores/clinica-orthus.png",
-    "link": null,
-    "instagram": null,
-    "descricao": "Clínica de fisioterapia e reabilitação em Uberlândia."
+    "edicoes": [
+      {
+        "ano": 2025,
+        "tipo": "ouro"
+      },
+      {
+        "ano": 2026,
+        "tipo": "prata"
+      }
+    ],
+    "imagem": "/images/sponsors/orthus-square.jpeg",
+    "link": "https://clinicaorthus.com.br/",
+    "instagram": "@clinicaorthusfisioterapia",
+    "descricao": "Centro de Fisioterapia Ortopédica e Esportiva."
   },
   {
     "id": "rezende-solar",
     "nome": "Rezende Solar",
-    "edicoes": [2025],
-    "tipo": "prata",
-    "imagem": "/images/patrocinadores/rezende-solar.png",
-    "link": null,
-    "instagram": null,
-    "descricao": "Empresa de energia solar fotovoltaica."
+    "edicoes": [
+      {
+        "ano": 2025,
+        "tipo": "prata"
+      },
+      {
+        "ano": 2026,
+        "tipo": "prata"
+      }
+    ],
+    "imagem": "/images/sponsors/rezende-solar.png",
+    "link": "https://www.rezendesolar.com/",
+    "instagram": "@rezende_solar",
+    "descricao": "Empresa especializada em projeto e instalação de Sistema Fotovoltaico."
   },
   {
     "id": "ml-acabamentos",
     "nome": "ML Acabamentos",
-    "edicoes": [2025],
-    "tipo": "prata",
-    "imagem": "/images/patrocinadores/ml-acabamentos.png",
+    "edicoes": [
+      {
+        "ano": 2025,
+        "tipo": "prata"
+      }
+    ],
+    "imagem": "/images/sponsors/mlacabamentos-square.png",
     "link": null,
     "instagram": null,
     "descricao": "Empresa de acabamentos e construção civil."
@@ -92,9 +140,13 @@
   {
     "id": "methos-corretora",
     "nome": "Methos Corretora",
-    "edicoes": [2025],
-    "tipo": "prata",
-    "imagem": "/images/patrocinadores/methos-corretora.png",
+    "edicoes": [
+      {
+        "ano": 2025,
+        "tipo": "prata"
+      }
+    ],
+    "imagem": "/images/sponsors/methos.png",
     "link": null,
     "instagram": null,
     "descricao": "Corretora de seguros e soluções financeiras."
@@ -102,19 +154,31 @@
   {
     "id": "calixto-imoveis",
     "nome": "Calixto Negócios Imobiliários",
-    "edicoes": [2025],
-    "tipo": "bronze",
-    "imagem": "/images/patrocinadores/calixto-imoveis.png",
+    "edicoes": [
+      {
+        "ano": 2025,
+        "tipo": "bronze"
+      },
+      {
+        "ano": 2026,
+        "tipo": "ouro"
+      }
+    ],
+    "imagem": "/images/sponsors/calixto-square.png",
     "link": null,
-    "instagram": null,
-    "descricao": "Empresa de intermediação e consultoria imobiliária."
+    "instagram": "@calixtoimoveisoficial",
+    "descricao": "Imobiliária especializada em compra, venda e aluguel de imóveis."
   },
   {
     "id": "projet-equipamentos",
     "nome": "Projet Equipamentos",
-    "edicoes": [2025],
-    "tipo": "bronze",
-    "imagem": "/images/patrocinadores/projet-equipamentos.png",
+    "edicoes": [
+      {
+        "ano": 2025,
+        "tipo": "bronze"
+      }
+    ],
+    "imagem": "/images/sponsors/Logo Projet.jpeg",
     "link": null,
     "instagram": null,
     "descricao": "Empresa de equipamentos e soluções industriais."
@@ -122,11 +186,85 @@
   {
     "id": "flor-du-quintal",
     "nome": "Flor Du Quintal",
-    "edicoes": [2025],
-    "tipo": "bronze",
-    "imagem": "/images/patrocinadores/flor-du-quintal.png",
+    "edicoes": [
+      {
+        "ano": 2025,
+        "tipo": "bronze"
+      }
+    ],
+    "imagem": "/images/sponsors/florduquintal-square.png",
     "link": null,
     "instagram": null,
     "descricao": "Apoiador da equipe Capibots na temporada 2025."
+  },
+  {
+    "id": "anjos-colchoes",
+    "nome": "Anjos Colchões",
+    "edicoes": [
+      {
+        "ano": 2026,
+        "tipo": "ouro"
+      }
+    ],
+    "imagem": "/images/sponsors/anjos-colchoes.png",
+    "link": "https://uberlandia.anjoscolchoesesofas.com.br/",
+    "instagram": "@anjosuberlandia",
+    "descricao": "Loja especializada em colchões, camas e estofados."
+  },
+  {
+    "id": "fieza-corretora-de-seguros",
+    "nome": "Fieza Corretora de Seguros",
+    "edicoes": [
+      {
+        "ano": 2026,
+        "tipo": "prata"
+      }
+    ],
+    "imagem": "/images/sponsors/fieza-corretora.png",
+    "link": null,
+    "instagram": "@fieza_corretoradeseguros",
+    "descricao": "Corretora de Seguros que oferece soluções de proteção para pessoas, famílias e empresas."
+  },
+  {
+    "id": "iuh-digital",
+    "nome": "Iuh Digital",
+    "edicoes": [
+      {
+        "ano": 2026,
+        "tipo": "ouro"
+      }
+    ],
+    "imagem": "/images/sponsors/iuh-digital.png",
+    "link": "https://iuh.digital/",
+    "instagram": "@iuh.digital",
+    "descricao": "Operadora fixa e móvel focada em levar conectividade para a educação."
+  },
+  {
+    "id": "supermercado-super-frutt",
+    "nome": "Supermercado Super Frutt",
+    "edicoes": [
+      {
+        "ano": 2026,
+        "tipo": "prata"
+      }
+    ],
+    "imagem": "/images/sponsors/super-frutt.png",
+    "link": null,
+    "instagram": "@supermercadosuperfrutt",
+    "descricao": "Supermercado que oferece produtos alimentícios, hortifrúti, bebidas e itens para o dia a dia."
+  },
+  {
+    "id": "transbuiatte",
+    "nome": "Transbuiatte",
+    "edicoes": [
+      {
+        "ano": 2026,
+        "tipo": "ouro"
+      }
+    ],
+    "imagem": "/images/sponsors/transbuiatte.png",
+    "link": "https://transbuiatte.com.br/",
+    "instagram": "@grupobuiatte",
+    "descricao": "Empresa de transporte e logística, especializada em soluções para movimentação e distribuição de cargas."
   }
 ]
