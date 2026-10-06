@@ -56,6 +56,28 @@
     if (document.body) mostrar();
   };
 
+  // Páginas estáticas não têm o rodapé do site (React): ganham um link discreto fixo no canto.
+  function linkPreferencias() {
+    if (document.getElementById('root') || document.getElementById('link-cookies')) return;
+    var estilo = document.createElement('style');
+    estilo.textContent =
+      '#link-cookies{position:fixed;left:8px;bottom:8px;z-index:2147483646;cursor:pointer;border:1px solid rgba(0,0,0,.2);' +
+      'border-radius:999px;padding:4px 10px;background:rgba(255,255,255,.9);color:#374151;opacity:.75;' +
+      'font:12px/1.2 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}' +
+      '#link-cookies:hover{opacity:1;text-decoration:underline}' +
+      '@media print{#link-cookies{display:none}}';
+    document.head.appendChild(estilo);
+    var botao = document.createElement('button');
+    botao.id = 'link-cookies';
+    botao.type = 'button';
+    botao.textContent = 'Preferências de cookies';
+    botao.onclick = window.abrirPreferenciasCookies;
+    document.body.appendChild(botao);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', linkPreferencias);
+  else linkPreferencias();
+
   if (!guardado()) {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mostrar);
     else mostrar();
