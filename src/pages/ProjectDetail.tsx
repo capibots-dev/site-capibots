@@ -9,6 +9,7 @@ import { Calendar, Users, Target, Cpu, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import projectsData from '@/data/projects.json';
 import sponsorsData from '@/data/sponsors.json';
+import teamData from '@/data/team.json';
 
 type Tier = 'ouro' | 'prata' | 'bronze';
 
@@ -252,16 +253,40 @@ const ProjectDetail = () => {
                     Equipe do Projeto
                   </h3>
                   <div className="space-y-2">
-                    {project.teamMembers.map((member) => (
-                      <div key={member} className="flex items-center space-x-2">
-                        <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">
-                            {member.charAt(0)}
-                          </span>
+                    {project.teamMembers.map((member) => {
+                      const kid = teamData.find((t) => t.name === member);
+                      const content = (
+                        <>
+                          {kid ? (
+                            <img
+                              src={kid.image}
+                              alt={kid.name}
+                              className="w-8 h-8 rounded-full object-cover bg-muted"
+                            />
+                          ) : (
+                            <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                              <span className="text-white text-xs font-bold">
+                                {member.charAt(0)}
+                              </span>
+                            </div>
+                          )}
+                          <span className="text-sm">{member}</span>
+                        </>
+                      );
+                      return kid ? (
+                        <Link
+                          key={member}
+                          to={`/equipe/${kid.slug}`}
+                          className="flex items-center space-x-2 hover:text-primary transition-colors"
+                        >
+                          {content}
+                        </Link>
+                      ) : (
+                        <div key={member} className="flex items-center space-x-2">
+                          {content}
                         </div>
-                        <span className="text-sm">{member}</span>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </CardContent>
               </Card>
