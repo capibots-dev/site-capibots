@@ -27,10 +27,10 @@ const quizDataEmbutido = {
   },
   "quiz": {
     "titulo": "Quiz do Desafio Prático — TBR Kids 2 2026",
-    "descricao": "50 questões de múltipla escolha sobre missões, pontuação, penalidades e regras do Desafio Prático",
+    "descricao": "96 questões de múltipla escolha sobre missões, pontuação, penalidades e regras do Desafio Prático",
     "equipe": "Capibots · TBR Kids 2 · Temporada 2026",
     "tema": "Desafio Prático — Educação em Construção",
-    "total_questoes": 50,
+    "total_questoes": 96,
     "niveis": {
       "1": "Fácil",
       "2": "Médio",
@@ -529,17 +529,17 @@ const quizDataEmbutido = {
         },
         {
           "id": 36,
-          "pergunta": "Conte só a Missão 3: 2 blocos na Área Cinza, 1 bloco na Área Amarela e 1 bloco na Área Verde. Imagine que esses eram TODOS os blocos do tapete. Quantos pontos?",
+          "pergunta": "Conte só a Missão 3: 2 blocos na Área Cinza, 2 blocos na Área Amarela e 2 blocos na Área Verde. Esses são os 6 blocos do tapete e todos estão pontuando. Quantos pontos?",
           "opcoes": [
-            "66 pontos",
-            "72 pontos",
-            "86 pontos",
-            "92 pontos"
+            "96 pontos",
+            "108 pontos",
+            "116 pontos",
+            "128 pontos"
           ],
           "resposta": 2,
           "pontos": 30,
           "dificuldade": "Difícil",
-          "explicacao": "3 blocos × 18 = 54; 1 bloco × 12 = 12; bônus 20. Total 54 + 12 + 20 = 86."
+          "explicacao": "4 blocos × 18 = 72; 2 blocos × 12 = 24; bônus 20 (todos os blocos pontuando). Total 72 + 24 + 20 = 116."
         },
         {
           "id": 37,
@@ -736,6 +736,650 @@ const quizDataEmbutido = {
           "pontos": 10,
           "dificuldade": "Fácil",
           "explicacao": "São 4 quesitos, cada um valendo até 500 pontos: Mérito Científico, Organização & Método, Tecnologia & Engenharia e Desafio Prático."
+        },
+        {
+          "id": 51,
+          "pergunta": "Pelo desenho da capa do livro da missão Despertar do Conhecimento, qual história ele referencia?",
+          "opcoes": [
+            "Cinderela",
+            "Chapeuzinho Vermelho",
+            "Branca de Neve",
+            "João e Maria"
+          ],
+          "resposta": 1,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "A capa do livro da Missão 4 (Despertar do Conhecimento) traz a história da Chapeuzinho Vermelho."
+        },
+        {
+          "id": 52,
+          "pergunta": "Quantos cientistas estão no Hall da Fama?",
+          "opcoes": [
+            "4",
+            "5",
+            "6",
+            "8"
+          ],
+          "resposta": 2,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "São 6 cientistas: Albert Einstein, Nikola Tesla, Isaac Newton, Ada Lovelace, Rosalind Franklin e Marie Curie."
+        },
+        {
+          "id": 53,
+          "pergunta": "Qual destes cientistas está no Hall da Fama?",
+          "opcoes": [
+            "Charles Darwin",
+            "Galileu Galilei",
+            "Santos Dumont",
+            "Ada Lovelace"
+          ],
+          "resposta": 3,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "Ada Lovelace é uma das 6 cientistas do Hall da Fama, junto com Albert Einstein, Nikola Tesla, Isaac Newton, Rosalind Franklin e Marie Curie."
+        },
+        {
+          "id": 54,
+          "pergunta": "Qual destes cientistas NÃO está no Hall da Fama?",
+          "opcoes": [
+            "Isaac Newton",
+            "Marie Curie",
+            "Charles Darwin",
+            "Albert Einstein"
+          ],
+          "resposta": 2,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "No Hall da Fama estão Albert Einstein, Nikola Tesla, Isaac Newton, Ada Lovelace, Rosalind Franklin e Marie Curie. Charles Darwin não está entre eles."
+        },
+        {
+          "id": 55,
+          "pergunta": "Qual é o número da Missão Maker?",
+          "opcoes": [
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "resposta": 2,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "A Missão Maker é a Missão 8 e vale 75 pontos."
+        },
+        {
+          "id": 56,
+          "pergunta": "Qual é o número da missão Acesso Seguro, em que o robô leva o carro até a vaga?",
+          "opcoes": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "resposta": 2,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "Acesso Seguro é a Missão 5."
+        },
+        {
+          "id": 57,
+          "pergunta": "Qual é o número da missão Checkpoint, cuja área também se chama Hall da Fama?",
+          "opcoes": [
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          "resposta": 1,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "O Checkpoint é a Missão 6."
+        },
+        {
+          "id": 58,
+          "pergunta": "Qual é o nome da Missão 9?",
+          "opcoes": [
+            "Inauguração da Universidade",
+            "Despertar do Conhecimento",
+            "Ingresso à Universidade",
+            "Alvenaria Educacional"
+          ],
+          "resposta": 2,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "A Missão 9 é o Ingresso à Universidade: o robô termina a partida tocando a Área da Universidade."
+        },
+        {
+          "id": 59,
+          "pergunta": "Quantos blocos de construção precisam ser levados para as áreas de fundação na missão Alvenaria Educacional?",
+          "opcoes": [
+            "4",
+            "5",
+            "6",
+            "8"
+          ],
+          "resposta": 2,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "São 6 blocos de construção. Só recebe o bônus de 20 pontos a equipe que fizer todos pontuarem."
+        },
+        {
+          "id": 60,
+          "pergunta": "Para quais áreas os blocos de construção precisam ser levados na missão Alvenaria Educacional?",
+          "opcoes": [
+            "Almoxarifado",
+            "Áreas de fundação (Verde, Cinza e Amarela)",
+            "Hall da Fama",
+            "Área da Universidade"
+          ],
+          "resposta": 1,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "Os blocos vão para as áreas de fundação da escola: Verde, Cinza e Amarela."
+        },
+        {
+          "id": 61,
+          "pergunta": "Qual missão precisa estar pontuando no fim da partida para que a Missão Maker seja validada?",
+          "opcoes": [
+            "Despertar do Conhecimento",
+            "Acesso Seguro",
+            "Balanço Controlado",
+            "Inauguração da Universidade"
+          ],
+          "resposta": 3,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "A Inauguração da Universidade (cancela levantada, Missão 7) é pré-requisito da Missão Maker. Sem ela, a Maker vale 0."
+        },
+        {
+          "id": 62,
+          "pergunta": "Quando o robô toca a área do Checkpoint e a missão é concluída, o que o juiz de mesa faz?",
+          "opcoes": [
+            "Toca um sino",
+            "Coloca uma bandeira no telhado da instituição de ensino ao lado",
+            "Acende uma luz na base",
+            "Retira um material escolar do tapete"
+          ],
+          "resposta": 1,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "Após a conclusão da missão, o juiz de mesa coloca uma bandeira no telhado da instituição de ensino ao lado, indicando que o checkpoint foi validado."
+        },
+        {
+          "id": 63,
+          "pergunta": "Na Missão 3, qual é a diferença de pontuação entre um bloco na Área Cinza e um bloco na Área Amarela?",
+          "opcoes": [
+            "Nenhuma: as duas valem 18 pontos",
+            "A Cinza vale 6 pontos a mais",
+            "A Amarela vale 6 pontos a mais",
+            "A Cinza vale o dobro da Amarela"
+          ],
+          "resposta": 0,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "Os blocos nas Áreas Cinza e Amarela valem 18 pontos cada. Só a Área Verde vale menos (12)."
+        },
+        {
+          "id": 64,
+          "pergunta": "Na Missão 3, quantos pontos a mais vale um bloco na Área Cinza do que um bloco na Área Verde?",
+          "opcoes": [
+            "0",
+            "3",
+            "6",
+            "12"
+          ],
+          "resposta": 2,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "Cinza vale 18 e Verde vale 12: são 6 pontos a mais."
+        },
+        {
+          "id": 65,
+          "pergunta": "Um bloco de construção está tocando duas áreas de pontuação diferentes. Qual pontuação vale?",
+          "opcoes": [
+            "A maior",
+            "A menor",
+            "A soma das duas",
+            "A média das duas"
+          ],
+          "resposta": 1,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "Vale a condição menos vantajosa, ou seja, a menor pontuação."
+        },
+        {
+          "id": 66,
+          "pergunta": "Um bloco está tocando a Área Verde e a Área Amarela ao mesmo tempo. Quanto ele vale?",
+          "opcoes": [
+            "12 pontos",
+            "15 pontos",
+            "18 pontos",
+            "30 pontos"
+          ],
+          "resposta": 0,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "Vale a menor das duas: Verde = 12 pontos."
+        },
+        {
+          "id": 67,
+          "pergunta": "O que acontece se um bloco de construção cai para fora do tapete?",
+          "opcoes": [
+            "Nada, ele continua valendo",
+            "A equipe perde só o bônus da missão",
+            "A equipe perde os pontos desse bloco e também o bônus da Missão 3",
+            "A partida acaba"
+          ],
+          "resposta": 2,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "O bloco fora do tapete não toca nenhuma área de pontuação, então não pontua. Como nem todos os blocos pontuam, a equipe também perde o bônus de 20 pontos."
+        },
+        {
+          "id": 68,
+          "pergunta": "Uma equipe tem 5 dos 6 blocos pontuando na Missão 3. O bônus de 20 pontos é concedido?",
+          "opcoes": [
+            "Sim, o bônus completo",
+            "Sim, metade do bônus (10 pontos)",
+            "Não: o bônus só vale com todos os blocos pontuando",
+            "Só se os 5 blocos estiverem na Área Cinza"
+          ],
+          "resposta": 2,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "O bônus de 20 pontos exige que TODOS os blocos estejam pontuando."
+        },
+        {
+          "id": 69,
+          "pergunta": "Qual é o 4º material escolar colocado pelo juiz como penalidade?",
+          "opcoes": [
+            "Caderno amarelo",
+            "Lápis vermelho",
+            "Tesoura azul",
+            "Borracha verde"
+          ],
+          "resposta": 3,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "Ordem: 1 caderno (amarelo), 2 lápis (vermelho), 3 tesoura (azul), 4 borracha (verde)."
+        },
+        {
+          "id": 70,
+          "pergunta": "No SEGUNDO toque fora da base, qual material o juiz coloca no tapete?",
+          "opcoes": [
+            "Lápis vermelho",
+            "Caderno amarelo",
+            "Borracha verde",
+            "Tesoura azul"
+          ],
+          "resposta": 0,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "O 2º material é o lápis vermelho."
+        },
+        {
+          "id": 71,
+          "pergunta": "Quantos pontos vale a missão Checkpoint, quando o robô toca o Hall da Fama?",
+          "opcoes": [
+            "10",
+            "20",
+            "30",
+            "45"
+          ],
+          "resposta": 1,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "O Checkpoint vale 20 pontos. Depois, o robô é levado para a base sem penalidade."
+        },
+        {
+          "id": 72,
+          "pergunta": "Quantos pontos vale a Missão 9 (Ingresso à Universidade), com o robô tocando a Área da Universidade no fim da partida?",
+          "opcoes": [
+            "20",
+            "30",
+            "45",
+            "55"
+          ],
+          "resposta": 1,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "A Missão 9 vale 30 pontos."
+        },
+        {
+          "id": 73,
+          "pergunta": "Quais são os cientistas que estão no Hall da Fama?",
+          "opcoes": [
+            "Albert Einstein, Nikola Tesla, Isaac Newton, Ada Lovelace, Rosalind Franklin e Marie Curie",
+            "Albert Einstein, Charles Darwin, Isaac Newton, Ada Lovelace, Rosalind Franklin e Marie Curie",
+            "Albert Einstein, Nikola Tesla, Galileu Galilei, Ada Lovelace, Rosalind Franklin e Marie Curie",
+            "Albert Einstein, Nikola Tesla, Isaac Newton, Alan Turing, Rosalind Franklin e Marie Curie"
+          ],
+          "resposta": 0,
+          "pontos": 30,
+          "dificuldade": "Difícil",
+          "explicacao": "No Hall da Fama estão Albert Einstein, Nikola Tesla, Isaac Newton, Ada Lovelace, Rosalind Franklin e Marie Curie. Nas outras opções entrou um cientista que não está lá."
+        },
+        {
+          "id": 74,
+          "pergunta": "Missão 3 com os 6 blocos: 3 na Área Cinza, 2 na Área Amarela e 1 na Área Verde. Todos pontuam. Quantos pontos a missão vale?",
+          "opcoes": [
+            "102 pontos",
+            "108 pontos",
+            "122 pontos",
+            "128 pontos"
+          ],
+          "resposta": 2,
+          "pontos": 30,
+          "dificuldade": "Difícil",
+          "explicacao": "5 blocos × 18 = 90; 1 bloco × 12 = 12; bônus 20 (todos pontuam). Total 90 + 12 + 20 = 122."
+        },
+        {
+          "id": 75,
+          "pergunta": "Missão 3: 4 blocos nas Áreas Cinza ou Amarela, 1 bloco tocando a Área Verde e a Cinza ao mesmo tempo e 1 bloco caiu para fora do tapete. Quantos pontos?",
+          "opcoes": [
+            "72 pontos",
+            "84 pontos",
+            "90 pontos",
+            "104 pontos"
+          ],
+          "resposta": 1,
+          "pontos": 30,
+          "dificuldade": "Difícil",
+          "explicacao": "4 blocos × 18 = 72; o bloco em duas áreas vale a menor (Verde = 12). O bloco fora do tapete vale 0 e não há bônus. Total 72 + 12 = 84."
+        },
+        {
+          "id": 76,
+          "pergunta": "Qual é o nome da Missão 2, em que o robô posiciona a Peça Faltante do quebra-cabeça?",
+          "opcoes": [
+            "Despertar do Conhecimento",
+            "Alvenaria Educacional",
+            "Conexão do Conhecimento",
+            "Balanço Controlado"
+          ],
+          "resposta": 2,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "A Missão 2 é a Conexão do Conhecimento."
+        },
+        {
+          "id": 77,
+          "pergunta": "Ao posicionar a Peça Faltante no quebra-cabeça da Missão 2, o que o desenho forma?",
+          "opcoes": [
+            "O logotipo do torneio",
+            "O tema da temporada 2026",
+            "O mapa do Brasil",
+            "O nome da equipe"
+          ],
+          "resposta": 1,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "O robô posiciona a peça dentro da área correspondente, formando o tema da temporada 2026."
+        },
+        {
+          "id": 78,
+          "pergunta": "De que cor são as peças do ponto de apoio central da gangorra, na Missão 1?",
+          "opcoes": [
+            "Azuis",
+            "Verdes",
+            "Vermelhas",
+            "Amarelas"
+          ],
+          "resposta": 2,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "O ponto de apoio central da gangorra é feito de peças vermelhas."
+        },
+        {
+          "id": 79,
+          "pergunta": "A vaga do estacionamento da Missão 5 é composta por qual cor? (A faixa amarela serve apenas para delimitá-la.)",
+          "opcoes": [
+            "Branca",
+            "Cinza claro",
+            "Verde escuro",
+            "Vermelha"
+          ],
+          "resposta": 1,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "A vaga é composta pela cor cinza claro, delimitada pela faixa amarela."
+        },
+        {
+          "id": 80,
+          "pergunta": "Em que posição o livro da Missão 4 começa a partida?",
+          "opcoes": [
+            "Aberto",
+            "Fechado",
+            "Dentro da Base",
+            "Nas mãos do juiz"
+          ],
+          "resposta": 1,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "O livro começa a partida fechado, em um local determinado do tapete, e o robô precisa abri-lo."
+        },
+        {
+          "id": 81,
+          "pergunta": "Segundo o manual, o que o gesto de levantar a cancela (Missão 7) representa?",
+          "opcoes": [
+            "O fim da partida",
+            "A liberação do estacionamento",
+            "A abertura de novas oportunidades e o compromisso com a educação avançada e inclusiva",
+            "A entrada da equipe no Hall da Fama"
+          ],
+          "resposta": 2,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "Levantar a cancela permite o acesso oficial ao ensino superior e representa a abertura de novas oportunidades e o compromisso com a educação avançada e inclusiva para todos."
+        },
+        {
+          "id": 82,
+          "pergunta": "Quem constrói o ambiente escolar e o Objeto Maker da Missão 8?",
+          "opcoes": [
+            "A própria equipe",
+            "Os organizadores do torneio",
+            "O juiz de mesa",
+            "Eles vêm prontos no kit oficial"
+          ],
+          "resposta": 0,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "O ambiente escolar tecnológico e o Objeto Maker são projetados e construídos pela própria equipe."
+        },
+        {
+          "id": 83,
+          "pergunta": "Em posse de quem ficam os materiais escolares no começo da partida?",
+          "opcoes": [
+            "Da equipe, dentro da Base",
+            "Do juiz de mesa",
+            "No almoxarifado",
+            "Espalhados pelo tapete"
+          ],
+          "resposta": 1,
+          "pontos": 10,
+          "dificuldade": "Fácil",
+          "explicacao": "Os materiais escolares começam em posse do juiz de mesa, que os coloca no tapete a cada penalidade."
+        },
+        {
+          "id": 84,
+          "pergunta": "Quando a gangorra da Missão 1 precisa estar na posição de pontuação para valer pontos?",
+          "opcoes": [
+            "Em qualquer momento da partida",
+            "Ao final da partida",
+            "Só nos primeiros 30 segundos",
+            "Por pelo menos 10 segundos seguidos"
+          ],
+          "resposta": 1,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "Para pontuar, a gangorra deve estar em posição de pontuação ao final da partida."
+        },
+        {
+          "id": 85,
+          "pergunta": "Para pontuar na Missão 9 (Ingresso à Universidade), quanto do robô precisa estar tocando a área da universidade ao fim da partida?",
+          "opcoes": [
+            "O robô inteiro dentro da área",
+            "Qualquer parte do robô",
+            "Pelo menos metade do robô",
+            "As duas rodas"
+          ],
+          "resposta": 1,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "A pontuação é válida se, ao final da partida, qualquer parte do robô estiver tocando a área da universidade, delimitada pela cor cinza claro."
+        },
+        {
+          "id": 86,
+          "pergunta": "O robô toca a área do Checkpoint duas vezes na mesma partida. Quantas vezes os 20 pontos são contados?",
+          "opcoes": [
+            "Duas vezes (40 pontos)",
+            "Uma única vez (20 pontos)",
+            "Nenhuma, porque o robô ficou inativo duas vezes",
+            "Só conta a segunda vez"
+          ],
+          "resposta": 1,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "A pontuação do Checkpoint e a volta à base são válidas apenas uma vez."
+        },
+        {
+          "id": 87,
+          "pergunta": "Em que momento da partida o robô pode transportar o Objeto Maker da Base para o ambiente escolar?",
+          "opcoes": [
+            "Somente nos primeiros 30 segundos",
+            "Somente depois do Checkpoint",
+            "Em qualquer momento da partida",
+            "Somente no final da partida"
+          ],
+          "resposta": 2,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "O robô pode transportar o Objeto Maker da Base em qualquer momento durante a partida."
+        },
+        {
+          "id": 88,
+          "pergunta": "Existe limite de tamanho para o Objeto Maker?",
+          "opcoes": [
+            "O tamanho é definido pelo juiz no dia do torneio",
+            "Deve ter exatamente o tamanho de um bloco de construção",
+            "Deve ser comprado pronto no kit oficial",
+            "Não há limite de altura ou largura, desde que o robô consiga manipulá-lo e o conjunto robô + Objeto Maker caiba completamente na Base"
+          ],
+          "resposta": 3,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "Não há limitação de altura ou largura, desde que o robô manipule o objeto e o conjunto robô + Objeto Maker caiba completamente na Base."
+        },
+        {
+          "id": 89,
+          "pergunta": "Quais materiais a equipe pode usar para construir o ambiente escolar da Missão Maker?",
+          "opcoes": [
+            "Somente materiais não elétricos",
+            "Somente peças do kit oficial",
+            "Somente papel e papelão",
+            "Qualquer material, elétrico ou não, respeitando a segurança e a integridade do tapete"
+          ],
+          "resposta": 3,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "Não há restrição de materiais elétricos e não elétricos. A equipe tem liberdade criativa, desde que respeite a segurança e a integridade do tapete."
+        },
+        {
+          "id": 90,
+          "pergunta": "A equipe usou cola no tapete na Missão Maker e o juiz não validou a missão. O que acontece?",
+          "opcoes": [
+            "A equipe é desclassificada",
+            "A equipe perde todos os pontos da partida",
+            "A equipe não pontua a Missão Maker naquela partida e pode corrigir para a rodada seguinte",
+            "A equipe perde 10 pontos"
+          ],
+          "resposta": 2,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "Se a irregularidade persistir e a missão não for validada, a equipe fica impossibilitada de pontuar a Missão Maker naquela partida, podendo corrigi-la na rodada seguinte, se houver."
+        },
+        {
+          "id": 91,
+          "pergunta": "Antes de o juiz aplicar a penalidade, o que acontece com qualquer objeto que esteja na área destinada a ela?",
+          "opcoes": [
+            "Ele volta para a Base",
+            "Ele é retirado da partida para liberar o espaço",
+            "O material escolar é colocado em cima dele",
+            "A penalidade não é aplicada"
+          ],
+          "resposta": 1,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "Antes da aplicação da penalidade, qualquer objeto presente na área destinada a ela é retirado da partida para liberar o espaço."
+        },
+        {
+          "id": 92,
+          "pergunta": "Como as montagens (modelos de missão) são fixadas no tapete?",
+          "opcoes": [
+            "Com cola quente",
+            "Com velcro",
+            "Com parafusos",
+            "Com fita adesiva dupla face de alta aderência nos quadradinhos vermelhos"
+          ],
+          "resposta": 3,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "Os quadradinhos vermelhos do tapete recebem um pedaço de fita adesiva dupla face de alta aderência para fixar cada montagem."
+        },
+        {
+          "id": 93,
+          "pergunta": "Houve 3 toques fora da base: caderno, lápis e tesoura foram colocados no tapete. O robô levou o caderno e o lápis para o almoxarifado; a tesoura ficou no tapete e a borracha ficou com o juiz. Quantos pontos valem os materiais escolares?",
+          "opcoes": [
+            "10 pontos",
+            "20 pontos",
+            "30 pontos",
+            "40 pontos"
+          ],
+          "resposta": 2,
+          "pontos": 20,
+          "dificuldade": "Médio",
+          "explicacao": "Caderno 10 + lápis 10 (almoxarifado) + borracha com o juiz 10 = 30. A tesoura, fora do almoxarifado, vale 0."
+        },
+        {
+          "id": 94,
+          "pergunta": "Sem nenhum toque fora da base: gangorra na posição correta, peça faltante PARCIALMENTE dentro, carro TOTALMENTE dentro da vaga, cancela levantada e robô tocando o Checkpoint (depois voltou à base). Quantos pontos, contando os materiais escolares?",
+          "opcoes": [
+            "167 pontos",
+            "188 pontos",
+            "207 pontos",
+            "227 pontos"
+          ],
+          "resposta": 2,
+          "pontos": 30,
+          "dificuldade": "Difícil",
+          "explicacao": "Gangorra 30 + peça 20 + carro 42 + cancela 55 + Checkpoint 20 + 4 materiais com o juiz 40 = 207."
+        },
+        {
+          "id": 95,
+          "pergunta": "A barra da cancela caiu e está tocando o tapete. O Objeto Maker terminou dentro da área e o robô terminou tocando a Área da Universidade. Não houve toque fora da base. Quantos pontos?",
+          "opcoes": [
+            "40 pontos",
+            "70 pontos",
+            "105 pontos",
+            "145 pontos"
+          ],
+          "resposta": 1,
+          "pontos": 30,
+          "dificuldade": "Difícil",
+          "explicacao": "Cancela 0 e Missão Maker 0 (sem a Missão 7 a Maker não é validada) + Universidade 30 + 4 materiais com o juiz 40 = 70."
+        },
+        {
+          "id": 96,
+          "pergunta": "Qual é a pontuação máxima possível no Desafio Prático Kids 2, com todas as missões, a Missão 3 completa (6 blocos nas Áreas Cinza ou Amarela, mais o bônus) e os 4 materiais escolares?",
+          "opcoes": [
+            "372 pontos",
+            "450 pontos",
+            "500 pontos",
+            "600 pontos"
+          ],
+          "resposta": 2,
+          "pontos": 30,
+          "dificuldade": "Difícil",
+          "explicacao": "Sem a Missão 3 são 372 pontos. A Missão 3 completa vale 6 × 18 + 20 = 128. Total: 372 + 128 = 500, o máximo do quesito."
         }
     ]}
 };
