@@ -17,7 +17,7 @@ service cloud.firestore {
                     && request.resource.data.equipe.size() <= 50
                     && request.resource.data.pontuacao is int
                     && request.resource.data.pontuacao >= 0
-                    && request.resource.data.pontuacao <= 150
+                    && request.resource.data.pontuacao <= 330
                     && request.resource.data.percentual is int
                     && request.resource.data.percentual >= 0
                     && request.resource.data.percentual <= 100

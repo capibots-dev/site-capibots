@@ -12,7 +12,7 @@ let participante = {
 let resultadoSalvo = false;
 
 // Configurações do timer
-const TEMPO_QUIZ_SEGUNDOS = 240; // 4 minutos - PARÂMETRO CONFIGURÁVEL
+const TEMPO_QUIZ_SEGUNDOS = 300; // 5 minutos - PARÂMETRO CONFIGURÁVEL
 let timerInterval = null;
 let tempoRestante = TEMPO_QUIZ_SEGUNDOS;
 let timerIniciado = false;
@@ -21,9 +21,9 @@ let timerIniciado = false;
 const quizDataEmbutido = {
   "configuracao": {
     "titulo": "Quiz Desafio Prático - CAPIBOTS",
-    "numeroQuestoesFaceis": 3,
-    "numeroQuestoesMedias": 3,
-    "numeroQuestoesDificeis": 2
+    "numeroQuestoesFaceis": 7,
+    "numeroQuestoesMedias": 7,
+    "numeroQuestoesDificeis": 4
   },
   "quiz": {
     "titulo": "Quiz do Desafio Prático — TBR Kids 2 2026",
@@ -1397,6 +1397,13 @@ const CHAVE_LOCAL = 'quizDesafioPraticoRanking';
 const LIMITE_BUSCA = 300;   // entradas lidas do banco; depois removemos repetidas e mostramos o TOP 10
 const TAMANHO_RANKING = 10;
 
+// Formata segundos como mm:ss (usado na coluna de tempo do ranking)
+function formatarTempo(segundos) {
+    const minutos = Math.floor(segundos / 60);
+    const resto = segundos % 60;
+    return `${String(minutos).padStart(2, '0')}:${String(resto).padStart(2, '0')}`;
+}
+
 function normalizarTexto(texto) {
     return String(texto || '').replace(/\s+/g, ' ').trim();
 }
@@ -1486,27 +1493,27 @@ async function carregarDados() {
 // Busca o ranking e preenche a tabela do TOP 10 e a lista de equipes sugeridas
 async function atualizarRanking() {
     const rankingBody = document.getElementById('ranking-body');
-    rankingBody.innerHTML = '<tr><td colspan="4" class="ranking-aviso">Carregando ranking...</td></tr>';
+    rankingBody.innerHTML = '<tr><td colspan="5" class="ranking-aviso">Carregando ranking...</td></tr>';
 
     try {
         rankingAtual = montarRanking(await lerEntradas());
     } catch (erro) {
         console.error('Erro ao carregar o ranking:', erro);
-        rankingBody.innerHTML = '<tr><td colspan="4" class="ranking-aviso">Não foi possível carregar o ranking agora.</td></tr>';
+        rankingBody.innerHTML = '<tr><td colspan="5" class="ranking-aviso">Não foi possível carregar o ranking agora.</td></tr>';
         return;
     }
 
     atualizarSugestoesEquipe();
 
     if (rankingAtual.length === 0) {
-        rankingBody.innerHTML = '<tr><td colspan="4" class="ranking-aviso">Ainda não há participantes. Seja o primeiro!</td></tr>';
+        rankingBody.innerHTML = '<tr><td colspan="5" class="ranking-aviso">Ainda não há participantes. Seja o primeiro!</td></tr>';
         return;
     }
 
     rankingBody.innerHTML = '';
     rankingAtual.slice(0, TAMANHO_RANKING).forEach((item, indice) => {
         const tr = document.createElement('tr');
-        [indice + 1, item.nome, item.equipe, item.pontuacao].forEach(valor => {
+        [indice + 1, item.nome, item.equipe, item.pontuacao, formatarTempo(item.tempoSegundos)].forEach(valor => {
             const td = document.createElement('td');
             td.textContent = valor;
             tr.appendChild(td);
