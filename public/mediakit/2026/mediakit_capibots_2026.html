@@ -646,14 +646,17 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
 }
 .s_tbr-theme-sub{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.5}
 </style>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9GWKK3LND"></script>
+    <!-- Google Analytics (só grava cookies após consentimento; ver /cookie-consent.js) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+      try { if (localStorage.getItem('capibots-cookies') === 'granted') gtag('consent', 'update', { analytics_storage: 'granted' }); } catch (e) {}
       gtag('js', new Date());
       gtag('config', 'G-V9GWKK3LND');
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9GWKK3LND"></script>
+    <script defer src="/cookie-consent.js"></script>
 </head>
 <body>
 
