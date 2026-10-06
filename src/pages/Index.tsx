@@ -124,26 +124,42 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── Stats strip — Conquistas 2025 ── */}
+      {/* ── Stats strip — Conquistas por temporada ── */}
       <section className="bg-foreground text-background py-5">
         <div className="container mx-auto px-4">
-          <p className="text-center text-[9px] md:text-[10px] uppercase tracking-widest opacity-50 font-semibold mb-3 flex items-center justify-center gap-1.5">
-            <Trophy className="h-3 w-3 text-primary" />
-            Conquistas da Temporada 2025
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            {[
-              { value: '🏆 Campeã Geral', label: 'Torneio Interno · Mar/2025' },
-              { value: '🥇 1º Desafio Prático', label: 'Etapa Regional · Ago/2025' },
-              { value: '🥈 2º lugar geral', label: 'Etapa Regional · Ago/2025' },
-              { value: '🥉 3º lugar nacional', label: 'Etapa Nacional · Dez/2025' },
-            ].map((s) => (
-              <div key={s.label}>
-                <p className="text-sm md:text-base font-bold text-primary leading-snug">{s.value}</p>
-                <p className="text-[10px] md:text-xs uppercase tracking-widest opacity-70 mt-0.5">{s.label}</p>
+          {[
+            {
+              season: 2026,
+              items: [
+                { value: '🏆 Campeã Geral', label: 'Torneio Interno · Jun/2026' },
+                { value: '🥇 Campeã do Desafio Prático', label: 'Torneio Interno · Jun/2026' },
+              ],
+            },
+            {
+              season: 2025,
+              items: [
+                { value: '🏆 Campeã Geral', label: 'Torneio Interno · Mar/2025' },
+                { value: '🥇 1º Desafio Prático', label: 'Etapa Regional · Ago/2025' },
+                { value: '🥈 2º lugar geral', label: 'Etapa Regional · Ago/2025' },
+                { value: '🥉 3º lugar nacional', label: 'Etapa Nacional · Dez/2025' },
+              ],
+            },
+          ].map((group, gi) => (
+            <div key={group.season} className={gi > 0 ? 'mt-5' : ''}>
+              <p className="text-center text-[9px] md:text-[10px] uppercase tracking-widest opacity-50 font-semibold mb-3 flex items-center justify-center gap-1.5">
+                <Trophy className="h-3 w-3 text-primary" />
+                Conquistas da Temporada {group.season}
+              </p>
+              <div className={`grid grid-cols-2 gap-4 text-center ${group.items.length === 4 ? 'md:grid-cols-4' : 'md:grid-cols-2 max-w-xl mx-auto'}`}>
+                {group.items.map((s) => (
+                  <div key={s.value + s.label}>
+                    <p className="text-sm md:text-base font-bold text-primary leading-snug">{s.value}</p>
+                    <p className="text-[10px] md:text-xs uppercase tracking-widest opacity-70 mt-0.5">{s.label}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -348,8 +364,8 @@ const Index = () => {
           </div>
 
           <div className="max-w-5xl mx-auto relative">
-            <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-primary via-secondary to-primary" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-primary via-secondary to-primary" />
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {achievementsData.map((ach) => (
                 <div key={ach.id} className="flex flex-col items-center text-center">
                   <div className="relative z-10 h-16 w-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg mb-3">
