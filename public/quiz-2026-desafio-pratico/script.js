@@ -12,7 +12,7 @@ let participante = {
 let resultadoSalvo = false;
 
 // Configurações do timer
-const TEMPO_QUIZ_SEGUNDOS = 300; // 5 minutos - PARÂMETRO CONFIGURÁVEL
+const TEMPO_QUIZ_SEGUNDOS = 600; // 10 minutos - PARÂMETRO CONFIGURÁVEL
 let timerInterval = null;
 let tempoRestante = TEMPO_QUIZ_SEGUNDOS;
 let timerIniciado = false;
@@ -21,9 +21,9 @@ let timerIniciado = false;
 const quizDataEmbutido = {
   "configuracao": {
     "titulo": "Quiz Desafio Prático - CAPIBOTS",
-    "numeroQuestoesFaceis": 7,
-    "numeroQuestoesMedias": 7,
-    "numeroQuestoesDificeis": 4
+    "numeroQuestoesFaceis": 6,
+    "numeroQuestoesMedias": 6,
+    "numeroQuestoesDificeis": 3
   },
   "quiz": {
     "titulo": "Quiz do Desafio Prático — TBR Kids 2 2026",
