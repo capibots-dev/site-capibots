@@ -7,6 +7,11 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
 import blogData from '@/data/blog.json';
 
+const renderInline = (text: string) =>
+  text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
+    i % 2 === 1 ? <strong key={i} className="font-semibold">{part}</strong> : part
+  );
+
 const BlogPost = () => {
   const { slug } = useParams();
   const post = blogData.find((p) => p.id === slug);
@@ -246,36 +251,36 @@ const BlogPost = () => {
                     if (paragraph.startsWith('## ')) {
                       return (
                         <h2 key={index} className="text-2xl font-bold mt-8 mb-4 text-gradient">
-                          {paragraph.replace('## ', '')}
+                          {renderInline(paragraph.replace('## ', ''))}
                         </h2>
                       );
                     }
                     if (paragraph.startsWith('### ')) {
                       return (
                         <h3 key={index} className="text-xl font-semibold mt-6 mb-3">
-                          {paragraph.replace('### ', '')}
+                          {renderInline(paragraph.replace('### ', ''))}
                         </h3>
                       );
                     }
                     if (paragraph.startsWith('- ')) {
                       return (
-                        <li key={index} className="ml-4 mb-2">
-                          {paragraph.replace('- ', '')}
+                        <li key={index} className="ml-4 mb-2 text-muted-foreground leading-relaxed">
+                          {renderInline(paragraph.replace('- ', ''))}
                         </li>
                       );
                     }
                     if (paragraph.startsWith('✅ ')) {
                       return (
-                        <p key={index} className="mb-2 flex items-start">
+                        <p key={index} className="mb-2 flex items-start text-muted-foreground leading-relaxed">
                           <span className="mr-2">✅</span>
-                          {paragraph.replace('✅ ', '')}
+                          <span>{renderInline(paragraph.replace('✅ ', ''))}</span>
                         </p>
                       );
                     }
                     if (paragraph.trim()) {
                       return (
                         <p key={index} className="mb-4 text-muted-foreground leading-relaxed">
-                          {paragraph}
+                          {renderInline(paragraph)}
                         </p>
                       );
                     }

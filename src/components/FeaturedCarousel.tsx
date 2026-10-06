@@ -11,7 +11,7 @@ interface Post {
   category: string;
   excerpt: string;
   image: string;
-  featured: boolean;
+  featured?: boolean;
 }
 
 interface FeaturedCarouselProps {
