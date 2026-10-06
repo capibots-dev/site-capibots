@@ -28,7 +28,11 @@ const Header = () => {
               alt="Capibots Logo"
               className="h-10 w-auto"
             />
-            <span className="font-bold text-xl text-gradient">Capibots</span>
+            <img
+              src="/capibots-nome.png"
+              alt="Capibots"
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
