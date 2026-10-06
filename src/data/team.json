@@ -2,7 +2,9 @@
   {
     "slug": "arthur",
     "name": "Arthur",
-    "role": "Posicionador",
+    "roles": [
+      "Posicionador"
+    ],
     "category": "Posicionamento",
     "image": "/images/team/arthur-cartoon.png",
     "minibio": "O idealizador! Foi Arthur quem sonhou com a equipe antes mesmo de ela existir. Posicionador nato no robô e líder de espírito. Prova de que uma grande ideia pode mudar tudo."
@@ -10,31 +12,41 @@
   {
     "slug": "augusto",
     "name": "Augusto",
-    "role": "Cientista",
-    "category": "Ciência",
+    "roles": [
+      "Engenheiro",
+      "Cientista"
+    ],
+    "category": "Engenharia",
     "image": "/images/team/augusto-cartoon.png",
-    "minibio": "Engenheiro de mãos habilidosas! Augusto é a força por trás da estrutura do robô, garantindo que cada peça encaixe perfeitamente. Resolve com criatividade o que a missão exige."
+    "minibio": "Engenheiro e cientista! Augusto é a força por trás da estrutura do robô, garantindo que cada peça encaixe perfeitamente, e leva a curiosidade científica para o projeto de pesquisa. Resolve com criatividade o que a missão exige."
   },
   {
     "slug": "gabriela",
     "name": "Gabriela",
-    "role": "Organizadora",
-    "category": "Organização",
+    "roles": [
+      "Programadora"
+    ],
+    "category": "Programação",
     "image": "/images/team/gabi-cartoon.png",
-    "minibio": "Triple ameaça! Gabriela atua como programadora, cientista e organizadora. Versátil e dedicada, é uma das pilares mais completas da equipe."
+    "minibio": "Programadora de alma! Gabriela transforma lógica em movimento no robô, com dedicação e atenção a cada detalhe do código. Uma das pilares mais completas da equipe."
   },
   {
     "slug": "joao-gomes",
     "name": "João Gomes",
-    "role": "Engenheiro",
+    "roles": [
+      "Engenheiro",
+      "Cientista"
+    ],
     "category": "Engenharia",
     "image": "/images/team/joao-cartoon.png",
-    "minibio": "Cientista e engenheiro! João combina raciocínio científico com habilidade técnica para entender os problemas e construir soluções sólidas. A base racional da equipe."
+    "minibio": "Engenheiro e cientista! João combina raciocínio científico com habilidade técnica para entender os problemas e construir soluções sólidas. A base racional da equipe."
   },
   {
     "slug": "lucca",
     "name": "Lucca",
-    "role": "Programador",
+    "roles": [
+      "Programador"
+    ],
     "category": "Programação",
     "image": "/images/team/lucca-cartoon.png",
     "minibio": "Código é a sua língua! Lucca é um dos programadores do robô, transformando lógica em movimento com precisão. Adora um desafio e não descansa até o código rodar certo."
@@ -42,33 +54,43 @@
   {
     "slug": "luisa",
     "name": "Luisa",
-    "role": "Posicionadora",
-    "category": "Posicionamento",
+    "roles": [
+      "Organizadora"
+    ],
+    "category": "Organização",
     "image": "/images/team/luisa-cartoon.png",
-    "minibio": "Olho no alvo! Luísa é posicionadora, responsável por garantir que o robô parta do lugar certo na hora certa. Concentração e calma são as suas marcas registradas."
+    "minibio": "Organização é o seu superpoder! Luísa ajuda a equipe a funcionar como uma máquina bem azeitada, mantendo tudo nos trilhos com eficiência e cuidado. Concentração e calma são as suas marcas registradas."
   },
   {
     "slug": "manuela",
     "name": "Manuela",
-    "role": "Organizadora",
-    "category": "Organização",
+    "roles": [
+      "Posicionadora"
+    ],
+    "category": "Posicionamento",
     "image": "/images/team/manu-cartoon.png",
-    "minibio": "Organização é o seu superpoder! Manuela garante que a equipe funcione como uma máquina bem azeitada, mantendo tudo nos trilhos com eficiência e cuidado."
+    "minibio": "Olho no alvo! Manuela é posicionadora, responsável por garantir que o robô parta do lugar certo na hora certa. Precisão e atenção aos detalhes fazem toda a diferença no tapete."
   },
   {
     "slug": "nicolas",
     "name": "Nicolas",
-    "role": "Programador",
+    "roles": [
+      "Programador",
+      "Cientista"
+    ],
     "category": "Programação",
     "image": "/images/team/nicolas-cartoon.png",
-    "minibio": "Programador de plantão! Nicolas escreve os comandos que fazem o robô tomar decisões certeiras no tapete. Tranquilo na aparência, estratégico na essência."
+    "minibio": "Programador e cientista! Nicolas escreve os comandos que fazem o robô tomar decisões certeiras no tapete e leva o olhar investigativo para a pesquisa. Tranquilo na aparência, estratégico na essência."
   },
   {
     "slug": "sophia",
     "name": "Sophia",
-    "role": "Organizadora",
-    "category": "Organização",
+    "roles": [
+      "Engenheira",
+      "Organizadora"
+    ],
+    "category": "Engenharia",
     "image": "/images/team/sophia-cartoon.png",
-    "minibio": "A organização tem dois nomes — e um deles é Sophia! Junto com Manuela, mantém a equipe estruturada, os prazos em dia e o clima leve. Essencial nos bastidores e na frente também."
+    "minibio": "Engenheira e organizadora! Sophia constrói soluções para o robô e, junto com as outras organizadoras, mantém a equipe estruturada, os prazos em dia e o clima leve. Essencial nos bastidores e na frente também."
   }
 ]

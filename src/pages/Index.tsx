@@ -347,7 +347,7 @@ const Index = () => {
                 </div>
                 <p className="text-[11px] font-semibold leading-tight group-hover:text-primary transition-colors">{member.name}</p>
                 <span className={`mt-0.5 px-1.5 py-0.5 rounded text-[9px] font-medium border ${categoryColor[member.category] ?? 'bg-muted text-muted-foreground border-border'}`}>
-                  {member.role}
+                  {member.roles[0]}
                 </span>
               </Link>
             ))}

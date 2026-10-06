@@ -6,13 +6,13 @@ import { Card, CardContent } from '@/components/ui/card';
 interface TeamMemberCardProps {
   slug: string;
   name: string;
-  role: string;
+  roles: string[];
   category: string;
   minibio?: string;
   image?: string;
 }
 
-const TeamMemberCard = ({ slug, name, role, category, minibio, image }: TeamMemberCardProps) => {
+const TeamMemberCard = ({ slug, name, roles, category, minibio, image }: TeamMemberCardProps) => {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'Programação':
@@ -41,7 +41,7 @@ const TeamMemberCard = ({ slug, name, role, category, minibio, image }: TeamMemb
         </div>
         <CardContent className="p-5 text-center">
           <h3 className="font-semibold text-lg mb-1 group-hover:text-primary transition-colors">{name}</h3>
-          <p className="text-muted-foreground text-sm mb-3">{role}</p>
+          <p className="text-muted-foreground text-sm mb-3">{roles.join(' · ')}</p>
           {minibio && <p className="text-xs text-muted-foreground mb-3 leading-relaxed">{minibio}</p>}
           <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(category)}`}>
             {category}

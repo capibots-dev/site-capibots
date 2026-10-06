@@ -54,6 +54,18 @@ const categoryColor: Record<string, string> = {
   Organização: 'bg-pink-100 text-pink-700 border-pink-200',
 };
 
+const roleCategory: Record<string, string> = {
+  Programador: 'Programação',
+  Programadora: 'Programação',
+  Posicionador: 'Posicionamento',
+  Posicionadora: 'Posicionamento',
+  Cientista: 'Ciência',
+  Engenheiro: 'Engenharia',
+  Engenheira: 'Engenharia',
+  Organizador: 'Organização',
+  Organizadora: 'Organização',
+};
+
 const TeamMember = () => {
   const { slug } = useParams();
   const index = teamData.findIndex((m) => m.slug === slug);
@@ -76,7 +88,8 @@ const TeamMember = () => {
 
   const prev = teamData[index - 1] ?? teamData[teamData.length - 1];
   const next = teamData[index + 1] ?? teamData[0];
-  const dimension = dimensionMap[member.category];
+  const categories = [...new Set(member.roles.map((r) => roleCategory[r] ?? member.category))];
+  const dimensions = categories.map((c) => dimensionMap[c]).filter(Boolean);
   const memberProjects = projectsData.filter((p) =>
     p.teamMembers.some((m) => m.toLowerCase().includes(member.name.toLowerCase()))
   );
@@ -115,12 +128,16 @@ const TeamMember = () => {
 
               {/* Nome e função */}
               <h1 className="text-lg font-bold leading-tight mb-1">{member.name}</h1>
-              <p className="text-sm text-muted-foreground mb-3">{member.role}</p>
+              <p className="text-sm text-muted-foreground mb-3">{member.roles.join(' · ')}</p>
 
-              {/* Categoria */}
-              <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${categoryColor[member.category] ?? ''}`}>
-                {member.category}
-              </span>
+              {/* Categorias */}
+              <div className="flex flex-wrap justify-center gap-1.5">
+                {categories.map((c) => (
+                  <span key={c} className={`px-3 py-1 rounded-full text-xs font-semibold border ${categoryColor[c] ?? ''}`}>
+                    {c}
+                  </span>
+                ))}
+              </div>
 
               {/* Número na equipe */}
               <div className="mt-auto pt-8 text-center">
@@ -145,19 +162,23 @@ const TeamMember = () => {
               <hr className="border-border" />
 
               {/* Dimensão TBR */}
-              {dimension && (
+              {dimensions.length > 0 && (
                 <div>
                   <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-3 font-semibold">
-                    Dimensão TBR
+                    {dimensions.length > 1 ? 'Dimensões TBR' : 'Dimensão TBR'}
                   </p>
-                  <div className="flex items-start gap-3">
-                    <div className={`p-2 rounded-lg shrink-0 ${dimension.bgClass}`}>
-                      <dimension.Icon className={`h-5 w-5 ${dimension.colorClass}`} />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm">{dimension.label}</p>
-                      <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{dimension.desc}</p>
-                    </div>
+                  <div className="space-y-4">
+                    {dimensions.map((dimension, i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <div className={`p-2 rounded-lg shrink-0 ${dimension.bgClass}`}>
+                          <dimension.Icon className={`h-5 w-5 ${dimension.colorClass}`} />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-sm">{dimension.label}</p>
+                          <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{dimension.desc}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
