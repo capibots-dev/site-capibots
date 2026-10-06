@@ -14,7 +14,7 @@ const Blog = () => {
   const allPosts = [...blogData]
     .filter((p) => p.date <= today)
     .sort((a, b) => b.date.localeCompare(a.date));
-  const featured = allPosts.filter((p) => p.featured).slice(0, 3);
+  const featured = allPosts.filter((p) => p.featured).slice(0, 5);
   const categories = [...new Set(allPosts.map((p) => p.category))];
 
   return (
