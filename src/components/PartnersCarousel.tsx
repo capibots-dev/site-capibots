@@ -1,31 +1,46 @@
 import { Instagram } from 'lucide-react';
+import sponsorsData from '@/data/sponsors.json';
 
-interface Partner {
-  id: number;
-  name: string;
-  instagram?: string;
-  type: 'Ouro' | 'Prata' | 'Bronze';
-  image?: string;
+type Tier = 'ouro' | 'prata' | 'bronze';
+
+interface Sponsor {
+  id: string;
+  nome: string;
+  edicoes: { ano: number; tipo: Tier }[];
+  imagem: string;
+  link: string | null;
+  instagram: string | null;
+  descricao: string;
 }
 
-const partners: Partner[] = [
-  // ── Ouro ──
-  { id: 2,  name: 'Vanilla Cestas Finas',                  instagram: '@vanillacestasfinas',           type: 'Ouro' },
-  { id: 3,  name: 'Publicenter',                           instagram: '@publicentersistemas',           type: 'Ouro', image: '/images/sponsors/publicenter-square.png' },
-  { id: 6,  name: 'Farmácia Kalayasa',                                                                  type: 'Ouro', image: '/images/sponsors/Logo Kalayasa.jpeg' },
-  { id: 7,  name: 'Eduardo e Monique Negócios Imobiliários', instagram: '@moniquevieira.imoveis',      type: 'Ouro', image: '/images/sponsors/eduardoemonique-square.jpeg' },
-  { id: 10, name: 'Gráfica Hebron',                        instagram: '@graficahebrom_',               type: 'Ouro', image: '/images/sponsors/hebrom-square.png' },
-  { id: 12, name: 'Babuska',                               instagram: '@babuskapaes',                  type: 'Ouro', image: '/images/sponsors/babuska-square.png' },
-  { id: 13, name: 'Clínica Orthus Fisioterapia',           instagram: '@clinicaorthusfisioterapia',    type: 'Ouro', image: '/images/sponsors/orthus-square.jpeg' },
-  // ── Prata ──
-  { id: 5,  name: 'Rezende Solar',                         instagram: '@rezende_solar',                type: 'Prata' },
-  { id: 9,  name: 'ML Acabamentos',                        instagram: '@mlacabamentos',                type: 'Prata', image: '/images/sponsors/mlacabamentos-square.png' },
-  { id: 11, name: 'Methos Corretora',                      instagram: '@methoscorretora',              type: 'Prata' },
-  // ── Bronze ──
-  { id: 1,  name: 'Calixto Negócios Imobiliários',         instagram: '@calixtoimoveisoficial',        type: 'Bronze', image: '/images/sponsors/calixto-square.png' },
-  { id: 4,  name: 'Projet Equipamentos',                   instagram: '@projetequipamentos',           type: 'Bronze', image: '/images/sponsors/Logo Projet.jpeg' },
-  { id: 8,  name: 'Flor du Quintal',                       instagram: '@florduquintal',                type: 'Bronze', image: '/images/sponsors/florduquintal-square.png' },
-];
+interface Partner {
+  id: string;
+  name: string;
+  instagram?: string;
+  link?: string;
+  type: 'Ouro' | 'Prata' | 'Bronze';
+  image: string;
+}
+
+const tierLabel = { ouro: 'Ouro', prata: 'Prata', bronze: 'Bronze' } as const;
+
+const sponsors = sponsorsData as Sponsor[];
+const currentYear = Math.max(...sponsors.flatMap((s) => s.edicoes.map((e) => e.ano)));
+
+const partners: Partner[] = sponsors.flatMap((s) => {
+  const edicao = s.edicoes.find((e) => e.ano === currentYear);
+  if (!edicao) return [];
+  return [{
+    id: s.id,
+    name: s.nome,
+    instagram: s.instagram ?? undefined,
+    link: s.link ?? undefined,
+    type: tierLabel[edicao.tipo],
+    image: s.imagem,
+  }];
+});
+
+const pastPartners = sponsors.filter((s) => !s.edicoes.some((e) => e.ano === currentYear));
 
 const tierConfig = {
   Ouro: {
@@ -68,16 +83,12 @@ const PartnerCard = ({ partner, logoSize, nameSize }: PartnerCardProps) => (
     <div
       className={`${logoSize} rounded-xl overflow-hidden bg-white border border-border shadow-sm flex items-center justify-center group-hover:shadow-md transition-all duration-200 group-hover:-translate-y-0.5`}
     >
-      {partner.image ? (
-        <img
-          src={partner.image}
-          alt={partner.name}
-          className="w-full h-full object-contain p-1"
-        />
+      {partner.link ? (
+        <a href={partner.link} target="_blank" rel="noopener noreferrer" className="w-full h-full">
+          <img src={partner.image} alt={partner.name} className="w-full h-full object-contain p-1" />
+        </a>
       ) : (
-        <span className="font-bold text-primary text-xl">
-          {partner.name.charAt(0)}
-        </span>
+        <img src={partner.image} alt={partner.name} className="w-full h-full object-contain p-1" />
       )}
     </div>
     <p className={`${nameSize} text-foreground leading-tight line-clamp-2 max-w-[100px]`}>
@@ -136,6 +147,28 @@ const PartnersCarousel = () => {
             </div>
           </div>
         )
+      )}
+
+      {pastPartners.length > 0 && (
+        <div>
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-px flex-1 bg-border" />
+            <span className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+              Apoiaram em edições anteriores
+            </span>
+            <div className="h-px flex-1 bg-border" />
+          </div>
+          <div className="grid grid-cols-3 sm:grid-cols-5 gap-6 justify-items-center">
+            {pastPartners.map((s) => (
+              <div key={s.id} className="flex flex-col items-center text-center gap-2">
+                <div className="h-14 w-14 rounded-xl overflow-hidden bg-white border border-border shadow-sm flex items-center justify-center">
+                  <img src={s.imagem} alt={s.nome} className="w-full h-full object-contain p-1" />
+                </div>
+                <p className="text-xs text-muted-foreground leading-tight line-clamp-2 max-w-[100px]">{s.nome}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       )}
     </div>
   );
