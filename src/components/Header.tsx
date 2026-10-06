@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, ShoppingBag } from 'lucide-react';
+import { Menu, X, ShoppingBag, Trophy } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,6 +33,13 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
+            <a
+              href="/quiz-2026-desafio-pratico/index.html"
+              className="flex items-center gap-1.5 rounded-full gradient-orange-green px-4 py-1.5 text-sm font-bold text-white shadow-md animate-bounce-gentle hover:opacity-90 transition-opacity"
+            >
+              <Trophy className="h-4 w-4" />
+              Quiz Desafio Prático
+            </a>
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -70,6 +77,14 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden border-t py-4">
             <nav className="flex flex-col space-y-4">
+              <a
+                href="/quiz-2026-desafio-pratico/index.html"
+                className="flex w-fit items-center gap-1.5 rounded-full gradient-orange-green px-4 py-1.5 text-sm font-bold text-white shadow-md"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Trophy className="h-4 w-4" />
+                Quiz Desafio Prático
+              </a>
               {navigation.map((item) => (
                 <Link
                   key={item.name}
