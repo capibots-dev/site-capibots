@@ -24,6 +24,22 @@
       "Quiz sobre o Cerrado",
       "Jogo: Capivara e Robozinho - Cuidando do Cerrado"
     ],
+    "tools": [
+      {
+        "name": "CerradoTech",
+        "description": "Plataforma na internet com ferramentas e conteúdo para ajudar a regenerar a vegetação do Cerrado.",
+        "image": "/images/projects/cerradotech-print.png",
+        "link": "https://cerradotech.capibots.com.br/",
+        "linkLabel": "Acessar a CerradoTech"
+      },
+      {
+        "name": "Jogo: Capivara e Robozinho",
+        "description": "Jogo feito no Scratch sobre o cuidado com o Cerrado, com a capivara e o robozinho da equipe.",
+        "image": "/images/projects/jogo-capivara-e-robozinho.png",
+        "link": "https://scratch.mit.edu/projects/1246451912/",
+        "linkLabel": "Jogar no Scratch"
+      }
+    ],
     "goals": [
       "Participar com sucesso no TBR 2025",
       "Demonstrar capacidades técnicas da equipe",

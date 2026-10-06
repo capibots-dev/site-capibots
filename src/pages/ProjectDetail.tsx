@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Calendar, Users, Target, Cpu, ArrowLeft } from 'lucide-react';
+import { Calendar, Users, Target, Cpu, ArrowLeft, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import projectsData from '@/data/projects.json';
 import sponsorsData from '@/data/sponsors.json';
@@ -32,6 +32,8 @@ const ProjectDetail = () => {
         })
         .sort((a, b) => tierOrder.indexOf(a.tipo) - tierOrder.indexOf(b.tipo))
     : [];
+
+  const tools = (project as { tools?: { name: string; description: string; image: string; link: string; linkLabel: string }[] } | undefined)?.tools ?? [];
 
   if (!project) {
     return (
@@ -170,6 +172,35 @@ const ProjectDetail = () => {
                   </CardContent>
                 </Card>
               </div>
+
+              {/* Tools created in the season */}
+              {tools.length > 0 && (
+                <Card className="border-primary/40 shadow-md">
+                  <CardContent className="p-6">
+                    <h2 className="text-2xl font-bold mb-1 text-gradient">Ferramentas criadas na temporada</h2>
+                    <p className="text-sm text-muted-foreground mb-5">Experimente o que os Capibots desenvolveram em {project.season}.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {tools.map((tool) => (
+                        <div key={tool.name} className="rounded-lg border overflow-hidden flex flex-col bg-card">
+                          <a href={tool.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-64 bg-muted">
+                            <img src={tool.image} alt={`Tela de ${tool.name}`} className="max-h-64 max-w-full w-auto object-contain" />
+                          </a>
+                          <div className="p-4 flex flex-col flex-1 gap-3">
+                            <h3 className="text-lg font-bold">{tool.name}</h3>
+                            <p className="text-sm text-muted-foreground flex-1">{tool.description}</p>
+                            <Button asChild className="gradient-orange-green text-white border-0">
+                              <a href={tool.link} target="_blank" rel="noopener noreferrer">
+                                {tool.linkLabel}
+                                <ExternalLink className="ml-2 h-4 w-4" />
+                              </a>
+                            </Button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
 
               {/* Technologies */}
               <Card>
