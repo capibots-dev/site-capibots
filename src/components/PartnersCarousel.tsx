@@ -40,26 +40,24 @@ const partners: Partner[] = sponsors.flatMap((s) => {
   }];
 });
 
-const pastPartners = sponsors.filter((s) => !s.edicoes.some((e) => e.ano === currentYear));
-
 const tierConfig = {
   Ouro: {
     label: 'Patrocinadores Ouro',
     badge: '🥇',
     badgeClass: 'bg-yellow-100 text-yellow-800 border-yellow-300',
     headerClass: 'text-yellow-700',
-    logoSize: 'h-28 w-28',
-    nameSize: 'text-sm font-semibold',
-    grid: 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4',
+    logoSize: 'h-36 w-36 md:h-44 md:w-44',
+    nameSize: 'text-base font-semibold',
+    rows: 3,
   },
   Prata: {
     label: 'Patrocinadores Prata',
     badge: '🥈',
     badgeClass: 'bg-slate-100 text-slate-700 border-slate-300',
     headerClass: 'text-slate-600',
-    logoSize: 'h-20 w-20',
+    logoSize: 'h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32',
     nameSize: 'text-xs font-medium',
-    grid: 'grid-cols-2 sm:grid-cols-3',
+    rows: 4,
   },
   Bronze: {
     label: 'Patrocinadores Bronze',
@@ -68,8 +66,16 @@ const tierConfig = {
     headerClass: 'text-orange-700',
     logoSize: 'h-14 w-14',
     nameSize: 'text-xs',
-    grid: 'grid-cols-3 sm:grid-cols-4',
+    rows: 4,
   },
+};
+
+// Ouro: 3 em cima e o restante embaixo; prata/bronze: uma linha com até 4
+const chunk = <T,>(items: T[], perRow: number): T[][] => {
+  if (perRow === 3 && items.length > 3) return [items.slice(0, 3), items.slice(3)];
+  const rows: T[][] = [];
+  for (let i = 0; i < items.length; i += perRow) rows.push(items.slice(i, i + perRow));
+  return rows;
 };
 
 interface PartnerCardProps {
@@ -91,7 +97,7 @@ const PartnerCard = ({ partner, logoSize, nameSize }: PartnerCardProps) => (
         <img src={partner.image} alt={partner.name} className="w-full h-full object-contain p-1" />
       )}
     </div>
-    <p className={`${nameSize} text-foreground leading-tight line-clamp-2 max-w-[100px]`}>
+    <p className={`${nameSize} text-foreground leading-tight line-clamp-2 max-w-[160px]`}>
       {partner.name}
     </p>
     {partner.instagram && (
@@ -120,7 +126,7 @@ const PartnersCarousel = () => {
       <div className="text-center">
         <h2 className="text-3xl font-bold mb-3 text-gradient">Nossos Patrocinadores</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Agradecemos a todos os parceiros que tornam possível nossa participação no TBR.
+          Agradecemos a todos os parceiros que tornam possível nossa participação no TBR nesta temporada 2026.
         </p>
       </div>
 
@@ -135,41 +141,24 @@ const PartnersCarousel = () => {
               <div className={`h-px flex-1 bg-border`} />
             </div>
 
-            <div className={`grid ${config.grid} gap-6 justify-items-center`}>
-              {tierPartners.map((partner) => (
-                <PartnerCard
-                  key={partner.id}
-                  partner={partner}
-                  logoSize={config.logoSize}
-                  nameSize={config.nameSize}
-                />
+            <div className="space-y-8">
+              {chunk(tierPartners, config.rows).map((row, i) => (
+                <div key={i} className="flex flex-wrap justify-center gap-x-8 gap-y-6">
+                  {row.map((partner) => (
+                    <PartnerCard
+                      key={partner.id}
+                      partner={partner}
+                      logoSize={config.logoSize}
+                      nameSize={config.nameSize}
+                    />
+                  ))}
+                </div>
               ))}
             </div>
           </div>
         )
       )}
 
-      {pastPartners.length > 0 && (
-        <div>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-px flex-1 bg-border" />
-            <span className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-              Apoiaram em edições anteriores
-            </span>
-            <div className="h-px flex-1 bg-border" />
-          </div>
-          <div className="grid grid-cols-3 sm:grid-cols-5 gap-6 justify-items-center">
-            {pastPartners.map((s) => (
-              <div key={s.id} className="flex flex-col items-center text-center gap-2">
-                <div className="h-14 w-14 rounded-xl overflow-hidden bg-white border border-border shadow-sm flex items-center justify-center">
-                  <img src={s.imagem} alt={s.nome} className="w-full h-full object-contain p-1" />
-                </div>
-                <p className="text-xs text-muted-foreground leading-tight line-clamp-2 max-w-[100px]">{s.nome}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

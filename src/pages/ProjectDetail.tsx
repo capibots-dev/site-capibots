@@ -8,10 +8,29 @@ import { Button } from '@/components/ui/button';
 import { Calendar, Users, Target, Cpu, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import projectsData from '@/data/projects.json';
+import sponsorsData from '@/data/sponsors.json';
+
+type Tier = 'ouro' | 'prata' | 'bronze';
+
+const tierOrder: Tier[] = ['ouro', 'prata', 'bronze'];
+const tierInfo: Record<Tier, { label: string; badge: string; className: string }> = {
+  ouro: { label: 'Ouro', badge: '🥇', className: 'bg-yellow-100 text-yellow-800 border-yellow-300' },
+  prata: { label: 'Prata', badge: '🥈', className: 'bg-slate-100 text-slate-700 border-slate-300' },
+  bronze: { label: 'Bronze', badge: '🥉', className: 'bg-orange-100 text-orange-700 border-orange-300' },
+};
 
 const ProjectDetail = () => {
   const { slug } = useParams();
   const project = projectsData.find((p) => p.id === slug);
+
+  const projectSponsors = project
+    ? (sponsorsData as { id: string; nome: string; imagem: string; link: string | null; edicoes: { ano: number; tipo: Tier }[] }[])
+        .flatMap((sp) => {
+          const edicao = sp.edicoes.find((e) => e.ano === project.season);
+          return edicao ? [{ ...sp, tipo: edicao.tipo }] : [];
+        })
+        .sort((a, b) => tierOrder.indexOf(a.tipo) - tierOrder.indexOf(b.tipo))
+    : [];
 
   if (!project) {
     return (
@@ -165,6 +184,40 @@ const ProjectDetail = () => {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Sponsors */}
+              {projectSponsors.length > 0 && (
+                <Card>
+                  <CardContent className="p-6">
+                    <h2 className="text-2xl font-bold mb-4 text-gradient">Patrocinadores</h2>
+                    <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
+                      {projectSponsors.map((sp) => {
+                        const tier = tierInfo[sp.tipo];
+                        const logo = (
+                          <img src={sp.imagem} alt={sp.nome} className="w-full h-full object-contain p-1" />
+                        );
+                        return (
+                          <div key={sp.id} className="flex flex-col items-center text-center gap-2">
+                            <div className="w-full max-w-[88px] aspect-square rounded-xl overflow-hidden bg-white border border-border shadow-sm">
+                              {sp.link ? (
+                                <a href={sp.link} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                                  {logo}
+                                </a>
+                              ) : (
+                                logo
+                              )}
+                            </div>
+                            <p className="text-[11px] font-medium leading-tight">{sp.nome}</p>
+                            <Badge variant="outline" className={tier.className}>
+                              {tier.badge} {tier.label}
+                            </Badge>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
             </div>
 
             {/* Sidebar */}
