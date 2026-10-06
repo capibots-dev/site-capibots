@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capibot Aprende+ | Apresentação da Solução</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+  :root{
+    --green-dark:#15441A; --green:#2E7D32; --green-light:#5CB860;
+    --orange:#F57C00; --orange-bright:#FF9800; --yellow:#FFC940;
+    --cream:#FFF8EC; --ink:#1A2E1C; --blue:#1976D2;
+    --paper:#FFFDF7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-snap-type:y mandatory;}
+  body{font-family:'Nunito',sans-serif;background:var(--green-dark);color:var(--ink);}
+
+  .slide{
+    min-height:100vh;width:100%;scroll-snap-align:start;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:6vh 8vw;position:relative;overflow:hidden;
+  }
+  .slide-num{position:absolute;top:32px;right:40px;font-family:'Fredoka';
+    font-weight:600;font-size:14px;opacity:.4;letter-spacing:1px;}
+  .kicker{font-family:'Fredoka';font-weight:600;font-size:clamp(13px,1.4vw,16px);
+    letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;}
+  h1{font-family:'Fredoka';font-weight:700;line-height:1.04;
+    font-size:clamp(36px,6.5vw,80px);letter-spacing:-1px;}
+  h2{font-family:'Fredoka';font-weight:700;line-height:1.08;
+    font-size:clamp(28px,4.5vw,56px);letter-spacing:-0.5px;}
+  p.lead{font-size:clamp(17px,2vw,24px);line-height:1.5;max-width:60ch;font-weight:600;}
+
+  /* COVER */
+  #cover{background:
+    radial-gradient(circle at 80% 15%, rgba(255,201,64,.18), transparent 45%),
+    radial-gradient(circle at 15% 85%, rgba(92,184,96,.22), transparent 50%),
+    var(--green-dark);color:var(--cream);align-items:flex-start;}
+  #cover::before{content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.05) 1.5px,transparent 1.5px);
+    background-size:34px 34px;pointer-events:none;}
+  .capi-badge{font-size:clamp(64px,11vw,150px);line-height:1;margin-bottom:8px;
+    filter:drop-shadow(0 10px 24px rgba(0,0,0,.35));}
+  #cover .pill{display:inline-flex;align-items:center;gap:10px;
+    background:var(--yellow);color:var(--green-dark);font-family:'Fredoka';
+    font-weight:600;padding:8px 20px;border-radius:40px;font-size:14px;
+    letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;}
+  #cover h1 .hl{color:var(--yellow);}
+  #cover .sub{margin-top:24px;font-size:clamp(16px,2vw,22px);font-weight:600;
+    color:rgba(255,248,236,.82);max-width:54ch;}
+  .scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+    color:rgba(255,248,236,.6);font-family:'Fredoka';font-size:13px;
+    letter-spacing:2px;animation:bob 1.8s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
+
+  /* light slides */
+  .light{background:var(--cream);color:var(--ink);}
+  .light .kicker{color:var(--orange);}
+  .paper{background:var(--paper);}
+
+  /* problem slide */
+  #problem{background:var(--cream);}
+  .big-stat{font-family:'Fredoka';font-weight:700;color:var(--orange);
+    font-size:clamp(56px,11vw,140px);line-height:.9;letter-spacing:-2px;}
+  .stat-row{display:flex;flex-wrap:wrap;gap:48px;margin-top:30px;}
+  .stat-block{flex:1;min-width:200px;}
+  .stat-block .n{font-family:'Fredoka';font-weight:700;font-size:clamp(34px,4.5vw,58px);
+    color:var(--green);line-height:1;}
+  .stat-block .l{font-size:15px;font-weight:600;margin-top:8px;color:#4a5a4c;line-height:1.4;}
+
+  /* insight / gap slide */
+  #gap{background:var(--green);color:var(--cream);}
+  #gap .split{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:36px;
+    border-radius:24px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.3);}
+  #gap .col{padding:38px 34px;}
+  #gap .col.a{background:rgba(255,255,255,.1);}
+  #gap .col.b{background:var(--yellow);color:var(--green-dark);}
+  #gap .col h3{font-family:'Fredoka';font-weight:700;font-size:24px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+  #gap .col p{font-size:16px;font-weight:600;line-height:1.5;}
+  #gap .col .tag{font-family:'Fredoka';font-size:12px;letter-spacing:2px;text-transform:uppercase;
+    opacity:.7;display:block;margin-bottom:18px;}
+
+  /* solution slide */
+  #solution{background:var(--green-dark);color:var(--cream);align-items:center;text-align:center;}
+  #solution::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 30%, rgba(255,201,64,.15),transparent 55%);}
+  #solution .phone{font-size:clamp(70px,12vw,150px);margin-bottom:10px;
+    filter:drop-shadow(0 14px 30px rgba(0,0,0,.4));position:relative;}
+  #solution h1 .hl{color:var(--yellow);}
+  #solution .lead{margin:24px auto 0;color:rgba(255,248,236,.85);text-align:center;}
+
+  /* how it works steps */
+  #how{background:var(--cream);}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px;}
+  .step{background:var(--paper);border:3px solid var(--green-light);border-radius:22px;
+    padding:26px 20px;position:relative;}
+  .step .num{position:absolute;top:-16px;left:22px;width:36px;height:36px;border-radius:50%;
+    background:var(--orange);color:#fff;font-family:'Fredoka';font-weight:700;
+    display:flex;align-items:center;justify-content:center;font-size:18px;
+    box-shadow:0 4px 10px rgba(245,124,0,.4);}
+  .step .ico{font-size:42px;margin:6px 0 14px;}
+  .step h4{font-family:'Fredoka';font-weight:600;font-size:19px;margin-bottom:8px;color:var(--green-dark);}
+  .step p{font-size:14px;font-weight:600;line-height:1.45;color:#4a5a4c;}
+
+  /* why SLM - cards */
+  #why{background:var(--green);color:var(--cream);}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px;}
+  .why-card{background:rgba(255,255,255,.1);border-radius:22px;padding:30px 26px;
+    border:1px solid rgba(255,255,255,.15);transition:transform .2s;}
+  .why-card .ico{font-size:46px;margin-bottom:16px;}
+  .why-card h4{font-family:'Fredoka';font-weight:700;font-size:22px;margin-bottom:10px;color:var(--yellow);}
+  .why-card p{font-size:15.5px;font-weight:600;line-height:1.5;color:rgba(255,248,236,.9);}
+
+  /* comparison */
+  #compare{background:var(--cream);}
+  .vs-table{margin-top:36px;border-radius:20px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,.12);}
+  .vs-row{display:grid;grid-template-columns:1.4fr 1fr 1fr;}
+  .vs-row>div{padding:20px 24px;font-size:16px;font-weight:600;display:flex;align-items:center;}
+  .vs-head>div{font-family:'Fredoka';font-weight:700;font-size:18px;color:#fff;}
+  .vs-head .h0{background:var(--green-dark);}
+  .vs-head .h1{background:#B0413E;justify-content:center;}
+  .vs-head .h2{background:var(--green);justify-content:center;}
+  .vs-row:not(.vs-head):nth-child(even){background:var(--paper);}
+  .vs-row:not(.vs-head):nth-child(odd){background:#fff;}
+  .vs-row .feat{color:var(--ink);}
+  .vs-row .c1{justify-content:center;color:#B0413E;font-size:24px;}
+  .vs-row .c2{justify-content:center;color:var(--green);font-size:24px;}
+
+  /* gamification */
+  #game{background:var(--green-dark);color:var(--cream);}
+  .game-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;margin-top:30px;}
+  .game-list{list-style:none;display:flex;flex-direction:column;gap:18px;}
+  .game-list li{display:flex;gap:16px;align-items:flex-start;font-size:17px;font-weight:600;line-height:1.4;}
+  .game-list .e{font-size:30px;flex-shrink:0;}
+  .game-list .t{color:var(--yellow);font-family:'Fredoka';font-weight:600;}
+  .mockup{background:linear-gradient(160deg,#5CB860,#2E7D32);border-radius:34px;
+    padding:28px 24px;box-shadow:0 24px 60px rgba(0,0,0,.4);border:6px solid rgba(255,255,255,.15);}
+  .mockup .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+  .mockup .offline{background:var(--yellow);color:var(--green-dark);font-family:'Fredoka';
+    font-weight:700;font-size:11px;padding:5px 12px;border-radius:20px;display:flex;align-items:center;gap:5px;}
+  .mockup .bubble{background:rgba(255,255,255,.95);color:var(--ink);border-radius:18px 18px 18px 4px;
+    padding:14px 16px;font-size:14px;font-weight:600;margin-bottom:12px;max-width:85%;}
+  .mockup .bubble.me{background:var(--yellow);color:var(--green-dark);border-radius:18px 18px 4px 18px;margin-left:auto;}
+  .mockup .stars{font-size:22px;margin-top:8px;text-align:center;}
+
+  /* impact / closing */
+  #impact{background:var(--cream);}
+  .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
+  .impact-card{text-align:center;padding:20px;}
+  .impact-card .e{font-size:54px;}
+  .impact-card h4{font-family:'Fredoka';font-weight:700;font-size:20px;color:var(--green-dark);margin:10px 0 6px;}
+  .impact-card p{font-size:14.5px;font-weight:600;color:#4a5a4c;line-height:1.45;}
+
+  #close{background:
+    radial-gradient(circle at 50% 40%, rgba(255,201,64,.16),transparent 55%),
+    var(--green-dark);color:var(--cream);align-items:center;text-align:center;}
+  #close .capi{font-size:clamp(60px,10vw,120px);margin-bottom:20px;}
+  #close h1 .hl{color:var(--yellow);}
+  #close .lead{margin:26px auto 0;text-align:center;color:rgba(255,248,236,.85);}
+  #close .team{margin-top:40px;font-family:'Fredoka';font-weight:600;letter-spacing:2px;
+    font-size:14px;text-transform:uppercase;opacity:.6;}
+
+  .accent-line{width:70px;height:6px;background:var(--orange);border-radius:4px;margin:20px 0 26px;}
+  #gap .accent-line,#solution .accent-line,#why .accent-line,#game .accent-line,#close .accent-line{background:var(--yellow);}
+
+  @media(max-width:880px){
+    .steps{grid-template-columns:1fr 1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    #gap .split{grid-template-columns:1fr;}
+    .game-wrap{grid-template-columns:1fr;}
+    .impact-grid{grid-template-columns:1fr;}
+    .vs-row{grid-template-columns:1.2fr .8fr .8fr;}
+    .vs-row>div{padding:14px;font-size:13.5px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- 1. COVER -->
+<section class="slide" id="cover">
+  <span class="slide-num">01</span>
+  <div class="capi-badge">🐹</div>
+  <span class="pill">📶 Capibots · TBR Kids 2 · 2026</span>
+  <h1>Capibot <span class="hl">Aprende+</span><br>Um tutor que cabe<br>no bolso — <span class="hl">sem internet</span>.</h1>
+  <p class="sub">Uma inteligência artificial embarcada no celular para garantir que toda criança continue aprendendo, mesmo onde a internet não chega.</p>
+  <div class="scroll-hint">↓ role para apresentar</div>
+</section>
+
+<!-- 2. PROBLEM -->
+<section class="slide" id="problem">
+  <span class="slide-num">02</span>
+  <div class="kicker">O Problema</div>
+  <h2>Milhões de crianças ficam<br>sem aprender em casa.</h2>
+  <div class="accent-line"></div>
+  <p class="lead">O governo está levando internet para as escolas. Mas a criança passa só algumas horas lá — e o resto do dia em casa, muitas vezes <strong>sem nenhuma conexão</strong>.</p>
+  <div class="stat-row">
+    <div class="stat-block">
+      <div class="n">4,8 mi</div>
+      <div class="l">de crianças de 9 a 17 anos não têm internet em casa</div>
+    </div>
+    <div class="stat-block">
+      <div class="n">25%</div>
+      <div class="l">é a taxa de exclusão na zona rural — a maior do país</div>
+    </div>
+    <div class="stat-block">
+      <div class="n">só 10%</div>
+      <div class="l">dos lares das classes D e E têm computador</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. THE GAP -->
+<section class="slide" id="gap">
+  <span class="slide-num">03</span>
+  <div class="kicker" style="color:var(--yellow)">A Lacuna que Encontramos</div>
+  <h2>Conectar a escola não é<br>o mesmo que conectar a criança.</h2>
+  <div class="split">
+    <div class="col a">
+      <span class="tag">Já tem solução</span>
+      <h3>🏫 Conectividade da escola</h3>
+      <p>O governo investe R$ 8,8 bilhões para conectar todas as escolas até 2026. Esse problema já está sendo atacado.</p>
+    </div>
+    <div class="col b">
+      <span class="tag">A nossa oportunidade</span>
+      <h3>🏠 Conectividade da criança</h3>
+      <p>Ninguém resolve o que acontece quando a criança vai para casa, sem internet, justamente quando faria a lição e o reforço.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. SOLUTION -->
+<section class="slide" id="solution">
+  <span class="slide-num">04</span>
+  <div class="phone">📱✨</div>
+  <div class="kicker" style="color:var(--yellow)">A Nossa Solução</div>
+  <h1>Um tutor com <span class="hl">IA</span><br>dentro do celular.</h1>
+  <p class="lead">Um aplicativo com um modelo de linguagem pequeno (SLM) <strong>embarcado no aparelho</strong>. A criança conversa com o tutor, tira dúvidas e aprende brincando — <strong>tudo offline</strong>, sem gastar internet nem dados móveis.</p>
+</section>
+
+<!-- 5. HOW IT WORKS -->
+<section class="slide" id="how">
+  <span class="slide-num">05</span>
+  <div class="kicker">Como Funciona</div>
+  <h2>Baixa na escola, aprende em casa.</h2>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><div class="ico">📥</div><h4>Baixa o conteúdo</h4><p>Na escola, que já tem internet, o app baixa as lições e o tutor inteligente.</p></div>
+    <div class="step"><div class="num">2</div><div class="ico">🏠</div><h4>Leva para casa</h4><p>Tudo fica salvo no celular. Não precisa mais de internet para usar.</p></div>
+    <div class="step"><div class="num">3</div><div class="ico">💬</div><h4>Conversa e aprende</h4><p>A criança tira dúvidas com o tutor de IA e faz atividades, offline.</p></div>
+    <div class="step"><div class="num">4</div><div class="ico">⭐</div><h4>Ganha recompensas</h4><p>Pontos, estrelas e medalhas mantêm a criança motivada a continuar.</p></div>
+  </div>
+</section>
+
+<!-- 6. WHY SLM -->
+<section class="slide" id="why">
+  <span class="slide-num">06</span>
+  <div class="kicker" style="color:var(--yellow)">Por que uma Small Language Model?</div>
+  <h2>A peça-chave da solução.</h2>
+  <div class="accent-line"></div>
+  <div class="why-grid">
+    <div class="why-card"><div class="ico">🔌</div><h4>Funciona offline</h4><p>O modelo roda no próprio celular. Não precisa de internet para responder — resolve exatamente o problema das crianças sem conexão.</p></div>
+    <div class="why-card"><div class="ico">📲</div><h4>Cabe no aparelho</h4><p>Modelos pequenos como Gemma e Llama já rodam em celulares comuns e entendem português. Não precisa de um computador potente.</p></div>
+    <div class="why-card"><div class="ico">🆓</div><h4>Sem custo de dados</h4><p>Como não usa internet, a criança não gasta créditos do celular — o que é decisivo para famílias de baixa renda.</p></div>
+  </div>
+</section>
+
+<!-- 7. COMPARISON -->
+<section class="slide" id="compare">
+  <span class="slide-num">07</span>
+  <div class="kicker">Por que não um app comum?</div>
+  <h2>O que nos torna diferentes.</h2>
+  <div class="vs-table">
+    <div class="vs-row vs-head">
+      <div class="h0">Recurso</div>
+      <div class="h1">App comum / IA na nuvem</div>
+      <div class="h2">Capibot Aprende+</div>
+    </div>
+    <div class="vs-row"><div class="feat">Funciona sem internet</div><div class="c1">✕</div><div class="c2">✓</div></div>
+    <div class="vs-row"><div class="feat">Não gasta dados móveis</div><div class="c1">✕</div><div class="c2">✓</div></div>
+    <div class="vs-row"><div class="feat">Tutor que responde dúvidas</div><div class="c1">✓</div><div class="c2">✓</div></div>
+    <div class="vs-row"><div class="feat">Funciona em zona rural isolada</div><div class="c1">✕</div><div class="c2">✓</div></div>
+    <div class="vs-row"><div class="feat">Protege os dados da criança</div><div class="c1">✕</div><div class="c2">✓</div></div>
+  </div>
+</section>
+
+<!-- 8. GAMIFICATION -->
+<section class="slide" id="game">
+  <span class="slide-num">08</span>
+  <div class="kicker" style="color:var(--yellow)">Aprender Brincando</div>
+  <h2>Gamificação que motiva.</h2>
+  <div class="game-wrap">
+    <ul class="game-list">
+      <li><span class="e">🗺️</span><div><span class="t">Trilha de aventura</span><br>cada matéria é uma jornada com fases para desbloquear.</div></li>
+      <li><span class="e">⭐</span><div><span class="t">Estrelas e medalhas</span><br>recompensas a cada acerto mantêm a criança engajada.</div></li>
+      <li><span class="e">🐹</span><div><span class="t">Mascote Capibot</span><br>um tutor amigo que comemora os acertos e ajuda nos erros.</div></li>
+      <li><span class="e">📚</span><div><span class="t">Matérias básicas</span><br>Matemática, Português, Ciências — para os primeiros anos.</div></li>
+    </ul>
+    <div class="mockup">
+      <div class="top">
+        <strong style="font-family:'Fredoka'">🐹 Capibot</strong>
+        <span class="offline">🔌 Sem internet</span>
+      </div>
+      <div class="bubble">Oi! Vamos treinar uma continha? 🌟<br>Quanto é 4 + 3?</div>
+      <div class="bubble me">É 7!</div>
+      <div class="bubble">Isso aí! Você acertou! 🎉</div>
+      <div class="stars">⭐⭐⭐</div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. IMPACT -->
+<section class="slide" id="impact">
+  <span class="slide-num">09</span>
+  <div class="kicker">O Impacto</div>
+  <h2>Educação que não para na porta da escola.</h2>
+  <div class="impact-grid">
+    <div class="impact-card"><div class="e">⚖️</div><h4>Mais igualdade</h4><p>Aproxima as crianças sem internet das que têm acesso pleno.</p></div>
+    <div class="impact-card"><div class="e">🌱</div><h4>Conecta ao ODS 4</h4><p>Educação de qualidade e equitativa para todos, em qualquer lugar.</p></div>
+    <div class="impact-card"><div class="e">🚀</div><h4>Prepara o futuro</h4><p>A criança aprende e ainda tem contato com a tecnologia do amanhã.</p></div>
+  </div>
+</section>
+
+<!-- 10. CLOSE -->
+<section class="slide" id="close">
+  <span class="slide-num">10</span>
+  <div class="capi">🐹💚</div>
+  <div class="kicker" style="color:var(--yellow)">Nossa Proposta</div>
+  <h1>Levar um <span class="hl">tutor</span> para onde<br>a internet não chega.</h1>
+  <p class="lead">Capibot Aprende+ usa a tecnologia que cabe no bolso para garantir que nenhuma criança fique para trás — mesmo offline.</p>
+  <div class="team">Equipe Capibots · TBR Kids 2 · Temporada 2026</div>
+</section>
+
+</body>
+</html>
