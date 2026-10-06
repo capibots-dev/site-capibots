@@ -179,7 +179,7 @@ const Index = () => {
             <div>
               <div className="flex items-center gap-3 mb-5">
                 {activeProject.image.startsWith('/') ? (
-                  <img src={activeProject.image} alt={activeProject.title} className="h-12 w-12 object-contain" />
+                  <img src={activeProject.image} alt={activeProject.title} className="h-12 w-12 object-contain rounded-lg" />
                 ) : (
                   <span className="text-4xl">{activeProject.image}</span>
                 )}

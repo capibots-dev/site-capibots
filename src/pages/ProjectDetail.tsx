@@ -84,7 +84,7 @@ const ProjectDetail = () => {
           <div className="max-w-4xl">
             <div className="flex items-center gap-4 mb-5">
               {project.image.startsWith('/') ? (
-                <img src={project.image} alt={project.title} className="h-16 w-auto object-contain" />
+                <img src={project.image} alt={project.title} className="h-16 w-auto object-contain rounded-xl shadow-md" />
               ) : (
                 <span className="text-5xl">{project.image}</span>
               )}
@@ -254,6 +254,15 @@ const ProjectDetail = () => {
 
             {/* Sidebar */}
             <div className="space-y-6">
+              {/* Logo da temporada */}
+              {project.image.startsWith('/') && (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full max-w-sm mx-auto rounded-2xl shadow-md"
+                />
+              )}
+
               {/* Progress */}
               <Card>
                 <CardContent className="p-6">

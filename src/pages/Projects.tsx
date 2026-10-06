@@ -54,9 +54,9 @@ const Projects = () => {
                 <Card key={project.id} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
                   <CardContent className="p-0">
                     {/* Project Header */}
-                    <div className="h-48 bg-gradient-to-br from-primary to-secondary flex items-center justify-center relative overflow-hidden">
+                    <div className="h-48 p-4 bg-gradient-to-br from-primary to-secondary flex items-center justify-center relative overflow-hidden">
                       {project.image.startsWith('/') ? (
-                        <img src={project.image} alt={project.title} className="h-full w-full object-contain p-6" />
+                        <img src={project.image} alt={project.title} className="h-full w-auto max-w-full object-contain rounded-2xl shadow-md" />
                       ) : (
                         <span className="text-8xl">{project.image}</span>
                       )}
@@ -143,7 +143,7 @@ const Projects = () => {
                       >
                         <div className="h-14 w-14 shrink-0 rounded-md bg-gradient-to-br from-primary to-secondary flex items-center justify-center overflow-hidden">
                           {project.image.startsWith('/') ? (
-                            <img src={project.image} alt={project.title} className="h-full w-full object-contain p-2" />
+                            <img src={project.image} alt={project.title} className="h-10 w-10 object-contain rounded-md" />
                           ) : (
                             <span className="text-3xl">{project.image}</span>
                           )}
