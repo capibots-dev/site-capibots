@@ -387,7 +387,7 @@ const Index = () => {
 
           <div className="text-center mt-10">
             <Button asChild variant="outline">
-              <Link to="/sobre">Ver Todas as Conquistas</Link>
+              <Link to="/sobre#conquistas">Ver Todas as Conquistas</Link>
             </Button>
           </div>
         </div>

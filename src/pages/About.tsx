@@ -1,4 +1,6 @@
 
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import TeamMemberCard from '@/components/TeamMemberCard';
@@ -10,6 +12,12 @@ import achievementsData from '@/data/achievements.json';
 const About = () => {
   const teamMembers = teamData;
   const achievements = achievementsData;
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return;
+    document.getElementById(hash.slice(1))?.scrollIntoView();
+  }, [hash]);
 
   const values = [
     {
@@ -153,7 +161,7 @@ const About = () => {
       </section>
 
       {/* Conquistas */}
-      <section className="py-12 md:py-16 bg-muted/30">
+      <section id="conquistas" className="scroll-mt-20 py-12 md:py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">Nossas Conquistas</h2>
