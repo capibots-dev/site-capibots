@@ -1,6 +1,7 @@
 [
   {
     "id": "tbr-2025",
+    "season": 2025,
     "image": "/images/projects/logo-tbr-2025.png",
     "title": "TBR 2025",
     "subtitle": "Torneio Brasil de Robótica 2025",
@@ -51,6 +52,7 @@
   },
   {
     "id": "tbr-2026",
+    "season": 2026,
     "image": "/images/projects/logo-tbr-2026.png",
     "title": "TBR 2026",
     "subtitle": "Torneio Brasil de Robótica 2026",
@@ -70,7 +72,7 @@
       "Canva"
     ],
     "category": "Kids 2",
-    "progress": 15,
+    "progress": 70,
     "challenges": [
       "Compreender e pesquisar um tema novo com profundidade (ODS 4)",
       "Desenvolver uma solução científica inovadora para o contexto educacional",
@@ -94,7 +96,7 @@
     ],
     "teamMembers": [
       "Tia Lorena [Técnica]",
-      "Tia Karol [Mentora]",
+      "Tia Lu [Mentora]",
       "Arthur",
       "Augusto",
       "Gabriela",
@@ -106,10 +108,10 @@
       "Sophia"
     ],
     "timeline": [
-      { "label": "Formação do Time e Início da Temporada",  "date": "Abril 2026",            "completed": true  },
-      { "label": "TBR - Etapa Interna (CBM Uberlândia)",    "date": "Junho 2026",            "completed": false },
-      { "label": "TBR - Etapa Regional Triângulo Mineiro",  "date": "Agosto / Setembro 2026","completed": false },
-      { "label": "TBR - Etapa Nacional",                    "date": "Novembro / Dezembro 2026","completed": false }
+      { "label": "Formação do Time e Início da Temporada",  "date": "Abril 2026", "completed": true  },
+      { "label": "TBR - Etapa Interna (CBM Uberlândia)",    "date": "Junho 2026", "completed": true },
+      { "label": "TBR - Etapa Regional Triângulo Mineiro",  "date": "Outubro 2026","completed": false },
+      { "label": "TBR - Etapa Nacional",                    "date": "Dezembro 2026","completed": false }
     ]
   }
 ]
