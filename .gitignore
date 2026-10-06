@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Documentos oficiais do TBR e trabalhos da equipe (não publicar)
+documentos/
+trabalhos/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
