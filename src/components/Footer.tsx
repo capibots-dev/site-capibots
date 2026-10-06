@@ -59,9 +59,10 @@ const Footer = () => {
                   href="https://instagram.com/equipecapibots"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Instagram className="h-5 w-5" />
+                  <span className="text-sm">@equipecapibots</span>
                 </a>
               </div>
             </div>
