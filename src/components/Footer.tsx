@@ -72,6 +72,13 @@ const Footer = () => {
           <p className="text-sm text-muted-foreground">
             © 2025 Equipe Capibots. Todos os direitos reservados.
           </p>
+          <button
+            type="button"
+            onClick={() => (window as unknown as { abrirPreferenciasCookies?: () => void }).abrirPreferenciasCookies?.()}
+            className="mt-2 text-sm text-muted-foreground underline hover:text-primary transition-colors"
+          >
+            Preferências de cookies
+          </button>
         </div>
       </div>
     </footer>

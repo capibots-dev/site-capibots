@@ -11,6 +11,7 @@
   }
 
   function mostrar() {
+    if (document.getElementById('aviso-cookies')) return;
     var estilo = document.createElement('style');
     estilo.textContent =
       '#aviso-cookies{position:fixed;left:16px;right:16px;bottom:16px;z-index:2147483647;max-width:640px;margin:0 auto;' +
@@ -21,7 +22,10 @@
       '#aviso-cookies button{cursor:pointer;border-radius:8px;padding:8px 16px;font:inherit;font-weight:600;border:2px solid hsl(25 95% 53%)}' +
       '#aviso-cookies .aceitar{background:hsl(25 95% 53%);color:#fff}' +
       '#aviso-cookies .recusar{background:#fff;color:hsl(25 95% 40%)}';
-    document.head.appendChild(estilo);
+    if (!document.getElementById('aviso-cookies-estilo')) {
+      estilo.id = 'aviso-cookies-estilo';
+      document.head.appendChild(estilo);
+    }
 
     var aviso = document.createElement('div');
     aviso.id = 'aviso-cookies';
@@ -36,8 +40,8 @@
 
     function escolher(valor) {
       guardar(valor);
-      if (valor === 'granted' && window.gtag) {
-        window.gtag('consent', 'update', { analytics_storage: 'granted' });
+      if (window.gtag) {
+        window.gtag('consent', 'update', { analytics_storage: valor });
       }
       aviso.remove();
     }
@@ -46,6 +50,11 @@
     aviso.querySelector('.recusar').onclick = function () { escolher('denied'); };
     document.body.appendChild(aviso);
   }
+
+  // Usado pelo link "Preferências de cookies" do rodapé: reabre o aviso para mudar a escolha.
+  window.abrirPreferenciasCookies = function () {
+    if (document.body) mostrar();
+  };
 
   if (!guardado()) {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mostrar);
