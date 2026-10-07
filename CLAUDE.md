@@ -59,6 +59,19 @@ Inline formatting supports `**bold**` and `[text](url)` links (links open in a n
 
 Blog posts in `_legacy` inside `BlogPost.tsx` are hardcoded fallbacks for old slugs not yet migrated to `blog.json` — they are not displayed, only used if `blogData.find()` returns nothing for those specific ids.
 
+### Scheduled posts and the pending post backlog
+
+A post with a future `date` in `blog.json` stays hidden (list, home, featured carousel, "Continue Lendo" and the direct URL) until that date; no redeploy is needed. Dates are compared in UTC, so a post appears about 21h (Brasília) on the day before.
+
+**Never publish (competitive advantage until after the national stage):** Robôvara design (parts, levers, what the 3D-printed pieces do), number and order of base exits, round times, projected scores, mission strategy, gyroscope and wheel-alignment techniques; Capi-Aprende architecture (AI models, sync), prototype URL, hypotheses, experiment design and any partial survey result. The 2026 research theme (connectivity / Capi-Aprende) is not announced yet: only talk about it after the regional presentation. Do not name volunteers or Escola Dom Bosco staff without authorization, and never show photos of children from other schools.
+
+**Backlog (to write later, ask the team for the date first):**
+
+- *Quando o treino dá errado* (`Desafio Prático`): the 2026 logbook (ten meetings in six weeks, training at team members' homes, a day when missions that worked started failing). No mission names, parts or strategy.
+- *Como a equipe aplica uma pesquisa com crianças* (`Mérito Científico`): consent, nobody photographed or recorded, questionnaire identified only by a code. Method and care only, no results. Publish only after the Dom Bosco visit (5–9 Oct 2026) and with the school's OK.
+- *Aprendendo a usar impressora 3D* (`Formação e Tecnologia`): only the learning and the volunteers who helped; never what is printed or why.
+- *Entrepreneurial actions of 2026* (`Ações Empreendedoras`), one post each, dated on the day of the action: Geladinho Gourmet, Lojinha Capibots (Copa do Mundo), Capi-Lanches at the Jogos Estudantis, Vaquinha online. Source: the Organização e Método pré-regional paper (`trabalhos/`, git-ignored). Waiting for the action dates.
+
 ### Styling conventions
 
 - **Primary color**: orange (`hsl(25 95% 53%)`) — represents the Cerrado sun/earth

@@ -33,9 +33,9 @@ const renderInline = (text: string) =>
 
 const BlogPost = () => {
   const { slug } = useParams();
-  const post = blogData.find((p) => p.id === slug);
-
   const today = new Date().toISOString().slice(0, 10);
+  const post = blogData.find((p) => p.id === slug && p.date <= today);
+
   const others = blogData
     .filter((p) => p.id !== slug && p.date <= today)
     .sort((a, b) => b.date.localeCompare(a.date));
