@@ -73,13 +73,23 @@ const Footer = () => {
           <p className="text-sm text-muted-foreground">
             © 2025 Equipe Capibots. Todos os direitos reservados.
           </p>
+          <div className="mt-2 flex flex-col items-center gap-1 sm:flex-row sm:justify-center sm:gap-4">
+          <a
+            href="/docs/Politica_Comunicacao_Uso_Imagem_Protecao_Digital_Capibots_v1_1.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground underline hover:text-primary transition-colors"
+          >
+            Política de Comunicação, Uso de Imagem e Proteção Digital
+          </a>
           <button
             type="button"
             onClick={() => (window as unknown as { abrirPreferenciasCookies?: () => void }).abrirPreferenciasCookies?.()}
-            className="mt-2 text-sm text-muted-foreground underline hover:text-primary transition-colors"
+            className="text-sm text-muted-foreground underline hover:text-primary transition-colors"
           >
             Preferências de cookies
           </button>
+          </div>
         </div>
       </div>
     </footer>

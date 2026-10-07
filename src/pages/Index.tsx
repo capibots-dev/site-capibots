@@ -274,158 +274,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── As 4 Dimensões ── */}
-      <section className="py-12 md:py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8">
-            <Badge variant="outline" className="text-primary border-primary mb-2">
-              Fichas de Avaliação TBR
-            </Badge>
-            <h2 className="text-2xl md:text-3xl font-bold text-gradient">As 4 Dimensões</h2>
-            <p className="text-muted-foreground mt-2 text-sm md:text-base max-w-xl mx-auto">
-              O TBR avalia equipes em quatro dimensões. Veja como os Capibots trabalham cada uma delas.
-            </p>
-          </div>
-
-          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {dimensoes.map((d) => (
-              <Card key={d.label} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-                <CardContent className="p-0">
-                  <div className={`h-1.5 bg-gradient-to-r ${d.color}`} />
-                  <div className="p-4">
-                    <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold border mb-3 ${d.badgeClass}`}>
-                      <d.icon className="h-3 w-3" />
-                      {d.label}
-                    </div>
-                    <ul className="space-y-1.5 mb-4">
-                      {d.items.map((item) => (
-                        <li key={item} className="flex items-start gap-1.5 text-xs text-muted-foreground">
-                          <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                    <Button asChild variant="outline" size="sm" className="w-full text-xs h-7">
-                      <Link to={d.cta.to}>
-                        {d.cta.label}
-                        <ArrowRight className="ml-1 h-3 w-3" />
-                      </Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── A Equipe ── */}
-      <section className="py-12 md:py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold">A Equipe</h2>
-            <p className="text-muted-foreground mt-2 text-sm md:text-base">
-              9 integrantes com papéis complementares. Clique para conhecer cada um.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-3 lg:grid-cols-9 gap-4 max-w-5xl mx-auto">
-            {teamData.map((member) => (
-              <Link
-                key={member.name}
-                to={`/equipe/${member.slug}`}
-                className="flex flex-col items-center text-center group"
-              >
-                <div className="w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-primary to-secondary mb-2 flex-shrink-0 ring-2 ring-transparent group-hover:ring-primary transition-all duration-200">
-                  {member.image ? (
-                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-white font-bold">
-                      {member.name[0]}
-                    </div>
-                  )}
-                </div>
-                <p className="text-[11px] font-semibold leading-tight group-hover:text-primary transition-colors">{member.name}</p>
-                <span className={`mt-0.5 px-1.5 py-0.5 rounded text-[9px] font-medium border ${categoryColor[member.category] ?? 'bg-muted text-muted-foreground border-border'}`}>
-                  {member.roles[0]}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Conquistas ── */}
-      <section className="py-12 md:py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">Conquistas</h2>
-            <p className="text-sm md:text-base text-muted-foreground">Nossa jornada de vitórias e aprendizados</p>
-          </div>
-
-          <div className="max-w-5xl mx-auto relative">
-            <div className="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-primary via-secondary to-primary" />
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              {achievementsData.map((ach) => (
-                <div key={ach.id} className="flex flex-col items-center text-center">
-                  <div className="relative z-10 h-16 w-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg mb-3">
-                    <Trophy className="h-7 w-7 text-white" />
-                  </div>
-                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">{ach.date}</p>
-                  <h3 className="font-bold text-sm mb-3 leading-snug px-2">{ach.title}</h3>
-                  <div className="flex flex-col gap-1.5 items-center">
-                    {ach.awards.map((award) => (
-                      <Badge key={award} className="bg-primary/10 text-primary border-0 text-xs px-2.5">
-                        🏆 {award}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center mt-10">
-            <Button asChild variant="outline">
-              <Link to="/sobre#conquistas">Ver Todas as Conquistas</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Banner Loja ── */}
-      <section className="py-8 bg-background">
-        <div className="container mx-auto px-4">
-          <a
-            href="https://capibots-dev.github.io/loja-capibots/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block max-w-5xl mx-auto group"
-          >
-            <div className="bg-gradient-to-r from-yellow-400 via-orange-400 to-orange-500 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-[1.01]">
-              <div className="flex items-center gap-4">
-                <div className="bg-white/30 rounded-xl p-3 flex-shrink-0">
-                  <ShoppingBag className="h-8 w-8 text-white" />
-                </div>
-                <div className="text-white">
-                  <p className="text-xs font-bold uppercase tracking-widest text-white/70 mb-0.5">Novidade</p>
-                  <h3 className="text-xl md:text-2xl font-bold leading-tight">Loja Capibots 🛒</h3>
-                  <p className="text-white/90 mt-0.5 text-sm">
-                    Produtos exclusivos da equipe. Apoie e vista a camisa do time!
-                  </p>
-                </div>
-              </div>
-              <div className="flex-shrink-0">
-                <div className="bg-white text-orange-500 font-bold px-6 py-2.5 rounded-full text-sm group-hover:bg-orange-50 transition-colors flex items-center gap-2 whitespace-nowrap">
-                  Acessar a Loja
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </section>
-
       {/* ── Últimas notícias ── */}
       <section className="py-12 md:py-16 bg-muted/30">
         <div className="container mx-auto px-4">
@@ -503,6 +351,158 @@ const Index = () => {
               <Link to="/blog">Ver Todas as Notícias</Link>
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* ── As 4 Dimensões ── */}
+      <section className="py-12 md:py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <Badge variant="outline" className="text-primary border-primary mb-2">
+              Fichas de Avaliação TBR
+            </Badge>
+            <h2 className="text-2xl md:text-3xl font-bold text-gradient">As 4 Dimensões</h2>
+            <p className="text-muted-foreground mt-2 text-sm md:text-base max-w-xl mx-auto">
+              O TBR avalia equipes em quatro dimensões. Veja como os Capibots trabalham cada uma delas.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {dimensoes.map((d) => (
+              <Card key={d.label} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                <CardContent className="p-0">
+                  <div className={`h-1.5 bg-gradient-to-r ${d.color}`} />
+                  <div className="p-4">
+                    <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold border mb-3 ${d.badgeClass}`}>
+                      <d.icon className="h-3 w-3" />
+                      {d.label}
+                    </div>
+                    <ul className="space-y-1.5 mb-4">
+                      {d.items.map((item) => (
+                        <li key={item} className="flex items-start gap-1.5 text-xs text-muted-foreground">
+                          <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button asChild variant="outline" size="sm" className="w-full text-xs h-7">
+                      <Link to={d.cta.to}>
+                        {d.cta.label}
+                        <ArrowRight className="ml-1 h-3 w-3" />
+                      </Link>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── A Equipe ── */}
+      <section className="py-12 md:py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold">A Equipe</h2>
+            <p className="text-muted-foreground mt-2 text-sm md:text-base">
+              9 integrantes com papéis complementares. Clique para conhecer cada um.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 lg:grid-cols-9 gap-4 max-w-5xl mx-auto">
+            {teamData.map((member) => (
+              <Link
+                key={member.name}
+                to={`/equipe/${member.slug}`}
+                className="flex flex-col items-center text-center group"
+              >
+                <div className="w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-primary to-secondary mb-2 flex-shrink-0 ring-2 ring-transparent group-hover:ring-primary transition-all duration-200">
+                  {member.image ? (
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-white font-bold">
+                      {member.name[0]}
+                    </div>
+                  )}
+                </div>
+                <p className="text-[11px] font-semibold leading-tight group-hover:text-primary transition-colors">{member.name}</p>
+                <span className={`mt-0.5 px-1.5 py-0.5 rounded text-[9px] font-medium border ${categoryColor[member.category] ?? 'bg-muted text-muted-foreground border-border'}`}>
+                  {member.roles[0]}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Conquistas ── */}
+      <section className="py-12 md:py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Conquistas</h2>
+            <p className="text-sm md:text-base text-muted-foreground">Nossa jornada de vitórias e aprendizados</p>
+          </div>
+
+          <div className="max-w-5xl mx-auto relative">
+            <div className="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-primary via-secondary to-primary" />
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {achievementsData.map((ach) => (
+                <div key={ach.id} className="flex flex-col items-center text-center">
+                  <div className="relative z-10 h-16 w-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg mb-3">
+                    <Trophy className="h-7 w-7 text-white" />
+                  </div>
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">{ach.date}</p>
+                  <h3 className="font-bold text-sm mb-3 leading-snug px-2">{ach.title}</h3>
+                  <div className="flex flex-col gap-1.5 items-center">
+                    {ach.awards.map((award) => (
+                      <Badge key={award} className="bg-primary/10 text-primary border-0 text-xs px-2.5">
+                        🏆 {award}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center mt-10">
+            <Button asChild variant="outline">
+              <Link to="/sobre#conquistas">Ver Todas as Conquistas</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Banner Loja ── */}
+      <section className="py-8 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <a
+            href="https://capibots-dev.github.io/loja-capibots/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block max-w-5xl mx-auto group"
+          >
+            <div className="bg-gradient-to-r from-yellow-400 via-orange-400 to-orange-500 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-[1.01]">
+              <div className="flex items-center gap-4">
+                <div className="bg-white/30 rounded-xl p-3 flex-shrink-0">
+                  <ShoppingBag className="h-8 w-8 text-white" />
+                </div>
+                <div className="text-white">
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/70 mb-0.5">Novidade</p>
+                  <h3 className="text-xl md:text-2xl font-bold leading-tight">Loja Capibots 🛒</h3>
+                  <p className="text-white/90 mt-0.5 text-sm">
+                    Produtos exclusivos da equipe. Apoie e vista a camisa do time!
+                  </p>
+                </div>
+              </div>
+              <div className="flex-shrink-0">
+                <div className="bg-white text-orange-500 font-bold px-6 py-2.5 rounded-full text-sm group-hover:bg-orange-50 transition-colors flex items-center gap-2 whitespace-nowrap">
+                  Acessar a Loja
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </div>
+              </div>
+            </div>
+          </a>
         </div>
       </section>
 

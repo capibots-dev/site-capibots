@@ -7,10 +7,29 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
 import blogData from '@/data/blog.json';
 
-const renderInline = (text: string) =>
+const renderBold = (text: string) =>
   text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
     i % 2 === 1 ? <strong key={i} className="font-semibold">{part}</strong> : part
   );
+
+const renderInline = (text: string) =>
+  text.split(/\[([^\]]+)\]\(([^)]+)\)/g).map((part, i, parts) => {
+    if (i % 3 === 0) return <span key={i}>{renderBold(part)}</span>;
+    if (i % 3 === 1) {
+      return (
+        <a
+          key={i}
+          href={parts[i + 1]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary underline hover:opacity-80"
+        >
+          {part}
+        </a>
+      );
+    }
+    return null;
+  });
 
 const BlogPost = () => {
   const { slug } = useParams();
