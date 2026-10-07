@@ -642,3 +642,11 @@ input[type="email"]:focus {
     .ranking-table th:nth-child(5),
     .ranking-table td:nth-child(5) { width: 20%; }
 }
+
+.posicao-ranking {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--cor-verde-escura);
+    margin: 10px 0;
+}

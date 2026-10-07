@@ -1869,6 +1869,21 @@ function mostrarRevisao() {
     });
 }
 
+// Mostra a posição do participante no ranking atual (considera a melhor tentativa dele)
+async function mostrarPosicao() {
+    const el = document.getElementById('posicao-ranking');
+    try {
+        const ranking = montarRanking(await lerEntradas());
+        const chave = `${participante.nome}|${participante.equipe}`.toLowerCase();
+        const indice = ranking.findIndex(e => `${e.nome}|${e.equipe}`.toLowerCase() === chave);
+        if (indice === -1) return;
+        el.textContent = `Sua posição no ranking: ${indice + 1}º de ${ranking.length}`;
+        el.classList.remove('hidden');
+    } catch (erro) {
+        console.error('Erro ao calcular a posição no ranking:', erro);
+    }
+}
+
 // Salva o resultado no ranking (Firestore ou, sem configuração, localStorage)
 async function salvarParticipante(percentual, tempoSegundos) {
     if (resultadoSalvo) return;
@@ -1876,6 +1891,7 @@ async function salvarParticipante(percentual, tempoSegundos) {
 
     const status = document.getElementById('status-ranking');
     status.textContent = 'Salvando no ranking...';
+    document.getElementById('posicao-ranking').classList.add('hidden');
 
     try {
         await gravarEntrada({
@@ -1889,6 +1905,7 @@ async function salvarParticipante(percentual, tempoSegundos) {
         status.textContent = FIREBASE_ATIVO
             ? 'Sua pontuação foi salva no ranking!'
             : 'Modo teste: pontuação salva só neste navegador.';
+        await mostrarPosicao();
     } catch (erro) {
         console.error('Erro ao salvar no ranking:', erro);
         status.textContent = 'Não foi possível salvar sua pontuação no ranking. Verifique a conexão.';
