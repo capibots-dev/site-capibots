@@ -5,17 +5,21 @@ import FeaturedCarousel from '@/components/FeaturedCarousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight } from 'lucide-react';
 import blogData from '@/data/blog.json';
 
 const Blog = () => {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const today = new Date().toISOString().slice(0, 10);
   const allPosts = [...blogData]
     .filter((p) => p.date <= today)
     .sort((a, b) => b.date.localeCompare(a.date));
   const featured = allPosts.filter((p) => p.featured).slice(0, 5);
   const categories = [...new Set(allPosts.map((p) => p.category))];
+  const countOf = (category: string) => allPosts.filter((p) => p.category === category).length;
+  const visiblePosts = activeCategory ? allPosts.filter((p) => p.category === activeCategory) : allPosts;
 
   return (
     <div className="min-h-screen">
@@ -39,9 +43,21 @@ const Blog = () => {
       <section className="py-8 bg-background border-b">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap gap-2 justify-center">
+            <Button
+              variant={activeCategory === null ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setActiveCategory(null)}
+            >
+              Todas ({allPosts.length})
+            </Button>
             {categories.map((category) => (
-              <Button key={category} variant="outline" size="sm">
-                {category}
+              <Button
+                key={category}
+                variant={activeCategory === category ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setActiveCategory(category)}
+              >
+                {category} ({countOf(category)})
               </Button>
             ))}
           </div>
@@ -52,7 +68,7 @@ const Blog = () => {
       <section className="py-10 md:py-14 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
-            {allPosts.map((post) => (
+            {visiblePosts.map((post) => (
               <Card key={post.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                 <CardContent className="p-0">
                   <div className="h-32 bg-gradient-to-br from-primary to-secondary flex items-center justify-center relative">
