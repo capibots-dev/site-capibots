@@ -70,7 +70,6 @@ A post with a future `date` in `blog.json` stays hidden (list, home, featured ca
 - *Quando o treino dá errado* (`Desafio Prático`): the 2026 logbook (ten meetings in six weeks, training at team members' homes, a day when missions that worked started failing). No mission names, parts or strategy.
 - *Como a equipe aplica uma pesquisa com crianças* (`Mérito Científico`): consent, nobody photographed or recorded, questionnaire identified only by a code. Method and care only, no results. Publish only after the Dom Bosco visit (5–9 Oct 2026) and with the school's OK.
 - *Aprendendo a usar impressora 3D* (`Formação e Tecnologia`): only the learning and the volunteers who helped; never what is printed or why.
-- *Entrepreneurial actions of 2026* (`Ações Empreendedoras`), one post each, dated on the day of the action: Geladinho Gourmet, Lojinha Capibots (Copa do Mundo), Capi-Lanches at the Jogos Estudantis, Vaquinha online. Source: the Organização e Método pré-regional paper (`trabalhos/`, git-ignored). Waiting for the action dates.
 
 ### Styling conventions
 
