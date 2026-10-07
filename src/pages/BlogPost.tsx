@@ -35,6 +35,15 @@ const BlogPost = () => {
   const { slug } = useParams();
   const post = blogData.find((p) => p.id === slug);
 
+  const today = new Date().toISOString().slice(0, 10);
+  const others = blogData
+    .filter((p) => p.id !== slug && p.date <= today)
+    .sort((a, b) => b.date.localeCompare(a.date));
+  const sameCategory = others.filter((p) => p.category === post?.category);
+  const relatedPosts = post
+    ? [...sameCategory, ...others.filter((p) => p.category !== post.category)].slice(0, 3)
+    : [];
+
   const _legacy = {
       'empreendedorismo-futsal': {
           title: 'Equipe Capibots promove ação de empreendedorismo no Torneio de Futsal',
@@ -317,6 +326,23 @@ const BlogPost = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl font-bold mb-8">Continue Lendo</h2>
+            {relatedPosts.length > 0 && (
+              <div className="grid gap-4 mb-8 text-left sm:grid-cols-3">
+                {relatedPosts.map((related) => (
+                  <Link key={related.id} to={`/blog/${related.id}`} className="group">
+                    <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                      <CardContent className="p-4">
+                        <Badge variant="outline" className="text-xs mb-2">{related.category}</Badge>
+                        <h3 className="text-sm font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-3 leading-snug">
+                          {related.title}
+                        </h3>
+                        <p className="text-xs text-muted-foreground line-clamp-2">{related.excerpt}</p>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            )}
             <Button asChild size="lg">
               <Link to="/blog">Ver Mais Posts</Link>
             </Button>
