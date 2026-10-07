@@ -5,7 +5,12 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
 import blogData from '@/data/blog.json';
+
+type GalleryImage = string | { src: string; alt?: string };
 
 const renderBold = (text: string) =>
   text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
@@ -33,6 +38,8 @@ const renderInline = (text: string) =>
 
 const BlogPost = () => {
   const { slug } = useParams();
+  const { toast } = useToast();
+  const [openImage, setOpenImage] = useState<{ src: string; alt: string } | null>(null);
   const today = new Date().toISOString().slice(0, 10);
   const post = blogData.find((p) => p.id === slug && p.date <= today);
 
@@ -43,6 +50,48 @@ const BlogPost = () => {
   const relatedPosts = post
     ? [...sameCategory, ...others.filter((p) => p.category !== post.category)].slice(0, 3)
     : [];
+
+  const handleShare = async () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: post?.title, text: post?.excerpt, url });
+      } catch {
+        // usuário cancelou o compartilhamento
+      }
+      return;
+    }
+    let copied = false;
+    try {
+      await navigator.clipboard.writeText(url);
+      copied = true;
+    } catch {
+      // Clipboard API indisponível (ex.: página fora de HTTPS/localhost); tenta o método antigo
+      const input = document.createElement('textarea');
+      input.value = url;
+      input.style.position = 'fixed';
+      input.style.opacity = '0';
+      document.body.appendChild(input);
+      input.select();
+      try {
+        copied = document.execCommand('copy');
+      } catch {
+        copied = false;
+      }
+      document.body.removeChild(input);
+    }
+    toast(
+      copied
+        ? { title: 'Link copiado!', description: 'Cole onde quiser compartilhar.' }
+        : { title: 'Não foi possível copiar o link', description: url }
+    );
+  };
+
+  const gallery = ((post as { images?: GalleryImage[] } | undefined)?.images ?? []).map((img) =>
+    typeof img === 'string'
+      ? { src: img, alt: post?.title ?? '' }
+      : { src: img.src, alt: img.alt ?? post?.title ?? '' }
+  );
 
   const _legacy = {
       'empreendedorismo-futsal': {
@@ -251,7 +300,7 @@ const BlogPost = () => {
             </div>
             
             <div className="flex gap-4">
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" onClick={handleShare}>
                 <Share2 className="h-4 w-4 mr-2" />
                 Compartilhar
               </Button>
@@ -273,6 +322,26 @@ const BlogPost = () => {
                     <span className="text-8xl">{post.image}</span>
                   )}
                 </div>
+
+                {gallery.length > 0 && (
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
+                    {gallery.map((img) => (
+                      <button
+                        key={img.src}
+                        type="button"
+                        onClick={() => setOpenImage(img)}
+                        className="aspect-square overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                      >
+                        <img
+                          src={img.src}
+                          alt={img.alt}
+                          loading="lazy"
+                          className="w-full h-full object-cover hover:scale-105 transition-transform"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                )}
 
                 <div className="prose prose-lg max-w-prose mx-auto">
                   {post.content.split('\n').map((paragraph, index) => {
@@ -349,6 +418,15 @@ const BlogPost = () => {
           </div>
         </div>
       </section>
+
+      <Dialog open={!!openImage} onOpenChange={(o) => !o && setOpenImage(null)}>
+        <DialogContent className="max-w-4xl p-2">
+          <DialogTitle className="sr-only">{openImage?.alt}</DialogTitle>
+          {openImage && (
+            <img src={openImage.src} alt={openImage.alt} className="w-full max-h-[85vh] object-contain rounded" />
+          )}
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>

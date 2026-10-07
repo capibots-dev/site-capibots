@@ -53,6 +53,8 @@ Pages import these JSON files directly; there is no API or CMS. To add/edit cont
 
 `BlogPost.tsx` renders post content by splitting on `\n` and parsing prefixes (`## `, `### `, `- `, `✅ `) manually — it does **not** use a Markdown library. When writing blog post content in `blog.json`, use only those supported prefixes. The `image` field accepts either an emoji string or an absolute path starting with `/` (e.g. `/images/blog/photo.jpg`); paths are rendered as `<img>`, emojis as text.
 
+Optional `images` field: list of photos shown as a gallery (grid with click-to-enlarge) right after the cover image. Each item is either a path string (`"/images/blog/foto.jpg"`) or `{ "src": "/images/blog/foto.jpg", "alt": "descrição" }`.
+
 Inline formatting supports `**bold**` and `[text](url)` links (links open in a new tab; local files such as `/docs/arquivo.pdf` work too).
 
 **Writing style:** whenever creating or editing a post in `blog.json`, invoke the `anthropic-skills:anti-ai-slop` skill before writing, so the text does not read as AI-generated.
