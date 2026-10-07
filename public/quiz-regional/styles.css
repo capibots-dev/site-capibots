@@ -727,3 +727,30 @@ input[type="email"]:focus {
         font-size: 1.2em;
     }
 }
+
+/* Ranking no celular: colunas compactas, sem estourar a largura */
+@media (max-width: 600px) {
+    .ranking-container {
+        padding: 10px;
+    }
+
+    .ranking-table {
+        table-layout: fixed;
+        font-size: 0.85rem;
+    }
+
+    .ranking-table th,
+    .ranking-table td {
+        padding: 6px 4px;
+        overflow-wrap: anywhere;
+    }
+
+    .ranking-table th:nth-child(1),
+    .ranking-table td:nth-child(1) { width: 14%; }
+    .ranking-table th:nth-child(2),
+    .ranking-table td:nth-child(2) { width: 34%; }
+    .ranking-table th:nth-child(3),
+    .ranking-table td:nth-child(3) { width: 32%; }
+    .ranking-table th:nth-child(4),
+    .ranking-table td:nth-child(4) { width: 20%; }
+}
