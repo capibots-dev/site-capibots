@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Instagram } from 'lucide-react';
+import { Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
   const navigation = [
@@ -54,7 +54,7 @@ const Footer = () => {
               <p className="text-sm text-muted-foreground">
                 equipecapibots@gmail.com
               </p>
-              <div className="flex space-x-4">
+              <div className="flex flex-col space-y-2">
                 <a
                   href="https://instagram.com/equipecapibots"
                   target="_blank"
@@ -63,6 +63,15 @@ const Footer = () => {
                 >
                   <Instagram className="h-5 w-5" />
                   <span className="text-sm">@equipecapibots</span>
+                </a>
+                <a
+                  href="https://www.youtube.com/channel/UCyD_dtOmujPn2Wk84vYHYpw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Youtube className="h-5 w-5" />
+                  <span className="text-sm">Equipe Capibots</span>
                 </a>
               </div>
             </div>
