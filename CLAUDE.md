@@ -65,12 +65,23 @@ Blog posts in `_legacy` inside `BlogPost.tsx` are hardcoded fallbacks for old sl
 
 A post with a future `date` in `blog.json` stays hidden (list, home, featured carousel, "Continue Lendo" and the direct URL) until that date; no redeploy is needed. Dates are compared in UTC, so a post appears about 21h (Brasília) on the day before.
 
-**Never publish (competitive advantage until after the national stage):** Robôvara design (parts, levers, what the 3D-printed pieces do), number and order of base exits, round times, projected scores, mission strategy, gyroscope and wheel-alignment techniques; Capi-Aprende architecture (AI models, sync), prototype URL, hypotheses, experiment design and any partial survey result. The 2026 research theme (connectivity / Capi-Aprende) is not announced yet: only talk about it after the regional presentation. Do not name volunteers or Escola Dom Bosco staff without authorization, and never show photos of children from other schools.
+**Partial disclosure is a goal.** Last year the team was penalized for not showing partial results of its work, so the Mérito Científico research is published openly: the 2026 theme (connectivity), the choice process, public data, the Escola Dom Bosco visits, the survey method and its numbers, and the navigable Capi-Aprende prototype (capiaprende.capibots.com.br, public since 15 Oct 2026; it was ready on 21 Sep but only ran inside the team). Posts dated in the past go live on the next deploy, which is intended: the technical notebooks were delivered to the judges, who may check the site.
 
-**Backlog (to write later, ask the team for the date first):**
+**Editorial line:** the blog celebrates achievements and shows relevant events and facts. Team backstage (what went wrong, internal difficulties, plans that failed) is not the subject of a post; those lessons live in the technical notebooks. A post may include a failure and the course correction when it is a small part of an achievement or event, never as the main theme.
 
-- *Quando o treino dá errado* (`Desafio Prático`): the 2026 logbook (ten meetings in six weeks, training at team members' homes, a day when missions that worked started failing). No mission names, parts or strategy.
-- *Como a equipe aplica uma pesquisa com crianças* (`Mérito Científico`): consent, nobody photographed or recorded, questionnaire identified only by a code. Method and care only, no results. Publish only after the Dom Bosco visit (5–9 Oct 2026) and with the school's OK.
+**Never publish (competitive advantage):**
+
+- *Table strategy and robot (until after the national stage):* Robôvara design (parts, levers, what the 3D-printed pieces do), number and order of base exits, round times, projected scores and practice averages or records, mission strategy, gyroscope and wheel-alignment techniques, how the Maker mission was built and what object the robot carries.
+- *Capi-Aprende internals:* architecture (AI models, how it runs offline, sync, voice input, Android choice), hypotheses, experiment design (pre/post test, groups, draw), what the children picked as functions for the "professor de bolso", and the ideas each research group imagined before the vote. Survey numbers and the navigable prototype are fine.
+- *The technical notebooks themselves* (`trabalhos/`, PDFs of Mérito Científico, Organização e Método, Tecnologia e Engenharia): they hold table strategy and must never be public. The folder is in `.gitignore`; never remove it from there, commit it, copy it into `public/` or `dist/`, or link to it. Posts may use their facts only within the limits above.
+- *People:* do not name volunteers or Escola Dom Bosco staff without authorization, never show photos of children from other schools, and do not publish what was learned about the school's own structure or routine without the school's OK.
+
+**Post plan:** `trabalhos/posts-planejados.md` (local only, not versioned) lists the planned posts with date, category and cautions. Follow it, and ask the team for the date when the plan says "a confirmar".
+
+**Backlog items with extra rules:**
+
+- *Quando o treino não sai como o planejado* (`Desafio Prático`): generic post on resilience and emotional maturity, with hypothetical situations ("imagine que...") and how the team records one lesson per training in the logbook. Tell no real event of the season; no mission names, parts or strategy.
+- *Como a equipe aplica uma pesquisa com crianças* (`Mérito Científico`): consent, nobody photographed or recorded, questionnaire identified only by a code. Method and care only; results go in a separate post. Publish with the school's OK.
 - *Aprendendo a usar impressora 3D* (`Formação e Tecnologia`): only the learning and the volunteers who helped; never what is printed or why.
 
 ### Styling conventions
