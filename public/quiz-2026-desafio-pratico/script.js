@@ -27,10 +27,10 @@ const quizDataEmbutido = {
   },
   "quiz": {
     "titulo": "Quiz do Desafio Prático — TBR Kids 2 2026",
-    "descricao": "96 questões de múltipla escolha sobre missões, pontuação, penalidades e regras do Desafio Prático",
+    "descricao": "94 questões de múltipla escolha sobre missões, pontuação, penalidades e regras do Desafio Prático",
     "equipe": "Capibots · TBR Kids 2 · Temporada 2026",
     "tema": "Desafio Prático — Educação em Construção",
-    "total_questoes": 96,
+    "total_questoes": 94,
     "niveis": {
       "1": "Fácil",
       "2": "Médio",
@@ -638,34 +638,6 @@ const quizDataEmbutido = {
           "pontos": 10,
           "dificuldade": "Fácil",
           "explicacao": "No máximo 3 motores — e a equipe só pode levar 3 motores para a arena."
-        },
-        {
-          "id": 44,
-          "pergunta": "Quantos sensores o robô pode usar, no máximo, na mesma partida?",
-          "opcoes": [
-            "4",
-            "6",
-            "8",
-            "10"
-          ],
-          "resposta": 2,
-          "pontos": 10,
-          "dificuldade": "Fácil",
-          "explicacao": "No máximo 8 sensores."
-        },
-        {
-          "id": 45,
-          "pergunta": "Quantos controladores (o “cérebro” programável) o robô pode ter?",
-          "opcoes": [
-            "Um único",
-            "Dois",
-            "Três",
-            "Quantos quiser"
-          ],
-          "resposta": 0,
-          "pontos": 10,
-          "dificuldade": "Fácil",
-          "explicacao": "Um único Controlador Programável Educacional."
         },
         {
           "id": 46,
