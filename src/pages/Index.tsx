@@ -16,11 +16,27 @@ import {
   Bot,
   ClipboardList,
   Sprout,
+  Cpu,
+  Megaphone,
+  Users,
+  Building2,
+  type LucideIcon,
 } from 'lucide-react';
 import projectsData from '@/data/projects.json';
 import achievementsData from '@/data/achievements.json';
 import blogData from '@/data/blog.json';
 import teamData from '@/data/team.json';
+
+const categoriaEstilo: Record<string, { icon: LucideIcon; color: string }> = {
+  'Mérito Científico': { icon: FlaskConical, color: 'from-orange-400 to-orange-600' },
+  'Formação e Tecnologia': { icon: Cpu, color: 'from-sky-400 to-sky-600' },
+  'Competições e TBR': { icon: Trophy, color: 'from-yellow-400 to-amber-600' },
+  'Divulgação': { icon: Megaphone, color: 'from-pink-400 to-pink-600' },
+  'Ações Empreendedoras': { icon: ShoppingBag, color: 'from-emerald-400 to-emerald-600' },
+  'Nossa Equipe': { icon: Users, color: 'from-violet-400 to-violet-600' },
+  'Desafio Prático': { icon: Bot, color: 'from-green-500 to-green-700' },
+  Institucional: { icon: Building2, color: 'from-slate-400 to-slate-600' },
+};
 
 const dimensoes = [
   {
@@ -86,10 +102,12 @@ const Index = () => {
     projectsData.find((p) => p.status === 'Em desenvolvimento') ?? projectsData[0];
 
   const today = new Date().toISOString().slice(0, 10);
-  const latestPosts = [...blogData]
+  const publishedPosts = [...blogData]
     .filter((p) => p.date <= today)
-    .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, 3);
+    .sort((a, b) => b.date.localeCompare(a.date));
+  const latestPosts = publishedPosts.filter((p) => p.featured).slice(0, 3);
+  const highlightedIds = new Set(latestPosts.map((p) => p.id));
+  const recentPosts = publishedPosts.filter((p) => !highlightedIds.has(p.id)).slice(0, 9);
 
   return (
     <div className="min-h-screen">
@@ -345,6 +363,38 @@ const Index = () => {
               ))}
             </div>
           </div>
+
+          {recentPosts.length > 0 && (
+            <div className="max-w-5xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+              {recentPosts.map((post) => {
+                const estilo = categoriaEstilo[post.category] ?? categoriaEstilo['Institucional'];
+                const Icon = estilo.icon;
+                return (
+                  <Link key={post.id} to={`/blog/${post.id}`} className="group">
+                    <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                      <CardContent className="p-4 flex flex-col h-full">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className={`h-10 w-10 shrink-0 rounded-lg bg-gradient-to-br ${estilo.color} flex items-center justify-center`}>
+                            <Icon className="h-5 w-5 text-white" />
+                          </div>
+                          <Badge variant="outline" className="text-[10px]">{post.category}</Badge>
+                        </div>
+                        <h3 className="text-sm font-semibold mb-1.5 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                          {post.title}
+                        </h3>
+                        <p className="text-xs text-muted-foreground line-clamp-3 mb-3">{post.excerpt}</p>
+                        <div className="mt-auto flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                          <Calendar className="h-3 w-3" />
+                          {post.date}
+                          <ArrowRight className="ml-auto h-3.5 w-3.5 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
 
           <div className="text-center mt-8">
             <Button asChild variant="outline">
