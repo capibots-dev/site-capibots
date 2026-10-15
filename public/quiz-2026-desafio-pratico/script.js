@@ -5,6 +5,7 @@ let perguntasSorteadas = [];
 let respostas = [];
 let perguntaAtual = 0;
 let pontuacaoTotal = 0;
+const NOTA_MAXIMA = 1000;
 let participante = {
     nome: "",
     equipe: ""
@@ -1776,10 +1777,12 @@ function calcularResultado() {
     });
 
     const percentual = Math.round((pontuacaoTotal / pontuacaoMaxima) * 100);
+    // Regra de três: nota proporcional numa escala de 0 a 1000
+    const nota = Math.round((pontuacaoTotal * NOTA_MAXIMA) / pontuacaoMaxima);
     const tempoSegundos = Math.min(TEMPO_QUIZ_SEGUNDOS, Math.max(0, TEMPO_QUIZ_SEGUNDOS - tempoRestante));
 
-    document.getElementById('pontos').textContent = pontuacaoTotal;
-    document.getElementById('pontos-total').textContent = pontuacaoMaxima;
+    document.getElementById('pontos').textContent = nota;
+    document.getElementById('pontos-total').textContent = NOTA_MAXIMA;
     document.getElementById('percentual').textContent = percentual;
 
     let mensagem = '';
@@ -1797,7 +1800,7 @@ function calcularResultado() {
     document.getElementById('tela-pergunta').classList.add('hidden');
     document.getElementById('tela-resultado').classList.remove('hidden');
 
-    salvarParticipante(percentual, tempoSegundos);
+    salvarParticipante(nota, percentual, tempoSegundos);
 }
 
 // Lista as perguntas erradas ou sem resposta, com a resposta certa e a explicação
@@ -1857,7 +1860,7 @@ async function mostrarPosicao() {
 }
 
 // Salva o resultado no ranking (Firestore ou, sem configuração, localStorage)
-async function salvarParticipante(percentual, tempoSegundos) {
+async function salvarParticipante(nota, percentual, tempoSegundos) {
     if (resultadoSalvo) return;
     resultadoSalvo = true;
 
@@ -1869,7 +1872,7 @@ async function salvarParticipante(percentual, tempoSegundos) {
         await gravarEntrada({
             nome: participante.nome,
             equipe: participante.equipe,
-            pontuacao: pontuacaoTotal,
+            pontuacao: nota,
             percentual: percentual,
             tempoSegundos: tempoSegundos,
             data: new Date().toISOString()
