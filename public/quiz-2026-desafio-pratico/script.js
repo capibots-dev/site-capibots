@@ -54,7 +54,7 @@ const quizDataEmbutido = {
         },
         {
           "id": 2,
-          "pergunta": "A missão “Despertar do Conhecimento” usa qual modelo de missão?",
+          "pergunta": "A missão “Despertar do Conhecimento” usa qual objeto de missão?",
           "opcoes": [
             "A cancela",
             "O livro",
@@ -292,12 +292,12 @@ const quizDataEmbutido = {
         },
         {
           "id": 19,
-          "pergunta": "Qual missão, sozinha, vale MAIS pontos?",
+          "pergunta": "Se realizada com sucesso, qual missão, sozinha, vale MAIS pontos?",
           "opcoes": [
             "Inauguração da Universidade",
             "Despertar do Conhecimento",
-            "Acesso Seguro",
-            "Missão Maker"
+            "Missão Maker",
+            "Alvenaria Educacional"
           ],
           "resposta": 3,
           "pontos": 20,
@@ -1286,7 +1286,7 @@ const quizDataEmbutido = {
         },
         {
           "id": 92,
-          "pergunta": "Como as montagens (modelos de missão) são fixadas no tapete?",
+          "pergunta": "Na montagem do tapete, como os objetos (por exemplo: livro, instituição de ensino, quebra-cabeças) são fixadas?",
           "opcoes": [
             "Com cola quente",
             "Com velcro",
