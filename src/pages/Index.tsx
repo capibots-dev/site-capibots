@@ -24,18 +24,8 @@ import {
 import projectsData from '@/data/projects.json';
 import achievementsData from '@/data/achievements.json';
 import blogData from '@/data/blog.json';
-import { isNewsPost } from '@/lib/blog';
+import { categoriaEstilo, isNewsPost } from '@/lib/blog';
 import teamData from '@/data/team.json';
-
-const categoriaEstilo: Record<string, { icon: LucideIcon; color: string }> = {
-  'Mérito Científico': { icon: FlaskConical, color: 'from-orange-400 to-orange-600' },
-  'Tecnologia & Engenharia': { icon: Cpu, color: 'from-sky-400 to-sky-600' },
-  'Competições': { icon: Trophy, color: 'from-yellow-400 to-amber-600' },
-  'Divulgação': { icon: Megaphone, color: 'from-pink-400 to-pink-600' },
-  'Ações Empreendedoras': { icon: ShoppingBag, color: 'from-emerald-400 to-emerald-600' },
-  'Nossa Equipe': { icon: Users, color: 'from-violet-400 to-violet-600' },
-  'Desafio Prático': { icon: Bot, color: 'from-green-500 to-green-700' },
-};
 
 const dimensoes = [
   {

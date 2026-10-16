@@ -12,7 +12,7 @@ import projectsData from '@/data/projects.json';
 import sponsorsData from '@/data/sponsors.json';
 import teamData from '@/data/team.json';
 import blogData from '@/data/blog.json';
-import { DIARIO_CATEGORY, SEASON_NEWS_CATEGORIES } from '@/lib/blog';
+import { DIARIO_CATEGORY, SEASON_NEWS_CATEGORIES, SEASON_SECTION_CATEGORIES, categoriaEstilo } from '@/lib/blog';
 
 type Tier = 'ouro' | 'prata' | 'bronze';
 
@@ -48,6 +48,20 @@ const ProjectDetail = () => {
         .filter((p) => p.season === project.season && p.date <= today && SEASON_NEWS_CATEGORIES.includes(p.category))
         .sort((a, b) => b.date.localeCompare(a.date))
     : [];
+  const newsSections = [
+    ...SEASON_SECTION_CATEGORIES.map((category) => ({
+      title: category,
+      style: categoriaEstilo[category],
+      mixed: false,
+      posts: seasonNews.filter((p) => p.category === category),
+    })),
+    {
+      title: 'Notícias',
+      style: categoriaEstilo['Divulgação'],
+      mixed: true,
+      posts: seasonNews.filter((p) => !SEASON_SECTION_CATEGORIES.includes(p.category)),
+    },
+  ].filter((section) => section.posts.length > 0);
 
   const tools = (project as { tools?: { name: string; description: string; image: string; link: string; linkLabel: string }[] } | undefined)?.tools ?? [];
 
@@ -403,31 +417,50 @@ const ProjectDetail = () => {
                 </CardContent>
               </Card>
 
-              {/* Notícias da temporada */}
-              {seasonNews.length > 0 && (
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="font-bold mb-4">Notícias da temporada</h3>
-                    <ul className="max-h-[32rem] overflow-y-auto divide-y pr-1">
-                      {seasonNews.map((post) => (
-                        <li key={post.id}>
-                          <Link to={`/blog/${post.id}`} className="group block py-3">
-                            <div className="flex items-center justify-between gap-2 mb-1">
-                              <Badge variant="outline" className="text-[10px]">{post.category}</Badge>
-                              <span className="text-xs text-muted-foreground">
-                                {post.date.split('-').reverse().join('/')}
-                              </span>
-                            </div>
-                            <p className="text-sm font-medium text-slate-700 transition-colors group-hover:text-primary">
-                              {post.title}
-                            </p>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              )}
+              {/* Notícias da temporada, por categoria */}
+              {newsSections.map((section) => {
+                const SectionIcon = section.style.icon;
+                return (
+                  <Card key={section.title}>
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className={`h-9 w-9 shrink-0 rounded-lg bg-gradient-to-br ${section.style.color} flex items-center justify-center`}>
+                          <SectionIcon className="h-5 w-5 text-white" />
+                        </div>
+                        <h3 className="font-bold flex-1">{section.title}</h3>
+                        <Badge variant="outline" className="text-[10px]">{section.posts.length}</Badge>
+                      </div>
+                      <ul className="max-h-96 overflow-y-auto divide-y pr-1">
+                        {section.posts.map((post) => {
+                          const PostIcon = categoriaEstilo[post.category].icon;
+                          return (
+                            <li key={post.id}>
+                              <Link to={`/blog/${post.id}`} className="group block py-3">
+                                <div className="flex items-center justify-between gap-2 mb-1">
+                                  {section.mixed ? (
+                                    <span className="flex items-center gap-1.5 text-[10px] font-medium text-muted-foreground">
+                                      <span className={`h-5 w-5 rounded-md bg-gradient-to-br ${categoriaEstilo[post.category].color} flex items-center justify-center`}>
+                                        <PostIcon className="h-3 w-3 text-white" />
+                                      </span>
+                                      {post.category}
+                                    </span>
+                                  ) : <span />}
+                                  <span className="text-xs text-muted-foreground">
+                                    {post.date.split('-').reverse().join('/')}
+                                  </span>
+                                </div>
+                                <p className="text-sm font-medium text-slate-700 transition-colors group-hover:text-primary">
+                                  {post.title}
+                                </p>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </div>
