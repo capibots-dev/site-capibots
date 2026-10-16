@@ -6,10 +6,13 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Calendar, Users, Target, Cpu, ArrowLeft, ExternalLink } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Link } from 'react-router-dom';
 import projectsData from '@/data/projects.json';
 import sponsorsData from '@/data/sponsors.json';
 import teamData from '@/data/team.json';
+import blogData from '@/data/blog.json';
+import { DIARIO_CATEGORY, SEASON_NEWS_CATEGORIES } from '@/lib/blog';
 
 type Tier = 'ouro' | 'prata' | 'bronze';
 
@@ -31,6 +34,19 @@ const ProjectDetail = () => {
           return edicao ? [{ ...sp, tipo: edicao.tipo }] : [];
         })
         .sort((a, b) => tierOrder.indexOf(a.tipo) - tierOrder.indexOf(b.tipo))
+    : [];
+
+  const today = new Date().toISOString().slice(0, 10);
+  const diaryPosts = project
+    ? blogData
+        .filter((p) => p.category === DIARIO_CATEGORY && p.date <= today && p.season === project.season)
+        .sort((a, b) => b.date.localeCompare(a.date))
+    : [];
+
+  const seasonNews = project
+    ? blogData
+        .filter((p) => p.season === project.season && p.date <= today && SEASON_NEWS_CATEGORIES.includes(p.category))
+        .sort((a, b) => b.date.localeCompare(a.date))
     : [];
 
   const tools = (project as { tools?: { name: string; description: string; image: string; link: string; linkLabel: string }[] } | undefined)?.tools ?? [];
@@ -217,6 +233,44 @@ const ProjectDetail = () => {
                 </CardContent>
               </Card>
 
+              {/* Diário de Bordo */}
+              {diaryPosts.length > 0 && (
+                <Card>
+                  <CardContent className="p-6">
+                    <h2 className="text-2xl font-bold mb-2 text-gradient">Diário de Bordo dos Treinos</h2>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      O registro de cada encontro de treino da temporada, do mais recente ao mais antigo. Clique para ler.
+                    </p>
+                    <Accordion type="multiple">
+                      {diaryPosts.map((post) => (
+                        <AccordionItem key={post.id} value={post.id}>
+                          <AccordionTrigger className="group gap-4 text-left hover:no-underline">
+                            <span className="flex w-32 shrink-0 items-center gap-2 text-sm font-normal text-muted-foreground whitespace-nowrap">
+                              <Calendar className="h-4 w-4 text-primary" />
+                              {post.date.split('-').reverse().join('/')}
+                            </span>
+                            <span className="flex-1 text-sm font-semibold text-slate-700 transition-colors group-hover:text-primary">
+                              {post.title.replace(/^Treino de \d{2}\/\d{2}: /, '').replace(/^./, (c) => c.toUpperCase())}
+                            </span>
+                          </AccordionTrigger>
+                          <AccordionContent>
+                            <div className="space-y-2 text-sm text-muted-foreground">
+                              {post.content.split('\n').filter(Boolean).map((line, i) => (
+                                <p key={i}>
+                                  {line.split(/\*\*(.+?)\*\*/g).map((part, j) =>
+                                    j % 2 === 1 ? <strong key={j} className="font-semibold text-foreground">{part}</strong> : part
+                                  )}
+                                </p>
+                              ))}
+                            </div>
+                          </AccordionContent>
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </CardContent>
+                </Card>
+              )}
+
               {/* Sponsors */}
               {projectSponsors.length > 0 && (
                 <Card>
@@ -348,6 +402,32 @@ const ProjectDetail = () => {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Notícias da temporada */}
+              {seasonNews.length > 0 && (
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="font-bold mb-4">Notícias da temporada</h3>
+                    <ul className="max-h-[32rem] overflow-y-auto divide-y pr-1">
+                      {seasonNews.map((post) => (
+                        <li key={post.id}>
+                          <Link to={`/blog/${post.id}`} className="group block py-3">
+                            <div className="flex items-center justify-between gap-2 mb-1">
+                              <Badge variant="outline" className="text-[10px]">{post.category}</Badge>
+                              <span className="text-xs text-muted-foreground">
+                                {post.date.split('-').reverse().join('/')}
+                              </span>
+                            </div>
+                            <p className="text-sm font-medium text-slate-700 transition-colors group-hover:text-primary">
+                              {post.title}
+                            </p>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              )}
             </div>
           </div>
         </div>

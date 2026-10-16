@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import blogData from '@/data/blog.json';
+import { isNewsPost } from '@/lib/blog';
 
 type GalleryImage = string | { src: string; alt?: string };
 
@@ -44,7 +45,7 @@ const BlogPost = () => {
   const post = blogData.find((p) => p.id === slug && p.date <= today);
 
   const others = blogData
-    .filter((p) => p.id !== slug && p.date <= today)
+    .filter((p) => p.id !== slug && p.date <= today && isNewsPost(p))
     .sort((a, b) => b.date.localeCompare(a.date));
   const sameCategory = others.filter((p) => p.category === post?.category);
   const relatedPosts = post

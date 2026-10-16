@@ -3,11 +3,12 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calendar, ArrowRight } from 'lucide-react';
 import blogData from '@/data/blog.json';
+import { isNewsPost } from '@/lib/blog';
 
 const LatestNews = () => {
   const today = new Date().toISOString().slice(0, 10);
   const posts = [...blogData]
-    .filter((p) => p.date <= today)
+    .filter((p) => p.date <= today && isNewsPost(p))
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, 3);
 

@@ -53,6 +53,8 @@ Pages import these JSON files directly; there is no API or CMS. To add/edit cont
 
 `BlogPost.tsx` renders post content by splitting on `\n` and parsing prefixes (`## `, `### `, `- `, `✅ `) manually — it does **not** use a Markdown library. When writing blog post content in `blog.json`, use only those supported prefixes. The `image` field accepts either an emoji string or an absolute path starting with `/` (e.g. `/images/blog/photo.jpg`); paths are rendered as `<img>`, emojis as text.
 
+Optional `season` field (number, e.g. `2026`): links the post to a season (the `season` of an entry in `projects.json`). The season page (`/projetos/:slug`) lists, under Timeline, the published posts of that season in the categories Ações Empreendedoras, Divulgação, Mérito Científico, Competições and Tecnologia & Engenharia (`SEASON_NEWS_CATEGORIES` in `src/lib/blog.ts`). Posts of the `Diário de Bordo` category are hidden from the home, blog list and "Continue Lendo", and appear only as a list on the season page.
+
 Optional `images` field: list of photos shown as a gallery (grid with click-to-enlarge) right after the cover image. Each item is either a path string (`"/images/blog/foto.jpg"`) or `{ "src": "/images/blog/foto.jpg", "alt": "descrição" }`.
 
 Inline formatting supports `**bold**` and `[text](url)` links (links open in a new tab; local files such as `/docs/arquivo.pdf` work too).
@@ -82,7 +84,7 @@ A post with a future `date` in `blog.json` stays hidden (list, home, featured ca
 
 - *Quando o treino não sai como o planejado* (`Desafio Prático`): generic post on resilience and emotional maturity, with hypothetical situations ("imagine que...") and how the team records one lesson per training in the logbook. Tell no real event of the season; no mission names, parts or strategy.
 - *Como a equipe aplica uma pesquisa com crianças* (`Mérito Científico`): consent, nobody photographed or recorded, questionnaire identified only by a code. Method and care only; results go in a separate post. Publish with the school's OK.
-- *Aprendendo a usar impressora 3D* (`Formação e Tecnologia`): only the learning and the volunteers who helped; never what is printed or why.
+- *Aprendendo a usar impressora 3D* (`Tecnologia & Engenharia`): only the learning and the volunteers who helped; never what is printed or why.
 
 ### Styling conventions
 

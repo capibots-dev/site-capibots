@@ -9,12 +9,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight } from 'lucide-react';
 import blogData from '@/data/blog.json';
+import { isNewsPost } from '@/lib/blog';
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const today = new Date().toISOString().slice(0, 10);
   const allPosts = [...blogData]
-    .filter((p) => p.date <= today)
+    .filter((p) => p.date <= today && isNewsPost(p))
     .sort((a, b) => b.date.localeCompare(a.date));
   const featured = allPosts.filter((p) => p.featured).slice(0, 5);
   const categories = [...new Set(allPosts.map((p) => p.category))];

@@ -19,23 +19,22 @@ import {
   Cpu,
   Megaphone,
   Users,
-  Building2,
   type LucideIcon,
 } from 'lucide-react';
 import projectsData from '@/data/projects.json';
 import achievementsData from '@/data/achievements.json';
 import blogData from '@/data/blog.json';
+import { isNewsPost } from '@/lib/blog';
 import teamData from '@/data/team.json';
 
 const categoriaEstilo: Record<string, { icon: LucideIcon; color: string }> = {
   'Mérito Científico': { icon: FlaskConical, color: 'from-orange-400 to-orange-600' },
-  'Formação e Tecnologia': { icon: Cpu, color: 'from-sky-400 to-sky-600' },
-  'Competições e TBR': { icon: Trophy, color: 'from-yellow-400 to-amber-600' },
+  'Tecnologia & Engenharia': { icon: Cpu, color: 'from-sky-400 to-sky-600' },
+  'Competições': { icon: Trophy, color: 'from-yellow-400 to-amber-600' },
   'Divulgação': { icon: Megaphone, color: 'from-pink-400 to-pink-600' },
   'Ações Empreendedoras': { icon: ShoppingBag, color: 'from-emerald-400 to-emerald-600' },
   'Nossa Equipe': { icon: Users, color: 'from-violet-400 to-violet-600' },
   'Desafio Prático': { icon: Bot, color: 'from-green-500 to-green-700' },
-  Institucional: { icon: Building2, color: 'from-slate-400 to-slate-600' },
 };
 
 const dimensoes = [
@@ -103,7 +102,7 @@ const Index = () => {
 
   const today = new Date().toISOString().slice(0, 10);
   const publishedPosts = [...blogData]
-    .filter((p) => p.date <= today)
+    .filter((p) => p.date <= today && isNewsPost(p))
     .sort((a, b) => b.date.localeCompare(a.date));
   const latestPosts = publishedPosts.filter((p) => p.featured).slice(0, 3);
   const highlightedIds = new Set(latestPosts.map((p) => p.id));
@@ -367,7 +366,7 @@ const Index = () => {
           {recentPosts.length > 0 && (
             <div className="max-w-5xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
               {recentPosts.map((post) => {
-                const estilo = categoriaEstilo[post.category] ?? categoriaEstilo['Institucional'];
+                const estilo = categoriaEstilo[post.category] ?? categoriaEstilo['Nossa Equipe'];
                 const Icon = estilo.icon;
                 return (
                   <Link key={post.id} to={`/blog/${post.id}`} className="group">
