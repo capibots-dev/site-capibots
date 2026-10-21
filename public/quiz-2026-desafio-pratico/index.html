@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Desafio Prático CAPIBOTS 2026</title>
-    <link rel="stylesheet" href="styles.css?v=20261015">
+    <link rel="stylesheet" href="styles.css?v=20261021b">
     <!-- Google Analytics (só grava cookies após consentimento; ver /cookie-consent.js) -->
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -30,8 +30,19 @@
             
             <p id="aviso-modo-local" class="aviso-modo-local hidden">Modo teste: o ranking está salvo apenas neste navegador.</p>
 
+            <div id="dashboard" class="dashboard hidden">
+                <div class="dashboard-card"><span class="dashboard-valor" id="dash-respostas">-</span><span class="dashboard-rotulo">respostas enviadas</span></div>
+                <div class="dashboard-card"><span class="dashboard-valor" id="dash-participantes">-</span><span class="dashboard-rotulo">participantes</span></div>
+                <div class="dashboard-card"><span class="dashboard-valor" id="dash-equipes">-</span><span class="dashboard-rotulo">equipes</span></div>
+                <div class="dashboard-card"><span class="dashboard-valor" id="dash-media">-</span><span class="dashboard-rotulo">nota média</span></div>
+                <div class="dashboard-card"><span class="dashboard-valor" id="dash-acerto">-</span><span class="dashboard-rotulo">acerto médio</span></div>
+                <div class="dashboard-card"><span class="dashboard-valor" id="dash-melhor">-</span><span class="dashboard-rotulo">melhor nota</span></div>
+                <div class="dashboard-card"><span class="dashboard-valor" id="dash-tempo">-</span><span class="dashboard-rotulo">tempo médio</span></div>
+                <div class="dashboard-card"><span class="dashboard-valor" id="dash-equipe-top">-</span><span class="dashboard-rotulo">equipe mais ativa</span></div>
+            </div>
+
             <div id="ranking-container" class="ranking-container">
-                <h2>TOP 10 - Melhores Pontuações</h2>
+                <h2>TOP 20 - Melhores Pontuações</h2>
                 <table id="ranking-table" class="ranking-table">
                     <thead>
                         <tr>
@@ -134,6 +145,6 @@
     </div>
 
     <script src="firebase-config.js"></script>
-    <script src="script.js?v=20261015"></script>
+    <script src="script.js?v=20261021b"></script>
 </body>
 </html>

@@ -1367,8 +1367,8 @@ const FIREBASE_ATIVO = Boolean(FIREBASE.apiKey && FIREBASE.projectId);
 const FIRESTORE_DOCS = `https://firestore.googleapis.com/v1/projects/${FIREBASE.projectId}/databases/(default)/documents`;
 const COLECAO_RANKING = 'ranking';
 const CHAVE_LOCAL = 'quizDesafioPraticoRanking';
-const LIMITE_BUSCA = 300;   // entradas lidas do banco; depois removemos repetidas e mostramos o TOP 10
-const TAMANHO_RANKING = 10;
+const LIMITE_BUSCA = 300;   // entradas lidas do banco; depois mostramos o TOP 20
+const TAMANHO_RANKING = 20;
 
 // Formata segundos como mm:ss (usado na coluna de tempo do ranking)
 function formatarTempo(segundos) {
@@ -1441,19 +1441,10 @@ async function gravarEntrada(entrada) {
     if (!resposta.ok) throw new Error(`Firestore respondeu ${resposta.status}`);
 }
 
-// Mantém só a melhor tentativa de cada pessoa (mesmo nome + mesma equipe) e ordena:
-// maior pontuação primeiro; em empate, quem usou menos tempo.
+// Ordena: maior pontuação primeiro; em empate, quem usou menos tempo.
+// Todas as tentativas aparecem, inclusive várias da mesma pessoa.
 function montarRanking(entradas) {
-    const melhores = new Map();
-    entradas.forEach(e => {
-        const chave = `${e.nome}|${e.equipe}`.toLowerCase();
-        const atual = melhores.get(chave);
-        if (!atual || e.pontuacao > atual.pontuacao ||
-            (e.pontuacao === atual.pontuacao && e.tempoSegundos < atual.tempoSegundos)) {
-            melhores.set(chave, e);
-        }
-    });
-    return [...melhores.values()].sort((a, b) =>
+    return [...entradas].sort((a, b) =>
         b.pontuacao - a.pontuacao || a.tempoSegundos - b.tempoSegundos);
 }
 
@@ -1463,13 +1454,50 @@ async function carregarDados() {
     return true;
 }
 
-// Busca o ranking e preenche a tabela do TOP 10 e a lista de equipes sugeridas
+// Preenche o painel de estatísticas acima do ranking
+function atualizarDashboard(entradas) {
+    const painel = document.getElementById('dashboard');
+    if (!painel) return;
+    if (entradas.length === 0) {
+        painel.classList.add('hidden');
+        return;
+    }
+    const total = entradas.length;
+    const media = lista => lista.reduce((soma, v) => soma + v, 0) / lista.length;
+    const porEquipe = new Map();
+    entradas.forEach(e => {
+        const nome = e.equipe.toLowerCase();
+        const atual = porEquipe.get(nome) || { nome: e.equipe, quantidade: 0 };
+        atual.quantidade++;
+        porEquipe.set(nome, atual);
+    });
+    const equipeTop = [...porEquipe.values()].sort((a, b) => b.quantidade - a.quantidade)[0];
+    const participantes = new Set(entradas.map(e => `${e.nome}|${e.equipe}`.toLowerCase()));
+    const valores = {
+        'dash-respostas': total,
+        'dash-participantes': participantes.size,
+        'dash-equipes': porEquipe.size,
+        'dash-media': Math.round(media(entradas.map(e => e.pontuacao))),
+        'dash-acerto': `${Math.round(media(entradas.map(e => e.percentual)))}%`,
+        'dash-melhor': Math.max(...entradas.map(e => e.pontuacao)),
+        'dash-tempo': formatarTempo(Math.round(media(entradas.map(e => e.tempoSegundos)))),
+        'dash-equipe-top': equipeTop.nome
+    };
+    Object.entries(valores).forEach(([id, valor]) => {
+        document.getElementById(id).textContent = valor;
+    });
+    painel.classList.remove('hidden');
+}
+
+// Busca o ranking e preenche a tabela do TOP 20 e a lista de equipes sugeridas
 async function atualizarRanking() {
     const rankingBody = document.getElementById('ranking-body');
     rankingBody.innerHTML = '<tr><td colspan="5" class="ranking-aviso">Carregando ranking...</td></tr>';
 
     try {
-        rankingAtual = montarRanking(await lerEntradas());
+        const entradas = await lerEntradas();
+        rankingAtual = montarRanking(entradas);
+        atualizarDashboard(entradas);
     } catch (erro) {
         console.error('Erro ao carregar o ranking:', erro);
         rankingBody.innerHTML = '<tr><td colspan="5" class="ranking-aviso">Não foi possível carregar o ranking agora.</td></tr>';
