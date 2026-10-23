@@ -1,0 +1,18 @@
+name = "capibots-cadernos"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+# Páginas autorizadas a chamar o Worker (o localhost é só para testar)
+ALLOWED_ORIGINS = "https://capibots.com.br,http://localhost:8080,http://localhost:5173,http://127.0.0.1:8080,http://127.0.0.1:5173"
+
+# Pasta privada com os PDFs. Crie com: npx wrangler r2 bucket create capibots-cadernos
+[[r2_buckets]]
+binding = "CADERNOS"
+bucket_name = "capibots-cadernos"
+
+# Cadastros e links temporários. Crie com: npx wrangler kv namespace create CADASTROS
+# e cole o id que o comando mostrar no lugar de COLE_O_ID_AQUI
+[[kv_namespaces]]
+binding = "CADASTROS"
+id = "db203ea20d8c4a41a813431fcef4b074"
