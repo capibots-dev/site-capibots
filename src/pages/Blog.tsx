@@ -5,14 +5,20 @@ import FeaturedCarousel from '@/components/FeaturedCarousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, ArrowRight } from 'lucide-react';
+import { Calendar, ArrowRight, Search, X } from 'lucide-react';
 import blogData from '@/data/blog.json';
 import { isNewsPost } from '@/lib/blog';
 
+// Busca sem diferenciar maiúsculas e acentos ("ciencia" encontra "Ciência")
+const normalizar = (texto: string) =>
+  texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [query, setQuery] = useState('');
   const today = new Date().toISOString().slice(0, 10);
   const allPosts = [...blogData]
     .filter((p) => p.date <= today && isNewsPost(p))
@@ -20,7 +26,12 @@ const Blog = () => {
   const featured = allPosts.filter((p) => p.featured).slice(0, 5);
   const categories = [...new Set(allPosts.map((p) => p.category))];
   const countOf = (category: string) => allPosts.filter((p) => p.category === category).length;
-  const visiblePosts = activeCategory ? allPosts.filter((p) => p.category === activeCategory) : allPosts;
+  const termos = normalizar(query).split(/\s+/).filter(Boolean);
+  const visiblePosts = allPosts.filter((p) => {
+    if (activeCategory && p.category !== activeCategory) return false;
+    const texto = normalizar(`${p.title} ${p.excerpt} ${p.category}`);
+    return termos.every((t) => texto.includes(t));
+  });
 
   return (
     <div className="min-h-screen">
@@ -43,6 +54,27 @@ const Blog = () => {
       {/* Categories Filter */}
       <section className="py-8 bg-background border-b">
         <div className="container mx-auto px-4">
+          <div className="relative max-w-md mx-auto mb-5">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Buscar nos posts..."
+              aria-label="Buscar nos posts"
+              className="pl-9 pr-9"
+            />
+            {query && (
+              <button
+                type="button"
+                onClick={() => setQuery('')}
+                aria-label="Limpar busca"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
+          </div>
           <div className="flex flex-wrap gap-2 justify-center">
             <Button
               variant={activeCategory === null ? 'default' : 'outline'}
@@ -68,6 +100,11 @@ const Blog = () => {
       {/* Posts Grid */}
       <section className="py-10 md:py-14 bg-background">
         <div className="container mx-auto px-4">
+          {visiblePosts.length === 0 && (
+            <p className="text-center text-muted-foreground">
+              Nenhum post encontrado{query ? ` para "${query}"` : ''}. Tente outras palavras ou outra categoria.
+            </p>
+          )}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
             {visiblePosts.map((post) => (
               <Card key={post.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
