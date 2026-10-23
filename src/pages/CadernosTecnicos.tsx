@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { toast } from 'sonner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,7 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { CheckCircle2, Download, FileText, Lock } from 'lucide-react';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Download, FileText, Lock } from 'lucide-react';
 
 // Endereço do Worker da Cloudflare (pasta worker/). Troque pelo endereço que o deploy mostrar.
 const API = import.meta.env.VITE_CADERNOS_API ?? 'https://capibots-cadernos.capibots-cadernos.workers.dev';
@@ -26,6 +28,11 @@ const CADERNOS = [
   },
 ];
 
+// Os links do Worker valem 10 minutos e funcionam uma vez; guardamos 9 para ter margem
+const VALIDADE_LINK_MS = 9 * 60 * 1000;
+
+type Link = { url: string; expira: number };
+
 const CadernosTecnicos = () => {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
@@ -34,8 +41,10 @@ const CadernosTecnicos = () => {
   const [consentimento, setConsentimento] = useState(false);
   const [enviando, setEnviando] = useState(false);
   const [erro, setErro] = useState('');
-  const [links, setLinks] = useState<Record<string, string> | null>(null);
-  const formRef = useRef<HTMLDivElement>(null);
+  const [aberto, setAberto] = useState(false);
+  const [pendente, setPendente] = useState<string | null>(null);
+  const [cadastrado, setCadastrado] = useState(false);
+  const [links, setLinks] = useState<Record<string, Link>>({});
 
   // A página não deve aparecer em buscadores; o endereço circula só nos cadernos entregues
   useEffect(() => {
@@ -49,9 +58,49 @@ const CadernosTecnicos = () => {
     };
   }, []);
 
-  const irParaCadastro = () => {
-    formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    formRef.current?.querySelector('input')?.focus({ preventScroll: true });
+  // Envia o cadastro ao Worker e devolve os links novos
+  const cadastrar = async () => {
+    const resposta = await fetch(`${API}/cadastro`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nome, email, equipe, consentimento, site }),
+    });
+    const dados = await resposta.json().catch(() => ({}));
+    if (!resposta.ok) throw new Error(dados.erro ?? 'Não foi possível concluir o cadastro.');
+    const novos: Record<string, Link> = {};
+    for (const c of dados.cadernos as { id: string; url?: string }[]) {
+      if (c.url) novos[c.id] = { url: c.url, expira: Date.now() + VALIDADE_LINK_MS };
+    }
+    setLinks(novos);
+    setCadastrado(true);
+    return novos;
+  };
+
+  // O link é de uso único: depois de usado, sai da lista
+  const iniciarDownload = (id: string, disponiveis: Record<string, Link>) => {
+    const link = disponiveis[id];
+    if (!link) return;
+    setLinks((atuais) => {
+      const { [id]: _usado, ...resto } = atuais;
+      return resto;
+    });
+    window.location.href = link.url;
+  };
+
+  const clicar = async (id: string) => {
+    if (!cadastrado) {
+      setPendente(id);
+      setErro('');
+      setAberto(true);
+      return;
+    }
+    // Já cadastrado: usa o link guardado ou, se já foi usado ou expirou, pede outro com os mesmos dados
+    try {
+      const atual = links[id];
+      iniciarDownload(id, atual && atual.expira > Date.now() ? links : await cadastrar());
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : 'Não foi possível iniciar o download.');
+    }
   };
 
   const enviar = async (e: React.FormEvent) => {
@@ -59,16 +108,9 @@ const CadernosTecnicos = () => {
     setErro('');
     setEnviando(true);
     try {
-      const resposta = await fetch(`${API}/cadastro`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, email, equipe, consentimento, site }),
-      });
-      const dados = await resposta.json().catch(() => ({}));
-      if (!resposta.ok) throw new Error(dados.erro ?? 'Não foi possível concluir o cadastro.');
-      const mapa: Record<string, string> = {};
-      for (const c of dados.cadernos as { id: string; url?: string }[]) if (c.url) mapa[c.id] = c.url;
-      setLinks(mapa);
+      const novos = await cadastrar();
+      setAberto(false);
+      if (pendente) iniciarDownload(pendente, novos);
     } catch (err) {
       setErro(err instanceof Error ? err.message : 'Não foi possível concluir o cadastro.');
     } finally {
@@ -91,14 +133,12 @@ const CadernosTecnicos = () => {
 
       <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-xl mx-auto space-y-6">
+          <div className="max-w-xl mx-auto">
             <Card>
               <CardContent className="p-6">
                 <h2 className="text-xl font-bold mb-2">Cadernos</h2>
                 <p className="text-sm text-muted-foreground mb-5">
-                  {links
-                    ? 'Cadastro feito! Cada link funciona uma vez e expira em 10 minutos. Se precisar, faça o cadastro de novo.'
-                    : 'Para baixar, preencha o cadastro logo abaixo.'}
+                  Na primeira vez, pedimos um cadastro rápido antes de iniciar o download.
                 </p>
 
                 <div className="space-y-3">
@@ -110,19 +150,10 @@ const CadernosTecnicos = () => {
                           <p className="font-medium">{c.titulo}</p>
                           <p className="text-sm text-muted-foreground">{c.descricao}</p>
                         </div>
-                        {links?.[c.id] ? (
-                          <Button asChild size="sm">
-                            <a href={links[c.id]}>
-                              <Download className="h-4 w-4 mr-1" />
-                              Baixar
-                            </a>
-                          </Button>
-                        ) : (
-                          <Button size="sm" variant="outline" onClick={irParaCadastro} disabled={!!links}>
-                            <Lock className="h-4 w-4 mr-1" />
-                            Baixar
-                          </Button>
-                        )}
+                        <Button size="sm" onClick={() => clicar(c.id)}>
+                          <Download className="h-4 w-4 mr-1" />
+                          Baixar
+                        </Button>
                       </div>
                     ) : (
                       <div key={c.id} className="rounded-md border border-dashed p-3 text-sm">
@@ -137,57 +168,52 @@ const CadernosTecnicos = () => {
                 </div>
               </CardContent>
             </Card>
-
-            {links ? (
-              <p className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                <CheckCircle2 className="h-4 w-4 text-secondary" />
-                Obrigado pelo interesse no trabalho da equipe!
-              </p>
-            ) : (
-              <Card ref={formRef}>
-                <CardContent className="p-6">
-                  <h2 className="text-xl font-bold mb-2">Cadastro para download</h2>
-                  <p className="text-sm text-muted-foreground mb-6">Informe seus dados para liberar os botões de download.</p>
-
-                  <form onSubmit={enviar} className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="nome">Nome</Label>
-                      <Input id="nome" value={nome} onChange={(e) => setNome(e.target.value)} required maxLength={120} autoComplete="name" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">E-mail</Label>
-                      <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required maxLength={254} autoComplete="email" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="equipe">Equipe ou instituição</Label>
-                      <Input id="equipe" value={equipe} onChange={(e) => setEquipe(e.target.value)} required maxLength={120} />
-                    </div>
-
-                    {/* Armadilha para robôs */}
-                    <div aria-hidden="true" className="absolute -left-[9999px]">
-                      <label htmlFor="site">Site</label>
-                      <input id="site" tabIndex={-1} autoComplete="off" value={site} onChange={(e) => setSite(e.target.value)} />
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <Checkbox id="consentimento" checked={consentimento} onCheckedChange={(v) => setConsentimento(v === true)} className="mt-1" />
-                      <Label htmlFor="consentimento" className="text-sm font-normal text-muted-foreground leading-snug">
-                        Concordo que a equipe Capibots guarde meu nome, e-mail e equipe para saber quem acessou os cadernos. Os dados não serão compartilhados nem usados para outra finalidade.
-                      </Label>
-                    </div>
-
-                    {erro && <p className="text-sm text-destructive" role="alert">{erro}</p>}
-
-                    <Button type="submit" className="w-full" disabled={enviando || !consentimento}>
-                      {enviando ? 'Enviando...' : 'Liberar download'}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            )}
           </div>
         </div>
       </section>
+
+      <Dialog open={aberto} onOpenChange={setAberto}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>Cadastro para download</DialogTitle>
+            <DialogDescription>Informe seus dados e o download começa em seguida.</DialogDescription>
+          </DialogHeader>
+
+          <form onSubmit={enviar} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="nome">Nome</Label>
+              <Input id="nome" value={nome} onChange={(e) => setNome(e.target.value)} required maxLength={120} autoComplete="name" />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email">E-mail</Label>
+              <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required maxLength={254} autoComplete="email" />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="equipe">Equipe ou instituição</Label>
+              <Input id="equipe" value={equipe} onChange={(e) => setEquipe(e.target.value)} required maxLength={120} />
+            </div>
+
+            {/* Armadilha para robôs */}
+            <div aria-hidden="true" className="absolute -left-[9999px]">
+              <label htmlFor="site">Site</label>
+              <input id="site" tabIndex={-1} autoComplete="off" value={site} onChange={(e) => setSite(e.target.value)} />
+            </div>
+
+            <div className="flex items-start gap-3">
+              <Checkbox id="consentimento" checked={consentimento} onCheckedChange={(v) => setConsentimento(v === true)} className="mt-1" />
+              <Label htmlFor="consentimento" className="text-sm font-normal text-muted-foreground leading-snug">
+                Concordo que a equipe Capibots guarde meu nome, e-mail e equipe para saber quem acessou os cadernos. Os dados não serão compartilhados nem usados para outra finalidade.
+              </Label>
+            </div>
+
+            {erro && <p className="text-sm text-destructive" role="alert">{erro}</p>}
+
+            <Button type="submit" className="w-full" disabled={enviando || !consentimento}>
+              {enviando ? 'Enviando...' : 'Cadastrar e baixar'}
+            </Button>
+          </form>
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>
