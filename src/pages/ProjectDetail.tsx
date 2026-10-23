@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Calendar, Users, Target, Cpu, ArrowLeft, ExternalLink } from 'lucide-react';
+import { Calendar, Users, Target, Cpu, ArrowLeft, ExternalLink, Check, FlaskConical } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Link } from 'react-router-dom';
 import projectsData from '@/data/projects.json';
@@ -62,6 +62,23 @@ const ProjectDetail = () => {
       posts: seasonNews.filter((p) => !SEASON_SECTION_CATEGORIES.includes(p.category)),
     },
   ].filter((section) => section.posts.length > 0);
+
+  type Research = {
+    title: string;
+    intro: string;
+    stats: { value: string; label: string }[];
+    stages: { title: string; summary: string; status: 'concluida' | 'andamento'; posts: string[] }[];
+  };
+  const research = (project as { research?: Research } | undefined)?.research;
+  const researchStages = research
+    ? research.stages.map((stage) => ({
+        ...stage,
+        posts: stage.posts.flatMap((id) => {
+          const post = blogData.find((p) => p.id === id && p.date <= today);
+          return post ? [post] : [];
+        }),
+      }))
+    : [];
 
   const tools = (project as { tools?: { name: string; description: string; image: string; link: string; linkLabel: string }[] } | undefined)?.tools ?? [];
 
@@ -156,6 +173,60 @@ const ProjectDetail = () => {
                   </p>
                 </CardContent>
               </Card>
+
+              {/* Pesquisa: resultados parciais */}
+              {research && (
+                <Card className="border-primary/40 shadow-md">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className={`h-9 w-9 shrink-0 rounded-lg bg-gradient-to-br ${categoriaEstilo['Mérito Científico'].color} flex items-center justify-center`}>
+                        <FlaskConical className="h-5 w-5 text-white" />
+                      </div>
+                      <h2 className="text-2xl font-bold text-gradient">{research.title}</h2>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-5">{research.intro}</p>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                      {research.stats.map((stat) => (
+                        <div key={stat.label} className="rounded-lg border bg-muted/40 p-4 text-center">
+                          <p className="text-3xl font-bold text-primary">{stat.value}</p>
+                          <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <ol className="space-y-5">
+                      {researchStages.map((stage, index) => (
+                        <li key={stage.title} className="flex gap-4">
+                          <div className={`h-8 w-8 shrink-0 rounded-full flex items-center justify-center text-sm font-bold ${stage.status === 'concluida' ? 'bg-primary text-white' : 'border-2 border-primary text-primary'}`}>
+                            {stage.status === 'concluida' ? <Check className="h-4 w-4" /> : index + 1}
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <h3 className="font-bold">{index + 1}. {stage.title}</h3>
+                              <Badge variant="outline" className="text-[10px]">
+                                {stage.status === 'concluida' ? 'Concluída' : 'Em andamento'}
+                              </Badge>
+                            </div>
+                            <p className="text-sm text-muted-foreground mt-1">{stage.summary}</p>
+                            {stage.posts.length > 0 && (
+                              <ul className="mt-2 space-y-1">
+                                {stage.posts.map((post) => (
+                                  <li key={post.id}>
+                                    <Link to={`/blog/${post.id}`} className="text-sm text-primary hover:underline">
+                                      {post.title}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        </li>
+                      ))}
+                    </ol>
+                  </CardContent>
+                </Card>
+              )}
 
               {/* Objectives */}
               <Card>

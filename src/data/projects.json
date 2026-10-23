@@ -123,6 +123,23 @@
       "Nicolas",
       "Sophia"
     ],
+    "research": {
+      "title": "Mérito Científico: a pesquisa até aqui",
+      "intro": "O caminho da pesquisa da temporada, da escolha do tema ao protótipo, com os resultados parciais abertos para quem quiser acompanhar.",
+      "stats": [
+        { "value": "46", "label": "crianças responderam à pesquisa" },
+        { "value": "16", "label": "sem computador nem tablet em casa" },
+        { "value": "15", "label": "dessas 16 estudam na escola rural" }
+      ],
+      "stages": [
+        { "title": "Tema e ODS", "summary": "O tema do TBR 2026 e a Meta 4.1 da ONU, que guiam a investigação.", "status": "concluida", "posts": ["capibots-tema-2026-educacao-ods4"] },
+        { "title": "Escolha do problema", "summary": "Onze ideias, quatro grupos e uma votação com critérios combinados antes. O escolhido foi conectividade nas escolas.", "status": "concluida", "posts": ["capibots-escolha-do-tema-pesquisa"] },
+        { "title": "Dados públicos", "summary": "O que o Cetic.br e o Censo Escolar dizem sobre internet nas escolas brasileiras.", "status": "concluida", "posts": ["capibots-dados-oficiais-internet-escolas", "capibots-maquete-conectividade"] },
+        { "title": "Pesquisa de campo", "summary": "A conversa com a escola rural, a visita das crianças, os cuidados ao ouvir crianças e o formulário online.", "status": "concluida", "posts": ["capibots-primeira-conversa-escola-rural", "capibots-pesquisa-com-criancas-cuidados", "capibots-visita-escola-dom-bosco", "capibots-pesquisa-formulario-online"] },
+        { "title": "Resultados", "summary": "Os números do diagnóstico feito com 46 crianças.", "status": "concluida", "posts": ["capibots-resultados-pesquisa-46-criancas"] },
+        { "title": "Solução", "summary": "O Capi-Aprende, com protótipo navegável aberto ao público e aplicativo com conteúdos do 5º ano.", "status": "andamento", "posts": ["capibots-prototipo-capi-aprende", "capibots-capi-aprende-aplicativo"] }
+      ]
+    },
     "timeline": [
       { "label": "Formação do Time e Início da Temporada", "date": "Abril 2026", "completed": true  },
       { "label": "Expotech CBM Uberlândia - Interno TBR", "date": "Junho 2026", "completed": true },
