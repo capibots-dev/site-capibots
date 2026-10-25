@@ -57,6 +57,8 @@ Optional `season` field (number, e.g. `2026`): links the post to a season (the `
 
 Optional `images` field: list of photos shown as a gallery (grid with click-to-enlarge) right after the cover image. Each item is either a path string (`"/images/blog/foto.jpg"`) or `{ "src": "/images/blog/foto.jpg", "alt": "descrição" }`.
 
+Photos can also go in the middle of the text, with lines in `content`: `![descrição](/images/blog/foto.jpg)` shows one photo (full width); consecutive image lines form a grid with the same click-to-enlarge. The line `[galeria]` places the `images` gallery at that point (when present, the gallery no longer appears after the cover image).
+
 Inline formatting supports `**bold**` and `[text](url)` links (links open in a new tab; local files such as `/docs/arquivo.pdf` work too).
 
 **Writing style:** whenever creating or editing a post in `blog.json`, invoke the `anthropic-skills:anti-ai-slop` skill before writing, so the text does not read as AI-generated.

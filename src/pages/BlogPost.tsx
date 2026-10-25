@@ -37,6 +37,9 @@ const renderInline = (text: string) =>
     return null;
   });
 
+const IMAGE_LINE = /^!\[([^\]]*)\]\(([^)]+)\)\s*$/;
+const GALLERY_MARKER = '[galeria]';
+
 const BlogPost = () => {
   const { slug } = useParams();
   const { toast } = useToast();
@@ -93,6 +96,43 @@ const BlogPost = () => {
       ? { src: img, alt: post?.title ?? '' }
       : { src: img.src, alt: img.alt ?? post?.title ?? '' }
   );
+
+  const renderGallery = (images: { src: string; alt: string }[], key: string | number) => {
+    if (images.length === 1) {
+      return (
+        <button
+          key={key}
+          type="button"
+          onClick={() => setOpenImage(images[0])}
+          className="block w-full my-6 overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+        >
+          <img src={images[0].src} alt={images[0].alt} loading="lazy" className="w-full h-auto" />
+        </button>
+      );
+    }
+    return (
+      <div key={key} className="grid grid-cols-2 md:grid-cols-3 gap-3 my-6">
+        {images.map((img) => (
+          <button
+            key={img.src}
+            type="button"
+            onClick={() => setOpenImage(img)}
+            className="aspect-square overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              loading="lazy"
+              className="w-full h-full object-cover hover:scale-105 transition-transform"
+            />
+          </button>
+        ))}
+      </div>
+    );
+  };
+
+  const contentLines = post?.content.split('\n') ?? [];
+  const hasGalleryMarker = contentLines.some((l) => l.trim() === GALLERY_MARKER);
 
   const _legacy = {
       'empreendedorismo-futsal': {
@@ -324,28 +364,25 @@ const BlogPost = () => {
                   )}
                 </div>
 
-                {gallery.length > 0 && (
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
-                    {gallery.map((img) => (
-                      <button
-                        key={img.src}
-                        type="button"
-                        onClick={() => setOpenImage(img)}
-                        className="aspect-square overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                      >
-                        <img
-                          src={img.src}
-                          alt={img.alt}
-                          loading="lazy"
-                          className="w-full h-full object-cover hover:scale-105 transition-transform"
-                        />
-                      </button>
-                    ))}
-                  </div>
-                )}
+                {gallery.length > 0 && !hasGalleryMarker && renderGallery(gallery, 'top')}
 
                 <div className="prose prose-lg max-w-prose mx-auto">
-                  {post.content.split('\n').map((paragraph, index) => {
+                  {contentLines.map((paragraph, index) => {
+                    if (paragraph.trim() === GALLERY_MARKER) {
+                      return gallery.length > 0 ? renderGallery(gallery, index) : null;
+                    }
+                    const imageMatch = paragraph.match(IMAGE_LINE);
+                    if (imageMatch) {
+                      // linhas de imagem consecutivas formam um grupo, renderizado na primeira
+                      if (index > 0 && IMAGE_LINE.test(contentLines[index - 1])) return null;
+                      const group: { src: string; alt: string }[] = [];
+                      for (let i = index; i < contentLines.length; i++) {
+                        const m = contentLines[i].match(IMAGE_LINE);
+                        if (!m) break;
+                        group.push({ src: m[2], alt: m[1] || post.title });
+                      }
+                      return renderGallery(group, index);
+                    }
                     if (paragraph.startsWith('## ')) {
                       return (
                         <h2 key={index} className="text-2xl font-bold mt-8 mb-4 text-gradient">
