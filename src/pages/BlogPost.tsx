@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
+import { Calendar, User, ArrowLeft, Share2, Play } from 'lucide-react';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
@@ -36,6 +36,60 @@ const renderInline = (text: string) =>
     }
     return null;
   });
+
+const YOUTUBE_LINE = /^\[youtube\]\(\s*(\S+?)(?:\s+"([^"]*)")?\s*\)\s*$/;
+
+const parseYouTube = (url: string) => {
+  const id = url.match(
+    /(?:youtube(?:-nocookie)?\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/)|youtu\.be\/)([\w-]{11})(?![\w-])/
+  )?.[1];
+  return id ? { id, vertical: url.includes('/shorts/') } : null;
+};
+
+// Mostra só a miniatura; o iframe (youtube-nocookie) só é carregado quando a pessoa clica
+const YouTubeEmbed = ({ id, vertical, title }: { id: string; vertical: boolean; title: string }) => {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <figure className="my-6 not-prose">
+      <div
+        className={`relative mx-auto overflow-hidden rounded-lg bg-black ${
+          vertical ? 'aspect-[9/16] max-w-[320px]' : 'aspect-video w-full'
+        }`}
+      >
+        {playing ? (
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
+            title={title}
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            allowFullScreen
+            referrerPolicy="strict-origin-when-cross-origin"
+            className="absolute inset-0 w-full h-full"
+          />
+        ) : (
+          <button
+            type="button"
+            onClick={() => setPlaying(true)}
+            aria-label={`Assistir: ${title}`}
+            className="group absolute inset-0 w-full h-full focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            <img
+              src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+              alt=""
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
+            <span className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
+                <Play className="h-7 w-7 ml-1" fill="currentColor" />
+              </span>
+            </span>
+          </button>
+        )}
+      </div>
+      {title && <figcaption className="mt-2 text-center text-sm text-muted-foreground">{title}</figcaption>}
+    </figure>
+  );
+};
 
 const IMAGE_LINE = /^!\[([^\]]*)\]\(([^)]+)\)\s*$/;
 const GALLERY_MARKER = '[galeria]';
@@ -370,6 +424,11 @@ const BlogPost = () => {
                   {contentLines.map((paragraph, index) => {
                     if (paragraph.trim() === GALLERY_MARKER) {
                       return gallery.length > 0 ? renderGallery(gallery, index) : null;
+                    }
+                    const youtubeMatch = paragraph.match(YOUTUBE_LINE);
+                    const video = youtubeMatch ? parseYouTube(youtubeMatch[1]) : null;
+                    if (youtubeMatch && video) {
+                      return <YouTubeEmbed key={index} {...video} title={youtubeMatch[2] ?? ''} />;
                     }
                     const imageMatch = paragraph.match(IMAGE_LINE);
                     if (imageMatch) {

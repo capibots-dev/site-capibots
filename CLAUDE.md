@@ -59,6 +59,8 @@ Optional `images` field: list of photos shown as a gallery (grid with click-to-e
 
 Photos can also go in the middle of the text, with lines in `content`: `![descrição](/images/blog/foto.jpg)` shows one photo (full width); consecutive image lines form a grid with the same click-to-enlarge. The line `[galeria]` places the `images` gallery at that point (when present, the gallery no longer appears after the cover image).
 
+YouTube videos go in `content` as a line `[youtube](https://youtube.com/shorts/ID "legenda opcional")`; any YouTube URL format works (watch, youtu.be, shorts, embed). It shows the thumbnail with a play button and only loads the player (`youtube-nocookie.com`) on click; Shorts render vertical (9:16), other videos 16:9. An unrecognized URL falls back to a normal link.
+
 Inline formatting supports `**bold**` and `[text](url)` links (links open in a new tab; local files such as `/docs/arquivo.pdf` work too).
 
 **Writing style:** whenever creating or editing a post in `blog.json`, invoke the `anthropic-skills:anti-ai-slop` skill before writing, so the text does not read as AI-generated.
