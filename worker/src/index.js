@@ -7,18 +7,12 @@
 //   GET  /baixar?t=<token>                                         ->  o PDF
 //   POST /beta-capi-aprende  { nome, email, perfil, cidade, consentimento, site }  ->  { ok: true }
 
-// Para liberar um caderno, troque disponivel para true (e apague o aviso) e rode `npx wrangler deploy`
+// Só as versões resumidas passam por aqui; os cadernos oficiais entregues ao torneio não ficam no bucket.
+// Para trocar a lista, rode `npx wrangler deploy`
 const CADERNOS = [
-  { id: 'merito-cientifico', titulo: 'Mérito Científico', arquivo: 'merito-cientifico.pdf', disponivel: true },
-  { id: 'organizacao-e-metodo', titulo: 'Organização e Método', arquivo: 'organizacao-e-metodo.pdf', disponivel: true },
-  {
-    id: 'tecnologia-e-engenharia',
-    titulo: 'Tecnologia e Engenharia',
-    arquivo: 'tecnologia-e-engenharia.pdf',
-    disponivel: false,
-    aviso:
-      'Como a temporada ainda está em andamento e este caderno traz a estratégia do robô, a abordagem do tapete e os detalhes da programação, ele ainda não está disponível. Será liberado ao término da temporada.',
-  },
+  { id: 'merito-cientifico', titulo: 'Mérito Científico', arquivo: 'merito-cientifico-resumido.pdf', disponivel: true },
+  { id: 'organizacao-e-metodo', titulo: 'Organização e Método', arquivo: 'organizacao-e-metodo-resumido.pdf', disponivel: true },
+  { id: 'tecnologia-e-engenharia', titulo: 'Tecnologia e Engenharia', arquivo: 'tecnologia-engenharia-resumido.pdf', disponivel: true },
 ];
 
 const PERFIS_BETA = ['professor', 'familiar', 'aluno', 'outro'];

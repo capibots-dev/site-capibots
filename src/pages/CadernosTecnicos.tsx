@@ -9,22 +9,14 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { WORKER_API as API } from '@/lib/api';
-import { Download, FileText, Lock } from 'lucide-react';
+import { BookOpen, Download, FileText, Info } from 'lucide-react';
 
 
-// A lista precisa bater com CADERNOS em worker/src/index.js. Quem decide de verdade é o Worker:
-// ele só gera link para os cadernos com disponivel: true.
+// A lista precisa bater com CADERNOS em worker/src/index.js (o Worker decide quais PDFs saem)
 const CADERNOS = [
-  { id: 'merito-cientifico', titulo: 'Mérito Científico', descricao: 'A pesquisa da temporada, do tema à solução.', disponivel: true },
-  { id: 'organizacao-e-metodo', titulo: 'Organização e Método', descricao: 'Como a equipe se organiza e trabalha ao longo da temporada.', disponivel: true },
-  {
-    id: 'tecnologia-e-engenharia',
-    titulo: 'Tecnologia e Engenharia',
-    descricao: '',
-    disponivel: false,
-    aviso:
-      'Como a temporada ainda está em andamento e este caderno traz a estratégia do robô, a abordagem do tapete e os detalhes da programação, ele ainda não está disponível. Será liberado ao término da temporada.',
-  },
+  { id: 'merito-cientifico', titulo: 'Mérito Científico', descricao: 'A pesquisa da temporada, do tema à solução.', leitura: '/2026/cadernos/merito-cientifico.html' },
+  { id: 'organizacao-e-metodo', titulo: 'Organização e Método', descricao: 'Como a equipe se organiza e trabalha ao longo da temporada.', leitura: '/2026/cadernos/organizacao-e-metodo.html' },
+  { id: 'tecnologia-e-engenharia', titulo: 'Tecnologia e Engenharia', descricao: 'A jornada do Robôvara: funções, treinos, método de trabalho e resultados.', leitura: '/2026/cadernos/tecnologia-e-engenharia.html' },
 ];
 
 // Os links do Worker valem 10 minutos e funcionam uma vez; guardamos 9 para ter margem
@@ -132,41 +124,41 @@ const CadernosTecnicos = () => {
 
       <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-xl mx-auto">
-            <Card>
-              <CardContent className="p-6">
-                <h2 className="text-xl font-bold mb-2">Cadernos</h2>
-                <p className="text-sm text-muted-foreground mb-5">
-                  Na primeira vez, pedimos um cadastro rápido antes de iniciar o download.
-                </p>
+          <div className="max-w-3xl mx-auto space-y-6">
+            <div className="rounded-md border border-primary/40 bg-primary/5 p-4 flex gap-3 text-sm">
+              <Info className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+              <p className="text-muted-foreground">
+                <strong className="text-foreground">Versões resumidas.</strong> Estes documentos condensam os cadernos técnicos da equipe para divulgação. Não são as versões finais entregues ao torneio para avaliação.
+              </p>
+            </div>
 
-                <div className="space-y-3">
-                  {CADERNOS.map((c) =>
-                    c.disponivel ? (
-                      <div key={c.id} className="rounded-md border p-3 flex items-center gap-3">
-                        <FileText className="h-5 w-5 text-primary shrink-0" />
-                        <div className="flex-1 min-w-0">
-                          <p className="font-medium">{c.titulo}</p>
-                          <p className="text-sm text-muted-foreground">{c.descricao}</p>
-                        </div>
-                        <Button size="sm" onClick={() => clicar(c.id)}>
-                          <Download className="h-4 w-4 mr-1" />
-                          Baixar
-                        </Button>
-                      </div>
-                    ) : (
-                      <div key={c.id} className="rounded-md border border-dashed p-3 text-sm">
-                        <p className="font-medium flex items-center mb-1">
-                          <Lock className="h-4 w-4 mr-2" />
-                          {c.titulo}
-                        </p>
-                        <p className="text-muted-foreground">{c.aviso}</p>
-                      </div>
-                    ),
-                  )}
-                </div>
-              </CardContent>
-            </Card>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {CADERNOS.map((c) => (
+                <Card key={c.id} className="flex flex-col">
+                  <CardContent className="p-5 flex flex-col flex-1">
+                    <FileText className="h-6 w-6 text-primary mb-3" />
+                    <h2 className="text-lg font-bold mb-1">{c.titulo}</h2>
+                    <p className="text-sm text-muted-foreground mb-5 flex-1">{c.descricao}</p>
+                    <div className="flex flex-col gap-2">
+                      <Button asChild size="sm">
+                        <a href={c.leitura}>
+                          <BookOpen className="h-4 w-4 mr-1" />
+                          Ler online
+                        </a>
+                      </Button>
+                      <Button size="sm" variant="outline" onClick={() => clicar(c.id)}>
+                        <Download className="h-4 w-4 mr-1" />
+                        Baixar PDF
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <p className="text-sm text-muted-foreground text-center">
+              A leitura online é livre. Para baixar o PDF, pedimos um cadastro rápido na primeira vez.
+            </p>
           </div>
         </div>
       </section>

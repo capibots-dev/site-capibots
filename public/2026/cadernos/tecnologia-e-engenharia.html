@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tecnologia & Engenharia · A jornada do Robôvara | Capibots TBR 2026</title>
+<meta name="description" content="Versão resumida do caderno de Tecnologia & Engenharia da equipe Capibots no Torneio Brasil de Robótica 2026.">
+<link rel="icon" href="https://capibots.com.br/capibots-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--green:#1a5c2a;--green-2:#2f7d3f;--green-soft:#eaf3ec;--orange:#e05c00;--orange-soft:#fff1e6;
+--yellow:#f4c430;--ink:#1d2420;--muted:#5b665f;--line:#d6e2d9;--bg:#fbfaf6;--card:#ffffff;--th:#1a5c2a;--thc:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e8efe9;--muted:#a7b5ab;--line:#2c3a30;
+--bg:#111712;--card:#18211b;--green-soft:#1d2a20;--orange-soft:#2a1d12;--th:#24733a}}
+:root[data-theme="dark"]{--ink:#e8efe9;--muted:#a7b5ab;--line:#2c3a30;--bg:#111712;--card:#18211b;--green-soft:#1d2a20;--orange-soft:#2a1d12;--th:#24733a}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito Sans",system-ui,sans-serif;font-size:17px;line-height:1.65}
+a{color:var(--orange)}
+.topbar{position:sticky;top:0;z-index:20;background:var(--green);color:#fff;border-bottom:4px solid var(--orange)}
+.topbar .in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 16px}
+.topbar img{height:44px;width:44px;object-fit:contain}
+.topbar .brand{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:22px;letter-spacing:.5px;color:#fff;text-decoration:none}
+.topbar nav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.topbar nav a{color:#fff;text-decoration:none;font-size:14px;font-weight:700;padding:6px 12px;border-radius:999px;opacity:.85}
+.topbar nav a.on,.topbar nav a:hover{background:rgba(255,255,255,.16);opacity:1}
+.topbar nav a.on{background:var(--orange)}
+.hero{background:linear-gradient(135deg,var(--green) 0%,#0f3d1b 100%);color:#fff;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-80px;bottom:-80px;width:320px;height:320px;border-radius:50%;background:var(--orange);opacity:.18}
+.hero .in{max-width:1200px;margin:0 auto;padding:48px 16px 40px;position:relative;z-index:1}
+.kicker{display:inline-block;background:var(--yellow);color:#1d2420;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:999px}
+.hero h1{font-family:"Baloo 2",sans-serif;font-size:clamp(32px,5vw,54px);line-height:1.05;margin:14px 0 8px}
+.hero p.sub{font-size:clamp(17px,2.2vw,21px);margin:0;opacity:.92;max-width:760px}
+.hero .meta{margin-top:18px;font-size:14px;opacity:.85}
+.layout{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:40px;padding:32px 16px 64px}
+.toc{position:sticky;top:96px;align-self:start;max-height:calc(100vh - 120px);overflow:auto;font-size:14px}
+.toc h4{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.toc a{display:block;padding:6px 10px;border-left:3px solid var(--line);color:var(--ink);text-decoration:none}
+.toc a:hover,.toc a.active{border-left-color:var(--orange);background:var(--green-soft);color:var(--green)}
+:root[data-theme="dark"] .toc a.active{color:#9fd8ac}
+.toc .pdf{margin-top:18px;display:inline-block;background:var(--orange);color:#fff;font-weight:700;padding:8px 14px;border-radius:10px;text-decoration:none;border:none}
+main{min-width:0}
+main h2{font-family:"Baloo 2",sans-serif;color:var(--green);font-size:30px;line-height:1.2;margin:48px 0 14px;display:flex;align-items:center;gap:12px}
+:root[data-theme="dark"] main h2{color:#8fd19e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) main h2{color:#8fd19e}}
+main h2:first-child{margin-top:0}
+main h2 .num:empty{display:none}main h2 .num:not(:empty){flex:none;width:40px;height:40px;border-radius:12px;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:20px}
+main h3{font-size:19px;margin:28px 0 8px}
+main p{margin:0 0 14px;text-align:justify;hyphens:auto}
+ul.bullets{margin:0 0 16px;padding-left:22px}ul.bullets li{margin-bottom:6px}ul.bullets li::marker{color:var(--orange)}
+.callout{background:var(--orange-soft);border-left:5px solid var(--orange);padding:14px 18px;border-radius:0 12px 12px 0;margin:18px 0;font-size:16px}
+figure{margin:24px 0}figcaption{font-weight:700;font-size:14px;color:var(--muted);margin-bottom:8px}
+.fig{text-align:center}.fig figcaption{text-align:center}
+.fig-img{max-width:100%;max-height:560px;height:auto;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.08);background:#fff}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;align-items:start}
+.duo-item small{display:block;color:var(--muted);font-size:13px;margin-top:6px}
+.src{font-size:12.5px;color:var(--muted);text-align:center!important;margin-top:-4px}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.45}
+th{background:var(--th);color:var(--thc);text-align:left;padding:10px 12px;font-weight:700}
+td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--green-soft)}
+blockquote.cry{font-family:"Baloo 2",sans-serif;font-size:20px;color:var(--orange);text-align:center;margin:18px auto;max-width:520px;line-height:1.4}
+.ref{font-size:14px;text-align:left!important;padding-left:24px;text-indent:-24px}
+.duo.gal{grid-template-columns:repeat(2,minmax(0,1fr))}.duo.gal .fig-img{width:100%;height:300px;object-fit:cover}@media (max-width:600px){.duo.gal{grid-template-columns:1fr}.duo.gal .fig-img{height:220px}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:12px;padding:14px 10px;text-align:center}
+.stat b{display:block;font-family:"Baloo 2",sans-serif;font-size:30px;line-height:1.1;color:var(--orange)}
+.stat span{font-size:13px;color:var(--muted)}
+.voices{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}
+.voices.one{grid-template-columns:1fr}
+blockquote.voice{margin:0;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--green-2);border-radius:12px;padding:14px 16px}
+blockquote.voice p{font-style:italic;text-align:left;margin:0 0 8px}
+blockquote.voice cite{font-style:normal;font-weight:700;font-size:13px;color:var(--green)}
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.phase{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.phase h4{margin:0;background:var(--green);color:#fff;padding:10px 14px;border-bottom:3px solid var(--orange);font-size:15px}
+.phase ul{margin:0;padding:12px 14px 12px 30px;font-size:15px}.phase li{margin-bottom:6px}.phase li::marker{color:var(--orange)}
+footer{background:var(--green);color:#fff;text-align:center;padding:28px 16px;font-size:14px}
+footer a{color:#fff}
+.theme-btn{background:none;border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:999px;padding:5px 10px;cursor:pointer;font-size:13px}
+@media (max-width:900px){.layout{grid-template-columns:1fr;gap:12px}.toc{position:static;max-height:none;border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--card)}
+.toc details summary{cursor:pointer;font-weight:700}.topbar nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.topbar nav a{font-size:12px;padding:5px 9px;white-space:nowrap}.topbar .brand{display:none}main p{text-align:left}}
+@media print{.topbar,.toc,footer{display:none}.layout{display:block}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="in">
+  <a href="https://capibots.com.br"><img src="https://capibots.com.br/capibots-logo.png" alt="Logo Capibots" width="44" height="44"></a>
+  <a class="brand" href="https://capibots.com.br">CAPIBOTS</a>
+  <nav aria-label="Cadernos técnicos"><a href="/2026/cadernos-tecnicos">Cadernos</a><a href="merito-cientifico.html">Mérito Científico</a><a href="organizacao-e-metodo.html">Organização & Método</a><a href="tecnologia-e-engenharia.html" class="on">Tecnologia & Engenharia</a></nav>
+  <button class="theme-btn" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</div></header>
+<section class="hero"><div class="in">
+  <span class="kicker">TBR 2026 · Tecnologia & Engenharia</span>
+  <h1>A jornada do Robôvara</h1>
+  <p class="sub">Como a equipe se organizou, treinou e evoluiu em 2026</p>
+  <p class="meta">Equipe Capibots · Colégio Batista Mineiro, Unidade Martins · Uberlândia (MG) · Categoria Kids 2</p>
+</div></section>
+<div class="layout">
+  <aside class="toc"><details open><summary><h4 style="display:inline">Neste caderno</h4></summary><a href="#apresentacao">Apresentação</a><a href="#conheca-os-capibots">1. Conheça os Capibots</a><a href="#objetivos-com-o-projeto-do-robo">2. Objetivos com o projeto do robô</a><a href="#como-o-time-tecnico-se-organiza">3. Como o time técnico se organiza</a><a href="#rotina-de-treinos-e-metodo-de-trabalho">4. Rotina de treinos e método de trabalho</a><a href="#vozes-e-bastidores-da-equipe">5. Vozes e bastidores da equipe</a><a href="#a-evolucao-do-robovara">6. A evolução do Robôvara</a><a href="#cronograma">7. Cronograma</a><a href="#resultados">8. Resultados</a><a href="#aprendizados-da-temporada">9. Aprendizados da temporada</a></details>
+  <a class="pdf" href="/2026/cadernos-tecnicos">Baixar PDF</a></aside>
+  <main><h2 id="apresentacao"><span class="num"></span>Apresentação</h2>
+<p>Este caderno conta como a equipe Capibots trabalhou no Desafio Prático da temporada 2026 do Torneio Brasil de Robótica: quem faz o quê, como os treinos foram organizados, como as crianças registram e aprendem com cada tentativa e o que a equipe conquistou até a etapa Regional. O robô da equipe, carinhosamente chamado de <b>Robôvara</b>, ganhou duas versões ao longo do ano, e cada uma delas nasceu do trabalho conjunto de engenheiros, programadores e posicionadores.</p>
+<aside class="callout"><b>Sobre esta versão.</b> Este documento condensa o caderno completo de Tecnologia & Engenharia (82 páginas) entregue na etapa Regional do TBR 2026. Por escolha da equipe, esta versão pública trata da organização, do método de trabalho, dos treinos e dos resultados. Detalhes de construção do robô, estratégia no tapete e programação ficam restritos ao caderno avaliado pelos juízes.</aside>
+<h2 id="conheca-os-capibots"><span class="num">1</span>Conheça os Capibots</h2>
+<p>A equipe começou a ser idealizada em 2024 por Arthur, aluno que acompanhava as conquistas das equipes de robótica do Colégio Batista Mineiro. Em 2025, com o apoio da professora Lorena Costa, nasceu o grupo de nove alunos, hoje no 5º ano do Ensino Fundamental. O nome Capibots e o lema <i>"Unidos como capivaras, espertos como robôs"</i> foram escolhidos em conjunto.</p>
+<p>Na estreia, em 2025, a equipe foi campeã geral e do Desafio Prático na etapa interna, 2º lugar geral e 1º lugar no Desafio Prático na etapa Regional, e a 3ª melhor equipe do Brasil na categoria Kids 2, na etapa Nacional em Belo Horizonte. Em 2026, com os mesmos nove integrantes, a Capibots repetiu o 1º lugar geral e no Desafio Prático da ExpoTech, torneio interno do colégio. Em outubro, a pesquisa da equipe foi selecionada para a Feira Ciência Viva, da UFU e do Museu Dica, que será apresentada por Gabriela, Luísa e Sophia.</p>
+<figure class="fig"><figcaption>Figura 1 – Equipe Capibots</figcaption><img class="fig-img" src="img/tecnologia-e-engenharia/equipe.jpg" alt="Equipe Capibots" loading="lazy"></figure>
+<p class="src">Fonte: acervo da equipe Capibots (2026).</p>
+<figure class="tbl"><figcaption>Quadro 1 – Integrantes e funções na temporada 2026</figcaption><div class="tbl-wrap"><table><thead><tr><th>Integrante</th><th>Função</th></tr></thead><tbody><tr><td>Arthur Henrique Martins Rocha</td><td>Posicionador</td></tr><tr><td>Augusto Diniz Coelho</td><td>Engenheiro</td></tr><tr><td>Gabriela Neri Sticca</td><td>Programadora</td></tr><tr><td>João Gomes Nazareth Souto</td><td>Cientista e Engenheiro</td></tr><tr><td>Lucca Rezende Vieira</td><td>Programador</td></tr><tr><td>Luísa Carvalho de Oliveira</td><td>Organizadora</td></tr><tr><td>Manuela Pereira Moreira de Souza</td><td>Posicionadora</td></tr><tr><td>Nicolas Lima Ribeiro</td><td>Programador e Cientista</td></tr><tr><td>Sophia Arantes Borges</td><td>Engenheira e Organizadora</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<p><b>Técnica:</b> Lorena Costa Silva (Ciências Biológicas). <b>Mentora:</b> Luciana Rezende Vieira (Ciência da Computação). <b>Patrocinadores:</b> Anjos Colchões, Calixto Negócios Imobiliários, Clínica Orthus Fisioterapia, Farmácia Kalayasa Aushadi, Fieza Corretora de Seguros, iuh! Digital, Rezende Solar, Supermercado Super Frutt e Transbuiatte. <b>Apoio técnico:</b> Carlos Alberto Rosa Coelho e Luciana Arantes Buiati de Jesus (impressão 3D), Suzan Carla Lopes de Lima (desenvolvimento do Capi-Aprende) e Carlos Henrique Alves Vieira (palestra sobre IA).</p>
+<h2 id="objetivos-com-o-projeto-do-robo"><span class="num">2</span>Objetivos com o projeto do robô</h2>
+<p>Para a Capibots, o TBR fortalece a união do grupo e ensina, de forma prática e divertida, planejamento, pesquisa, oratória, pensamento lógico e crítico, criatividade, resiliência, empatia e respeito. Na segunda temporada, a expectativa era aprofundar o que foi aprendido no primeiro ano:</p>
+<ul class="bullets">
+<li>conhecer novos recursos de programação e organizar melhor o código;</li>
+<li>ganhar precisão nos movimentos do robô;</li>
+<li>explorar materiais além do kit LEGO, como peças próprias feitas em impressora 3D, usada pela primeira vez pela equipe;</li>
+<li>conhecer as soluções de outras equipes e compartilhar experiências com elas.</li>
+</ul>
+<p>O kit LEGO SPIKE usado pela equipe é próprio: foi comprado em 2025 com o dinheiro das ações empreendedoras do time de Organização & Método, o que deu às crianças autonomia para treinar com o mesmo equipamento da competição.</p>
+<h2 id="como-o-time-tecnico-se-organiza"><span class="num">3</span>Como o time técnico se organiza</h2>
+<p>No início da temporada, a técnica Lorena propôs um novo formulário de escolha de funções. Cada integrante refletiu sobre a experiência anterior e decidiu se continuaria na mesma função ou assumiria um novo desafio. Logo depois, cada grupo recebeu suas primeiras tarefas de pesquisa e estudo do tapete da temporada.</p>
+<figure class="tbl"><figcaption>Quadro 2 – Funções ligadas ao Desafio Prático</figcaption><div class="tbl-wrap"><table><thead><tr><th>Função</th><th>Quem</th><th>O que faz</th></tr></thead><tbody><tr><td>Engenheiros</td><td>Augusto, João Gomes e Sophia</td><td>Planejam, constroem e ajustam a estrutura do robô e o objeto da missão Maker</td></tr><tr><td>Programadores</td><td>Gabriela, Lucca e Nicolas</td><td>Estudam as missões, programam em blocos, ajustam o código e cuidam da carga de robô e tablet</td></tr><tr><td>Posicionadores</td><td>Arthur e Manuela</td><td>Padronizam a saída da base e posicionam o robô no início de cada round e nos retornos</td></tr><tr><td>Técnica</td><td>Lorena</td><td>Acompanha os treinos, tira dúvidas de montagem e programação e orienta sobre as regras do TBR</td></tr><tr><td>Mentora</td><td>Luciana</td><td>Acompanha a equipe em todas as ações e ajuda a organizar a rotina de trabalho</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<p>Engenheiros, programadores e posicionadores dividem a mesa de treino e dependem uns dos outros o tempo todo. Quando a estrutura do robô muda, o código precisa ser ajustado; quando surge uma programação nova, ela só vale depois de testada a partir da posição de saída; e o que os posicionadores percebem a cada round volta para as outras duas funções como ponto de partida da melhoria seguinte. É dessa troca que vem o desempenho do Robôvara.</p>
+<aside class="callout"><b>Protagonismo das crianças.</b> São os integrantes que escolhem suas funções, pesquisam, propõem e testam ideias, decidem o que fica e o que sai e põem a mão na montagem e na programação. Técnica e mentora organizam a rotina de treinos de acordo com o calendário e acompanham as regras do torneio, mas as decisões sobre o robô continuam com a equipe.</aside>
+<h3>3.1 Quem decide o quê</h3>
+<figure class="tbl"><figcaption>Quadro 3 – Papéis na tomada de decisão sobre o robô</figcaption><div class="tbl-wrap"><table><thead><tr><th>Quem</th><th>Decide ou faz</th><th>Não faz</th></tr></thead><tbody><tr><td>Integrantes</td><td>Escolhem a estrutura e o design do robô, a programação, a ordem das missões, a posição de saída e quais ideias testar, manter ou descartar</td><td>—</td></tr><tr><td>Técnica (Lorena)</td><td>Organiza os treinos, apresenta conceitos e recursos novos quando a equipe pede, tira dúvidas e confere as regras do TBR</td><td>Não monta nem programa pelas crianças</td></tr><tr><td>Mentora (Luciana)</td><td>Cuida do calendário, da comunicação com famílias e escola e da organização geral da temporada</td><td>Não interfere nas decisões técnicas</td></tr><tr><td>Famílias</td><td>Apoiam a logística dos treinos em casa e atuam como jurados nos ensaios</td><td>Não participam da construção nem da programação</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<div class="voices one"><blockquote class="voice"><p>“Meu papel é fazer perguntas, não dar respostas. Quando uma ideia não funciona, peço que me expliquem por quê, e quase sempre a solução aparece na própria explicação.”</p><cite>Lorena Costa Silva · Técnica</cite></blockquote></div>
+<h2 id="rotina-de-treinos-e-metodo-de-trabalho"><span class="num">4</span>Rotina de treinos e método de trabalho</h2>
+<p>O trabalho no Desafio Prático foi dividido em duas fases, acompanhando o calendário da competição (Quadro 4). Os treinos aconteceram principalmente no colégio, no horário da aula de robótica e além dele, e também em fins de semana na casa de integrantes, o que só foi possível graças ao tapete próprio comprado com patrocínios e ações empreendedoras.</p>
+<figure class="tbl"><figcaption>Quadro 4 – Fases de treino da temporada</figcaption><div class="tbl-wrap"><table><thead><tr><th>Fase</th><th>Período</th><th>Como foi organizada</th></tr></thead><tbody><tr><td>Fase 1 · Torneio Interno</td><td>07/05 a 19/06/2026</td><td>Nove encontros de 60 a 90 minutos, em quatro etapas: conhecer o tapete, montar a primeira versão do robô, programar as missões e refinar o posicionamento</td></tr><tr><td>Fase 2 · Regional e Nacional</td><td>15/08 a 31/10/2026</td><td>Quinze encontros de 90 minutos a 2 horas, no colégio e em alguns fins de semana, em três etapas: reconstruir o robô, reprogramar as missões e refinar posicionamento e tempo de round</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<figure class="tbl"><figcaption>Números da temporada até a Regional</figcaption><div class="stats"><div class="stat"><b>24</b><span>treinos com o robô</span></div><div class="stat"><b>30–45 h</b><span>de treino na mesa</span></div><div class="stat"><b>100%</b><span>dos treinos registrados no diário</span></div><div class="stat"><b>2</b><span>versões do Robôvara</span></div><div class="stat"><b>3</b><span>etapas disputadas</span></div></div></figure>
+<p class="src">Fonte: diários de bordo da equipe (2026).</p>
+<h3>4.1 Diário de bordo</h3>
+<p>Todo treino é registrado com fotos, vídeos e um diário de bordo criado pela própria equipe, com data, local, objetivo da sessão, participantes, resultados e aprendizados. Há dois modelos: um para treinos comuns e outro para treinos com simulação de rounds. Foi lendo esses registros que a equipe entendeu por que certas soluções falhavam e decidiu o que testar em seguida.</p>
+<figure class="fig"><figcaption>Figura 2 – Modelos do diário de bordo criados pela equipe (em branco)</figcaption><div class="duo"><div class="duo-item"><img class="fig-img" src="img/tecnologia-e-engenharia/diario_treino_p1.jpg" alt="(a) Treino comum: presença e andamento das missões" loading="lazy"><small>(a) Treino comum: presença e andamento das missões</small></div><div class="duo-item"><img class="fig-img" src="img/tecnologia-e-engenharia/diario_treino_p2.jpg" alt="(b) Treino comum: o que funcionou e o que melhorar" loading="lazy"><small>(b) Treino comum: o que funcionou e o que melhorar</small></div><div class="duo-item"><img class="fig-img" src="img/tecnologia-e-engenharia/diario_rounds.jpg" alt="(c) Simulação de rounds" loading="lazy"><small>(c) Simulação de rounds</small></div></div></figure>
+<p class="src">Fonte: acervo da equipe Capibots (2026).</p>
+<h3>4.2 Simulação de rounds</h3>
+<p>Com as programações concluídas, a equipe passou a usar o simulador de rounds do site do TBR. Em cada tentativa, registra quem posicionou o robô, o tempo gasto e como as missões foram cumpridas, e a ferramenta calcula a pontuação pelas regras da temporada, do mesmo jeito que os juízes farão. Isso agilizou a contagem, eliminou erros de apuração e deixou os treinos mais parecidos com uma partida de verdade. Nos registros, a equipe vem mantendo uma pontuação consistente de um treino para outro.</p>
+<h3>4.3 Ensaios e simulados</h3>
+<p>O Esquenta TBR, torneio pré-regional, funcionou como um simulado real: as crianças apresentaram o trabalho de Tecnologia & Engenharia, demonstraram o robô e saíram com uma lista clara de melhorias. Nas semanas anteriores à Regional, os pais assumem o papel de jurados em ensaios com muitas perguntas.</p>
+<h3>4.4 Rotina pré-round: Capi-Pronto</h3>
+<p>Para que os posicionadores entrem na mesa firmes e seguros, a equipe segue a mesma rotina em todos os rounds, nos treinos e na competição. Repetir os mesmos passos tira a ansiedade do momento e deixa claro o papel de cada um.</p>
+<figure class="tbl"><figcaption>Quadro 5 – Rotina Capi-Pronto</figcaption><div class="phases"><div class="phase"><h4>Antes do round</h4><ul><li>Programadores conferem a carga do robô e do tablet e abrem a programação certa</li><li>Posicionadores conferem os elementos do tapete e a posição de saída combinada</li><li>Todos respiram fundo três vezes juntos</li></ul></div><div class="phase"><h4>Durante o round</h4><ul><li>Só os posicionadores tocam no robô</li><li>Uma única pessoa da equipe fala com eles, com frases curtas e calmas</li><li>O resto da equipe torce sem dar instruções</li></ul></div><div class="phase"><h4>Depois do round</h4><ul><li>Um minuto de conversa: o que funcionou e o que ajustar</li><li>Quem errou recebe apoio, nunca bronca</li><li>O resultado vai para o diário de bordo</li></ul></div></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<h2 id="vozes-e-bastidores-da-equipe"><span class="num">5</span>Vozes e bastidores da equipe</h2>
+<p>Cada integrante conta, com as próprias palavras, o que aprendeu nesta temporada.</p>
+<div class="voices"><blockquote class="voice"><p>“Aprendi que posicionar é ter calma. Se eu fico nervoso, tudo fica mais difícil.”</p><cite>Arthur · Posicionador</cite></blockquote><blockquote class="voice"><p>“Quando a gente reconstruiu o robô, entendi que desmontar também é construir.”</p><cite>Augusto · Engenheiro</cite></blockquote><blockquote class="voice"><p>“Programar é testar, errar, ajustar e testar de novo, até dar certo.”</p><cite>Gabriela · Programadora</cite></blockquote><blockquote class="voice"><p>“Gosto de ver a pesquisa e o robô conversando: os dois falam de educação.”</p><cite>João Gomes · Cientista e Engenheiro</cite></blockquote><blockquote class="voice"><p>“Quando algo dá errado, a primeira coisa que eu faço é olhar o diário de bordo.”</p><cite>Lucca · Programador</cite></blockquote><blockquote class="voice"><p>“Mesmo sem mexer no robô, eu ajudo: registro os treinos e cuido para todo mundo saber o próximo passo.”</p><cite>Luísa · Organizadora</cite></blockquote><blockquote class="voice"><p>“No começo eu tinha medo de errar na frente de todo mundo. Agora eu respiro, confiro tudo e solto o robô.”</p><cite>Manuela · Posicionadora</cite></blockquote><blockquote class="voice"><p>“Uma ideia só vale depois que a gente testa a partir da saída.”</p><cite>Nicolas · Programador e Cientista</cite></blockquote><blockquote class="voice"><p>“Neste ano eu quis aprender engenharia e descobri que dá para projetar a própria peça.”</p><cite>Sophia · Engenheira e Organizadora</cite></blockquote></div>
+<figure class="fig"><figcaption>Figura 3 – Bastidores da temporada</figcaption><div class="duo gal"><div class="duo-item"><img class="fig-img" src="img/tecnologia-e-engenharia/bast_ensaio.jpg" alt="Ensaio da apresentação para as famílias" loading="lazy"><small>Ensaio da apresentação para as famílias</small></div><div class="duo-item"><img class="fig-img" src="img/tecnologia-e-engenharia/bast_sala.jpg" alt="Encontro da equipe no colégio" loading="lazy"><small>Encontro da equipe no colégio</small></div><div class="duo-item"><img class="fig-img" src="img/tecnologia-e-engenharia/bast_online.jpg" alt="Reunião online de alinhamento" loading="lazy"><small>Reunião online de alinhamento</small></div><div class="duo-item"><img class="fig-img" src="img/tecnologia-e-engenharia/bast_postits.jpg" alt="Decisões em grupo, com post-its" loading="lazy"><small>Decisões em grupo, com post-its</small></div></div></figure>
+<p class="src">Fonte: acervo da equipe Capibots (2026).</p>
+<h2 id="a-evolucao-do-robovara"><span class="num">6</span>A evolução do Robôvara</h2>
+<p>A primeira versão do Robôvara foi construída para cumprir parte das missões com agilidade e, junto com o treino no tapete próprio, rendeu o 1º lugar no Desafio Prático da ExpoTech. A competição também mostrou pontos que podiam melhorar, e cada problema anotado no diário de bordo virou uma tarefa para a versão seguinte.</p>
+<p>Para a Regional, com mais tempo para testar estratégias e o objetivo de realizar todas as missões, a equipe decidiu reconstruir o robô por completo. A versão 2.0 reuniu os aprendizados da fase anterior, novas técnicas de programação estudadas pelas crianças e, pela primeira vez, peças projetadas pela própria equipe. Se a Capibots se classificar para a Nacional, o plano é partir do que for observado na Regional e intensificar os treinos.</p>
+<aside class="callout"><b>Uma falha que virou aprendizado.</b> No Esquenta TBR, o Robôvara não fez o percurso esperado bem na frente dos jurados. A equipe manteve a calma, terminou a apresentação e voltou aos treinos com uma tarefa clara. Os programadores investigaram até encontrar a causa, corrigiram a programação e, em vez de testar só o trecho que falhou, refizeram uma a uma todas as saídas da base até confirmar que tudo continuava funcionando.</aside>
+<h2 id="cronograma"><span class="num">7</span>Cronograma</h2>
+<p>O planejamento foi dividido em três grandes fases (Figura 4):</p>
+<ul class="bullets">
+<li><b>Fase inicial (16/04 a 05/05):</b> lançamento da temporada no colégio, alinhamento da equipe, definição de funções e estudo do tapete;</li>
+<li><b>Torneio Interno (06/05 a 04/07):</b> montagem do Robôvara 1.0, programação e treinos, ExpoTech em 19/06 e ações para comprar o tapete (vaquinha, lojinha e Capi-Espetinhos);</li>
+<li><b>Torneio Regional (15/08 a 31/10):</b> depois das férias de meio de ano, montagem do Robôvara 2.0, programação e treinos, Geladinho Capibots e elaboração do caderno técnico.</li>
+</ul>
+<figure class="fig"><figcaption>Figura 4 – Cronograma de atividades da equipe na temporada 2026</figcaption><img class="fig-img" src="img/tecnologia-e-engenharia/gantt.png" alt="Cronograma de atividades da equipe na temporada 2026" loading="lazy"></figure>
+<p class="src">Fonte: acervo da equipe Capibots (2026).</p>
+<h2 id="resultados"><span class="num">8</span>Resultados</h2>
+<p>Na ExpoTech, a equipe montou maquete e estande, apresentou sua solução e disputou o Desafio Prático. Conquistou o 1º lugar geral e o 1º lugar no Desafio Prático, repetindo o resultado do ano anterior, e garantiu a vaga na etapa Regional. Mais do que os troféus, as famílias e a técnica perceberam crianças mais experientes, organizadas e autônomas do que na primeira temporada.</p>
+<figure class="fig"><figcaption>Figura 5 – Equipe com medalhas e troféu do Torneio Interno</figcaption><img class="fig-img" src="img/tecnologia-e-engenharia/trofeu.jpg" alt="Equipe com medalhas e troféu do Torneio Interno" loading="lazy"></figure>
+<p class="src">Fonte: acervo da equipe Capibots (2026).</p>
+<figure class="tbl"><figcaption>Quadro 6 – Conquistas da equipe</figcaption><div class="tbl-wrap"><table><thead><tr><th>Temporada</th><th>Etapa</th><th>Resultado</th></tr></thead><tbody><tr><td>2025</td><td>Interna</td><td>1º lugar geral e 1º lugar no Desafio Prático</td></tr><tr><td>2025</td><td>Regional</td><td>2º lugar geral e 1º lugar no Desafio Prático</td></tr><tr><td>2025</td><td>Nacional (Belo Horizonte)</td><td>3º lugar geral na categoria Kids 2</td></tr><tr><td>2026</td><td>ExpoTech (interna)</td><td>1º lugar geral e 1º lugar no Desafio Prático</td></tr><tr><td>2026</td><td>Feira Ciência Viva (UFU)</td><td>Trabalho de pesquisa selecionado para apresentação</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<h2 id="aprendizados-da-temporada"><span class="num">9</span>Aprendizados da temporada</h2>
+<p>Parte do que a equipe aprendeu em 2026 vale para qualquer robô que ela construir daqui em diante:</p>
+<ul class="bullets">
+<li>quando o robô perde a referência no tapete, voltar à base e reposicioná-lo é mais seguro do que arriscar;</li>
+<li>uma ideia que funciona nos testes só deve ser adotada depois de conferida no Vade Mecum;</li>
+<li>quando a estrutura do robô muda, toda a programação precisa ser revista e testada, inclusive as partes que parecem não ter sido afetadas;</li>
+<li>o diário de bordo é a memória da equipe: sem ele, seria difícil entender por que algo falhou;</li>
+<li>quando o kit não resolve, é possível projetar as próprias peças.</li>
+</ul>
+<p>Para as próximas temporadas fica, sobretudo, o jeito de trabalhar que as crianças construíram neste ano: elas mesmas propõem as soluções, testam na mesa e registram o resultado antes de mudar o robô.</p></main>
+</div>
+<footer>Equipe Capibots · <em>Unidos como capivaras, espertos como robôs</em><br>
+<a href="https://capibots.com.br">capibots.com.br</a> · Instagram e YouTube @equipecapibots</footer>
+<script>
+(function(){
+  var btn=document.querySelector('.theme-btn');
+  function cur(){try{return localStorage.getItem('capi-theme')}catch(e){return null}}
+  function apply(t){if(t)document.documentElement.setAttribute('data-theme',t);else document.documentElement.removeAttribute('data-theme');}
+  apply(cur());
+  if(btn)btn.addEventListener('click',function(){
+    var dark=document.documentElement.getAttribute('data-theme')==='dark'||(!document.documentElement.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    var t=dark?'light':'dark';apply(t);try{localStorage.setItem('capi-theme',t)}catch(e){}
+  });
+  var links=[].slice.call(document.querySelectorAll('.toc a[href^="#"]'));
+  var heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))}).filter(Boolean);
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-80px 0px -70% 0px'});
+    heads.forEach(function(h){io.observe(h)});
+  }
+})();
+</script>
+</body>
+</html>

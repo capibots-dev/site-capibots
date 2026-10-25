@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Calendar, Users, Target, Cpu, ArrowLeft, ExternalLink, Check, FlaskConical } from 'lucide-react';
+import { Calendar, Users, Target, Cpu, ArrowLeft, ExternalLink, Check, FlaskConical, BookOpen } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Link } from 'react-router-dom';
 import projectsData from '@/data/projects.json';
@@ -81,6 +81,7 @@ const ProjectDetail = () => {
       }))
     : [];
 
+  const notebooks = (project as { notebooks?: { title: string; description: string; link: string; linkLabel: string } } | undefined)?.notebooks;
   const tools = (project as { tools?: { name: string; description: string; image: string; link: string; linkLabel: string }[] } | undefined)?.tools ?? [];
 
   if (!project) {
@@ -174,6 +175,22 @@ const ProjectDetail = () => {
                   </p>
                 </CardContent>
               </Card>
+
+              {/* Cadernos técnicos da temporada */}
+              {notebooks && (
+                <Card>
+                  <CardContent className="p-6 flex flex-col sm:flex-row sm:items-center gap-4">
+                    <BookOpen className="h-8 w-8 text-primary shrink-0" />
+                    <div className="flex-1">
+                      <h2 className="text-xl font-bold mb-1">{notebooks.title}</h2>
+                      <p className="text-sm text-muted-foreground">{notebooks.description}</p>
+                    </div>
+                    <Button asChild className="gradient-orange-green text-white border-0">
+                      <Link to={notebooks.link}>{notebooks.linkLabel}</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              )}
 
               {/* Pesquisa: resultados parciais */}
               {research && (

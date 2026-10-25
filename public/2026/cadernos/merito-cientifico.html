@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mérito Científico · Aprender sem conexão | Capibots TBR 2026</title>
+<meta name="description" content="Versão resumida do caderno de Mérito Científico da equipe Capibots no Torneio Brasil de Robótica 2026.">
+<link rel="icon" href="https://capibots.com.br/capibots-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--green:#1a5c2a;--green-2:#2f7d3f;--green-soft:#eaf3ec;--orange:#e05c00;--orange-soft:#fff1e6;
+--yellow:#f4c430;--ink:#1d2420;--muted:#5b665f;--line:#d6e2d9;--bg:#fbfaf6;--card:#ffffff;--th:#1a5c2a;--thc:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e8efe9;--muted:#a7b5ab;--line:#2c3a30;
+--bg:#111712;--card:#18211b;--green-soft:#1d2a20;--orange-soft:#2a1d12;--th:#24733a}}
+:root[data-theme="dark"]{--ink:#e8efe9;--muted:#a7b5ab;--line:#2c3a30;--bg:#111712;--card:#18211b;--green-soft:#1d2a20;--orange-soft:#2a1d12;--th:#24733a}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito Sans",system-ui,sans-serif;font-size:17px;line-height:1.65}
+a{color:var(--orange)}
+.topbar{position:sticky;top:0;z-index:20;background:var(--green);color:#fff;border-bottom:4px solid var(--orange)}
+.topbar .in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 16px}
+.topbar img{height:44px;width:44px;object-fit:contain}
+.topbar .brand{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:22px;letter-spacing:.5px;color:#fff;text-decoration:none}
+.topbar nav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.topbar nav a{color:#fff;text-decoration:none;font-size:14px;font-weight:700;padding:6px 12px;border-radius:999px;opacity:.85}
+.topbar nav a.on,.topbar nav a:hover{background:rgba(255,255,255,.16);opacity:1}
+.topbar nav a.on{background:var(--orange)}
+.hero{background:linear-gradient(135deg,var(--green) 0%,#0f3d1b 100%);color:#fff;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-80px;bottom:-80px;width:320px;height:320px;border-radius:50%;background:var(--orange);opacity:.18}
+.hero .in{max-width:1200px;margin:0 auto;padding:48px 16px 40px;position:relative;z-index:1}
+.kicker{display:inline-block;background:var(--yellow);color:#1d2420;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:999px}
+.hero h1{font-family:"Baloo 2",sans-serif;font-size:clamp(32px,5vw,54px);line-height:1.05;margin:14px 0 8px}
+.hero p.sub{font-size:clamp(17px,2.2vw,21px);margin:0;opacity:.92;max-width:760px}
+.hero .meta{margin-top:18px;font-size:14px;opacity:.85}
+.layout{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:40px;padding:32px 16px 64px}
+.toc{position:sticky;top:96px;align-self:start;max-height:calc(100vh - 120px);overflow:auto;font-size:14px}
+.toc h4{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.toc a{display:block;padding:6px 10px;border-left:3px solid var(--line);color:var(--ink);text-decoration:none}
+.toc a:hover,.toc a.active{border-left-color:var(--orange);background:var(--green-soft);color:var(--green)}
+:root[data-theme="dark"] .toc a.active{color:#9fd8ac}
+.toc .pdf{margin-top:18px;display:inline-block;background:var(--orange);color:#fff;font-weight:700;padding:8px 14px;border-radius:10px;text-decoration:none;border:none}
+main{min-width:0}
+main h2{font-family:"Baloo 2",sans-serif;color:var(--green);font-size:30px;line-height:1.2;margin:48px 0 14px;display:flex;align-items:center;gap:12px}
+:root[data-theme="dark"] main h2{color:#8fd19e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) main h2{color:#8fd19e}}
+main h2:first-child{margin-top:0}
+main h2 .num:empty{display:none}main h2 .num:not(:empty){flex:none;width:40px;height:40px;border-radius:12px;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:20px}
+main h3{font-size:19px;margin:28px 0 8px}
+main p{margin:0 0 14px;text-align:justify;hyphens:auto}
+ul.bullets{margin:0 0 16px;padding-left:22px}ul.bullets li{margin-bottom:6px}ul.bullets li::marker{color:var(--orange)}
+.callout{background:var(--orange-soft);border-left:5px solid var(--orange);padding:14px 18px;border-radius:0 12px 12px 0;margin:18px 0;font-size:16px}
+figure{margin:24px 0}figcaption{font-weight:700;font-size:14px;color:var(--muted);margin-bottom:8px}
+.fig{text-align:center}.fig figcaption{text-align:center}
+.fig-img{max-width:100%;max-height:560px;height:auto;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.08);background:#fff}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;align-items:start}
+.duo-item small{display:block;color:var(--muted);font-size:13px;margin-top:6px}
+.src{font-size:12.5px;color:var(--muted);text-align:center!important;margin-top:-4px}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.45}
+th{background:var(--th);color:var(--thc);text-align:left;padding:10px 12px;font-weight:700}
+td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--green-soft)}
+blockquote.cry{font-family:"Baloo 2",sans-serif;font-size:20px;color:var(--orange);text-align:center;margin:18px auto;max-width:520px;line-height:1.4}
+.ref{font-size:14px;text-align:left!important;padding-left:24px;text-indent:-24px}
+.duo.gal{grid-template-columns:repeat(2,minmax(0,1fr))}.duo.gal .fig-img{width:100%;height:300px;object-fit:cover}@media (max-width:600px){.duo.gal{grid-template-columns:1fr}.duo.gal .fig-img{height:220px}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:12px;padding:14px 10px;text-align:center}
+.stat b{display:block;font-family:"Baloo 2",sans-serif;font-size:30px;line-height:1.1;color:var(--orange)}
+.stat span{font-size:13px;color:var(--muted)}
+.voices{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}
+.voices.one{grid-template-columns:1fr}
+blockquote.voice{margin:0;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--green-2);border-radius:12px;padding:14px 16px}
+blockquote.voice p{font-style:italic;text-align:left;margin:0 0 8px}
+blockquote.voice cite{font-style:normal;font-weight:700;font-size:13px;color:var(--green)}
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.phase{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.phase h4{margin:0;background:var(--green);color:#fff;padding:10px 14px;border-bottom:3px solid var(--orange);font-size:15px}
+.phase ul{margin:0;padding:12px 14px 12px 30px;font-size:15px}.phase li{margin-bottom:6px}.phase li::marker{color:var(--orange)}
+footer{background:var(--green);color:#fff;text-align:center;padding:28px 16px;font-size:14px}
+footer a{color:#fff}
+.theme-btn{background:none;border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:999px;padding:5px 10px;cursor:pointer;font-size:13px}
+@media (max-width:900px){.layout{grid-template-columns:1fr;gap:12px}.toc{position:static;max-height:none;border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--card)}
+.toc details summary{cursor:pointer;font-weight:700}.topbar nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.topbar nav a{font-size:12px;padding:5px 9px;white-space:nowrap}.topbar .brand{display:none}main p{text-align:left}}
+@media print{.topbar,.toc,footer{display:none}.layout{display:block}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="in">
+  <a href="https://capibots.com.br"><img src="https://capibots.com.br/capibots-logo.png" alt="Logo Capibots" width="44" height="44"></a>
+  <a class="brand" href="https://capibots.com.br">CAPIBOTS</a>
+  <nav aria-label="Cadernos técnicos"><a href="/2026/cadernos-tecnicos">Cadernos</a><a href="merito-cientifico.html" class="on">Mérito Científico</a><a href="organizacao-e-metodo.html">Organização & Método</a><a href="tecnologia-e-engenharia.html">Tecnologia & Engenharia</a></nav>
+  <button class="theme-btn" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</div></header>
+<section class="hero"><div class="in">
+  <span class="kicker">TBR 2026 · Mérito Científico</span>
+  <h1>Aprender sem conexão</h1>
+  <p class="sub">Desigualdade digital e apoio ao estudo offline para crianças sem internet de qualidade</p>
+  <p class="meta">Equipe Capibots · Colégio Batista Mineiro, Unidade Martins · Uberlândia (MG) · Categoria Kids 2</p>
+</div></section>
+<div class="layout">
+  <aside class="toc"><details open><summary><h4 style="display:inline">Neste caderno</h4></summary><a href="#resumo">Resumo</a><a href="#introducao-e-definicao-do-problema">1. Introdução e definição do problema</a><a href="#referencial-teorico">2. Referencial teórico</a><a href="#metodologia">3. Metodologia</a><a href="#desenvolvimento-do-prototipo-capi-aprende">4. Desenvolvimento do protótipo Capi-Aprende</a><a href="#resultados-do-diagnostico">5. Resultados do diagnóstico</a><a href="#recursos-cronograma-e-divulgacao">6. Recursos, cronograma e divulgação</a><a href="#consideracoes-parciais">7. Considerações parciais</a><a href="#referencias">Referências</a></details>
+  <a class="pdf" href="/2026/cadernos-tecnicos">Baixar PDF</a></aside>
+  <main><h2 id="resumo"><span class="num"></span>Resumo</h2>
+<p>Estudar passou a depender de uma conexão que não chega igualmente a todas as crianças. Alinhado ao ODS 4 da ONU, este trabalho investiga como a falta de conexão utilizável no momento do estudo, em casa ou na própria escola, afeta a aprendizagem no ensino fundamental, e avalia uma ferramenta que funcione sem rede. A equipe reuniu dados oficiais (Censo Escolar, TIC Domicílios, TIC Kids Online Brasil, TIC Educação e PISA), visitou uma escola rural de Uberlândia (MG) e comparou oito alternativas segundo quatro critérios antes de propor sua solução: o <b>Capi-Aprende</b>, aplicativo offline para celular, com conteúdo preparado pelo professor e um tutor de inteligência artificial embarcado, já disponível em protótipo navegável. No diagnóstico, 46 estudantes responderam ao questionário, 26 deles presencialmente na Escola Municipal Dom Bosco, com aplicação feita pelas próprias crianças da equipe. O resultado contrariou a expectativa inicial: quase todos têm internet em casa, mas o equipamento separa os grupos. Na escola rural, 15 de 26 não têm computador nem tablet, contra 1 de 20 nos demais, e os 9 estudantes que deixam de fazer lições com frequência estão todos nela. A próxima etapa testará o efeito do aplicativo sobre a aprendizagem, com pré-teste e pós-teste em três grupos.</p>
+<p><b>Palavras-chave:</b> conectividade; desigualdade digital; tutor de inteligência artificial; tecnologia educacional offline.</p>
+<aside class="callout"><b>Sobre esta versão.</b> Este documento condensa o caderno técnico completo de Mérito Científico (65 páginas) entregue na etapa Regional do TBR 2026. Foram mantidos o problema, as hipóteses, a fundamentação, o método, os resultados do diagnóstico e as figuras centrais. Agradecimentos, abstract, relatos detalhados dos grupos de pesquisa, telas secundárias do protótipo e os apêndices (roteiros e questionário) estão disponíveis na versão integral.</aside>
+<h2 id="introducao-e-definicao-do-problema"><span class="num">1</span>Introdução e definição do problema</h2>
+<p>Noventa e dois por cento das crianças e adolescentes brasileiros de 9 a 17 anos usam internet (CGI.BR, 2025a). Isolado, o número sugere um problema resolvido. Mas, quando se pergunta se esse acesso serve para estudar, o quadro muda: pelo indicador de conectividade significativa do Cetic.br, apenas 22% dos brasileiros de 10 anos ou mais alcançam essa condição, fatia que cai para 3% nas classes D e E (CGI.BR, 2024b). A escola tampouco cobre a diferença: 90,2% das escolas de ensino fundamental têm internet, mas somente 48,8% a disponibilizam aos alunos (INEP, 2025). O critério que define o problema investigado é, portanto, a ausência de conexão utilizável no momento do estudo, seja em casa, no trajeto ou na própria escola.</p>
+<h3>1.1 Como a equipe chegou ao problema</h3>
+<p>A partir do tema da temporada e da Meta 4.1 da ONU (ONU, 2015), cada integrante pesquisou individualmente e trouxe ideias, que somaram 11 frentes possíveis, de evasão escolar a lacunas no ensino de tecnologia. A equipe votou os quatro temas de maior interesse e se dividiu em grupos, que aprofundaram cada um com a ficha de pesquisa "Missão Capi investigadores" (Quadro 1).</p>
+<figure class="tbl"><figcaption>Quadro 1 – Grupos de investigação e o que cada um levou à solução</figcaption><div class="tbl-wrap"><table><thead><tr><th>Grupo</th><th>Tema</th><th>Principal descoberta</th><th>Contribuição para a solução</th></tr></thead><tbody><tr><td>1 · Arthur e Nicolas</td><td>Acesso físico às escolas</td><td>Trajetos longos (até 4 h em casos extremos) levam a cansaço, faltas e evasão</td><td>Para muitas crianças, o estudo possível é o que acontece fora da escola</td></tr><tr><td>2 · Lucca e Augusto</td><td>Ensino de tecnologia</td><td>Computação é obrigatória desde 2022, mas falta formação docente e equipamento</td><td>A ferramenta precisa ensinar, não só dar acesso, e com uso seguro</td></tr><tr><td>3 · João Gomes, Gabriela e Manuela</td><td>Conectividade das escolas</td><td>Internet boa exige velocidade, estabilidade e equipamento ao mesmo tempo</td><td>A "biblioteca offline", levada do servidor da escola para o celular</td></tr><tr><td>4 · Sophia e Luísa</td><td>Metacognição</td><td>Cada criança aprende de um jeito; muitas acham que "não são boas" em uma matéria</td><td>Um tutor que se adapta à forma de aprender de cada criança</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<p>Na discussão final, a equipe conferiu nas fontes originais os números levantados pelos grupos. Alguns se confirmaram, como a defasagem na formação docente (em 2024, 54% dos professores fizeram formação em tecnologias digitais; CGI.BR, 2025b) e o tempo excessivo de transporte escolar rural (MARTINS, 2010). Outros foram corrigidos. O número de 4,8 milhões de crianças em domicílios sem internet, por exemplo, vinha de uma pesquisa de 2019, anterior à pandemia; em 2024, as crianças que não acessam a rede eram cerca de 2 milhões (CGI.BR, 2024a). A desigualdade não desapareceu, deslocou-se do acesso para a qualidade do acesso. Por isso o problema foi formulado em termos de internet de qualidade.</p>
+<p>Os quatro caminhos terminavam no mesmo ponto: a criança que não consegue estudar fora da sala de aula. Daí veio a pergunta formulada pelos próprios integrantes: <i>como ajudar as crianças a continuar estudando quando estão em casa e não têm internet?</i></p>
+<h3>1.2 Problema de pesquisa</h3>
+<aside class="callout">De que forma o uso de uma ferramenta educacional que funciona offline no celular, com conteúdos e um tutor de inteligência artificial embarcado, pode apoiar a rotina de estudo e a aprendizagem de crianças do ensino fundamental que não têm internet de qualidade no momento de estudar, em casa ou na escola?</aside>
+<h3>1.3 Hipóteses</h3>
+<ul class="bullets">
+<li><b>Principal:</b> se crianças sem internet de qualidade no momento de estudar usarem uma ferramenta educacional offline no celular, então conseguirão manter a rotina de estudo e melhorar seu desempenho, porque software educacional estruturado e adaptativo produz ganhos de aprendizagem, muitas vezes maiores entre os alunos mais defasados (MURALIDHARAN; SINGH; GANIMIAN, 2019; KULIK; FLETCHER, 2016).</li>
+<li><b>Secundária:</b> se a ferramenta oferecer orientação pedagógica, e não apenas acesso ao conteúdo, o ganho será maior, porque acesso sem pedagogia não melhora resultados (OCDE, 2015; CRISTIA et al., 2017), enquanto o uso com propósito melhora (VANLEHN, 2011).</li>
+</ul>
+<h3>1.4 Objetivos</h3>
+<p><b>Geral:</b> analisar como a falta de internet de qualidade no momento de estudar afeta a aprendizagem de crianças do ensino fundamental e avaliar o potencial de uma ferramenta educacional offline como apoio ao estudo.</p>
+<p><b>Específicos:</b></p>
+<ul class="bullets">
+<li>caracterizar a desigualdade de acesso à internet entre as crianças das escolas participantes, em Uberlândia (MG);</li>
+<li>identificar causas e consequências da falta de conectividade no momento do estudo;</li>
+<li>comparar as soluções educacionais offline existentes e suas limitações;</li>
+<li>desenvolver um protótipo do aplicativo offline do aluno e da plataforma do professor;</li>
+<li>testar o efeito da ferramenta na rotina de estudo e no desempenho dos participantes;</li>
+<li>relacionar os resultados às hipóteses e à literatura.</li>
+</ul>
+<h3>1.5 Justificativa</h3>
+<p>A razão científica é um achado contraintuitivo: o acesso à tecnologia, sozinho, não melhora a aprendizagem. Os países que mais investiram em tecnologia educacional não tiveram ganho proporcional (OCDE, 2015), programas que só entregam equipamento têm efeito praticamente nulo (ESCUETA et al., 2017) e o One Laptop per Child não elevou notas nem no curto nem no longo prazo (CRISTIA et al., 2017). A razão social é que a desigualdade de conexão reproduz a desigualdade de oportunidades de aprender, sobretudo entre famílias de baixa renda e nas regiões Norte e Nordeste (CGI.BR, 2024b; INEP, 2025). O trabalho se relaciona às metas 4.1, 4.5 e 4.a do ODS 4 e, de forma complementar, à meta 4.4, de habilidades tecnológicas (ONU, 2015).</p>
+<h2 id="referencial-teorico"><span class="num">2</span>Referencial teórico</h2>
+<h3>2.1 Conectividade, desigualdade digital e a dimensão do problema</h3>
+<p>Neste trabalho, conectividade para fins educacionais envolve, ao mesmo tempo, velocidade suficiente, estabilidade e equipamento adequado. Quando esses elementos faltam para parte da população, surge a desigualdade digital; um caso particular é o <i>homework gap</i>, a defasagem das crianças que não conseguem estudar em casa por falta de internet ou de dispositivo (CROCKER; KLEITSCH, 2023). A UNESCO (2023) lembra que a tecnologia só contribui quando é relevante, equitativa e sustentável, como apoio ao ensino, e não como substituto.</p>
+<p>No ensino fundamental, o acesso à internet cai de 90,2% no Brasil para 63,7% na região Norte, e a conexão é destinada ao ensino e à aprendizagem em 67,1% das escolas do país, contra 35,8% no Norte (INEP, 2025) (Figura 1). A combinação de internet e computadores para os alunos chegou, em 2025, a 73% das escolas urbanas e a apenas 41% das rurais (CGI.BR, 2026). Em casa, a conectividade significativa é de 11% no Nordeste, contra 33% no Sul e 73% na classe A (CGI.BR, 2024b) (Figura 2).</p>
+<figure class="fig"><figcaption>Figura 1 – Recursos de internet nas escolas de ensino fundamental: Brasil e região Norte (2024)</figcaption><img class="fig-img" src="img/merito-cientifico/fig3.png" alt="Recursos de internet nas escolas de ensino fundamental: Brasil e região Norte (2024)" loading="lazy"></figure>
+<p class="src">Fonte: elaborada pelos autores com base no Censo Escolar 2024 (INEP, 2025).</p>
+<figure class="fig"><figcaption>Figura 2 – Conectividade significativa no Brasil, por classe social e região (2024)</figcaption><img class="fig-img" src="img/merito-cientifico/fig4.png" alt="Conectividade significativa no Brasil, por classe social e região (2024)" loading="lazy"></figure>
+<p class="src">Fonte: elaborada pelos autores com base na TIC Domicílios 2024 (CGI.BR, 2024b).</p>
+<h3>2.2 Causas e consequências</h3>
+<p>As causas combinam distância das áreas rurais, custo de levar a rede, instabilidade de energia, falta de equipamentos e restrição do uso pedagógico da internet existente, somadas à formação docente insuficiente (INEP, 2025; CGI.BR, 2025b). As consequências aparecem num quadro já frágil: no PISA 2022, 73% dos estudantes brasileiros ficaram abaixo do nível 2 em matemática, contra 31% na média da OCDE (OCDE; INEP, 2023). Entre concluintes de baixa renda, ter internet e computador em casa esteve associado a até 23 pontos a mais no ENEM (RUBIM; MANTOVANI; ALAVARSE, 2025).</p>
+<h3>2.3 Soluções existentes e a lição "acesso não basta"</h3>
+<p>A Estratégia Nacional de Escolas Conectadas (ENEC) pretende conectar mais de 138 mil escolas públicas, com Wi-Fi em toda a unidade e ao menos 1 Mbps por aluno (BRASIL, 2023a, 2023b); em julho de 2026, 78,7% das escolas monitoradas tinham conectividade adequada (BRASIL, 2026a). Entre as ferramentas, Kolibri e RACHEL distribuem conteúdo offline a partir de um servidor local (LEARNING EQUALITY, 2024; WORLD POSSIBLE, 2024), o Mindspark ajusta exercícios ao nível do aluno (MURALIDHARAN; SINGH; GANIMIAN, 2019), o Arapai roda modelos de linguagem em computadores simples (WALUSIMBI et al., 2026) e o AIED Unplugged, adotado em mais de 8 mil escolas brasileiras, apoia o professor na avaliação de redações sem aumentar a desigualdade entre rural e urbano (PORTELA et al., 2025).</p>
+<p>Essas soluções têm limites comuns: atuam no prédio da escola, exigem servidor e Wi-Fi local ou são usadas pelo professor, não pela criança. Não foi encontrado estudo que mostre se um tutor conversacional offline melhora a aprendizagem de crianças brasileiras. É essa a lacuna do trabalho. A escolha do celular se apoia nos dados: 96% dos usuários de 9 a 17 anos o utilizam e, nas classes D e E, 82% acessam a rede apenas por ele; mas só 55% das crianças de 9 a 10 anos têm aparelho próprio (CGI.BR, 2025a), o que exige pensar também no uso compartilhado. A solução não substitui a infraestrutura: as duas frentes são complementares.</p>
+<h3>2.4 Fundamentos científicos da solução</h3>
+<p>Três conjuntos de evidências decidiram partes do Capi-Aprende. Sistemas tutores inteligentes ensinam quase tão bem quanto um professor particular (VANLEHN, 2011; KULIK; FLETCHER, 2016; MA et al., 2014), por isso a equipe construiu um tutor, e não um repositório. Um tutor de IA superou a aula ativa presencial em um ensaio controlado (KESTIN et al., 2025), e o retorno gerado por IA melhora resultados (HUANG et al., 2026), por isso o tutor conversa e parte do que a criança já demonstrou saber. O software adaptativo traz ganho maior aos mais atrasados (MURALIDHARAN; SINGH; GANIMIAN, 2019), por isso há simulados que medem o nível antes da explicação. Nos três casos, o ganho vem do método pedagógico, não do aparelho.</p>
+<h2 id="metodologia"><span class="num">3</span>Metodologia</h2>
+<p>A pesquisa é aplicada, de caráter exploratório e explicativo, e combina abordagens bibliográfica, documental, de campo e experimental. A primeira etapa (concluída) reuniu dados oficiais, a visita à escola e o questionário com estudantes; a segunda (a realizar) aplicará pré-teste e pós-teste de matemática, além de entrevistas curtas.</p>
+<h3>3.1 Pesquisa bibliográfica e documental</h3>
+<p>As buscas ocorreram entre março e setembro de 2026 no Google Acadêmico, SciELO, Portal de Periódicos da CAPES e arXiv, com termos em português e inglês ("desigualdade digital", "tutor inteligente", <i>homework gap</i>, <i>offline AI tutor</i>). Os dados oficiais vieram diretamente do Cetic.br, INEP, MEC e Ministério das Comunicações e foram separados por região, classe, área e rede sempre que possível: Censo Escolar 2024, TIC Domicílios 2024, TIC Kids Online (2019, 2024 e 2025), TIC Educação (2024 e 2025), PISA 2022 e o indicador de Escolas Conectadas.</p>
+<h3>3.2 Pesquisa de campo</h3>
+<p>Em 20 de agosto de 2026, a mentora e dois pais da equipe visitaram a Escola Municipal Dom Bosco, na zona rural de Uberlândia (cerca de 350 alunos, da educação infantil ao 9º ano), para confrontar o problema com a realidade e pedir autorização para a etapa com as crianças. A entrevista seguiu um roteiro semiestruturado de 24 perguntas em cinco blocos. Os principais achados:</p>
+<ul class="bullets">
+<li>a escola tem internet, mas instável, com quedas de energia de até um turno, e a rede é exclusiva de professores e administração;</li>
+<li>há um único laboratório; os tablets da pandemia estão em boa parte defasados ou danificados; não existe aplicativo de apoio à aprendizagem;</li>
+<li>há crianças de 5º ano ainda não plenamente alfabetizadas, e matemática é o maior gargalo; muitos usam o celular do pai, quando emprestado;</li>
+<li>a turma com monitoria no contraturno tem desempenho melhor, segundo a analista pedagógica (relato sem dados, com turmas de tamanhos diferentes);</li>
+<li>no período integral quase não há estudo domiciliar: o critério do problema passa a ser a falta de conexão no momento do estudo, e não o local.</li>
+</ul>
+<p>Em 7 de outubro de 2026, as crianças da equipe apresentaram o projeto aos estudantes da Dom Bosco e aplicaram o questionário ilustrado impresso (Figura 3), lido em voz alta e com cartões de apoio para quem ainda tem dificuldade de leitura. A versão online foi enviada à Escola Municipal Professora Neuza Rezende e às turmas de 5º ano do Colégio Batista Mineiro e divulgada no Instagram da equipe. Os cuidados éticos incluíram autorização da direção, consentimento das famílias e da criança, nenhum dado pessoal e identificação apenas por código. A análise só começou depois de encerrada a coleta.</p>
+<h3>3.3 Amostra</h3>
+<p>A amostra, por conveniência, reuniu 46 estudantes: 26 da Dom Bosco (questionário impresso, turmas do 3º ao 6º ano do período integral) e 20 pelo formulário online. No conjunto, 56,5% estavam no 5º ou 6º ano, 71,7% tinham 10 ou 11 anos, 58,7% estudavam em escola pública e 41,3% em particular.</p>
+<figure class="fig"><figcaption>Figura 3 – Integrantes da equipe apresentando o projeto na Escola Municipal Dom Bosco, em 7 de outubro de 2026</figcaption><img class="fig-img" src="img/merito-cientifico/fig14.jpg" alt="Integrantes da equipe apresentando o projeto na Escola Municipal Dom Bosco, em 7 de outubro de 2026" loading="lazy"></figure>
+<p class="src">Fonte: acervo dos autores (2026).</p>
+<h3>3.4 Desenho do experimento (próxima etapa)</h3>
+<p>O experimento terá pré-teste e pós-teste em três grupos, com o mesmo tema de matemática, a mesma lista de exercícios e o mesmo número de sessões. Só muda o apoio disponível (Quadro 2). As crianças serão ordenadas pela nota do pré-teste, agrupadas em blocos de três e sorteadas para os grupos; os testes serão feitos sem o aplicativo, com questões equivalentes e não idênticas, e corrigidos às cegas. Público, número de sessões e formato ainda dependem das escolas parceiras.</p>
+<figure class="tbl"><figcaption>Quadro 2 – Grupos do experimento e o que cada comparação responde</figcaption><div class="tbl-wrap"><table><thead><tr><th>Grupo</th><th>Apoio ao estudo</th><th>Comparação</th></tr></thead><tbody><tr><td>Controle</td><td>Apenas o material da escola</td><td>Controle × Capi-Aprende completo: hipótese principal</td></tr><tr><td>Conteúdo offline</td><td>Conteúdo no celular, sem o tutor</td><td>Conteúdo × Capi-Aprende completo: hipótese secundária (efeito da orientação)</td></tr><tr><td>Capi-Aprende completo</td><td>Conteúdo + tutor de IA embarcado</td><td>Grupo de referência das duas comparações</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<p>Antes do experimento, o aplicativo será testado em modo avião em aparelhos de capacidades diferentes (tempo de resposta, memória, bateria e entrada por voz) e com duas ou três crianças, para ajustar linguagem e navegação. Durante as sessões, o aplicativo registrará o tempo de uso e o tipo de pergunta feita ao tutor: pedir a resposta ou pedir explicação. O indicador principal é a diferença de acertos entre pré-teste e pós-teste, ao lado do engajamento. Como a amostra é por conveniência, os resultados serão lidos como indícios, e não como prova.</p>
+<h2 id="desenvolvimento-do-prototipo-capi-aprende"><span class="num">4</span>Desenvolvimento do protótipo Capi-Aprende</h2>
+<p>Antes de propor sua solução, a equipe comparou oito alternativas segundo quatro critérios: alcançar a criança sem conexão, ensinar (e não só dar acesso), ser viável para a equipe nesta temporada e ter evidência de efeito (Quadro 3).</p>
+<figure class="tbl"><figcaption>Quadro 3 – Alternativas analisadas antes da proposição da solução (síntese)</figcaption><div class="tbl-wrap"><table><thead><tr><th>Alternativa</th><th>Alcança sem conexão</th><th>Ensina</th><th>Viável</th><th>Evidência</th></tr></thead><tbody><tr><td>Ampliar conexão da escola (ENEC, Wi-Fi Brasil)</td><td>Não</td><td>Não</td><td>Não</td><td>Sem efeito medido em aprendizagem</td></tr><tr><td>Distribuir equipamentos (OLPC)</td><td>Parcial</td><td>Não</td><td>Não</td><td>Sem ganho de notas (CRISTIA et al., 2017)</td></tr><tr><td>Plataforma em servidor local (Kolibri, RACHEL)</td><td>Parcial</td><td>Parcial</td><td>Sim</td><td>Uso consolidado, sem ganho isolado</td></tr><tr><td>Software adaptativo (Mindspark)</td><td>Não</td><td>Sim</td><td>Não</td><td>+0,37 DP em matemática</td></tr><tr><td>Tutor de IA em computador (Arapai)</td><td>Parcial</td><td>Sim</td><td>Parcial</td><td>Sem resultado de aprendizagem publicado</td></tr><tr><td>IA de apoio ao professor (AIED Unplugged)</td><td>Não</td><td>Sim</td><td>Parcial</td><td>Equidade rural/urbano</td></tr><tr><td>App offline só com conteúdo</td><td>Sim</td><td>Não</td><td>Sim</td><td>Acesso sem pedagogia não melhora</td></tr><tr><td><b>App offline com tutor embarcado (adotada)</b></td><td>Sim</td><td>Sim</td><td>Sim</td><td>Tutores: efeito moderado a alto</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026), a partir do Quadro 2 da versão integral.</p>
+<p>As alternativas que ensinam precisam de computador, servidor ou professor; as que chegam ao aluno não ensinam. Restaram as duas que funcionam no celular, e o critério de ensinar decidiu entre elas. O sistema tem duas partes: uma <b>plataforma do professor</b>, usada com internet, onde o docente cadastra e contextualiza os conteúdos; e um <b>aplicativo do aluno</b>, que funciona offline, com leitura, atividades, jogos e o tutor de IA, sincronizando o progresso quando volta a ter conexão.</p>
+<p>Tecnicamente, prevê-se um modelo de linguagem leve executado no próprio celular, como o Gemma 3 1B ou o Gemma 4 E2B (GOOGLE DEEPMIND, [s. d.]), por meio da MediaPipe LLM Inference API e do LiteRT-LM (GOOGLE, [s. d.]), com banco local SQLite/Room e servidor central para sincronização (Figura 4). A escolha final depende de testes de desempenho e memória.</p>
+<figure class="fig"><figcaption>Figura 4 – Diagrama de contêineres (modelo C4, nível 2) do sistema Capi-Aprende</figcaption><img class="fig-img" src="img/merito-cientifico/fig6.png" alt="Diagrama de contêineres (modelo C4, nível 2) do sistema Capi-Aprende" loading="lazy"></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<p>Como primeira etapa, a equipe construiu um protótipo navegável do aplicativo do aluno e da plataforma do professor, aberto em capiaprende.capibots.com.br (Figura 5). Ele permite testar telas e fluxos antes da integração dos modelos de IA embarcados.</p>
+<figure class="fig"><figcaption>Figura 5 – Telas do protótipo navegável do Capi-Aprende</figcaption><div class="duo"><div class="duo-item"><img class="fig-img" src="img/merito-cientifico/fig9.png" alt="(a) Tutor &quot;Capivarinha&quot;, com entrada por voz e cartões de pergunta" loading="lazy"><small>(a) Tutor "Capivarinha", com entrada por voz e cartões de pergunta</small></div><div class="duo-item"><img class="fig-img" src="img/merito-cientifico/fig12.png" alt="(b) Cadastro de conteúdo na plataforma do professor" loading="lazy"><small>(b) Cadastro de conteúdo na plataforma do professor</small></div></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<h3>4.1 Condicionantes vindas do campo</h3>
+<p>As duas idas à Dom Bosco geraram quatro ajustes já incorporados ao protótipo:</p>
+<ul class="bullets">
+<li><b>Alfabetização:</b> há crianças de 5º ano não plenamente alfabetizadas, por isso o tutor oferece entrada por voz e perguntas curtas em cartões. Ficam para a próxima versão o reconhecimento de fala embarcado e ilustrações nos cartões.</li>
+<li><b>Acesso ao aparelho:</b> 17 dos 46 participantes não têm celular próprio (12 usam o de alguém da família e 5 não usam celular). O app foi desenhado para sessões curtas em aparelho compartilhado, com login da escola e progresso guardado por aluno. Quem não tem aparelho usará o app no apoio pedagógico, o que depende de a escola ter algum equipamento em uso.</li>
+<li><b>Plataforma:</b> 52,2% usam Android, 21,7% iOS e 26,1% não souberam informar (Figura 6). O desenvolvimento começa pelo Android, que predomina entre aparelhos de menor custo e permite instalação local. O alto índice de "não sei" mostra que muitos usam o aparelho sem controlá-lo: a instalação deve ser acompanhada por um adulto.</li>
+<li><b>Carga do conteúdo:</b> a primeira carga ocorre pelo Wi-Fi da escola, em horário combinado com o professor. Como na Dom Bosco a rede ainda é restrita a professores e administração, enquanto não houver essa liberação pontual o professor transfere o conteúdo por conexão local em sala.</li>
+</ul>
+<figure class="fig"><figcaption>Figura 6 – Sistema operacional dos aparelhos usados pelos participantes</figcaption><img class="fig-img" src="img/merito-cientifico/fig13.png" alt="Sistema operacional dos aparelhos usados pelos participantes" loading="lazy"></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<h2 id="resultados-do-diagnostico"><span class="num">5</span>Resultados do diagnóstico</h2>
+<p>Os resultados são apresentados por grupo, porque a média única esconderia a diferença entre os contextos. A Tabela 1 compara a Dom Bosco com os demais participantes nos indicadores em que a diferença foi maior.</p>
+<figure class="tbl"><figcaption>Tabela 1 – Principais indicadores do diagnóstico, por grupo de participantes</figcaption><div class="tbl-wrap"><table><thead><tr><th>Indicador</th><th>Dom Bosco (n = 26)</th><th>Demais (n = 20)</th><th>Total (n = 46)</th></tr></thead><tbody><tr><td>Tem internet Wi-Fi em casa</td><td>25 (96,2%)</td><td>20 (100%)</td><td>45 (97,8%)</td></tr><tr><td>Não tem computador nem tablet em casa</td><td>15 (57,7%)</td><td>1 (5,0%)</td><td>16 (34,8%)</td></tr><tr><td>Deixou de fazer lição "várias vezes" ou "quase sempre" por falta de internet ou aparelho</td><td>9 (34,6%)</td><td>0 (0%)</td><td>9 (19,6%)</td></tr><tr><td>Já conversou com um assistente de IA</td><td>21 (80,8%)</td><td>19 (95,0%)</td><td>40 (87,0%)</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026), com base nos questionários aplicados.</p>
+<p><b>A internet em casa é quase universal nesta amostra.</b> 97,8% têm Wi-Fi e 80,4% dizem que a conexão sempre funciona quando precisam estudar. Pelos critérios definidos no método, a proporção sem conexão utilizável fica entre 2,2% (critério restrito) e 19,6% (critério ampliado). O resultado não confirma a ideia inicial de que a maior parte das crianças não tem internet em casa.</p>
+<p><b>A diferença está no aparelho.</b> Dos 16 participantes sem computador nem tablet, 15 são da Dom Bosco. No total, 37,0% não têm celular próprio. E todos os 9 que deixam de fazer lições com frequência estudam na escola rural; nessas situações, a reação mais comum é pedir ajuda a alguém (60,9%). Na Dom Bosco, metade dos estudantes (13 de 26) indicou a casa como principal lugar de estudo, mesmo estando no período integral, o que relativiza a restrição apontada na visita.</p>
+<p><b>As crianças pedem alguém que explique.</b> Quando não entendem a lição, 56,5% perguntam a alguém de casa; matemática é a matéria mais difícil para 50,0%. Para o "professor de bolso", as funções mais escolhidas foram tirar dúvidas de lição (71,7%) e explicar a matemática (52,2%). O uso de IA foi maior que o esperado (87,0%), em contraste com o relato da escola; a pergunta, porém, não separa o uso feito sozinho do feito com um adulto. Na pergunta aberta, algumas crianças descreveram com as próprias palavras a ideia de um tutor, como "um professor que eu podia chamar em qualquer horário".</p>
+<aside class="callout"><b>Limites que a equipe reconhece.</b> (1) Vinte respostas vieram de formulário online, que uma criança sem internet dificilmente responde, o que tende a elevar a proporção com Wi-Fi. (2) O grupo de comparação não representa uma população definida. (3) Os grupos diferem em rede, série e forma de aplicação. (4) Das 9 crianças que deixam de fazer lições, 8 têm celular próprio e 6 dizem que a internet sempre funciona: o questionário não explica sozinho o que as impede, e as entrevistas curtas devem esclarecer. Os números descrevem os participantes, não o efeito isolado da zona rural.</aside>
+<p>Em relação às hipóteses, a falta de internet em casa é rara nesta amostra, mas a falta de aparelho adequado e a dependência da família são frequentes, sobretudo na escola rural. A procura por quem tire dúvidas e explique a matemática reforça a escolha de um tutor, e não de um repositório, o que dialoga com a hipótese secundária.</p>
+<h2 id="recursos-cronograma-e-divulgacao"><span class="num">6</span>Recursos, cronograma e divulgação</h2>
+<p>Os recursos são modestos: mentoria voluntária, equipamentos próprios, cerca de R$ 80,00 em material e impressão, R$ 40,00/ano de domínio e hospedagem e R$ 220,00 de assinatura de ferramenta de IA para desenvolver o protótipo.</p>
+<figure class="tbl"><figcaption>Quadro 4 – Cronograma resumido (março a dezembro de 2026)</figcaption><div class="tbl-wrap"><table><thead><tr><th>Período</th><th>Atividades</th><th>Situação</th></tr></thead><tbody><tr><td>Mar–Abr</td><td>Definição do tema e do problema</td><td>Concluído</td></tr><tr><td>Mar–Set</td><td>Pesquisa bibliográfica e documental; redação do referencial</td><td>Concluído</td></tr><tr><td>Ago</td><td>Visita exploratória à Escola Municipal Dom Bosco</td><td>Concluído</td></tr><tr><td>Set–Out</td><td>Protótipo navegável; questionário online e presencial; análise do diagnóstico</td><td>Concluído</td></tr><tr><td>Nov</td><td>Entrevistas curtas e pré-teste; apresentação na Feira Ciência Viva (UFU)</td><td>Previsto</td></tr><tr><td>Dez</td><td>Uso do aplicativo e pós-teste; análise final</td><td>Previsto</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<p>A divulgação foi tratada como parte do método. Cada marco foi apresentado a um público externo antes da conclusão do estudo (Quadro 5).</p>
+<figure class="tbl"><figcaption>Quadro 5 – Divulgação e publicações parciais</figcaption><div class="tbl-wrap"><table><thead><tr><th>Data</th><th>O que foi divulgado</th><th>Onde</th></tr></thead><tbody><tr><td>09/05/2026</td><td>Tema escolhido para a temporada</td><td>Site capibots.com.br</td></tr><tr><td>23/05/2026</td><td>Artigo sobre conectividade das escolas brasileiras</td><td>Site capibots.com.br</td></tr><tr><td>20/08/2026</td><td>Problema e proposta de solução</td><td>Escola Municipal Dom Bosco</td></tr><tr><td>02–05/10/2026</td><td>Convite para o questionário online</td><td>Escolas parceiras e Instagram</td></tr><tr><td>07/10/2026</td><td>Apresentação do projeto e aplicação do questionário</td><td>Escola Municipal Dom Bosco</td></tr><tr><td>15/10/2026</td><td>Protótipo navegável aberto ao público</td><td>capiaprende.capibots.com.br</td></tr><tr><td>15/10/2026</td><td>Trabalho selecionado e publicado (cód. 149)</td><td>31ª Feira Ciência Viva – Museu Dica/UFU</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pela equipe (2026).</p>
+<h2 id="consideracoes-parciais"><span class="num">7</span>Considerações parciais</h2>
+<p>Até a etapa Regional, a equipe definiu o problema por um processo coletivo e pela checagem dos dados oficiais, construiu o referencial, visitou a escola rural, elaborou os instrumentos, concluiu o diagnóstico com 46 estudantes e desenvolveu o protótipo navegável do Capi-Aprende. O achado central inverteu a expectativa: nesta amostra, quase todas as crianças têm internet em casa, mas na escola rural falta equipamento e são mais frequentes as lições que ficam sem fazer. As crianças pedem, sobretudo, alguém que tire dúvidas e explique matemática.</p>
+<p>Os próximos passos são as entrevistas curtas e o experimento com pré-teste e pós-teste em três grupos, que dirão se as hipóteses se confirmam. O trabalho será apresentado de 16 a 20 de novembro na 31ª Feira Ciência Viva, cujo tema é "Ciência Delas", por Gabriela Neri Sticca, Luísa Carvalho de Oliveira e Sophia Arantes Borges.</p>
+<h2 id="referencias"><span class="num"></span>Referências</h2>
+<p class="ref">BRASIL. Decreto nº 11.713, de 26 de setembro de 2023. Institui a Estratégia Nacional de Escolas Conectadas. Brasília, DF: Presidência da República, 2023a.</p>
+<p class="ref">BRASIL. Ministério das Comunicações. <b>Governo Federal lança Estratégia Nacional de Escolas Conectadas para levar internet a mais de 138 mil instituições até 2026</b>. Brasília, DF: MCom, 26 set. 2023b. Disponível em: https://www.gov.br/mcom. Acesso em: 29 set. 2026.</p>
+<p class="ref">BRASIL. Ministério da Educação. Painel do MEC mostra dados de conectividade de 138 mil escolas públicas. <b>Agência Gov</b>, Brasília, set. 2026a. Disponível em: https://agenciagov.ebc.com.br. Acesso em: 29 set. 2026.</p>
+<p class="ref">COMITÊ GESTOR DA INTERNET NO BRASIL (CGI.br). <b>TIC Kids Online Brasil 2024</b>. São Paulo: NIC.br, 2024a. Disponível em: https://cetic.br/pt/pesquisa/kids-online/. Acesso em: 29 set. 2026.</p>
+<p class="ref">COMITÊ GESTOR DA INTERNET NO BRASIL (CGI.br). <b>TIC Domicílios 2024</b>. São Paulo: NIC.br, 2024b. Disponível em: https://cetic.br/pt/pesquisa/domicilios/. Acesso em: 29 set. 2026.</p>
+<p class="ref">COMITÊ GESTOR DA INTERNET NO BRASIL (CGI.br). <b>TIC Kids Online Brasil 2025</b>. São Paulo: NIC.br, 2025a. Disponível em: https://cetic.br/pt/pesquisa/kids-online/. Acesso em: 29 set. 2026.</p>
+<p class="ref">COMITÊ GESTOR DA INTERNET NO BRASIL (CGI.br). <b>TIC Educação 2024</b>. São Paulo: NIC.br, 2025b. Disponível em: https://cetic.br/pt/pesquisa/educacao/. Acesso em: 29 set. 2026.</p>
+<p class="ref">COMITÊ GESTOR DA INTERNET NO BRASIL (CGI.br). <b>TIC Educação 2025</b>. São Paulo: NIC.br, 2026. Disponível em: https://cetic.br/pt/pesquisa/educacao/. Acesso em: 29 set. 2026.</p>
+<p class="ref">CRISTIA, J. et al. Technology and child development: evidence from the One Laptop per Child program. <b>American Economic Journal: Applied Economics</b>, v. 9, n. 3, p. 295-320, 2017.</p>
+<p class="ref">CROCKER, T.; KLEITSCH, D. The "homework gap" and academic achievement in high school science. <b>National Youth Advocacy and Resilience Journal</b>, v. 6, n. 1, p. 1-31, 2023.</p>
+<p class="ref">ESCUETA, M. et al. <b>Education technology: an evidence-based review</b>. Cambridge: NBER, 2017. (NBER Working Paper, n. 23744).</p>
+<p class="ref">GOOGLE DEEPMIND. <b>Gemma</b>. Disponível em: https://deepmind.google/models/gemma/. Acesso em: 17 ago. 2026.</p>
+<p class="ref">GOOGLE. <b>LLM Inference API</b> e <b>LiteRT-LM overview</b>. Disponível em: https://developers.google.com/edge. Acesso em: 17 ago. 2026.</p>
+<p class="ref">HUANG, Y. et al. Can generative AI feedback effectively enhance learning outcomes? A meta-analysis of 36 experimental and quasi-experimental studies. <b>Education Sciences</b>, v. 16, n. 6, art. 816, 2026.</p>
+<p class="ref">INSTITUTO NACIONAL DE ESTUDOS E PESQUISAS EDUCACIONAIS ANÍSIO TEIXEIRA (INEP). <b>Censo Escolar da Educação Básica 2024</b>: notas estatísticas. Brasília, DF: INEP/MEC, 2025.</p>
+<p class="ref">KESTIN, G. et al. AI tutoring outperforms in-class active learning: an RCT in an authentic educational setting. <b>Scientific Reports</b>, 2025.</p>
+<p class="ref">KULIK, J. A.; FLETCHER, J. D. Effectiveness of intelligent tutoring systems: a meta-analytic review. <b>Review of Educational Research</b>, v. 86, n. 1, p. 42-78, 2016.</p>
+<p class="ref">LEARNING EQUALITY. <b>Kolibri</b>: an offline-first learning platform. [S. l.]: Learning Equality, 2024. Disponível em: https://learningequality.org/kolibri/. Acesso em: 29 set. 2026.</p>
+<p class="ref">MA, W. et al. Intelligent tutoring systems and learning outcomes: a meta-analysis. <b>Journal of Educational Psychology</b>, v. 106, n. 4, p. 901-918, 2014.</p>
+<p class="ref">MARTINS, A. P. A. <b>Análise dos impactos das condições do transporte escolar rural no rendimento escolar dos alunos</b>. 2010. Dissertação (Mestrado em Transportes) – Universidade de Brasília, Brasília, 2010.</p>
+<p class="ref">MURALIDHARAN, K.; SINGH, A.; GANIMIAN, A. J. Disrupting education? Experimental evidence on technology-aided instruction in India. <b>American Economic Review</b>, v. 109, n. 4, p. 1426-1460, 2019.</p>
+<p class="ref">ORGANIZAÇÃO DAS NAÇÕES UNIDAS (ONU). <b>Transformando nosso mundo</b>: a Agenda 2030 para o Desenvolvimento Sustentável. [S. l.]: ONU, 2015.</p>
+<p class="ref">ORGANIZAÇÃO PARA A COOPERAÇÃO E DESENVOLVIMENTO ECONÔMICO (OCDE). <b>Students, computers and learning</b>: making the connection. Paris: OECD Publishing, 2015.</p>
+<p class="ref">ORGANIZAÇÃO PARA A COOPERAÇÃO E DESENVOLVIMENTO ECONÔMICO (OCDE); INEP. <b>Resultados do PISA 2022</b>: Brasil. Brasília, DF: INEP/MEC, 2023.</p>
+<p class="ref">PORTELA, C. et al. AI in education unplugged support equity between rural and urban areas in Brazil. In: INTERNATIONAL CONFERENCE ON INFORMATION AND COMMUNICATION TECHNOLOGIES AND DEVELOPMENT, 13., 2024. <b>Proceedings</b> [...]. New York: ACM, 2025.</p>
+<p class="ref">RUBIM, J. A. O.; MANTOVANI, D.; ALAVARSE, O. M. Exclusão digital e seus impactos sobre a proficiência no ENEM. <b>Educação em Revista</b>, v. 41, e59221, 2025.</p>
+<p class="ref">UNESCO. <b>Global Education Monitoring Report 2023</b>: technology in education: a tool on whose terms? Paris: UNESCO, 2023.</p>
+<p class="ref">VANLEHN, K. The relative effectiveness of human tutoring, intelligent tutoring systems, and other tutoring systems. <b>Educational Psychologist</b>, v. 46, n. 4, p. 197-221, 2011.</p>
+<p class="ref">WALUSIMBI, J. et al. <b>Arapai</b>: an offline-first LLM architecture for adaptive learning in low-connectivity environments. [S. l.]: arXiv, 2026. Preprint arXiv:2603.03339.</p>
+<p class="ref">WORLD POSSIBLE. <b>RACHEL</b>: Remote Area Community Hotspot for Education and Learning. [S. l.]: World Possible, 2024. Disponível em: https://rachel.worldpossible.org/. Acesso em: 29 set. 2026.</p></main>
+</div>
+<footer>Equipe Capibots · <em>Unidos como capivaras, espertos como robôs</em><br>
+<a href="https://capibots.com.br">capibots.com.br</a> · Instagram e YouTube @equipecapibots</footer>
+<script>
+(function(){
+  var btn=document.querySelector('.theme-btn');
+  function cur(){try{return localStorage.getItem('capi-theme')}catch(e){return null}}
+  function apply(t){if(t)document.documentElement.setAttribute('data-theme',t);else document.documentElement.removeAttribute('data-theme');}
+  apply(cur());
+  if(btn)btn.addEventListener('click',function(){
+    var dark=document.documentElement.getAttribute('data-theme')==='dark'||(!document.documentElement.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    var t=dark?'light':'dark';apply(t);try{localStorage.setItem('capi-theme',t)}catch(e){}
+  });
+  var links=[].slice.call(document.querySelectorAll('.toc a[href^="#"]'));
+  var heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))}).filter(Boolean);
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-80px 0px -70% 0px'});
+    heads.forEach(function(h){io.observe(h)});
+  }
+})();
+</script>
+</body>
+</html>

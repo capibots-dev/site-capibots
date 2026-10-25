@@ -123,6 +123,12 @@
       "Nicolas",
       "Sophia"
     ],
+    "notebooks": {
+      "title": "Cadernos técnicos",
+      "description": "Versões resumidas dos cadernos de Mérito Científico, Organização e Método e Tecnologia e Engenharia, para ler online ou baixar em PDF.",
+      "link": "/2026/cadernos-tecnicos",
+      "linkLabel": "Ver cadernos técnicos"
+    },
     "research": {
       "title": "Mérito Científico: a pesquisa até aqui",
       "intro": "O caminho da pesquisa da temporada, da escolha do tema ao protótipo, com os resultados parciais abertos para quem quiser acompanhar.",

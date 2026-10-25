@@ -16,11 +16,12 @@ npx wrangler deploy                              # mostra o endereço https://ca
 
 Depois:
 
-1. Suba os PDFs disponíveis (nomes exatos, ver `CADERNOS` em `src/index.js`; o de Tecnologia e Engenharia só entra quando for liberado):
+1. Suba as versões resumidas (nomes exatos, ver `CADERNOS` em `src/index.js`). Os cadernos oficiais entregues ao torneio não ficam no bucket:
 
    ```bash
-   npx wrangler r2 object put capibots-cadernos/merito-cientifico.pdf --file ../trabalhos/<arquivo>.pdf --remote
-   npx wrangler r2 object put capibots-cadernos/organizacao-e-metodo.pdf --file ../trabalhos/<arquivo>.pdf --remote
+   npx wrangler r2 object put capibots-cadernos/merito-cientifico-resumido.pdf --file <arquivo>.pdf --remote
+   npx wrangler r2 object put capibots-cadernos/organizacao-e-metodo-resumido.pdf --file <arquivo>.pdf --remote
+   npx wrangler r2 object put capibots-cadernos/tecnologia-engenharia-resumido.pdf --file <arquivo>.pdf --remote
    ```
 
 2. Coloque o endereço do Worker em `src/pages/CadernosTecnicos.tsx` (constante `API`) ou na variável
@@ -48,6 +49,6 @@ Para remover alguém (pedido de exclusão dos dados): `npx wrangler kv key delet
 
 ## Cuidados
 
-- Os PDFs de `trabalhos/` nunca entram no Git nem em `public/`. Só vão para o R2 pelo comando acima.
+- Os PDFs nunca entram no Git nem em `public/`. Só vão para o R2 pelo comando acima.
 - Para trocar um caderno, rode o `r2 object put` de novo com o mesmo nome.
 - Para tirar o acesso do ar, apague os objetos do bucket ou rode `npx wrangler delete`.

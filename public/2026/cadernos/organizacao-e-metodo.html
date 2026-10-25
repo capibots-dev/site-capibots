@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organização & Método · A jornada dos Capibots 2026 | Capibots TBR 2026</title>
+<meta name="description" content="Versão resumida do caderno de Organização & Método da equipe Capibots no Torneio Brasil de Robótica 2026.">
+<link rel="icon" href="https://capibots.com.br/capibots-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--green:#1a5c2a;--green-2:#2f7d3f;--green-soft:#eaf3ec;--orange:#e05c00;--orange-soft:#fff1e6;
+--yellow:#f4c430;--ink:#1d2420;--muted:#5b665f;--line:#d6e2d9;--bg:#fbfaf6;--card:#ffffff;--th:#1a5c2a;--thc:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e8efe9;--muted:#a7b5ab;--line:#2c3a30;
+--bg:#111712;--card:#18211b;--green-soft:#1d2a20;--orange-soft:#2a1d12;--th:#24733a}}
+:root[data-theme="dark"]{--ink:#e8efe9;--muted:#a7b5ab;--line:#2c3a30;--bg:#111712;--card:#18211b;--green-soft:#1d2a20;--orange-soft:#2a1d12;--th:#24733a}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito Sans",system-ui,sans-serif;font-size:17px;line-height:1.65}
+a{color:var(--orange)}
+.topbar{position:sticky;top:0;z-index:20;background:var(--green);color:#fff;border-bottom:4px solid var(--orange)}
+.topbar .in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 16px}
+.topbar img{height:44px;width:44px;object-fit:contain}
+.topbar .brand{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:22px;letter-spacing:.5px;color:#fff;text-decoration:none}
+.topbar nav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.topbar nav a{color:#fff;text-decoration:none;font-size:14px;font-weight:700;padding:6px 12px;border-radius:999px;opacity:.85}
+.topbar nav a.on,.topbar nav a:hover{background:rgba(255,255,255,.16);opacity:1}
+.topbar nav a.on{background:var(--orange)}
+.hero{background:linear-gradient(135deg,var(--green) 0%,#0f3d1b 100%);color:#fff;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-80px;bottom:-80px;width:320px;height:320px;border-radius:50%;background:var(--orange);opacity:.18}
+.hero .in{max-width:1200px;margin:0 auto;padding:48px 16px 40px;position:relative;z-index:1}
+.kicker{display:inline-block;background:var(--yellow);color:#1d2420;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:999px}
+.hero h1{font-family:"Baloo 2",sans-serif;font-size:clamp(32px,5vw,54px);line-height:1.05;margin:14px 0 8px}
+.hero p.sub{font-size:clamp(17px,2.2vw,21px);margin:0;opacity:.92;max-width:760px}
+.hero .meta{margin-top:18px;font-size:14px;opacity:.85}
+.layout{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:40px;padding:32px 16px 64px}
+.toc{position:sticky;top:96px;align-self:start;max-height:calc(100vh - 120px);overflow:auto;font-size:14px}
+.toc h4{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.toc a{display:block;padding:6px 10px;border-left:3px solid var(--line);color:var(--ink);text-decoration:none}
+.toc a:hover,.toc a.active{border-left-color:var(--orange);background:var(--green-soft);color:var(--green)}
+:root[data-theme="dark"] .toc a.active{color:#9fd8ac}
+.toc .pdf{margin-top:18px;display:inline-block;background:var(--orange);color:#fff;font-weight:700;padding:8px 14px;border-radius:10px;text-decoration:none;border:none}
+main{min-width:0}
+main h2{font-family:"Baloo 2",sans-serif;color:var(--green);font-size:30px;line-height:1.2;margin:48px 0 14px;display:flex;align-items:center;gap:12px}
+:root[data-theme="dark"] main h2{color:#8fd19e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) main h2{color:#8fd19e}}
+main h2:first-child{margin-top:0}
+main h2 .num:empty{display:none}main h2 .num:not(:empty){flex:none;width:40px;height:40px;border-radius:12px;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:20px}
+main h3{font-size:19px;margin:28px 0 8px}
+main p{margin:0 0 14px;text-align:justify;hyphens:auto}
+ul.bullets{margin:0 0 16px;padding-left:22px}ul.bullets li{margin-bottom:6px}ul.bullets li::marker{color:var(--orange)}
+.callout{background:var(--orange-soft);border-left:5px solid var(--orange);padding:14px 18px;border-radius:0 12px 12px 0;margin:18px 0;font-size:16px}
+figure{margin:24px 0}figcaption{font-weight:700;font-size:14px;color:var(--muted);margin-bottom:8px}
+.fig{text-align:center}.fig figcaption{text-align:center}
+.fig-img{max-width:100%;max-height:560px;height:auto;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.08);background:#fff}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;align-items:start}
+.duo-item small{display:block;color:var(--muted);font-size:13px;margin-top:6px}
+.src{font-size:12.5px;color:var(--muted);text-align:center!important;margin-top:-4px}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.45}
+th{background:var(--th);color:var(--thc);text-align:left;padding:10px 12px;font-weight:700}
+td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--green-soft)}
+blockquote.cry{font-family:"Baloo 2",sans-serif;font-size:20px;color:var(--orange);text-align:center;margin:18px auto;max-width:520px;line-height:1.4}
+.ref{font-size:14px;text-align:left!important;padding-left:24px;text-indent:-24px}
+.duo.gal{grid-template-columns:repeat(2,minmax(0,1fr))}.duo.gal .fig-img{width:100%;height:300px;object-fit:cover}@media (max-width:600px){.duo.gal{grid-template-columns:1fr}.duo.gal .fig-img{height:220px}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:12px;padding:14px 10px;text-align:center}
+.stat b{display:block;font-family:"Baloo 2",sans-serif;font-size:30px;line-height:1.1;color:var(--orange)}
+.stat span{font-size:13px;color:var(--muted)}
+.voices{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}
+.voices.one{grid-template-columns:1fr}
+blockquote.voice{margin:0;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--green-2);border-radius:12px;padding:14px 16px}
+blockquote.voice p{font-style:italic;text-align:left;margin:0 0 8px}
+blockquote.voice cite{font-style:normal;font-weight:700;font-size:13px;color:var(--green)}
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.phase{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.phase h4{margin:0;background:var(--green);color:#fff;padding:10px 14px;border-bottom:3px solid var(--orange);font-size:15px}
+.phase ul{margin:0;padding:12px 14px 12px 30px;font-size:15px}.phase li{margin-bottom:6px}.phase li::marker{color:var(--orange)}
+footer{background:var(--green);color:#fff;text-align:center;padding:28px 16px;font-size:14px}
+footer a{color:#fff}
+.theme-btn{background:none;border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:999px;padding:5px 10px;cursor:pointer;font-size:13px}
+@media (max-width:900px){.layout{grid-template-columns:1fr;gap:12px}.toc{position:static;max-height:none;border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--card)}
+.toc details summary{cursor:pointer;font-weight:700}.topbar nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.topbar nav a{font-size:12px;padding:5px 9px;white-space:nowrap}.topbar .brand{display:none}main p{text-align:left}}
+@media print{.topbar,.toc,footer{display:none}.layout{display:block}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="in">
+  <a href="https://capibots.com.br"><img src="https://capibots.com.br/capibots-logo.png" alt="Logo Capibots" width="44" height="44"></a>
+  <a class="brand" href="https://capibots.com.br">CAPIBOTS</a>
+  <nav aria-label="Cadernos técnicos"><a href="/2026/cadernos-tecnicos">Cadernos</a><a href="merito-cientifico.html">Mérito Científico</a><a href="organizacao-e-metodo.html" class="on">Organização & Método</a><a href="tecnologia-e-engenharia.html">Tecnologia & Engenharia</a></nav>
+  <button class="theme-btn" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</div></header>
+<section class="hero"><div class="in">
+  <span class="kicker">TBR 2026 · Organização & Método</span>
+  <h1>A jornada dos Capibots 2026</h1>
+  <p class="sub">Planejar, aprender e evoluir!</p>
+  <p class="meta">Equipe Capibots · Colégio Batista Mineiro, Unidade Martins · Uberlândia (MG) · Categoria Kids 2</p>
+</div></section>
+<div class="layout">
+  <aside class="toc"><details open><summary><h4 style="display:inline">Neste caderno</h4></summary><a href="#apresentacao">Apresentação</a><a href="#conheca-os-capibots">1. Conheça os Capibots</a><a href="#objetivos-e-metas-da-equipe">2. Objetivos e metas da equipe</a><a href="#organizacao-da-equipe">3. Organização da equipe</a><a href="#plano-de-acao-para-a-temporada">4. Plano de ação para a temporada</a><a href="#plano-de-marketing">5. Plano de marketing</a><a href="#treinamentos-visitas-tecnicas-reunioes-e-palestras">6. Treinamentos, visitas técnicas, reuniões e palestras</a><a href="#publicacao-do-projeto">7. Publicação do projeto</a><a href="#gestao-financeira">8. Gestão financeira</a><a href="#cronograma-de-trabalho">9. Cronograma de trabalho</a><a href="#resultados-colhidos">10. Resultados colhidos</a></details>
+  <a class="pdf" href="/2026/cadernos-tecnicos">Baixar PDF</a></aside>
+  <main><h2 id="apresentacao"><span class="num"></span>Apresentação</h2>
+<p>Este caderno mostra como a equipe Capibots se organizou para a temporada 2026 do Torneio Brasil de Robótica: quem faz o quê, como as decisões são tomadas, como o trabalho foi planejado, divulgado e financiado, e o que a equipe aprendeu quando algo não saiu como o previsto. Nesta segunda temporada, os nove integrantes partiram da experiência do ano anterior para redistribuir funções, estabelecer novas metas e conciliar três etapas do torneio em sete meses.</p>
+<p>Os números principais da temporada até a etapa Regional: 9 patrocinadores, faturamento bruto de R$ 12.979,00, custos de R$ 10.430,75 e saldo de R$ 2.548,25; mais de 860 seguidores no Instagram; 46 respostas na pesquisa com estudantes; e a seleção do trabalho científico para a 31ª Feira Ciência Viva, da UFU.</p>
+<aside class="callout"><b>Sobre esta versão.</b> Este documento condensa o caderno completo de Organização e Método (78 páginas) entregue na etapa Regional do TBR 2026. Foram mantidos a estrutura da equipe, o plano de ação, o plano de marketing, as atividades, a gestão financeira, o cronograma e os resultados. Perfis detalhados dos integrantes, galerias de fotos das ações, telas de redes sociais e os cronogramas completos em imagem estão na versão integral.</aside>
+<h2 id="conheca-os-capibots"><span class="num">1</span>Conheça os Capibots</h2>
+<p>A equipe começou a ser idealizada em 2024 por Arthur, aluno que acompanhava as conquistas das equipes de robótica do Colégio Batista Mineiro. Em 2025, ele procurou a professora Lorena Costa e, juntos, formaram um grupo de nove alunos, hoje no 5º ano C do Ensino Fundamental, com 10 e 11 anos. O nome Capibots foi escolhido em conjunto, unindo a paixão por capivaras e por robótica, assim como o lema: <i>"Unidos como capivaras, espertos como robôs"</i>.</p>
+<p>Na estreia no TBR, em 2025, a equipe conquistou o 1º lugar na etapa interna, o 1º lugar no Desafio Prático e o 2º lugar geral na etapa Regional, e o 3º lugar geral na etapa Nacional, na categoria Kids 2. Em 2026, com os mesmos nove integrantes, venceu a ExpoTech, torneio interno do colégio, e teve desempenho de destaque no Esquenta TBR, evento preparatório para a Regional.</p>
+<figure class="fig"><figcaption>Figura 1 – Equipe Capibots</figcaption><img class="fig-img" src="img/organizacao-e-metodo/equipe.jpg" alt="Equipe Capibots" loading="lazy"></figure>
+<p class="src">Fonte: acervo dos autores (2026).</p>
+<figure class="tbl"><figcaption>Quadro 1 – Ficha da equipe</figcaption><div class="tbl-wrap"><table><thead><tr><th>Item</th><th>Informação</th></tr></thead><tbody><tr><td>Instituição</td><td>Colégio Batista Mineiro, Unidade Martins · Av. Estrela do Sul, 200, Martins, Uberlândia (MG)</td></tr><tr><td>Categoria</td><td>Kids 2 (todos os integrantes tinham 10 anos em 1º de janeiro de 2026, conforme o Vade Mecum)</td></tr><tr><td>Técnica</td><td>Lorena Costa Silva, 27 anos, formada em Ciências Biológicas</td></tr><tr><td>Mentora</td><td>Luciana Rezende Vieira, 41 anos, Ciência da Computação, pós-graduada em Design de Multimídias e mestre em Banco de Dados</td></tr><tr><td>Canais</td><td>Instagram e YouTube @equipecapibots · site www.capibots.com.br</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<figure class="tbl"><figcaption>Quadro 2 – Integrantes e funções na temporada 2026</figcaption><div class="tbl-wrap"><table><thead><tr><th>Integrante</th><th>Idade</th><th>Função</th></tr></thead><tbody><tr><td>Arthur Henrique Martins Rocha</td><td>10</td><td>Posicionador</td></tr><tr><td>Augusto Diniz Coelho</td><td>11</td><td>Engenheiro</td></tr><tr><td>Gabriela Neri Sticca</td><td>11</td><td>Programadora</td></tr><tr><td>João Gomes Nazareth Souto</td><td>11</td><td>Cientista e Engenheiro</td></tr><tr><td>Lucca Rezende Vieira</td><td>11</td><td>Programador</td></tr><tr><td>Luísa Carvalho de Oliveira</td><td>10</td><td>Organizadora</td></tr><tr><td>Manuela Pereira Moreira de Souza</td><td>11</td><td>Posicionadora e Tesoureira</td></tr><tr><td>Nicolas Lima Ribeiro</td><td>11</td><td>Programador e Cientista</td></tr><tr><td>Sophia Arantes Borges</td><td>11</td><td>Engenheira e Organizadora</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<p><b>Patrocinadores (9):</b> Anjos Colchões, Calixto Negócios Imobiliários, Clínica Orthus Fisioterapia, Farmácia Kalayasa Aushadi, Fieza Corretora de Seguros, iuh! Digital, Rezende Solar, Supermercado Super Frutt e Transbuiatte.</p>
+<p><b>Colaboradores:</b> Carlos Alberto Rosa Coelho (impressão 3D); Carlos Henrique Alves Vieira (palestra sobre IA); Cida Machado e Viviane Pereira dos Santos (analista pedagógica e gestora da Escola Municipal Rural Dom Bosco); Daniel Sávio (edição de vídeos); Luciana Arantes Buiati de Jesus (planejamento das impressões 3D); Suzan Carla Lopes de Lima (desenvolvimento técnico do Capi-Aprende); Maria Paula Marques e Thaise Meneguelli (coordenação e direção do colégio).</p>
+<h2 id="objetivos-e-metas-da-equipe"><span class="num">2</span>Objetivos e metas da equipe</h2>
+<p>Para a Capibots, o TBR é a oportunidade de criar soluções para problemas reais enquanto desenvolve trabalho em equipe, criatividade, pensamento crítico, empatia e respeito. Nesta temporada, a equipe desenvolveu o <b>Capi-Aprende</b>: uma plataforma online para professores ligada a um aplicativo para alunos que funciona offline, com conteúdos, questões, simulados e um tutor de inteligência artificial que orienta o raciocínio do estudante mesmo sem internet. As metas definidas foram:</p>
+<ul class="bullets">
+<li>dividir as tarefas de acordo com as habilidades de cada integrante e manter um ambiente saudável de cooperação;</li>
+<li>planejar e executar a pesquisa, unindo teoria e prática;</li>
+<li>divulgar a equipe pelo Instagram, pelo site e pelo canal no YouTube;</li>
+<li>viabilizar a participação no torneio com bom planejamento financeiro;</li>
+<li>conquistar a classificação para a etapa Nacional;</li>
+<li>avaliar o Capi-Aprende com pré-testes e pós-testes junto aos estudantes participantes;</li>
+<li>apresentar o projeto na Feira Ciência Viva;</li>
+<li>aprender com os desafios e celebrar as conquistas, independentemente do resultado.</li>
+</ul>
+<h2 id="organizacao-da-equipe"><span class="num">3</span>Organização da equipe</h2>
+<p>No início da temporada, a técnica Lorena propôs um novo formulário de escolha de funções, para que cada integrante refletisse sobre a experiência anterior e decidisse se continuaria na mesma função ou assumiria um novo desafio. Luísa passou de Posicionadora a Organizadora, buscando uma função com menos pressão e mais espaço para sua criatividade. Manuela assumiu o posto de Posicionadora ao lado de Arthur. Sophia ampliou sua atuação para Organizadora e Engenheira. Nicolas passou a acumular Programador e Cientista, e Augusto assumiu a Engenharia.</p>
+<figure class="fig"><figcaption>Figura 2 – Organograma da equipe Capibots</figcaption><img class="fig-img" src="img/organizacao-e-metodo/organograma.jpg" alt="Organograma da equipe Capibots" loading="lazy"></figure>
+<p class="src">Fonte: autoral (2026).</p>
+<figure class="tbl"><figcaption>Quadro 3 – Funções e principais atribuições</figcaption><div class="tbl-wrap"><table><thead><tr><th>Função</th><th>Quem</th><th>Principais atribuições</th></tr></thead><tbody><tr><td>Mentora</td><td>Luciana</td><td>Acompanhar todas as ações, dar suporte, manter a equipe organizada e fazer a ponte entre pais, equipe e escola</td></tr><tr><td>Técnica</td><td>Lorena</td><td>Acompanhar os treinos do Desafio Prático e orientar montagem, programação e Tecnologia & Engenharia</td></tr><tr><td>Engenheiros</td><td>Augusto, João Gomes e Sophia</td><td>Projetar, construir e ajustar o robô; construir o objeto e o ambiente da missão Maker</td></tr><tr><td>Posicionadores</td><td>Arthur e Manuela</td><td>Padronizar a posição de partida, construir gabaritos e conferir os elementos do tapete</td></tr><tr><td>Programadores</td><td>Gabriela, Lucca e Nicolas</td><td>Analisar o tapete, programar em blocos, definir a ordem das missões e manter robô e tablet carregados</td></tr><tr><td>Organizadoras</td><td>Luísa e Sophia</td><td>Comunicação, marketing, stand, ações empreendedoras e registro das atividades</td></tr><tr><td>Tesoureira</td><td>Manuela</td><td>Controle financeiro (caixa) da equipe</td></tr><tr><td>Cientistas</td><td>João Gomes e Nicolas</td><td>Pesquisar problemas reais da educação, buscar soluções e registrar as visitas técnicas</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<p>As frentes de trabalho foram distribuídas assim: caderno de Mérito Científico com os cientistas; caderno de Organização e Método com as organizadoras e a tesoureira; caderno de Tecnologia & Engenharia com Lucca, Gabriela, Arthur e Augusto; layout da plataforma Capi-Aprende com Nicolas e Lucca; pesquisa e captação de recursos com todos.</p>
+<p>Quem conduz o trabalho são as próprias crianças: escolhem funções, pesquisam, propõem e testam ideias, decidem o que fica e põem a mão na montagem e na programação. Técnica e mentora organizam a rotina de treinos e tiram dúvidas sobre as regras. Os Capi-Pais apoiam a organização dos textos e dão suporte emocional, preservando o protagonismo dos filhos.</p>
+<h3>3.1 Decisões, conflitos e feedback</h3>
+<p>As decisões são democráticas. A escolha do tema de pesquisa começou com 11 propostas individuais, aprofundadas por quatro grupos com a ficha Capi Investigadores, até uma votação por critérios. O mesmo princípio valeu para logomarca, uniforme e botton. Nos treinos, as ideias para o robô também são discutidas e aperfeiçoadas em conjunto, com sugestões que vêm tanto dos programadores quanto dos posicionadores. Conflitos são resolvidos pelo diálogo, com intervenção da mentora ou da técnica quando necessário. A cada entrega importante, um ciclo de feedback registra pontos fortes, oportunidades de melhoria e metas para a etapa seguinte.</p>
+<h2 id="plano-de-acao-para-a-temporada"><span class="num">4</span>Plano de ação para a temporada</h2>
+<p>O plano parte da retrospectiva de 2025 e segue sete passos: avaliação dos resultados anteriores, reestruturação das funções, objetivos estratégicos, planejamento, plano de marketing, plano financeiro e análise de resultados (Figura 3). A cada encontro, a mentora conduz um ciclo de planejar, executar e ajustar, e o diário de bordo registra decisões, erros e boas práticas.</p>
+<figure class="fig"><figcaption>Figura 3 – Fluxo de realização do plano de ação</figcaption><img class="fig-img" src="img/organizacao-e-metodo/plano.jpg" alt="Fluxo de realização do plano de ação" loading="lazy"></figure>
+<p class="src">Fonte: autoral (2026).</p>
+<h3>4.1 Compreensão da temporada 2026</h3>
+<p>O principal desafio é conciliar três etapas do TBR (Interna, Regional e Nacional) em sete meses, atendendo a todos os requisitos sem perder qualidade. Isso exige dividir o trabalho em frentes, acompanhar prazos e manter o engajamento das nove crianças em meio à nova rotina do 5º ano e às mudanças do início da pré-adolescência. A temporada também pede planejamento financeiro e familiar, prevendo inscrição, tapete e uma possível viagem para a Nacional, além de atenção às novas orientações do TBR, como o uso responsável da imagem das crianças e a plataforma TBR SIS.</p>
+<h3>4.2 Recursos humanos e proteção das crianças</h3>
+<p>As reuniões e os treinos acontecem no contraturno, após as aulas e aos sábados, no colégio ou na casa dos integrantes. Os encontros são presenciais ou online, com todos ou parte da equipe, conforme a pauta.</p>
+<p>Na pesquisa de campo, a equipe obteve autorização da direção das escolas e concordância verbal das crianças, usou questionários sem nomes e não identificou os estudantes da Dom Bosco nas fotos. Para cumprir o Estatuto Digital da Criança e do Adolescente (Lei nº 15.211/2025, a "Lei Felca"), a Capibots criou sua própria <b>Política de Comunicação, Uso de Imagem e Proteção Digital</b>. Todos os responsáveis leram a política e assinaram o termo de autorização.</p>
+<h2 id="plano-de-marketing"><span class="num">5</span>Plano de marketing</h2>
+<p>O plano de marketing busca divulgar as ações da equipe, compartilhar aprendizados e envolver a comunidade. Os objetivos estratégicos foram revisados para a temporada (Quadro 4).</p>
+<figure class="tbl"><figcaption>Quadro 4 – Objetivos estratégicos da Capibots</figcaption><div class="tbl-wrap"><table><thead><tr><th>Missão</th><th>Visão</th><th>Valores</th></tr></thead><tbody><tr><td>Contribuir com a redução da desigualdade digital no acesso à educação, por meio da inovação e do desenvolvimento tecnológico.</td><td>Ser reconhecida no Torneio Brasil de Robótica como equipe de excelência em todos os desafios propostos.</td><td><b>Colaboração</b>, <b>Inovação</b>, <b>Aprendizado contínuo</b> e <b>Excelência</b>.</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: autoral (2026).</p>
+<h3>5.1 Identidade visual</h3>
+<p>O mascote é uma capivara robô: tranquila, amigável e que valoriza o grupo, mas usa a tecnologia com inteligência. As cores verde e laranja transmitem alegria, energia e equilíbrio. Para 2026, a equipe manteve o desenho da logomarca e escolheu, por votação, um uniforme mais moderno e de cores fortes (Figura 4), além de novos bonés, bandeira e um botton especial para a Regional do Triângulo Mineiro. A identidade sonora inclui a música tema "A Capivara", do Planeta Oca, e o grito de garra de 2026, que ganhou versões em samba e rock criadas com apoio de IA:</p>
+<blockquote class="cry">"Capivara e Robozão,<br>Cuidam bem da Educação!<br>Com aprendizado e coração,<br>Vão salvar toda a missão!<br>CAPIBOTS!"</blockquote>
+<figure class="fig"><figcaption>Figura 4 – Uniforme 2026</figcaption><img class="fig-img" src="img/organizacao-e-metodo/uniforme.jpg" alt="Uniforme 2026" loading="lazy"></figure>
+<p class="src">Fonte: acervo dos autores (2026).</p>
+<h3>5.2 Comunicação e divulgação</h3>
+<figure class="tbl"><figcaption>Quadro 5 – Canais de comunicação e resultados</figcaption><div class="tbl-wrap"><table><thead><tr><th>Canal</th><th>Uso</th><th>Destaques</th></tr></thead><tbody><tr><td>Teams (crianças) e WhatsApp (pais)</td><td>Comunicação interna, votações e decisões</td><td>Reuniões online também pelo Google Meet</td></tr><tr><td>Instagram @equipecapibots</td><td>Feed, reels, stories e carrosséis, com calendário planejado pelas organizadoras</td><td>Mais de 860 seguidores e mais de 9 mil visualizações no último mês</td></tr><tr><td>Site capibots.com.br</td><td>Feito por Nicolas e Lucca: equipe, projetos, blog, loja, contato e patrocinadores</td><td>Media Kit para patrocinadores e Quiz do Desafio Prático aberto a todas as equipes do TBR</td></tr><tr><td>YouTube @equipecapibots</td><td>Vídeos mais longos e programa "Intervalo Capibots"</td><td>Relatos de experiências e aprendizados da temporada</td></tr><tr><td>Stand</td><td>Planejado por Luísa, Sophia e Gabriela</td><td>Na ExpoTech: balões, banner da pesquisa, maquete e wind banner com patrocinadores</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<p>Depois dos feedbacks da etapa interna, a equipe reforçou o Mérito Científico com uma pesquisa direta com o público-alvo. O questionário, elaborado pelos cientistas com contribuição de todos, foi divulgado no Instagram e aplicado pela própria equipe na escola rural Dom Bosco, somando 46 respostas. O resultado contrariou a expectativa: quase todos têm internet em casa, mas na escola rural 15 de 26 crianças não têm computador nem tablet. Para a Regional, o stand terá itens sustentáveis, para reduzir o lixo, e uma capivara inflável como mascote.</p>
+<h2 id="treinamentos-visitas-tecnicas-reunioes-e-palestras"><span class="num">6</span>Treinamentos, visitas técnicas, reuniões e palestras</h2>
+<p>A equipe se dividiu em duplas e trios para pesquisar quatro oportunidades ligadas à educação: conectividade nas escolas (João Gomes, Gabriela e Manuela), acesso físico às escolas (Nicolas e Arthur), metacognição (Luísa e Sophia) e ensino de tecnologia (Lucca e Augusto). Cada grupo preencheu a ficha Capi Investigadores e apresentou as descobertas. A votação usou quatro critérios: o problema é relevante? Dá para investigá-lo com entrevistas? Existe chance de uma solução inovadora? Temos proximidade com o tema? A conectividade nas escolas foi a escolhida.</p>
+<p>Com a pesquisa avançada, a equipe passou um sábado no colégio construindo a maquete, que compara a conectividade da cidade com a das escolas rurais, feita com materiais reciclados.</p>
+<p>Na aproximação com a Escola Municipal Rural Dom Bosco, a escola pediu que o primeiro encontro fosse só com adultos. Em 20 de agosto, a mentora e dois pais conversaram com a analista pedagógica Cida Machado, apresentaram a equipe e agendaram a visita das crianças. Em 7 de outubro, toda a equipe apresentou o projeto aos alunos do 4º e 5º anos, às professoras, à diretora e à analista, e aplicou o questionário de quatro blocos sobre conectividade e estudo (Figura 5).</p>
+<figure class="fig"><figcaption>Figura 5 – Visita da equipe à Escola Municipal Dom Bosco</figcaption><img class="fig-img" src="img/organizacao-e-metodo/dombosco.jpg" alt="Visita da equipe à Escola Municipal Dom Bosco" loading="lazy"></figure>
+<p class="src">Fonte: acervo dos autores (2026).</p>
+<p>No Esquenta TBR, torneio pré-regional, a equipe colocou o trabalho à prova como num simulado real. As notas e os comentários de Tecnologia & Engenharia, Mérito Científico e Organização e Método foram analisados, e os três trabalhos foram corrigidos para a Regional. Nas duas semanas anteriores ao torneio, os pais farão o papel de jurados em ensaios com muitas perguntas, para dar mais segurança e argumentação às crianças.</p>
+<figure class="fig"><figcaption>Figura 6 – Esquenta TBR, torneio pré-regional</figcaption><img class="fig-img" src="img/organizacao-e-metodo/esquenta.jpg" alt="Esquenta TBR, torneio pré-regional" loading="lazy"></figure>
+<p class="src">Fonte: acervo dos autores (2026).</p>
+<h2 id="publicacao-do-projeto"><span class="num">7</span>Publicação do projeto</h2>
+<p>O projeto "Aprender sem conexão: desigualdade digital e apoio ao estudo offline para crianças sem internet de qualidade" foi apresentado no Colégio Batista Mineiro, na Escola Municipal Dom Bosco, no site, no Instagram, no YouTube e na Feira Ciência Viva (Quadro 6). O protótipo em capiaprende.capibots.com.br segue aberto e é atualizado à medida que o desenvolvimento avança.</p>
+<figure class="tbl"><figcaption>Quadro 6 – Divulgação e publicações parciais do projeto Capi-Aprende</figcaption><div class="tbl-wrap"><table><thead><tr><th>Data</th><th>O que foi divulgado</th><th>Onde</th></tr></thead><tbody><tr><td>09/05/2026</td><td>Tema escolhido para a temporada</td><td>Site capibots.com.br</td></tr><tr><td>23/05/2026</td><td>Artigo sobre conectividade das escolas brasileiras</td><td>Site capibots.com.br</td></tr><tr><td>20/08/2026</td><td>Problema e proposta de solução</td><td>Escola Municipal Dom Bosco</td></tr><tr><td>02–05/10/2026</td><td>Convite para o questionário online</td><td>Colégio Batista, Escola Neuza Rezende e Instagram</td></tr><tr><td>07/10/2026</td><td>Apresentação do projeto e questionário com 26 estudantes</td><td>Escola Municipal Dom Bosco</td></tr><tr><td>09/10/2026</td><td>Inscrição do trabalho, com resumo, objetivos e solução</td><td>Feira Ciência Viva – UFU</td></tr><tr><td>15/10/2026</td><td>Protótipo navegável aberto ao público</td><td>capiaprende.capibots.com.br</td></tr><tr><td>15/10/2026</td><td>Trabalho selecionado para a feira</td><td>31ª Feira Ciência Viva – Museu Dica/UFU</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pela equipe (2026).</p>
+<h2 id="gestao-financeira"><span class="num">8</span>Gestão financeira</h2>
+<p>A gestão financeira, conduzida pela tesoureira Manuela, mapeou os custos de todas as fases (maquete, brindes, uniformes, infraestrutura, visitas, stand e logística), captou recursos e registrou cada entrada e saída em planilha, com transparência para toda a equipe. A regra foi não gastar acima do que foi arrecadado.</p>
+<h3>8.1 Captação de recursos</h3>
+<p>Foram usadas três estratégias: patrocínios, vaquinha online e ações de empreendedorismo. O plano de patrocínio teve duas cotas: <b>Ouro</b> (R$ 500,00) e <b>Prata</b> (R$ 300,00), ambas com marca na camiseta, post no Instagram e marca no banner da Regional, em tamanhos diferentes. Nove empresas aderiram.</p>
+<figure class="tbl"><figcaption>Tabela 1 – Faturamento bruto e custos até a etapa Regional</figcaption><div class="duo"><div><div class="tbl-wrap"><table><thead><tr><th>Faturamento</th><th>Valor (R$)</th></tr></thead><tbody><tr><td>Patrocínios</td><td>3.700,00</td></tr><tr><td>Vaquinha online</td><td>625,00</td></tr><tr><td>Ações de empreendedorismo</td><td>8.654,00</td></tr><tr><td><b>Total</b></td><td><b>12.979,00</b></td></tr></tbody></table></div></div><div><div class="tbl-wrap"><table><thead><tr><th>Custos</th><th>Valor (R$)</th></tr></thead><tbody><tr><td>Tapete TBR 2026</td><td>1.298,25</td></tr><tr><td>Inscrição Torneio Regional</td><td>1.520,00</td></tr><tr><td>Produtos Lojinha Capibots</td><td>902,59</td></tr><tr><td>Produtos ações empreendedoras</td><td>2.892,00</td></tr><tr><td>Camisetas Capibots</td><td>2.310,00</td></tr><tr><td>Bottons</td><td>731,90</td></tr><tr><td>Materiais e itens diversos</td><td>776,01</td></tr><tr><td><b>Total</b></td><td><b>10.430,75</b></td></tr></tbody></table></div></div></div></figure>
+<p class="src">Fonte: planilhas de controle da equipe (2026).</p>
+<aside class="callout"><b>Saldo:</b> R$ 12.979,00 de entradas menos R$ 10.430,75 de saídas resulta em <b>R$ 2.548,25</b>, reservados para novas estratégias na Regional e para a preparação da Nacional. A compra do tapete oficial, principal investimento previsto, foi feita sem comprometer o equilíbrio do caixa.</aside>
+<figure class="tbl"><figcaption>Quadro 7 – Ações de empreendedorismo e de mobilização</figcaption><div class="tbl-wrap"><table><thead><tr><th>Ação</th><th>Como funcionou</th><th>O que as crianças aprenderam</th></tr></thead><tbody><tr><td>Vaquinha Capibots Online</td><td>Campanha divulgada no Instagram, com as crianças convidando amigos, familiares e comunidade</td><td>Comunicação, argumentação e engajamento em torno de uma causa</td></tr><tr><td>Capi-Lanches</td><td>Venda de espetinhos e itens da lojinha nos Jogos Estudantis; preparo feito pelos pais por segurança</td><td>Todos os espetinhos vendidos; divulgação, abordagem e vendas</td></tr><tr><td>Lojinha Capibots</td><td>Produtos temáticos de capivara, Brasil e Copa do Mundo, vendidos nos momentos autorizados pela escola</td><td>Identificar oportunidades e tendências de mercado</td></tr><tr><td>Geladinho Gourmet</td><td>Venda na saída das aulas, numa sexta-feira de calor no início do mês, escolhida pelas crianças</td><td>Análise de mercado e escolha estratégica de data e local</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<p>Para a Nacional, que traz custos de viagem, hospedagem e alimentação, a equipe planeja rifas e ações empreendedoras mais lucrativas, além de reduzir os custos administrativos.</p>
+<h2 id="cronograma-de-trabalho"><span class="num">9</span>Cronograma de trabalho</h2>
+<p>O cronograma distribui as tarefas, os responsáveis e os prazos para cada fase, e é acompanhado nas reuniões de alinhamento. O Quadro 8 resume as principais atividades.</p>
+<figure class="tbl"><figcaption>Quadro 8 – Cronograma resumido da temporada</figcaption><div class="tbl-wrap"><table><thead><tr><th>Período</th><th>Principais atividades</th><th>Responsáveis</th></tr></thead><tbody><tr><td>Abril</td><td>Continuação da equipe, novo mentor, análise da temporada anterior, redefinição de funções, compra do tapete</td><td>Todos, técnica e mentora</td></tr><tr><td>Abril–Maio</td><td>Logomarca, lema, missão/visão/valores, site, Media Kit, definição do tema e ficha Capi Investigadores</td><td>Todos; Lucca, Sophia e Luísa</td></tr><tr><td>Maio–Junho</td><td>Captação de patrocínios, vaquinha, montagem do robô, treinos, brindes e decoração do stand</td><td>Todos; engenheiros e programadores</td></tr><tr><td>Junho</td><td>Cadernos técnicos e ExpoTech (Torneio Interno)</td><td>Responsáveis por caderno</td></tr><tr><td>Julho</td><td>Análise da ExpoTech, plano de melhorias, ações empreendedoras e novo uniforme</td><td>Mentora e todos</td></tr><tr><td>Agosto</td><td>Visita à Escola Dom Bosco, pesquisa bibliográfica e treinos do Desafio Prático</td><td>Mentora, cientistas e programadores</td></tr><tr><td>Setembro</td><td>Publicações do trabalho e revisão dos três cadernos</td><td>Todos</td></tr><tr><td>Outubro</td><td>Questionário na Dom Bosco, Esquenta TBR, correções e ensaios com os pais</td><td>Todos</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026), a partir dos cronogramas da versão integral.</p>
+<h2 id="resultados-colhidos"><span class="num">10</span>Resultados colhidos</h2>
+<p>Depois de sete meses de trabalho, o planejamento inicial se mostrou eficaz como guia. Manter a comunicação clara num grupo de nove foi desafiador e exigiu reuniões frequentes; técnica e mentora também precisaram traduzir temas técnicos e científicos para a linguagem das crianças. Nem todas as estratégias deram certo de primeira, e três correções de percurso mostram como a equipe reagiu (Quadro 9).</p>
+<figure class="tbl"><figcaption>Quadro 9 – Correções de percurso da temporada</figcaption><div class="tbl-wrap"><table><thead><tr><th>Insucesso inicial</th><th>Correção de percurso</th><th>Aprendizado</th></tr></thead><tbody><tr><td>A equipe esperava conseguir um patrocinador master com base nos resultados anteriores, mas empresas maiores tinham processos lentos e não aprovaram.</td><td>Foco nas cotas Ouro e Prata, com um benefício novo: a marca dos patrocinadores Prata também na camiseta.</td><td>Planejar exige flexibilidade. Mesmo sem patrocinador master, a captação avançou.</td></tr><tr><td>Depois da conversa com a escola, a equipe concluiu que os alunos quase não estudavam em casa e não usavam IA, sem ter ouvido nenhum estudante.</td><td>O questionário mostrou que 13 de 26 estudam principalmente em casa e 21 de 26 já conversaram com um assistente de IA.</td><td>A primeira informação abre a investigação; quem fecha são os dados.</td></tr><tr><td>No pré-regional, o Robôvara ficou girando em torno de si mesmo diante dos jurados.</td><td>Os programadores investigaram até encontrar a causa, corrigiram a programação e refizeram, uma a uma, todas as saídas da base.</td><td>Quando a estrutura do robô muda, toda a programação precisa ser revista e testada.</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<figure class="tbl"><figcaption>Quadro 10 – Avaliação das ações planejadas e planejamento para a Regional</figcaption><div class="tbl-wrap"><table><thead><tr><th>Área</th><th>ExpoTech (interna)</th><th>Esquenta (pré-regional)</th><th>Planejamento para a Regional</th></tr></thead><tbody><tr><td>Organização da equipe</td><td>Sucesso</td><td>Sucesso</td><td>Reavaliar funções conforme habilidades e competências</td></tr><tr><td>Comunicação</td><td>Sucesso</td><td>Sucesso</td><td>Garantir comunicação clara e eficaz entre a equipe</td></tr><tr><td>Gestão do tempo</td><td>Sucesso</td><td>Sucesso</td><td>Seguir o cronograma e agir com antecedência</td></tr><tr><td>Plano financeiro</td><td>Sucesso</td><td>Sucesso</td><td>Ações empreendedoras mais lucrativas e alinhadas à estratégia</td></tr><tr><td>Plano de marketing</td><td>Sucesso</td><td>Sucesso</td><td>Manter redes sociais e publicação do trabalho, como na Ciência Viva</td></tr><tr><td>Treinamentos e visitas</td><td>Atenção: dificuldade em agendar a visita à escola rural</td><td>Sucesso</td><td>Programar visitas a empresas inovadoras e escolas públicas</td></tr></tbody></table></div></figure>
+<p class="src">Fonte: elaborado pelos autores (2026).</p>
+<p>A seleção do trabalho para a 31ª Feira Ciência Viva, da UFU, evento oficial da Semana Nacional de Ciência e Tecnologia, coroa a temporada até aqui. Mais do que competir, os integrantes desenvolveram criatividade, pensamento crítico, responsabilidade, empatia e a capacidade de respeitar opiniões diferentes e superar desafios juntos. A equipe encerra esta etapa com orgulho do que construiu e percebe que sua trajetória já inspira outros alunos do Colégio Batista Mineiro a descobrir a robótica.</p></main>
+</div>
+<footer>Equipe Capibots · <em>Unidos como capivaras, espertos como robôs</em><br>
+<a href="https://capibots.com.br">capibots.com.br</a> · Instagram e YouTube @equipecapibots</footer>
+<script>
+(function(){
+  var btn=document.querySelector('.theme-btn');
+  function cur(){try{return localStorage.getItem('capi-theme')}catch(e){return null}}
+  function apply(t){if(t)document.documentElement.setAttribute('data-theme',t);else document.documentElement.removeAttribute('data-theme');}
+  apply(cur());
+  if(btn)btn.addEventListener('click',function(){
+    var dark=document.documentElement.getAttribute('data-theme')==='dark'||(!document.documentElement.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    var t=dark?'light':'dark';apply(t);try{localStorage.setItem('capi-theme',t)}catch(e){}
+  });
+  var links=[].slice.call(document.querySelectorAll('.toc a[href^="#"]'));
+  var heads=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))}).filter(Boolean);
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-80px 0px -70% 0px'});
+    heads.forEach(function(h){io.observe(h)});
+  }
+})();
+</script>
+</body>
+</html>
