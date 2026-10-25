@@ -1113,17 +1113,17 @@
     "featured": true
   },
   {
-      "id": "capibots-vote-ciencia-viva",
-      "title": "Vote no trabalho da Capibots na feira Ciência Viva",
-      "date": "2026-10-23",
-      "season": 2026,
-      "author": "Equipe Capibots",
-      "category": "Divulgação",
-      "readTime": "1 min",
-      "image": "/images/blog/feira-ciencia-viva.jpg",
-      "excerpt": "A feira Ciência Viva, da UFU, tem prêmio de voto popular. Abra a página do trabalho da Capibots e clique em Votar.",
-      "content": "A pesquisa da Capibots está na feira Ciência Viva, da UFU, e agora ela precisa de votos. A feira tem uma premiação de voto popular, e quem decide esse prêmio é o público: qualquer pessoa que abrir a página do nosso trabalho pode votar.\n\n## Como votar\n\n- abra a página do trabalho da Capibots: [cv.dicaufu.com.br/single.php?vid=149](https://cv.dicaufu.com.br/single.php?vid=149);\n- assista ao vídeo, que apresenta a pesquisa sobre estudo em casa e conectividade;\n- clique no botão **Votar**, logo abaixo do vídeo.\n\nNa mesma página há o botão Comentar, e a equipe vai gostar de ler o que você achou do trabalho.\n\n## Até quando?\n\nAinda não sabemos. A organização não informou até quando a votação popular fica aberta, e a feira acontece de 16 a 20 de novembro de 2026. Como não dá para saber se o prazo acaba antes ou depois disso, o melhor é votar já. Quando a data sair, ela aparece aqui.\n\n## Por que vale o clique\n\nForam meses de trabalho: a pesquisa com 46 crianças de duas escolas, a leitura de dados oficiais e a construção do protótipo Capi-Aprende, que qualquer pessoa pode abrir em [capiaprende.capibots.com.br](https://capiaprende.capibots.com.br). Os resultados estão no post [46 crianças responderam](/blog/capibots-resultados-pesquisa-46-criancas).\n\nMande o link para os avós, para os colegas de trabalho, para o grupo da família. Cada voto conta, e crianças de 9 e 10 anos defendendo uma pesquisa própria numa feira da universidade merecem ser vistas.",
-      "featured": false
+    "id": "capibots-vote-ciencia-viva",
+    "title": "Vote no trabalho da Capibots na feira Ciência Viva",
+    "date": "2026-10-23",
+    "season": 2026,
+    "author": "Equipe Capibots",
+    "category": "Divulgação",
+    "readTime": "1 min",
+    "image": "/images/blog/feira-ciencia-viva.jpg",
+    "excerpt": "A feira Ciência Viva, da UFU, tem prêmio de voto popular. Abra a página do trabalho da Capibots e clique em Votar.",
+    "content": "A pesquisa da Capibots está na feira Ciência Viva, da UFU, e agora ela precisa de votos. A feira tem uma premiação de voto popular, e quem decide esse prêmio é o público: qualquer pessoa que abrir a página do nosso trabalho pode votar.\n\n## Como votar\n\n- abra a página do trabalho da Capibots: [cv.dicaufu.com.br/single.php?vid=149](https://cv.dicaufu.com.br/single.php?vid=149);\n- assista ao vídeo, que apresenta a pesquisa sobre estudo em casa e conectividade;\n- clique no botão **Votar**, logo abaixo do vídeo.\n\nNa mesma página há o botão Comentar, e a equipe vai gostar de ler o que você achou do trabalho.\n\n## Até quando?\n\nAinda não sabemos. A organização não informou até quando a votação popular fica aberta, e a feira acontece de 16 a 20 de novembro de 2026. Como não dá para saber se o prazo acaba antes ou depois disso, o melhor é votar já. Quando a data sair, ela aparece aqui.\n\n## Por que vale o clique\n\nForam meses de trabalho: a pesquisa com 46 crianças de duas escolas, a leitura de dados oficiais e a construção do protótipo Capi-Aprende, que qualquer pessoa pode abrir em [capiaprende.capibots.com.br](https://capiaprende.capibots.com.br). Os resultados estão no post [46 crianças responderam](/blog/capibots-resultados-pesquisa-46-criancas).\n\nMande o link para os avós, para os colegas de trabalho, para o grupo da família. Cada voto conta, e crianças de 9 e 10 anos defendendo uma pesquisa própria numa feira da universidade merecem ser vistas.",
+    "featured": false
   },
   {
     "id": "capibots-dia-dos-professores",
@@ -1436,5 +1436,18 @@
     "excerpt": "A solução da pesquisa da Capibots já pode ser baixada, com conteúdos iniciais de Matemática e Português para o 5º ano, e o protótipo segue aberto para quem quiser conhecer as telas.",
     "content": "Quem visitou o protótipo do Capi-Aprende agora pode ir além das telas: o aplicativo já está disponível para baixar, com conteúdos iniciais de Matemática e de Português para o 5º ano.\n\n## Dois jeitos de conhecer\n\n- **Protótipo navegável:** uma simulação clicável das telas do aluno e do professor, que funciona direto no navegador, sem instalar nada. Fica em [capiaprende.capibots.com.br](https://capiaprende.capibots.com.br/);\n- **Aplicativo para baixar:** a solução final, já com os primeiros conteúdos de Matemática e de Português do 5º ano. [Baixe aqui](https://drive.google.com/file/d/1TbSxnSrSkuGICWCyseS51hb7JVtWiCup/view?usp=drive_link).\n\n## Por que o Capi-Aprende existe\n\nEle nasceu da pesquisa \"Aprender sem conexão: desigualdade digital e apoio ao estudo offline para crianças sem internet de qualidade\", que a Capibots fez ao longo da temporada 2026, quando o tema do TBR é Educação (ODS 4). A ideia é simples de dizer: a criança que não tem internet boa em casa também precisa de um jeito de estudar. [Já contamos como o protótipo chegou ao público](/blog/capibots-prototipo-capi-aprende).\n\n## Para quem é\n\nOs conteúdos iniciais são do 5º ano. Alunos, famílias e professores podem testar. Quem ensina também pode olhar o lado do professor no protótipo, onde ficam a gestão de turmas e o cadastro de conteúdo.\n\n## Conte o que achou\n\nOs conteúdos que estão lá são só o começo. Se uma questão ficou confusa, se faltou um assunto ou se você encontrou algum problema, escreva pela página de [contato](/contato). A opinião de quem usa vai guiar o que a equipe melhora primeiro.",
     "featured": true
+  },
+  {
+    "id": "capibots-tutorial-capi-aprende",
+    "title": "Tutorial do Capi-Aprende: veja como usar o aplicativo passo a passo",
+    "date": "2026-10-25",
+    "season": 2026,
+    "author": "Equipe Capibots",
+    "category": "Divulgação",
+    "readTime": "2 min",
+    "image": "/images/blog/capi-aprende-tutorial.png",
+    "excerpt": "O Capi-Aprende agora tem um tutorial com as telas do aplicativo, do login ao estudo com a Capivarinha. Quem quiser testar pode entrar no grupo de beta-testers.",
+    "content": "O Capi-Aprende ganhou um tutorial. Ele está em [capiaprende.capibots.com.br/tutorial](https://capiaprende.capibots.com.br/tutorial/) e mostra, tela por tela, como usar o aplicativo na primeira vez, sem precisar de ninguém do lado explicando.\n\n## O que o tutorial mostra\n\nA página segue a ordem em que o aluno usa o aplicativo. Na parte de cima, um menu leva direto a cada etapa:\n\n- **Entrar:** como fazer o login com o usuário e a senha da escola;\n- **Visitante:** como entrar sem usuário e sem senha, só para conhecer (nesse modo, o progresso fica guardado apenas no aparelho usado);\n- **Guia rápido e Início:** uma visão geral do aplicativo e da tela inicial;\n- **Escolher o que estudar e Fazer a jornada:** como o aluno seleciona um conteúdo e percorre o estudo guiado;\n- **Resumo do conteúdo e Tirar dúvidas:** onde pedir um resumo e como conversar com a Capivarinha, o tutor do aplicativo.\n\nCada etapa vem com imagens das telas reais, então dá para comparar o que está escrito com o que aparece no aparelho.\n\n## Para quem serve\n\nPara o aluno que vai abrir o Capi-Aprende pela primeira vez, para a família que quer acompanhar e para o professor que pensa em apresentar o aplicativo à turma. Quem ainda não tem login pode seguir o tutorial no modo visitante.\n\n## Vale ler antes de baixar\n\nO aplicativo está disponível para baixar, com conteúdos de Matemática e de Português do 5º ano, como contamos no post [Capi-Aprende: baixe o aplicativo](/blog/capibots-capi-aprende-aplicativo). O tutorial ajuda a chegar à primeira aula sem tropeçar no login.\n\n## Quer testar e dar sua opinião?\n\nA equipe abriu um grupo de beta-testers, com login de visitante para quem quiser experimentar e contar o que achou. Para se inscrever, preencha o formulário na [página do Capi-Aprende](/capi-aprende). Se algo no tutorial ficar confuso, escreva pela página de [contato](/contato): é esse tipo de dúvida que a equipe usa para melhorar o texto e as telas.",
+    "featured": false
   }
 ]
