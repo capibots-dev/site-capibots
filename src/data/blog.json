@@ -46,10 +46,32 @@
     "author": "Equipe Capibots",
     "category": "Tecnologia & Engenharia",
     "readTime": "4 min",
-    "image": "🚀",
+    "image": "/images/blog/visita-brain/00-equipe-no-brain.jpg",
     "excerpt": "A equipe conheceu de perto o ecossistema de inovação da Algar Telecom e se inspirou para o desenvolvimento da plataforma CerradoTech.",
-    "content": "A equipe Capibots realizou uma visita técnica ao **BRAIN: Centro de Inovação da Algar**, em Uberlândia (MG). A atividade fez parte do plano de formação tecnológica da equipe e marcou os alunos.\n\n## O que é o BRAIN?\n\nO BRAIN é o hub de inovação e tecnologia do grupo Algar, voltado ao desenvolvimento de startups, soluções digitais e projetos de impacto. O espaço reúne tecnologia, design, empreendedorismo e colaboração em um ambiente moderno e inspirador.\n\n## O que a equipe vivenciou\n\nDurante a visita, os alunos:\n\n- Conheceram o espaço de coworking e laboratórios;\n- Entenderam como startups desenvolvem produtos digitais;\n- Viram exemplos de tecnologia aplicada a problemas reais;\n- Conversaram sobre o processo de criação de plataformas e aplicativos.\n\n## Conexão com a CerradoTech\n\nA visita chegou em um momento importante: a equipe estava em pleno desenvolvimento da CerradoTech. Ver como startups constroem seus produtos ajudou os alunos a entenderem melhor como estruturar funcionalidades, pensar na experiência do usuário e validar ideias.\n\n> *\"Ver aquele espaço cheio de gente criando soluções fez a gente acreditar ainda mais que a gente consegue fazer a CerradoTech funcionar de verdade.\"* — Integrante da equipe\n\n## Inspiração para o futuro\n\nA visita mostrou aos Capibots que **inovar é um processo que todo mundo pode fazer**, inclusive crianças de 9 e 10 anos com uma ideia boa e muita vontade de resolver um problema real.",
-    "featured": false
+    "content": "A equipe Capibots realizou uma visita técnica ao **BRAIN: Centro de Inovação da Algar**, em Uberlândia (MG). A atividade fez parte do plano de formação tecnológica da equipe e marcou os alunos.\n\n## O que é o BRAIN?\n\nO BRAIN é o hub de inovação e tecnologia do grupo Algar, voltado ao desenvolvimento de startups, soluções digitais e projetos de impacto. O espaço reúne tecnologia, design, empreendedorismo e colaboração em um ambiente moderno e inspirador.\n\n## O que a equipe vivenciou\n\nDurante a visita, os alunos:\n\n- Conheceram o espaço de coworking e laboratórios;\n- Entenderam como startups desenvolvem produtos digitais;\n- Viram exemplos de tecnologia aplicada a problemas reais;\n- Conversaram sobre o processo de criação de plataformas e aplicativos.\n\n[galeria]\n\n## Conexão com a CerradoTech\n\nA visita chegou em um momento importante: a equipe estava em pleno desenvolvimento da CerradoTech. Ver como startups constroem seus produtos ajudou os alunos a entenderem melhor como estruturar funcionalidades, pensar na experiência do usuário e validar ideias.\n\n> *\"Ver aquele espaço cheio de gente criando soluções fez a gente acreditar ainda mais que a gente consegue fazer a CerradoTech funcionar de verdade.\"* — Integrante da equipe\n\n## Inspiração para o futuro\n\nA visita mostrou aos Capibots que **inovar é um processo que todo mundo pode fazer**, inclusive crianças de 9 e 10 anos com uma ideia boa e muita vontade de resolver um problema real.",
+    "featured": false,
+    "images": [
+      {
+        "src": "/images/blog/visita-brain/01-apresentacao.jpg",
+        "alt": "Anfitrião do BRAIN apresentando o centro de inovação aos integrantes da Capibots"
+      },
+      {
+        "src": "/images/blog/visita-brain/02-lanche.jpg",
+        "alt": "Integrantes da Capibots sentados às mesas redondas do BRAIN durante a visita"
+      },
+      {
+        "src": "/images/blog/visita-brain/03-apresentacao-palco.jpg",
+        "alt": "Apresentação sobre inovação na tela do BRAIN, com o logo do centro na parede"
+      },
+      {
+        "src": "/images/blog/visita-brain/04-sala.jpg",
+        "alt": "Equipe sentada em círculo assistindo à apresentação no espaço do BRAIN"
+      },
+      {
+        "src": "/images/blog/visita-brain/05-equipe-com-anfitriao.jpg",
+        "alt": "Equipe Capibots com a mentora e o anfitrião diante do logo do BRAIN"
+      }
+    ]
   },
   {
     "id": "capibots-workshop-inteligencia-artificial",
@@ -59,10 +81,44 @@
     "author": "Equipe Capibots",
     "category": "Tecnologia & Engenharia",
     "readTime": "3 min",
-    "image": "🤖",
+    "image": "/images/blog/workshop-ia/00-equipe-e-professora.jpg",
     "excerpt": "A equipe participou de um workshop sobre IA com a plataforma Lovable AI, aprendendo como a inteligência artificial pode acelerar o desenvolvimento de soluções digitais.",
-    "content": "A equipe Capibots participou de um workshop sobre **Inteligência Artificial**, com foco na plataforma **Lovable AI**, ferramenta que utiliza IA generativa para auxiliar no desenvolvimento de interfaces e produtos digitais.\n\nA atividade foi mais um passo no plano de formação tecnológica da equipe ao longo da temporada.\n\n## O que é o Lovable AI?\n\nO Lovable AI é uma plataforma que permite criar aplicações e protótipos digitais a partir de descrições em linguagem natural, sem a necessidade de programação avançada. A IA interpreta o que o usuário quer e gera o código correspondente.\n\n## O que a equipe aprendeu\n\n- Como descrever um produto para que a IA o construa;\n- Conceitos básicos de interface e experiência do usuário;\n- Como a IA pode ser uma aliada no processo criativo;\n- Os limites da IA e o papel humano na validação das soluções.\n\n## Aplicação na CerradoTech\n\nO workshop abriu uma discussão importante dentro da equipe: **como a inteligência artificial poderia tornar a CerradoTech ainda mais eficiente?** A ideia de usar IA para personalizar recomendações de espécies com base nos dados do usuário ganhou força a partir dessa experiência.\n\n## Reflexão dos alunos\n\nOs integrantes saíram do workshop com outra visão sobre o que é possível criar com tecnologia, e com a certeza de que a IA não substitui a criatividade humana, mas pode potencializá-la muito.",
-    "featured": false
+    "content": "A equipe Capibots participou de um workshop sobre **Inteligência Artificial**, com foco na plataforma **Lovable AI**, ferramenta que utiliza IA generativa para auxiliar no desenvolvimento de interfaces e produtos digitais.\n\nA atividade foi mais um passo no plano de formação tecnológica da equipe ao longo da temporada.\n\n## O que é o Lovable AI?\n\nO Lovable AI é uma plataforma que permite criar aplicações e protótipos digitais a partir de descrições em linguagem natural, sem a necessidade de programação avançada. A IA interpreta o que o usuário quer e gera o código correspondente.\n\n## O que a equipe aprendeu\n\n- Como descrever um produto para que a IA o construa;\n- Conceitos básicos de interface e experiência do usuário;\n- Como a IA pode ser uma aliada no processo criativo;\n- Os limites da IA e o papel humano na validação das soluções.\n\n[galeria]\n\n## Aplicação na CerradoTech\n\nO workshop abriu uma discussão importante dentro da equipe: **como a inteligência artificial poderia tornar a CerradoTech ainda mais eficiente?** A ideia de usar IA para personalizar recomendações de espécies com base nos dados do usuário ganhou força a partir dessa experiência.\n\n## Reflexão dos alunos\n\nOs integrantes saíram do workshop com outra visão sobre o que é possível criar com tecnologia, e com a certeza de que a IA não substitui a criatividade humana, mas pode potencializá-la muito.",
+    "featured": false,
+    "images": [
+      {
+        "src": "/images/blog/workshop-ia/01-objetivos.jpg",
+        "alt": "Slide com os objetivos do workshop projetado na sala de aula, com a logomarca da Capibots"
+      },
+      {
+        "src": "/images/blog/workshop-ia/02-sala.jpg",
+        "alt": "Integrantes da Capibots sentados na sala de aula durante o workshop"
+      },
+      {
+        "src": "/images/blog/workshop-ia/03-lovable-no-projetor.jpg",
+        "alt": "Página inicial do Lovable projetada na lousa, com um integrante assistindo em primeiro plano"
+      },
+      {
+        "src": "/images/blog/workshop-ia/04-video.jpg",
+        "alt": "Integrante acompanhando um vídeo projetado na lousa"
+      },
+      {
+        "src": "/images/blog/workshop-ia/05-em-pe.jpg",
+        "alt": "Integrantes de pé, de costas, em volta de uma carteira durante a atividade"
+      },
+      {
+        "src": "/images/blog/workshop-ia/06-integrante.jpg",
+        "alt": "Integrante sentado em uma carteira durante o workshop"
+      },
+      {
+        "src": "/images/blog/workshop-ia/07-professora-apresentando.jpg",
+        "alt": "Professora apresentando um slide com a turma sentada à frente"
+      },
+      {
+        "src": "/images/blog/workshop-ia/08-futetech.jpg",
+        "alt": "Cinco integrantes diante da lousa com o site FuteTech criado durante a atividade"
+      }
+    ]
   },
   {
     "id": "capibots-etapa-regional-2025",
