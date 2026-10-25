@@ -53,7 +53,7 @@ const dimensoes = [
       'Tapete 2026: missões em ambiente escolar',
       '1º lugar no Desafio Prático — Regional 2025',
     ],
-    cta: { label: 'Por Dentro do Robô', to: '/blog' },
+    cta: { label: 'Por Dentro do Tapete', to: '/blog' },
   },
   {
     icon: ClipboardList,
