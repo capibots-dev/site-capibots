@@ -315,13 +315,13 @@ const Index = () => {
             {latestPosts[0] && (
               <Card className="md:col-span-2 group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                 <CardContent className="p-0">
-                  <div className="h-44 bg-gradient-to-br from-primary to-secondary flex items-center justify-center overflow-hidden">
+                  <Link to={`/blog/${latestPosts[0].id}`} className="h-44 bg-gradient-to-br from-primary to-secondary flex items-center justify-center overflow-hidden">
                     {latestPosts[0].image.startsWith('/') ? (
                       <img src={latestPosts[0].image} alt={latestPosts[0].title} className="w-full h-full object-cover" />
                     ) : (
                       <span className="text-6xl">{latestPosts[0].image}</span>
                     )}
-                  </div>
+                  </Link>
                   <div className="p-5">
                     <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
                       <Calendar className="h-3 w-3" />
@@ -329,7 +329,7 @@ const Index = () => {
                       <Badge variant="outline" className="ml-auto text-[10px]">{latestPosts[0].category}</Badge>
                     </div>
                     <h3 className="text-base font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                      {latestPosts[0].title}
+                      <Link to={`/blog/${latestPosts[0].id}`}>{latestPosts[0].title}</Link>
                     </h3>
                     <p className="text-xs text-muted-foreground mb-4 line-clamp-2">{latestPosts[0].excerpt}</p>
                     <Button asChild size="sm">
@@ -346,20 +346,20 @@ const Index = () => {
               {latestPosts.slice(1).map((post) => (
                 <Card key={post.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden flex-1">
                   <CardContent className="p-0">
-                    <div className="h-24 bg-gradient-to-br from-primary to-secondary flex items-center justify-center overflow-hidden">
+                    <Link to={`/blog/${post.id}`} className="h-24 bg-gradient-to-br from-primary to-secondary flex items-center justify-center overflow-hidden">
                       {post.image.startsWith('/') ? (
                         <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
                       ) : (
                         <span className="text-3xl">{post.image}</span>
                       )}
-                    </div>
+                    </Link>
                     <div className="p-3.5">
                       <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground mb-1.5">
                         <Calendar className="h-2.5 w-2.5" />
                         {post.date}
                       </div>
                       <h3 className="text-xs font-semibold mb-2.5 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
-                        {post.title}
+                        <Link to={`/blog/${post.id}`}>{post.title}</Link>
                       </h3>
                       <Button asChild variant="outline" size="sm" className="w-full text-xs h-7">
                         <Link to={`/blog/${post.id}`}>

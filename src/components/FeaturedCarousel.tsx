@@ -44,13 +44,13 @@ const FeaturedCarousel = ({ posts }: FeaturedCarouselProps) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[280px]">
           {/* Image */}
-          <div className="h-56 lg:h-72 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg">
+          <Link to={`/blog/${post.id}`} className="h-56 lg:h-72 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg">
             {post.image.startsWith('/') ? (
               <img src={post.image} alt={post.title} className="w-full h-full object-cover rounded-2xl" />
             ) : (
               <span className="text-8xl">{post.image}</span>
             )}
-          </div>
+          </Link>
 
           {/* Content */}
           <div className="flex flex-col justify-center">
@@ -58,7 +58,7 @@ const FeaturedCarousel = ({ posts }: FeaturedCarouselProps) => {
               <Badge className="bg-primary/10 text-primary border-primary/20">{post.category}</Badge>
               <span className="text-sm text-muted-foreground">{post.date}</span>
             </div>
-            <h2 className="text-2xl lg:text-3xl font-bold mb-4 leading-tight">{post.title}</h2>
+            <h2 className="text-2xl lg:text-3xl font-bold mb-4 leading-tight"><Link to={`/blog/${post.id}`} className="hover:text-primary transition-colors">{post.title}</Link></h2>
             <p className="text-muted-foreground mb-6 line-clamp-3">{post.excerpt}</p>
             <Button asChild className="w-fit">
               <Link to={`/blog/${post.id}`}>

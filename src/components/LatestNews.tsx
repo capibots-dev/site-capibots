@@ -31,7 +31,7 @@ const LatestNews = () => {
                   {post.date}
                 </div>
                 <h3 className="text-base font-semibold mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                  {post.title}
+                  <Link to={`/blog/${post.id}`}>{post.title}</Link>
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{post.excerpt}</p>
                 <Button asChild variant="outline" size="sm" className="w-full">

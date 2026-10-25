@@ -110,12 +110,13 @@ const Blog = () => {
               <Card key={post.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                 <CardContent className="p-0">
                   <div className="h-32 bg-gradient-to-br from-primary to-secondary flex items-center justify-center relative">
+                    <Link to={`/blog/${post.id}`} aria-label={post.title} className="absolute inset-0 z-0" />
                     {post.image.startsWith('/') ? (
                       <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
                     ) : (
                       <span className="text-4xl">{post.image}</span>
                     )}
-                    <div className="absolute top-2 left-2">
+                    <div className="absolute top-2 left-2 pointer-events-none">
                       <Badge className="bg-white/20 text-white border-white/30 text-xs">
                         {post.category}
                       </Badge>
@@ -135,7 +136,7 @@ const Blog = () => {
                     </div>
 
                     <h3 className="text-sm font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
-                      {post.title}
+                      <Link to={`/blog/${post.id}`}>{post.title}</Link>
                     </h3>
 
                     <p className="text-xs text-muted-foreground mb-4 line-clamp-2">
