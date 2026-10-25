@@ -19,11 +19,14 @@ import {
   Cpu,
   Megaphone,
   Users,
+  BookOpen,
   type LucideIcon,
 } from 'lucide-react';
 import projectsData from '@/data/projects.json';
 import achievementsData from '@/data/achievements.json';
 import blogData from '@/data/blog.json';
+import BetaTesterButton from '@/components/BetaTesterButton';
+import { CAPI_APRENDE_TUTORIAL_URL } from '@/lib/capiAprende';
 import { categoriaEstilo, isNewsPost } from '@/lib/blog';
 import teamData from '@/data/team.json';
 
@@ -276,6 +279,23 @@ const Index = () => {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+          <div className="max-w-5xl mx-auto mt-10 rounded-2xl border border-primary/30 bg-primary/5 p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4">
+            <div className="flex-1">
+              <h3 className="font-bold text-lg">Teste o Capi-Aprende</h3>
+              <p className="text-sm text-muted-foreground">
+                Veja o tutorial e entre para o grupo de beta-testers: você recebe um login de visitante para experimentar o aplicativo.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Button asChild>
+                <a href={CAPI_APRENDE_TUTORIAL_URL} target="_blank" rel="noopener noreferrer">
+                  <BookOpen className="h-4 w-4 mr-2" />
+                  Ver o tutorial
+                </a>
+              </Button>
+              <BetaTesterButton variant="outline" />
             </div>
           </div>
         </div>
@@ -562,6 +582,9 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
               <Link to="/contato">Entre em Contato</Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
+              <Link to="/capi-aprende">Seja beta-tester do Capi-Aprende</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
               <a href="https://instagram.com/equipecapibots" target="_blank" rel="noopener noreferrer">

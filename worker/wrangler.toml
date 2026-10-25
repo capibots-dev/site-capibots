@@ -4,7 +4,7 @@ compatibility_date = "2026-10-01"
 
 [vars]
 # Páginas autorizadas a chamar o Worker (o localhost é só para testar)
-ALLOWED_ORIGINS = "https://capibots.com.br,http://localhost:8080,http://localhost:5173,http://127.0.0.1:8080,http://127.0.0.1:5173"
+ALLOWED_ORIGINS = "https://capibots.com.br,https://www.capibots.com.br,http://localhost:8080,http://localhost:5173,http://127.0.0.1:8080,http://127.0.0.1:5173"
 
 # Pasta privada com os PDFs. Crie com: npx wrangler r2 bucket create capibots-cadernos
 [[r2_buckets]]

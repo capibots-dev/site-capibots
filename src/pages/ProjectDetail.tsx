@@ -1,5 +1,6 @@
 
 import { useParams } from 'react-router-dom';
+import CapiAprendeBeta from '@/components/CapiAprendeBeta';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
@@ -393,6 +394,8 @@ const ProjectDetail = () => {
 
             {/* Sidebar */}
             <div className="space-y-6">
+              {project.id === 'tbr-2026' && <CapiAprendeBeta />}
+
               {/* Logo da temporada */}
               {project.image.startsWith('/') && (
                 <img

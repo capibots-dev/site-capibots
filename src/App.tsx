@@ -13,6 +13,7 @@ import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import CardapioFutsal from "./pages/CardapioFutsal";
 import TeamMember from "./pages/TeamMember";
+import CapiAprende from "./pages/CapiAprende";
 import CadernosTecnicos from "./pages/CadernosTecnicos";
 import NotFound from "./pages/NotFound";
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contato" element={<Contact />} />
           <Route path="/cardapio-futsal" element={<CardapioFutsal />} />
+          <Route path="/capi-aprende" element={<CapiAprende />} />
           <Route path="/equipe/:slug" element={<TeamMember />} />
           <Route path="/2026/cadernos-tecnicos" element={<CadernosTecnicos />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

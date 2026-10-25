@@ -93,6 +93,7 @@ const seoFiles = (): Plugin => {
         { loc: "/projetos", lastmod: today },
         ...projects.map((p) => ({ loc: `/projetos/${p.id}`, lastmod: today })),
         { loc: "/blog", lastmod: posts[0]?.date ?? today },
+        { loc: "/capi-aprende", lastmod: today },
         { loc: "/contato", lastmod: today },
         ...posts.map((p) => ({ loc: `/blog/${p.id}`, lastmod: p.date })),
       ];

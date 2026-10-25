@@ -5,6 +5,7 @@
 // Rotas:
 //   POST /cadastro  { nome, email, equipe, consentimento, site }  ->  { cadernos: [{ id, titulo, url }] }
 //   GET  /baixar?t=<token>                                         ->  o PDF
+//   POST /beta-capi-aprende  { nome, email, perfil, cidade, consentimento, site }  ->  { ok: true }
 
 // Para liberar um caderno, troque disponivel para true (e apague o aviso) e rode `npx wrangler deploy`
 const CADERNOS = [
@@ -19,6 +20,8 @@ const CADERNOS = [
       'Como a temporada ainda está em andamento e este caderno traz a estratégia do robô, a abordagem do tapete e os detalhes da programação, ele ainda não está disponível. Será liberado ao término da temporada.',
   },
 ];
+
+const PERFIS_BETA = ['professor', 'familiar', 'aluno', 'outro'];
 
 const VALIDADE_LINK_SEGUNDOS = 600;
 const MAX_CADASTROS_POR_HORA = 5;
@@ -46,6 +49,16 @@ const novoToken = () => {
   return [...bytes].map((b) => b.toString(16).padStart(2, '0')).join('');
 };
 
+// Limite por IP, para dificultar cadastros em massa
+async function dentroDoLimite(request, env, prefixo) {
+  const ip = request.headers.get('CF-Connecting-IP') ?? 'desconhecido';
+  const chave = `${prefixo}:${ip}`;
+  const usados = Number(await env.CADASTROS.get(chave)) || 0;
+  if (usados >= MAX_CADASTROS_POR_HORA) return false;
+  await env.CADASTROS.put(chave, String(usados + 1), { expirationTtl: 3600 });
+  return true;
+}
+
 async function cadastro(request, env) {
   const headers = cors(request, env);
   const origem = request.headers.get('Origin');
@@ -69,12 +82,7 @@ async function cadastro(request, env) {
   if (equipe.length < 2) return json({ erro: 'Informe sua equipe ou instituição.' }, 400, headers);
   if (corpo.consentimento !== true) return json({ erro: 'É preciso aceitar o uso dos dados.' }, 400, headers);
 
-  // Limite por IP, para dificultar cadastros em massa
-  const ip = request.headers.get('CF-Connecting-IP') ?? 'desconhecido';
-  const chaveLimite = `limite:${ip}`;
-  const usados = Number(await env.CADASTROS.get(chaveLimite)) || 0;
-  if (usados >= MAX_CADASTROS_POR_HORA) return json({ erro: 'Muitas tentativas. Tente de novo mais tarde.' }, 429, headers);
-  await env.CADASTROS.put(chaveLimite, String(usados + 1), { expirationTtl: 3600 });
+  if (!(await dentroDoLimite(request, env, 'limite'))) return json({ erro: 'Muitas tentativas. Tente de novo mais tarde.' }, 429, headers);
 
   // Guarda o contato; se o e-mail voltar, mantém a data do primeiro cadastro
   const chaveContato = `contato:${email}`;
@@ -97,6 +105,42 @@ async function cadastro(request, env) {
     cadernos.push({ id: c.id, titulo: c.titulo, disponivel: true, url: `${url.origin}/baixar?t=${token}` });
   }
   return json({ cadernos, validadeMinutos: VALIDADE_LINK_SEGUNDOS / 60 }, 200, headers);
+}
+
+// Inscrição no grupo de beta-testers do Capi-Aprende. A chave é o e-mail: inscrever de novo só atualiza.
+async function betaCapiAprende(request, env) {
+  const headers = cors(request, env);
+  const origem = request.headers.get('Origin');
+  if (!origem || !origensPermitidas(env).includes(origem)) return json({ erro: 'Origem não permitida.' }, 403, headers);
+
+  let corpo;
+  try {
+    corpo = await request.json();
+  } catch {
+    return json({ erro: 'Pedido inválido.' }, 400, headers);
+  }
+
+  if (corpo.site) return json({ erro: 'Pedido inválido.' }, 400, headers);
+
+  const nome = String(corpo.nome ?? '').trim().slice(0, 120);
+  const email = String(corpo.email ?? '').trim().toLowerCase();
+  const perfil = String(corpo.perfil ?? '');
+  const cidade = String(corpo.cidade ?? '').trim().slice(0, 120);
+  if (nome.length < 2) return json({ erro: 'Informe seu nome.' }, 400, headers);
+  if (!emailValido(email)) return json({ erro: 'Informe um e-mail válido.' }, 400, headers);
+  if (!PERFIS_BETA.includes(perfil)) return json({ erro: 'Escolha seu perfil.' }, 400, headers);
+  if (cidade.length < 2) return json({ erro: 'Informe sua cidade.' }, 400, headers);
+  if (corpo.consentimento !== true) return json({ erro: 'É preciso aceitar o uso dos dados.' }, 400, headers);
+
+  if (!(await dentroDoLimite(request, env, 'limite-beta'))) return json({ erro: 'Muitas tentativas. Tente de novo mais tarde.' }, 429, headers);
+
+  const chave = `beta:${email}`;
+  const anterior = await env.CADASTROS.get(chave, 'json');
+  await env.CADASTROS.put(
+    chave,
+    JSON.stringify({ nome, email, perfil, cidade, criadoEm: anterior?.criadoEm ?? new Date().toISOString(), status: anterior?.status ?? 'pendente' }),
+  );
+  return json({ ok: true }, 200, headers);
 }
 
 async function baixar(request, env) {
@@ -126,6 +170,7 @@ export default {
     const { pathname } = new URL(request.url);
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors(request, env) });
     if (request.method === 'POST' && pathname === '/cadastro') return cadastro(request, env);
+    if (request.method === 'POST' && pathname === '/beta-capi-aprende') return betaCapiAprende(request, env);
     if (request.method === 'GET' && pathname === '/baixar') return baixar(request, env);
     return new Response('Não encontrado.', { status: 404 });
   },

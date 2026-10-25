@@ -64,7 +64,7 @@ for (const post of posts) {
     for (const [, , alvo] of linha.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g)) {
       if (alvo.startsWith('/blog/')) {
         if (!posts.some((p) => p.id === alvo.slice('/blog/'.length).replace(/[/?#].*$/, ''))) erro(id, `link para post inexistente: ${alvo}`);
-      } else if (alvo.startsWith('/') && !existeEmPublic(alvo) && !/^\/(sobre|projetos|blog|contato|cardapio-futsal)/.test(alvo)) {
+      } else if (alvo.startsWith('/') && !existeEmPublic(alvo) && !/^\/(sobre|projetos|blog|contato|cardapio-futsal|capi-aprende)/.test(alvo)) {
         erro(id, `link para arquivo inexistente: ${alvo}`);
       }
     }

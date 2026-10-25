@@ -8,10 +8,9 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { WORKER_API as API } from '@/lib/api';
 import { Download, FileText, Lock } from 'lucide-react';
 
-// Endereço do Worker da Cloudflare (pasta worker/). Troque pelo endereço que o deploy mostrar.
-const API = import.meta.env.VITE_CADERNOS_API ?? 'https://capibots-cadernos.capibots-cadernos.workers.dev';
 
 // A lista precisa bater com CADERNOS em worker/src/index.js. Quem decide de verdade é o Worker:
 // ele só gera link para os cadernos com disponivel: true.
