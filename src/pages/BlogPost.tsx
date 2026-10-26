@@ -6,10 +6,11 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calendar, User, ArrowLeft, Share2, Play } from 'lucide-react';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import blogData from '@/data/blog.json';
 import { isNewsPost } from '@/lib/blog';
+import { trackEvent } from '@/lib/analytics';
 
 type GalleryImage = string | { src: string; alt?: string };
 
@@ -49,6 +50,10 @@ const parseYouTube = (url: string) => {
 // Mostra só a miniatura; o iframe (youtube-nocookie) só é carregado quando a pessoa clica
 const YouTubeEmbed = ({ id, vertical, title }: { id: string; vertical: boolean; title: string }) => {
   const [playing, setPlaying] = useState(false);
+  const play = () => {
+    setPlaying(true);
+    trackEvent('video_play', { video_id: id, page_path: window.location.pathname });
+  };
   return (
     <figure className="my-6 not-prose">
       <div
@@ -68,7 +73,7 @@ const YouTubeEmbed = ({ id, vertical, title }: { id: string; vertical: boolean; 
         ) : (
           <button
             type="button"
-            onClick={() => setPlaying(true)}
+            onClick={play}
             aria-label={`Assistir: ${title}`}
             className="group absolute inset-0 w-full h-full focus:outline-none focus:ring-2 focus:ring-primary"
           >
@@ -108,6 +113,11 @@ const BlogPost = () => {
   const relatedPosts = post
     ? [...sameCategory, ...others.filter((p) => p.category !== post.category)].slice(0, 3)
     : [];
+
+  useEffect(() => {
+    if (post) trackEvent('blog_read', { post_id: post.id, category: post.category, season: (post as { season?: number }).season });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [post?.id]);
 
   const handleShare = async () => {
     const url = window.location.href;

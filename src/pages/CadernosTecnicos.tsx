@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { WORKER_API as API } from '@/lib/api';
+import { trackEvent } from '@/lib/analytics';
 import { BookOpen, Download, FileText, Info } from 'lucide-react';
 
 
@@ -64,6 +65,7 @@ const CadernosTecnicos = () => {
     }
     setLinks(novos);
     setCadastrado(true);
+    trackEvent('sign_up', { method: 'cadernos_tecnicos' });
     return novos;
   };
 
@@ -75,6 +77,7 @@ const CadernosTecnicos = () => {
       const { [id]: _usado, ...resto } = atuais;
       return resto;
     });
+    trackEvent('file_download', { file_name: id, file_extension: 'pdf' });
     window.location.href = link.url;
   };
 
@@ -141,7 +144,7 @@ const CadernosTecnicos = () => {
                     <p className="text-sm text-muted-foreground mb-5 flex-1">{c.descricao}</p>
                     <div className="flex flex-col gap-2">
                       <Button asChild size="sm">
-                        <a href={c.leitura}>
+                        <a href={c.leitura} onClick={() => trackEvent('caderno_ler_online', { caderno: c.id })}>
                           <BookOpen className="h-4 w-4 mr-1" />
                           Ler online
                         </a>

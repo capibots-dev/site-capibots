@@ -6,6 +6,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { WORKER_API } from '@/lib/api';
+import { trackEvent } from '@/lib/analytics';
 
 const PERFIS = [
   { value: 'professor', label: 'Professor(a)' },
@@ -44,6 +45,7 @@ const BetaTesterButton = ({ children = 'Quero ser beta-tester', ...props }: Butt
       const dados = await resposta.json().catch(() => ({}));
       if (!resposta.ok) throw new Error(dados.erro ?? 'Não foi possível concluir a inscrição.');
       setEnviado(true);
+      trackEvent('beta_tester_signup', { perfil });
     } catch (err) {
       setErro(err instanceof Error ? err.message : 'Não foi possível concluir a inscrição.');
     } finally {

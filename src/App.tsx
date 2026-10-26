@@ -17,6 +17,7 @@ import CapiAprende from "./pages/CapiAprende";
 import CadernosTecnicos from "./pages/CadernosTecnicos";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import LinkTracker from "./components/LinkTracker";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <LinkTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/sobre" element={<About />} />
