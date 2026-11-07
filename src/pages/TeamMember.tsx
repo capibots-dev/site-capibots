@@ -7,6 +7,8 @@ import { Card } from '@/components/ui/card';
 import { ArrowLeft, Bot, FlaskConical, ClipboardList, Cpu, ChevronLeft, ChevronRight } from 'lucide-react';
 import teamData from '@/data/team.json';
 import projectsData from '@/data/projects.json';
+import { usePageMeta } from '@/hooks/usePageMeta';
+import { memberMeta } from '@/lib/pageMeta';
 
 const dimensionMap: Record<string, { label: string; desc: string; Icon: React.ElementType; colorClass: string; bgClass: string }> = {
   Programação: {
@@ -70,6 +72,7 @@ const TeamMember = () => {
   const { slug } = useParams();
   const index = teamData.findIndex((m) => m.slug === slug);
   const member = teamData[index];
+  usePageMeta(member ? memberMeta(member) : null);
 
   if (!member) {
     return (

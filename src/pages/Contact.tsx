@@ -4,8 +4,11 @@ import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Mail, Instagram } from 'lucide-react';
+import { usePageMeta } from '@/hooks/usePageMeta';
+import { staticPages } from '@/lib/pageMeta';
 
 const Contact = () => {
+  usePageMeta(staticPages['/contato']);
   return (
     <div className="min-h-screen">
       <Header />

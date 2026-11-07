@@ -7,8 +7,11 @@ import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
 import { Calendar, ChevronRight, Code, Cpu, Wrench } from 'lucide-react';
 import projectsData from '@/data/projects.json';
+import { usePageMeta } from '@/hooks/usePageMeta';
+import { staticPages } from '@/lib/pageMeta';
 
 const Projects = () => {
+  usePageMeta(staticPages['/projetos']);
   const CURRENT_SEASON = 2026;
   const currentProjects = projectsData.filter((p) => p.season === CURRENT_SEASON);
   const pastProjects = projectsData

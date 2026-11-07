@@ -4,6 +4,7 @@ import path from "path";
 import fs from "fs";
 import type { Plugin } from "vite";
 import { componentTagger } from "lovable-tagger";
+import { DEFAULT_IMAGE, postMeta, staticRoutes } from "./src/lib/pageMeta";
 
 const SITE_URL = "https://capibots.com.br";
 
@@ -25,10 +26,10 @@ const publishedPosts = () => {
   return posts.filter((p) => p.date <= today).sort((a, b) => b.date.localeCompare(a.date));
 };
 
-const postMetaTags = (): Plugin => {
+const pageMetaTags = (): Plugin => {
   let outDir = "dist";
   return {
-    name: "post-meta-tags",
+    name: "page-meta-tags",
     apply: "build",
     configResolved(config) {
       outDir = path.resolve(config.root, config.build.outDir);
@@ -36,35 +37,40 @@ const postMetaTags = (): Plugin => {
     closeBundle() {
       const template = fs.readFileSync(path.join(outDir, "index.html"), "utf-8");
 
-      for (const post of publishedPosts()) {
-        const url = `${SITE_URL}/blog/${post.id}`;
-        const hasPhoto = post.image.startsWith("/");
-        const image = hasPhoto ? `${SITE_URL}${encodeURI(post.image)}` : `${SITE_URL}/capibots-logo.png`;
-        const title = escapeHtml(`${post.title} | Capibots`);
-        const description = escapeHtml(post.excerpt);
+      const pages = [
+        ...publishedPosts().map((post) => ({ route: `/blog/${post.id}`, meta: postMeta(post) })),
+        ...staticRoutes(),
+      ];
+
+      for (const { route, meta } of pages) {
+        const url = `${SITE_URL}${route}`;
+        const image = `${SITE_URL}${encodeURI(meta.image ?? DEFAULT_IMAGE)}`;
+        const isArticle = meta.type === "article";
+        const description = escapeHtml(meta.description);
         const tags = [
-          `<title>${title}</title>`,
+          `<title>${escapeHtml(meta.title)}</title>`,
           `<meta name="description" content="${description}" />`,
           `<link rel="canonical" href="${url}" />`,
-          `<meta property="og:title" content="${escapeHtml(post.title)}" />`,
+          `<meta property="og:title" content="${escapeHtml(meta.title.replace(/ \| Capibots$/, ""))}" />`,
           `<meta property="og:description" content="${description}" />`,
-          `<meta property="og:type" content="article" />`,
+          `<meta property="og:type" content="${isArticle ? "article" : "website"}" />`,
           `<meta property="og:url" content="${url}" />`,
           `<meta property="og:image" content="${image}" />`,
           `<meta property="og:locale" content="pt_BR" />`,
-          `<meta property="article:published_time" content="${post.date}" />`,
-          `<meta name="twitter:card" content="${hasPhoto ? "summary_large_image" : "summary"}" />`,
+          ...(meta.publishedTime ? [`<meta property="article:published_time" content="${meta.publishedTime}" />`] : []),
+          `<meta name="twitter:card" content="${isArticle && meta.image ? "summary_large_image" : "summary"}" />`,
           `<meta name="twitter:image" content="${image}" />`,
         ].join("\n    ");
 
         const html = template
           .replace(/<title>[\s\S]*?<\/title>\s*/, "")
           .replace(/<meta name="description"[^>]*>\s*/, "")
+          .replace(/<link rel="canonical"[^>]*>\s*/, "")
           .replace(/<meta property="og:[^>]*>\s*/g, "")
           .replace(/<meta name="twitter:(card|image)"[^>]*>\s*/g, "")
           .replace("</head>", `    ${tags}\n  </head>`);
 
-        const dir = path.join(outDir, "blog", post.id);
+        const dir = path.join(outDir, route);
         fs.mkdirSync(dir, { recursive: true });
         fs.writeFileSync(path.join(dir, "index.html"), html);
       }
@@ -95,6 +101,7 @@ const seoFiles = (): Plugin => {
         { loc: "/blog", lastmod: posts[0]?.date ?? today },
         { loc: "/capi-aprende", lastmod: today },
         { loc: "/contato", lastmod: today },
+        ...staticRoutes().filter((r) => r.route.startsWith("/equipe/")).map((r) => ({ loc: r.route, lastmod: today })),
         ...posts.map((p) => ({ loc: `/blog/${p.id}`, lastmod: p.date })),
       ];
       const sitemap =
@@ -135,7 +142,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    postMetaTags(),
+    pageMetaTags(),
     seoFiles(),
     mode === 'development' &&
     componentTagger(),

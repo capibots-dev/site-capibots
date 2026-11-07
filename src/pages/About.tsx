@@ -8,8 +8,11 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Target, Heart, Zap, Users, Trophy } from 'lucide-react';
 import teamData from '@/data/team.json';
 import achievementsData from '@/data/achievements.json';
+import { usePageMeta } from '@/hooks/usePageMeta';
+import { staticPages } from '@/lib/pageMeta';
 
 const About = () => {
+  usePageMeta(staticPages['/sobre']);
   const teamMembers = teamData;
   const achievements = achievementsData;
   const { hash } = useLocation();

@@ -1,7 +1,10 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { usePageMeta } from '@/hooks/usePageMeta';
+import { notFoundMeta } from '@/lib/pageMeta';
 
 const NotFound = () => {
+  usePageMeta(notFoundMeta);
   const location = useLocation();
 
   useEffect(() => {

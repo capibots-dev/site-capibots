@@ -29,6 +29,8 @@ import BetaTesterButton from '@/components/BetaTesterButton';
 import { CAPI_APRENDE_TUTORIAL_URL } from '@/lib/capiAprende';
 import { categoriaEstilo, isNewsPost } from '@/lib/blog';
 import teamData from '@/data/team.json';
+import { usePageMeta } from '@/hooks/usePageMeta';
+import { homeMeta } from '@/lib/pageMeta';
 
 const dimensoes = [
   {
@@ -90,6 +92,7 @@ const categoryColor: Record<string, string> = {
 };
 
 const Index = () => {
+  usePageMeta(homeMeta);
   const activeProject =
     projectsData.find((p) => p.status === 'Em desenvolvimento') ?? projectsData[0];
 

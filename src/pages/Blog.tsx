@@ -11,12 +11,15 @@ import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight, Search, X } from 'lucide-react';
 import blogData from '@/data/blog.json';
 import { isNewsPost } from '@/lib/blog';
+import { usePageMeta } from '@/hooks/usePageMeta';
+import { staticPages } from '@/lib/pageMeta';
 
 // Busca sem diferenciar maiúsculas e acentos ("ciencia" encontra "Ciência")
 const normalizar = (texto: string) =>
   texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 
 const Blog = () => {
+  usePageMeta(staticPages['/blog']);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   const today = new Date().toISOString().slice(0, 10);

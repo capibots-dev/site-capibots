@@ -14,6 +14,8 @@ import sponsorsData from '@/data/sponsors.json';
 import teamData from '@/data/team.json';
 import blogData from '@/data/blog.json';
 import { DIARIO_CATEGORY, SEASON_NEWS_CATEGORIES, SEASON_SECTION_CATEGORIES, categoriaEstilo } from '@/lib/blog';
+import { usePageMeta } from '@/hooks/usePageMeta';
+import { projectMeta } from '@/lib/pageMeta';
 
 type Tier = 'ouro' | 'prata' | 'bronze';
 
@@ -27,6 +29,7 @@ const tierInfo: Record<Tier, { label: string; badge: string; className: string }
 const ProjectDetail = () => {
   const { slug } = useParams();
   const project = projectsData.find((p) => p.id === slug);
+  usePageMeta(project ? projectMeta(project) : null);
 
   const projectSponsors = project
     ? (sponsorsData as { id: string; nome: string; imagem: string; link: string | null; edicoes: { ano: number; tipo: Tier }[] }[])

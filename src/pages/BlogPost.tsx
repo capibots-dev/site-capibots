@@ -11,6 +11,8 @@ import { useToast } from '@/hooks/use-toast';
 import blogData from '@/data/blog.json';
 import { isNewsPost } from '@/lib/blog';
 import { trackEvent } from '@/lib/analytics';
+import { usePageMeta } from '@/hooks/usePageMeta';
+import { postMeta, notFoundMeta } from '@/lib/pageMeta';
 
 type GalleryImage = string | { src: string; alt?: string };
 
@@ -105,6 +107,7 @@ const BlogPost = () => {
   const [openImage, setOpenImage] = useState<{ src: string; alt: string } | null>(null);
   const today = new Date().toISOString().slice(0, 10);
   const post = blogData.find((p) => p.id === slug && p.date <= today);
+  usePageMeta(post ? postMeta(post) : notFoundMeta);
 
   const others = blogData
     .filter((p) => p.id !== slug && p.date <= today && isNewsPost(p))

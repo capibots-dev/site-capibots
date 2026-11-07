@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -10,6 +9,8 @@ import {
   CAPI_APRENDE_TUTORIAL_URL,
   CAPI_APRENDE_URL,
 } from '@/lib/capiAprende';
+import { usePageMeta } from '@/hooks/usePageMeta';
+import { staticPages } from '@/lib/pageMeta';
 
 const passos = [
   {
@@ -30,9 +31,7 @@ const passos = [
 ];
 
 const CapiAprende = () => {
-  useEffect(() => {
-    document.title = 'Capi-Aprende: tutorial e beta-testers | Capibots';
-  }, []);
+  usePageMeta(staticPages['/capi-aprende']);
 
   return (
     <div className="min-h-screen">
