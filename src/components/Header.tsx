@@ -22,10 +22,10 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" aria-label="Capibots, página inicial" className="flex items-center space-x-2">
             <img
               src="/lovable-uploads/b61c479b-20cc-4f10-a78f-3e1eed742e8e.png"
-              alt="Capibots Logo"
+              alt=""
               className="h-[4.5rem] w-auto"
             />
             <img
@@ -36,7 +36,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav aria-label="Principal" className="hidden md:flex items-center space-x-8">
             <a
               href="/quiz-2026-desafio-pratico/index.html"
               className="flex items-center gap-1.5 rounded-full gradient-orange-green px-4 py-1.5 text-sm font-bold text-white shadow-md animate-bounce-gentle hover:opacity-90 transition-opacity"
@@ -48,6 +48,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
                   isActive(item.href) ? 'text-primary' : 'text-muted-foreground'
                 }`}
@@ -72,6 +73,9 @@ const Header = () => {
             size="sm"
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="menu-mobile"
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
@@ -80,7 +84,7 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden border-t py-4">
-            <nav className="flex flex-col space-y-4">
+            <nav id="menu-mobile" aria-label="Principal" className="flex flex-col space-y-4">
               <a
                 href="/quiz-2026-desafio-pratico/index.html"
                 className="flex w-fit items-center gap-1.5 rounded-full gradient-orange-green px-4 py-1.5 text-sm font-bold text-white shadow-md"
@@ -93,6 +97,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
                   className={`text-sm font-medium transition-colors hover:text-primary ${
                     isActive(item.href) ? 'text-primary' : 'text-muted-foreground'
                   }`}

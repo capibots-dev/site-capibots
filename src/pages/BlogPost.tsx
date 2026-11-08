@@ -77,7 +77,7 @@ const YouTubeEmbed = ({ id, vertical, title }: { id: string; vertical: boolean; 
             type="button"
             onClick={play}
             aria-label={`Assistir: ${title}`}
-            className="group absolute inset-0 w-full h-full focus:outline-none focus:ring-2 focus:ring-primary"
+            className="group absolute inset-0 w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
             <img
               src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
@@ -158,11 +158,11 @@ const BlogPost = () => {
     );
   };
 
-  const gallery = ((post as { images?: GalleryImage[] } | undefined)?.images ?? []).map((img) =>
-    typeof img === 'string'
-      ? { src: img, alt: post?.title ?? '' }
-      : { src: img.src, alt: img.alt ?? post?.title ?? '' }
-  );
+  const rawGallery = (post as { images?: GalleryImage[] } | undefined)?.images ?? [];
+  const gallery = rawGallery.map((img, i) => {
+    const fallback = rawGallery.length > 1 ? `Foto ${i + 1} de ${rawGallery.length}: ${post?.title ?? ''}` : post?.title ?? '';
+    return typeof img === 'string' ? { src: img, alt: fallback } : { src: img.src, alt: img.alt || fallback };
+  });
 
   const renderGallery = (images: { src: string; alt: string }[], key: string | number) => {
     if (images.length === 1) {
@@ -171,7 +171,8 @@ const BlogPost = () => {
           key={key}
           type="button"
           onClick={() => setOpenImage(images[0])}
-          className="block w-full my-6 overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+          aria-label={`Ampliar: ${images[0].alt}`}
+          className="block w-full my-6 overflow-hidden rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
         >
           <img src={images[0].src} alt={images[0].alt} loading="lazy" className="w-full h-auto" />
         </button>
@@ -184,7 +185,8 @@ const BlogPost = () => {
             key={img.src}
             type="button"
             onClick={() => setOpenImage(img)}
-            className="aspect-square overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+            aria-label={`Ampliar: ${img.alt}`}
+            className="aspect-square overflow-hidden rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
             <img
               src={img.src}
@@ -199,6 +201,10 @@ const BlogPost = () => {
   };
 
   const contentLines = post?.content.split('\n') ?? [];
+  const headings = contentLines
+    .map((line, index) => ({ line, index }))
+    .filter(({ line }) => line.startsWith('## '))
+    .map(({ line, index }) => ({ id: `secao-${index}`, text: line.replace('## ', '').replace(/\*\*|\[([^\]]+)\]\([^)]+\)/g, '$1') }));
   const hasGalleryMarker = contentLines.some((l) => l.trim() === GALLERY_MARKER);
 
   const _legacy = {
@@ -398,11 +404,13 @@ const BlogPost = () => {
             
             <div className="flex items-center gap-6 text-muted-foreground mb-8">
               <div className="flex items-center">
-                <Calendar className="h-4 w-4 mr-2" />
-                {post.date}
+                <Calendar className="h-4 w-4 mr-2" aria-hidden="true" />
+                <time dateTime={post.date}>
+                  {new Date(`${post.date}T12:00:00`).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })}
+                </time>
               </div>
               <div className="flex items-center">
-                <User className="h-4 w-4 mr-2" />
+                <User className="h-4 w-4 mr-2" aria-hidden="true" />
                 {post.author}
               </div>
             </div>
@@ -427,11 +435,24 @@ const BlogPost = () => {
                   {post.image.startsWith('/') ? (
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover rounded-lg" />
                   ) : (
-                    <span className="text-8xl">{post.image}</span>
+                    <span className="text-8xl" aria-hidden="true">{post.image}</span>
                   )}
                 </div>
 
                 {gallery.length > 0 && !hasGalleryMarker && renderGallery(gallery, 'top')}
+
+                {headings.length >= 3 && (
+                  <nav aria-label="Neste post" className="mb-8 rounded-lg border bg-muted/30 p-4">
+                    <p className="mb-2 text-sm font-semibold">Neste post</p>
+                    <ol className="list-decimal space-y-1 pl-5 text-sm">
+                      {headings.map((h) => (
+                        <li key={h.id}>
+                          <a href={`#${h.id}`} className="text-primary underline-offset-2 hover:underline">{h.text}</a>
+                        </li>
+                      ))}
+                    </ol>
+                  </nav>
+                )}
 
                 <div className="prose prose-lg max-w-prose mx-auto">
                   {contentLines.map((paragraph, index) => {
@@ -451,13 +472,13 @@ const BlogPost = () => {
                       for (let i = index; i < contentLines.length; i++) {
                         const m = contentLines[i].match(IMAGE_LINE);
                         if (!m) break;
-                        group.push({ src: m[2], alt: m[1] || post.title });
+                        group.push({ src: m[2], alt: m[1] || `Foto: ${post.title}` });
                       }
                       return renderGallery(group, index);
                     }
                     if (paragraph.startsWith('## ')) {
                       return (
-                        <h2 key={index} className="text-2xl font-bold mt-8 mb-4 text-gradient">
+                        <h2 key={index} id={`secao-${index}`} className="text-2xl font-bold mt-8 mb-4 text-gradient scroll-mt-24">
                           {renderInline(paragraph.replace('## ', ''))}
                         </h2>
                       );
