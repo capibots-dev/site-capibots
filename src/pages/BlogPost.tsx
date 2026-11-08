@@ -431,7 +431,7 @@ const BlogPost = () => {
           <div className="max-w-3xl mx-auto">
             <Card>
               <CardContent className="p-6 md:p-8">
-                <div className="h-56 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-8">
+                <div className="h-56 md:h-80 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-8">
                   {post.image.startsWith('/') ? (
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover rounded-lg" />
                   ) : (
