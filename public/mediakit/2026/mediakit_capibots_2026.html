@@ -32,7 +32,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
 /* NAV CONTROLS */
 #nav-prev,#nav-next{
   position:fixed;top:50%;z-index:200;
-  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
+  background:rgba(17,17,17,0.55);border:1px solid rgba(255,255,255,0.3);
   color:white;cursor:pointer;font-size:18px;
   width:44px;height:44px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
@@ -41,11 +41,12 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
   backdrop-filter:blur(8px);
 }
 #nav-prev{left:16px}#nav-next{right:16px}
-#nav-prev:hover,#nav-next:hover{background:rgba(255,255,255,0.18)}
+#nav-prev:hover,#nav-next:hover{background:rgba(17,17,17,0.8)}
 
 #slide-counter{
   position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
   z-index:200;display:flex;gap:8px;align-items:center;
+  background:rgba(17,17,17,0.45);padding:6px 12px;border-radius:20px;backdrop-filter:blur(8px);
 }
 .dot{
   width:8px;height:8px;border-radius:50%;
@@ -253,10 +254,55 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
   pointer-events:none;
 }
 
+
+/* ═══ SLIDES 2026 / SOLUÇÕES / CURITIBA ═══ */
+.s26{background:var(--dark);color:white;padding:52px 80px;flex-direction:column;justify-content:center}
+.s26 .sec-title{font-size:40px;margin-bottom:28px}
+.s26-line{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.s26-step{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-top:3px solid var(--green-light);border-radius:14px;padding:20px 18px}
+.s26-step.dest{background:linear-gradient(135deg,#2D2010,#1A1000);border-color:rgba(245,166,35,0.45);border-top-color:var(--orange-light)}
+.s26-when{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--orange-light);font-weight:600;margin-bottom:8px}
+.s26-t{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700;line-height:1.25;margin-bottom:6px}
+.s26-d{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5}
+.s26-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
+.s26-stat{padding:6px 4px 0 14px;border-left:3px solid var(--orange)}
+.s26-n{font-family:'Plus Jakarta Sans',sans-serif;font-size:34px;font-weight:800;color:var(--orange-light);line-height:1}
+.s26-l{font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px;line-height:1.4}
+
+.ssol{background:#fff;color:var(--dark);padding:48px 80px;flex-direction:column;justify-content:center}
+.ssol .sec-title{font-size:38px;margin-bottom:24px}
+.ssol-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.ssol-card{background:var(--cream);border-radius:18px;padding:22px 24px;border-top:4px solid var(--green);display:flex;flex-direction:column}
+.ssol-card:last-child{border-top-color:var(--orange)}
+.ssol-img{width:100%;height:150px;object-fit:cover;border-radius:12px;margin-bottom:14px}
+.ssol-nums{display:grid;grid-template-columns:1fr 1fr;gap:14px;height:150px;margin-bottom:14px;align-content:center;background:#fff;border-radius:12px;padding:16px}
+.ssol-nn{font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;font-weight:800;color:var(--orange);line-height:1}
+.ssol-nl{font-size:11px;color:var(--gray);line-height:1.4;margin-top:4px}
+.ssol-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:4px}
+.ssol-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:800;color:var(--green);margin-bottom:8px}
+.ssol-desc{font-size:13px;line-height:1.6;color:var(--gray);flex:1}
+.ssol-foot{font-size:11px;font-weight:600;color:var(--dark);margin-top:12px;padding-top:10px;border-top:1px solid rgba(0,0,0,0.08)}
+
+.scwb{background:var(--green);color:white;padding:52px 80px;flex-direction:column;justify-content:center}
+.scwb .sec-title{font-size:42px;margin-bottom:28px}
+.scwb-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.scwb-col{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.13);border-radius:18px;padding:24px}
+.scwb-h{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700;margin-bottom:12px;color:var(--orange-light)}
+.scwb-i{font-size:13px;line-height:1.5;color:rgba(255,255,255,0.8);padding:9px 0 9px 18px;border-top:1px solid rgba(255,255,255,0.1);position:relative}
+.scwb-i::before{content:'✓';position:absolute;left:0;color:var(--green-light);font-weight:700}
+.scwb-note{font-size:12px;color:rgba(255,255,255,0.6);margin-top:20px;max-width:760px;line-height:1.5}
+
 /* ═══════════════════════════════════════════
    MOBILE RESPONSIVE — portrait ≤ 600px
 ═══════════════════════════════════════════ */
 @media (max-width: 600px) {
+
+  /* ── 2026 / Soluções / Curitiba ── */
+  .s26,.ssol,.scwb{padding:32px 22px 90px;justify-content:flex-start}
+  .s26 .sec-title,.ssol .sec-title,.scwb .sec-title{font-size:24px;margin-bottom:18px}
+  .s26-line,.s26-stats,.ssol-grid,.scwb-grid{grid-template-columns:1fr;gap:12px}
+  .s26-n{font-size:28px}
+  .ssol-img,.ssol-nums{height:auto;min-height:120px}
 
   /* ── Shell ── */
   html,body{overflow:hidden}
@@ -681,11 +727,12 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
       <div class="s1-label">Media Kit · Temporada 2026</div>
       <h1 class="s1-headline">Junte-se a quem<br>chegou ao <span>topo</span><br>do Brasil 🏆</h1>
     </div>
-    <p class="s1-desc">A Capibots é a equipe de robótica do Colégio Batista Mineiro que conquistou o <strong style="color:white">3º lugar geral nacional</strong> na categoria Kids 2 do TBR. Em 2026, seguimos crescendo — e queremos você nessa jornada.</p>
+    <p class="s1-desc">A Capibots é a equipe de robótica do Colégio Batista Mineiro que conquistou o <strong style="color:white">3º lugar geral nacional</strong> na categoria Kids 2 do TBR em 2025. Em 2026, ficou em <strong style="color:white">3º no Regional</strong> e garantiu vaga na <strong style="color:white">Final Nacional, em Curitiba</strong>. Queremos você nessa jornada.</p>
     <div class="s1-badges">
-      <span class="badge bg">🏆 3º Nacional Kids 2</span>
-      <span class="badge bo">📸 +800 seguidores</span>
-      <span class="badge bw">🏆🏆 2 Troféus de Desafio Prático</span>
+      <span class="badge bg">🏆 3º Nacional Kids 2 (2025)</span>
+      <span class="badge bo">🎟️ Final Nacional 2026 em Curitiba</span>
+      <span class="badge bw">📸 +800 seguidores</span>
+      <span class="badge bw">🏆 3 troféus de Desafio Prático</span>
     </div>
   </div>
 </section>
@@ -800,28 +847,28 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
       <div class="tc-icon big">🏆</div>
       <div>
         <div class="nat-badge">⭐ Destaque principal</div>
-        <div class="tc-place">Etapa Nacional · TBR · Categoria Kids 2</div>
+        <div class="tc-place">Etapa Nacional · TBR 2025 · Categoria Kids 2</div>
         <div class="tc-name big">3º Lugar Geral Nacional</div>
-        <div class="tc-desc">Entre todas as equipes do Brasil na categoria Kids 2, a Capibots subiu ao pódio nacional — resultado que representa o mais alto nível competitivo para estudantes do nosso nível.</div>
+        <div class="tc-desc">Na estreia, entre todas as equipes do Brasil na categoria Kids 2, a Capibots subiu ao pódio nacional — resultado que representa o mais alto nível competitivo para estudantes do nosso nível.</div>
       </div>
+    </div>
+    <div class="tc reg">
+      <div class="tc-icon">🎟️</div>
+      <div class="tc-place">Regional TBR 2026 · Ituiutaba (MG)</div>
+      <div class="tc-name">3º Lugar Geral e vaga na Final Nacional</div>
+      <div class="tc-desc">Em outubro de 2026, a equipe avançou de novo para a etapa nacional, marcada para dezembro em Curitiba (PR).</div>
     </div>
     <div class="tc int">
       <div class="tc-icon">🥇</div>
-      <div class="tc-place">Torneio Interno · CBM</div>
-      <div class="tc-name">Campeã Geral</div>
-      <div class="tc-desc">1º lugar geral no torneio interno do Colégio Batista Mineiro, etapa inaugural da temporada.</div>
-    </div>
-    <div class="tc reg">
-      <div class="tc-icon">🏅</div>
-      <div class="tc-place">Etapa Regional · Triângulo Mineiro</div>
-      <div class="tc-name">Campeã do Desafio Prático</div>
-      <div class="tc-desc">1º lugar no desafio prático e 2º lugar geral na regional — garantindo vaga na etapa nacional.</div>
+      <div class="tc-place">Expotech 2026 · CBM</div>
+      <div class="tc-name">Campeã Geral e do Desafio Prático</div>
+      <div class="tc-desc">Duplo título no torneio interno do Colégio Batista Mineiro, em junho, na abertura da temporada.</div>
     </div>
     <div class="tc ext">
-      <div class="tc-icon">🎖️</div>
-      <div class="tc-place">Além do pódio</div>
-      <div class="tc-name">Premiações nos cadernos</div>
-      <div class="tc-desc">Destaques em Mérito Científico e Organização & Método. Reconhecimento pela UFU e entidades ambientais.</div>
+      <div class="tc-icon">🏅</div>
+      <div class="tc-place">Regional TBR 2025 · Triângulo Mineiro</div>
+      <div class="tc-name">Campeã do Desafio Prático</div>
+      <div class="tc-desc">1º lugar no Desafio Prático e 2º lugar geral, o que garantiu a vaga na etapa nacional de 2025.</div>
     </div>
   </div>
 </section>
@@ -836,10 +883,10 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
   <div class="s3b-content">
     <div class="sec-label">Do regional ao nacional</div>
     <h2 class="sec-title" style="font-family:'Plus Jakarta Sans',sans-serif">Da etapa regional ao <span style="color:var(--orange-light)">pódio nacional</span></h2>
-    <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7">Cada etapa foi conquistada com muito treino, estratégia e espírito de equipe. Na etapa regional, campeãs do desafio prático. Na etapa nacional, pódio entre as melhores equipes do Brasil.</p>
+    <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7">Cada etapa foi conquistada com muito treino, estratégia e espírito de equipe. Em 2025, campeãs do desafio prático no regional e pódio entre as melhores equipes do Brasil na etapa nacional. Em 2026, a equipe voltou ao pódio do regional e está de volta à final.</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
-      <span style="background:rgba(200,150,12,0.15);border:1px solid rgba(200,150,12,0.4);color:var(--ouro);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px">🏆 3º Lugar Nacional</span>
-      <span style="background:rgba(87,196,90,0.12);border:1px solid rgba(87,196,90,0.3);color:var(--green-light);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px">🥇 Campeã Regional Desafio Prático</span>
+      <span style="background:rgba(200,150,12,0.15);border:1px solid rgba(200,150,12,0.4);color:var(--ouro);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px">🏆 3º Lugar Nacional 2025</span>
+      <span style="background:rgba(87,196,90,0.12);border:1px solid rgba(87,196,90,0.3);color:var(--green-light);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px">🥇 Campeã Regional Desafio Prático 2025</span>
     </div>
     <div style="margin-top:16px">
       <img src="./fotos-media-kit/multidao-etapa-nacional.jpg" alt="Multidão etapa nacional" style="width:100%;height:300px;object-fit:cover;border-radius:12px;object-position:center 70%">
@@ -848,8 +895,74 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
   </div>
 </section>
 
+<!-- ══ SLIDE 2026: TEMPORADA ══ -->
+<section class="slide s26" data-idx="6">
+  <div class="sec-label" style="color:var(--orange-light)">Temporada 2026</div>
+  <h2 class="sec-title" style="color:white;max-width:760px">Um ano de resultados e a <span style="color:var(--orange-light)">vaga em Curitiba garantida</span></h2>
+  <div class="s26-line">
+    <div class="s26-step"><div class="s26-when">20 jun</div><div class="s26-t">Expotech, torneio interno</div><div class="s26-d">Campeã geral e troféu do Desafio Prático.</div></div>
+    <div class="s26-step"><div class="s26-when">Out</div><div class="s26-t">Feira Ciência Viva, UFU</div><div class="s26-d">Pesquisa selecionada para apresentação na feira, parte da Semana Nacional de Ciência e Tecnologia.</div></div>
+    <div class="s26-step"><div class="s26-when">31 out e 1º nov</div><div class="s26-t">Regional do TBR, Ituiutaba</div><div class="s26-d">3º lugar geral na Kids 2 e classificação para a Final Nacional.</div></div>
+    <div class="s26-step dest"><div class="s26-when">Dez</div><div class="s26-t">Final Nacional, Curitiba</div><div class="s26-d">Segunda participação consecutiva na etapa nacional.</div></div>
+  </div>
+  <div class="s26-stats">
+    <div class="s26-stat"><div class="s26-n">46</div><div class="s26-l">crianças ouvidas na pesquisa da temporada, em duas escolas</div></div>
+    <div class="s26-stat"><div class="s26-n">9</div><div class="s26-l">empresas locais patrocinam a equipe em 2026</div></div>
+    <div class="s26-stat"><div class="s26-n">1</div><div class="s26-l">aplicativo educacional criado a partir da pesquisa</div></div>
+    <div class="s26-stat"><div class="s26-n">3</div><div class="s26-l">frentes de arrecadação: patrocínio, vaquinha e vendas feitas pelas crianças</div></div>
+  </div>
+</section>
+
+<!-- ══ SLIDE SOLUÇÕES ══ -->
+<section class="slide ssol" data-idx="7">
+  <div class="sec-label">Soluções criadas pela equipe</div>
+  <h2 class="sec-title">Da pesquisa ao <span class="hl">produto de verdade</span></h2>
+  <div class="ssol-grid">
+    <div class="ssol-card">
+      <img src="./fotos-media-kit/solucao-cerradotech.jpg" alt="Apresentação da solução CerradoTech" class="ssol-img">
+      <div class="ssol-tag">2025 · ODS 15, Vida Terrestre</div>
+      <div class="ssol-name">CerradoTech</div>
+      <p class="ssol-desc">Plataforma na internet com ferramentas e conteúdo para formar uma rede de pessoas que ajudam a regenerar a vegetação do Cerrado. Usa geolocalização, cruzamento de dados e inteligência artificial. Veio acompanhada de um quiz sobre o bioma e de um jogo, “Capivara e Robozinho”.</p>
+      <div class="ssol-foot">Milhares de pessoas impactadas · cerradotech.capibots.com.br</div>
+    </div>
+    <div class="ssol-card">
+      <div class="ssol-nums">
+        <div><div class="ssol-nn">16 de 46</div><div class="ssol-nl">crianças ouvidas não têm computador nem tablet em casa; 15 delas estudam na escola rural</div></div>
+        <div><div class="ssol-nn">39%</div><div class="ssol-nl">já deixaram de fazer a lição por falta de internet ou de aparelho</div></div>
+      </div>
+      <div class="ssol-tag">2026 · ODS 4, Educação de qualidade</div>
+      <div class="ssol-name">Capi-Aprende</div>
+      <p class="ssol-desc">Aplicativo para ajudar crianças sem internet de qualidade a estudar. Nasceu de uma pesquisa feita pelas próprias crianças da equipe e já tem conteúdos de Matemática e de Português do 5º ano, com tutorial e visão para o professor. Há protótipo navegável aberto a qualquer pessoa e aplicativo para baixar.</p>
+      <div class="ssol-foot">capiaprende.capibots.com.br</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE CURITIBA ══ -->
+<section class="slide scwb" data-idx="8">
+  <div class="sec-label" style="color:var(--orange-light)">Como um incentivo ajuda</div>
+  <h2 class="sec-title" style="color:white">Levar a equipe a <span style="color:var(--orange-light)">Curitiba</span></h2>
+  <div class="scwb-grid">
+    <div class="scwb-col">
+      <div class="scwb-h">O que a viagem exige</div>
+      <div class="scwb-i">Nove estudantes de 9 e 10 anos, com a técnica e a mentora, mais as famílias que os acompanham</div>
+      <div class="scwb-i">Deslocamento de Uberlândia (MG) até Curitiba (PR)</div>
+      <div class="scwb-i">Hospedagem durante a etapa nacional, em dezembro</div>
+      <div class="scwb-i">Inscrição e materiais para a competição</div>
+    </div>
+    <div class="scwb-col">
+      <div class="scwb-h">O que a equipe já fez por conta própria</div>
+      <div class="scwb-i">Captou R$ 3.700 com 9 empresas patrocinadoras</div>
+      <div class="scwb-i">Fez vaquinha online, Capi-Lanches nos Jogos Estudantis, Lojinha e Geladinho Gourmet</div>
+      <div class="scwb-i">Controla caixa em planilha aberta à equipe, com regra de não gastar mais do que arrecadou</div>
+      <div class="scwb-i">Promove novas ações no colégio e na comunidade rumo a Curitiba</div>
+    </div>
+  </div>
+  <p class="scwb-note">Apoio em recursos, transporte, hospedagem ou serviços: formato e valor a combinar com a equipe. Contrapartidas de visibilidade nas páginas seguintes.</p>
+</section>
+
 <!-- ══ SLIDE 4: VISIBILIDADE ══ -->
-<section class="slide s4" data-idx="6">
+<section class="slide s4" data-idx="9">
   <div class="sec-label">Visibilidade & alcance</div>
   <h2 class="sec-title">Sua marca onde as<br><span class="hl">pessoas nos seguem</span></h2>
   <div class="s4-grid">
@@ -872,7 +985,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
 </section>
 
 <!-- ══ SLIDE C: MÍDIA FOTOS ══ -->
-<section class="slide s_pat" data-idx="7">
+<section class="slide s_pat" data-idx="10">
   <div class="s_pat-img">
     <img src="./fotos-media-kit/entrevista-tv-paranaiba.jpg" alt="Entrevista TV Paranaíba">
   </div>
@@ -890,7 +1003,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
 </section>
 
 <!-- ══ SLIDE 5: COTAS ══ -->
-<section class="slide s5" data-idx="8">
+<section class="slide s5" data-idx="11">
   <div class="sec-label">Plano de patrocínio 2026</div>
   <h2 class="sec-title" style="font-size:38px;margin-bottom:4px">Escolha sua cota e <span class="hl">faça parte da equipe</span></h2>
   <div class="cotas">
@@ -967,11 +1080,11 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
 </section>
 
 <!-- ══ SLIDE 6: POR QUE APOIAR ══ -->
-<section class="slide s6" data-idx="9">
+<section class="slide s6" data-idx="12">
   <div class="sec-label">Por que patrocinar a Capibots?</div>
   <h2 class="sec-title">Mais do que visibilidade —<br>é fazer parte de <span style="color:var(--orange-light)">algo real</span></h2>
   <div class="pq-grid">
-    <div class="pqc"><div class="pqi">🏆</div><div class="pqt">Equipe que prova resultados</div><div class="pqd">3º lugar nacional Kids 2, campeã interna e campeã regional. Sua marca estará associada a uma equipe vencedora.</div></div>
+    <div class="pqc"><div class="pqi">🏆</div><div class="pqt">Equipe que prova resultados</div><div class="pqd">3º lugar nacional Kids 2 em 2025, 3º no Regional 2026 e de volta à Final Nacional. Sua marca estará associada a uma equipe vencedora.</div></div>
     <div class="pqc"><div class="pqi">📱</div><div class="pqt">Alcance digital crescente</div><div class="pqd">Instagram com +800 seguidores, milhares de visualizações e conteúdo constante durante toda a temporada.</div></div>
     <div class="pqc"><div class="pqi">🧒</div><div class="pqt">Associação com educação</div><div class="pqd">Apoiar a Capibots é apoiar ciência, tecnologia e educação. Imagem positiva de responsabilidade social para sua marca.</div></div>
     <div class="pqc"><div class="pqi">🎯</div><div class="pqt">Público local engajado</div><div class="pqd">Famílias, professores e comunidade de Uberlândia acompanham de perto a equipe. Conexão genuína com o público local.</div></div>
@@ -981,7 +1094,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
 </section>
 
 <!-- ══ SLIDE 7: CONTATO ══ -->
-<section class="slide s7" data-idx="10">
+<section class="slide s7" data-idx="13">
   <div class="sec-label">Vamos conversar</div>
   <div class="s7-grid">
     <div>
