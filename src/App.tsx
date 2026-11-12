@@ -15,6 +15,8 @@ import CardapioFutsal from "./pages/CardapioFutsal";
 import TeamMember from "./pages/TeamMember";
 import CapiAprende from "./pages/CapiAprende";
 import CadernosTecnicos from "./pages/CadernosTecnicos";
+import Imprensa from "./pages/Imprensa";
+import ImprensaRelease from "./pages/ImprensaRelease";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import LinkTracker from "./components/LinkTracker";
@@ -41,6 +43,8 @@ const App = () => (
           <Route path="/capi-aprende" element={<CapiAprende />} />
           <Route path="/equipe/:slug" element={<TeamMember />} />
           <Route path="/2026/cadernos-tecnicos" element={<CadernosTecnicos />} />
+          <Route path="/imprensa" element={<Imprensa />} />
+          <Route path="/imprensa/:slug" element={<ImprensaRelease />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,0 +1,162 @@
+{
+  "contato": {
+    "nome": "Luciana Rezende",
+    "papel": "Mentora da equipe Capibots",
+    "email": "equipecapibots@gmail.com"
+  },
+  "releases": [
+    {
+      "slug": "capi-aprende",
+      "publicado": true,
+      "dataPublicacao": "2026-11-13",
+      "atualizadoEm": "2026-11-13",
+      "titulo": "Crianças de 10 anos de Uberlândia criam tutor de IA que funciona no celular sem internet",
+      "linhaFina": "Classificada para a Final Nacional do Torneio Brasil de Robótica, em Curitiba, a equipe Capibots, do Colégio Batista Mineiro, pesquisou a desigualdade digital, foi a campo numa escola rural e criou o Capi-Aprende, aplicativo com tutor de IA que roda no próprio aparelho.",
+      "resumo": "Nove estudantes do 5º ano do Colégio Batista Mineiro, em Uberlândia (MG), criaram o Capi-Aprende, aplicativo de estudo com um tutor de inteligência artificial que roda no próprio celular, sem internet. O projeto nasceu de uma pesquisa feita pelas crianças e as leva à Final Nacional do Torneio Brasil de Robótica, de 11 a 13 de dezembro, em Curitiba. A equipe oferece à imprensa uma demonstração do tutor com o celular em modo avião.",
+      "numeros": [
+        {
+          "valor": "46",
+          "rotulo": "estudantes ouvidos na pesquisa"
+        },
+        {
+          "valor": "8",
+          "rotulo": "soluções comparadas"
+        },
+        {
+          "valor": "100%",
+          "rotulo": "offline no celular"
+        },
+        {
+          "valor": "11 a 13/12",
+          "rotulo": "Final Nacional em Curitiba"
+        }
+      ],
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "Nove estudantes do 5º ano do Colégio Batista Mineiro, Unidade Martins, em Uberlândia (MG), criaram um aplicativo de estudo com tutor de inteligência artificial que funciona no celular mesmo sem internet. O Capi-Aprende é o projeto da equipe de robótica Capibots, que compete na categoria Kids 2 do Torneio Brasil de Robótica (TBR) e disputa a Final Nacional, em Curitiba, de 11 a 13 de dezembro de 2026."
+        },
+        {
+          "tipo": "intertitulo",
+          "texto": "O problema escolhido pelas crianças"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O tema do TBR em 2026 foi educação de qualidade, o quarto Objetivo de Desenvolvimento Sustentável da ONU. Cada criança pesquisou o assunto por conta própria, a turma votou e aprofundou algumas frentes. Ao conferir os números nas fontes originais, a equipe notou que um dado muito repetido, o de 4,8 milhões de crianças sem internet em casa, era de 2019; em 2024, o total estava perto de 2 milhões."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A desigualdade não sumiu, mudou de lugar: saiu do acesso e foi para a qualidade do acesso. Dados oficiais mostram que 92% das crianças de 9 a 17 anos usam internet, mas só 22% dos brasileiros têm conectividade significativa, índice que cai para 3% entre alunos das classes D e E. Nas escolas de ensino fundamental, 90,2% têm internet e apenas 48,8% a liberam para os alunos. A equipe resume o problema numa frase: conectar a escola não é o mesmo que conectar o aluno."
+        },
+        {
+          "tipo": "intertitulo",
+          "texto": "Como o Capi-Aprende funciona"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O sistema tem duas partes. Na plataforma do professor, usada com internet, ele cadastra e contextualiza os conteúdos que orientam a IA. No aplicativo do aluno, o conteúdo é baixado uma vez, quando há conexão (na escola, por exemplo), e fica disponível para estudar em casa; o progresso sincroniza quando o aparelho volta a ter internet."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O diferencial é que o modelo de IA roda no próprio celular, sem nuvem e sem servidor por perto. Soluções offline como Kolibri, RACHEL e KA Lite dependem de servidor local e Wi-Fi e foram pensadas para a sala de aula, não para o aparelho que a criança leva para casa."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A IA funciona como tutor, não como repositório de respostas: conversa com a criança, parte do que ela já mostrou saber nos simulados e orienta o raciocínio em vez de entregar o resultado. Como há crianças ainda em alfabetização, o aplicativo aceita entrada por voz e traz perguntas curtas em cartões. O login usa o usuário e a senha da escola, e o progresso fica salvo por aluno, não por aparelho, já que muitos celulares são compartilhados com a família. Não há navegação aberta; o professor escolhe o conteúdo."
+        },
+        {
+          "tipo": "intertitulo",
+          "texto": "Uma pesquisa feita em campo"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A pergunta central veio das próprias crianças: como ajudar quem está em casa e não tem internet a continuar estudando? Para responder, a equipe comparou oito soluções em quatro critérios (alcança a criança sem conexão, ensina, é viável para a equipe e tem evidência na literatura). Só o aplicativo offline com tutor embarcado atendeu a todos. Estudos mostram que dar acesso sem pedagogia não melhora a aprendizagem, como no caso do programa One Laptop per Child, enquanto tutores inteligentes produzem ganhos consistentes."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Em 20 de agosto, a equipe visitou a Escola Municipal Dom Bosco, na zona rural de Uberlândia. Em 7 de outubro, voltou lá: as crianças apresentaram o projeto e aplicaram questionários impressos, lendo as perguntas em voz alta. No total, 46 estudantes responderam. Quase todos têm algum Wi-Fi em casa, e o obstáculo para estudar está na qualidade da conexão e no aparelho. Entre os participantes, 87% já tinham conversado com um assistente de IA."
+        },
+        {
+          "tipo": "intertitulo",
+          "texto": "Onde o projeto está"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O protótipo navegável do Capi-Aprende está aberto ao público em capiaprende.capibots.com.br. Na apresentação aos jurados da Final Nacional, a equipe pretende demonstrar o tutor ao vivo, com o celular em modo avião; a mesma demonstração está à disposição dos repórteres."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A temporada rendeu à Capibots o 3º lugar geral no Regional do TBR, em Ituiutaba (31 de outubro e 1º de novembro), e a vaga em Curitiba. O trabalho também foi selecionado para a 31ª Feira Ciência Viva da UFU, de 16 a 20 de novembro, no campus Santa Mônica, evento que integra o calendário da Semana Nacional de Ciência e Tecnologia. Na estreia, em 2025, a equipe terminou a Final Nacional, em Belo Horizonte, como a 3ª melhor da Kids 2 no país. O projeto já foi destaque na Rádio Líder FM e na Revista Soberana."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Uberlândia é um caso de sucesso e um polo de tecnologia, com destaque em inteligência artificial. Os estudantes da Capibots olham para o outro lado dessa história: a IA que precisa funcionar onde a internet não chega."
+        }
+      ],
+      "etapasPesquisa": [
+        {
+          "titulo": "Escolha do problema",
+          "texto": "Cada criança pesquisou o tema da temporada, educação de qualidade, e a turma votou as frentes que valiam o aprofundamento."
+        },
+        {
+          "titulo": "Checagem dos dados",
+          "texto": "Os grupos conferiram nas fontes originais os números que tinham levantado; parte se confirmou e parte foi corrigida."
+        },
+        {
+          "titulo": "Visita à escola rural",
+          "texto": "A equipe visitou a Escola Municipal Dom Bosco, na zona rural de Uberlândia, para conhecer a realidade de quem estuda longe da internet de qualidade."
+        },
+        {
+          "titulo": "Questionário com 46 estudantes",
+          "texto": "As crianças da equipe aplicaram questionários impressos, lendo as perguntas em voz alta."
+        },
+        {
+          "titulo": "Protótipo",
+          "texto": "O protótipo navegável do Capi-Aprende foi aberto ao público."
+        },
+        {
+          "titulo": "Validação com estudantes",
+          "texto": "A equipe segue testando o aplicativo com estudantes e ajustando o que encontra."
+        }
+      ],
+      "downloads": [
+        {
+          "rotulo": "Release (.docx)",
+          "arquivo": "",
+          "tamanho": ""
+        },
+        {
+          "rotulo": "Ficha da pesquisa (PDF)",
+          "arquivo": "",
+          "tamanho": ""
+        }
+      ],
+      "fotos": {
+        "pastaDrive": "",
+        "destaques": []
+      },
+      "prototipo": "https://capiaprende.capibots.com.br",
+      "naMidia": [
+        {
+          "veiculo": "Rádio Líder FM 93,1",
+          "titulo": "Líder FM visita o laboratório de robótica para conhecer a equipe e o Capi-Aprende",
+          "data": "2026-11-06",
+          "url": "https://capibots.com.br/blog/capibots-radio-lider-fm-a-manha-e-nossa/"
+        },
+        {
+          "veiculo": "Revista Soberana",
+          "titulo": "Revista Soberana destaca a Capibots e a vaga na Final Nacional do TBR",
+          "data": "2026-11-04",
+          "url": "https://capibots.com.br/blog/capibots-revista-soberana-torneio-brasil-de-robotica/"
+        }
+      ],
+      "imagemCompartilhamento": "",
+      "historico": [
+        {
+          "data": "2026-11-13",
+          "mudanca": "Publicação do release"
+        }
+      ]
+    }
+  ]
+}

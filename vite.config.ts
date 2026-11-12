@@ -5,6 +5,7 @@ import fs from "fs";
 import type { Plugin } from "vite";
 import { componentTagger } from "lovable-tagger";
 import { DEFAULT_IMAGE, postMeta, staticRoutes } from "./src/lib/pageMeta";
+import { indexMeta, indexStaticBody, releaseJsonLd, releaseMeta, releasesPublicados, releaseStaticBody } from "./src/lib/imprensa";
 
 const SITE_URL = "https://capibots.com.br";
 
@@ -40,9 +41,17 @@ const pageMetaTags = (): Plugin => {
       const pages = [
         ...publishedPosts().map((post) => ({ route: `/blog/${post.id}`, meta: postMeta(post) })),
         ...staticRoutes(),
-      ];
+      ].map((p) => ({ ...p, body: undefined as string | undefined, jsonLd: undefined as object | undefined }));
 
-      for (const { route, meta } of pages) {
+      // Sala de Imprensa: o texto do release e o JSON-LD já vão no HTML (RNF03)
+      pages.push(
+        { route: "/imprensa", meta: indexMeta, body: indexStaticBody(), jsonLd: undefined },
+        ...releasesPublicados().map((r) => ({
+          route: `/imprensa/${r.slug}`, meta: releaseMeta(r), body: releaseStaticBody(r), jsonLd: releaseJsonLd(r),
+        })),
+      );
+
+      for (const { route, meta, body, jsonLd } of pages) {
         const url = `${SITE_URL}${route}`;
         const image = `${SITE_URL}${encodeURI(meta.image ?? DEFAULT_IMAGE)}`;
         const isArticle = meta.type === "article";
@@ -60,6 +69,7 @@ const pageMetaTags = (): Plugin => {
           ...(meta.publishedTime ? [`<meta property="article:published_time" content="${meta.publishedTime}" />`] : []),
           `<meta name="twitter:card" content="${isArticle && meta.image ? "summary_large_image" : "summary"}" />`,
           `<meta name="twitter:image" content="${image}" />`,
+          ...(jsonLd ? [`<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, "\\u003c")}</script>`] : []),
         ].join("\n    ");
 
         const html = template
@@ -68,7 +78,8 @@ const pageMetaTags = (): Plugin => {
           .replace(/<link rel="canonical"[^>]*>\s*/, "")
           .replace(/<meta property="og:[^>]*>\s*/g, "")
           .replace(/<meta name="twitter:(card|image)"[^>]*>\s*/g, "")
-          .replace("</head>", `    ${tags}\n  </head>`);
+          .replace("</head>", `    ${tags}\n  </head>`)
+          .replace('<div id="root"></div>', () => `<div id="root">${body ?? ""}</div>`);
 
         const dir = path.join(outDir, route);
         fs.mkdirSync(dir, { recursive: true });
@@ -101,6 +112,8 @@ const seoFiles = (): Plugin => {
         { loc: "/blog", lastmod: posts[0]?.date ?? today },
         { loc: "/capi-aprende", lastmod: today },
         { loc: "/contato", lastmod: today },
+        { loc: "/imprensa", lastmod: today },
+        ...releasesPublicados().map((r) => ({ loc: `/imprensa/${r.slug}`, lastmod: r.atualizadoEm })),
         ...staticRoutes().filter((r) => r.route.startsWith("/equipe/")).map((r) => ({ loc: r.route, lastmod: today })),
         ...posts.map((p) => ({ loc: `/blog/${p.id}`, lastmod: p.date })),
       ];

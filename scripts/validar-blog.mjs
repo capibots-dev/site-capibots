@@ -80,6 +80,26 @@ for (const projeto of projects) {
   }
 }
 
+// Sala de Imprensa: release publicado precisa de arquivos que existam e de slug único
+const imprensa = readJson('src/data/imprensa/releases.json');
+const slugs = new Set();
+for (const r of imprensa.releases) {
+  const id = `imprensa/${r.slug ?? '(sem slug)'}`;
+  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(r.slug ?? '')) erro(id, 'slug deve ter só minúsculas, números e hífens');
+  if (slugs.has(r.slug)) erro(id, 'slug repetido');
+  slugs.add(r.slug);
+  if (!r.publicado) continue;
+  const arquivos = [
+    ...r.downloads.map((d) => d.arquivo),
+    ...r.fotos.destaques.map((f) => f.miniatura),
+    r.imagemCompartilhamento,
+  ].filter(Boolean);
+  for (const arquivo of arquivos) if (!existeEmPublic(arquivo)) erro(id, `arquivo não encontrado em public/: ${arquivo}`);
+  if (!r.imagemCompartilhamento) aviso(id, 'sem imagemCompartilhamento (a prévia usa a logomarca)');
+  if (!r.fotos.pastaDrive) aviso(id, 'sem link da pasta de fotos no Drive');
+  if (!r.downloads.some((d) => d.arquivo)) aviso(id, 'sem arquivos para download');
+}
+
 for (const a of avisos) console.warn(`aviso  ${a}`);
 for (const e of erros) console.error(`erro   ${e}`);
 console.log(`blog.json: ${posts.length} posts, ${erros.length} erro(s), ${avisos.length} aviso(s)`);
