@@ -57,7 +57,7 @@ const Header = () => {
               </Link>
             ))}
             <a
-              href="https://capibots-dev.github.io/loja-capibots/"
+              href="https://loja.capibots.com.br/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-sm font-semibold text-orange-500 hover:text-orange-600 transition-colors"
@@ -107,7 +107,7 @@ const Header = () => {
                 </Link>
               ))}
               <a
-                href="https://capibots-dev.github.io/loja-capibots/"
+                href="https://loja.capibots.com.br/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 text-sm font-semibold text-orange-500 hover:text-orange-600 transition-colors"

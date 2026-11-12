@@ -539,7 +539,7 @@ const Index = () => {
       <section className="py-8 bg-muted/30">
         <div className="container mx-auto px-4">
           <a
-            href="https://capibots-dev.github.io/loja-capibots/"
+            href="https://loja.capibots.com.br/"
             target="_blank"
             rel="noopener noreferrer"
             className="block max-w-5xl mx-auto group"
