@@ -137,6 +137,39 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ── Banner Vaquinha ── */}
+      <section className="py-8 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <a
+            href="https://loja.capibots.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block max-w-5xl mx-auto group"
+          >
+            <div className="bg-gradient-to-r from-yellow-400 via-orange-400 to-orange-500 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-[1.01]">
+              <div className="flex items-center gap-4">
+                <div className="bg-white/30 rounded-xl p-3 flex-shrink-0">
+                  <ShoppingBag className="h-8 w-8 text-white" />
+                </div>
+                <div className="text-white">
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/70 mb-0.5">Vaquinha</p>
+                  <h3 className="text-xl md:text-2xl font-bold leading-tight">Ajude a Capibots a chegar a Curitiba 🚌</h3>
+                  <p className="text-white/90 mt-0.5 text-sm">
+                    Meta de R$ 28.000 para levar a equipe e as famílias à Final Nacional. Cotas de R$ 1 na loja.
+                  </p>
+                </div>
+              </div>
+              <div className="flex-shrink-0">
+                <div className="bg-white text-orange-500 font-bold px-6 py-2.5 rounded-full text-sm group-hover:bg-orange-50 transition-colors flex items-center gap-2 whitespace-nowrap">
+                  Quero ajudar
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
       {/* ── Stats strip — Conquistas por temporada ── */}
       <section className="bg-foreground text-background py-5">
         <div className="container mx-auto px-4">
@@ -532,39 +565,6 @@ const Index = () => {
               <Link to="/sobre#conquistas">Ver Todas as Conquistas</Link>
             </Button>
           </div>
-        </div>
-      </section>
-
-      {/* ── Banner Loja ── */}
-      <section className="py-8 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <a
-            href="https://loja.capibots.com.br/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block max-w-5xl mx-auto group"
-          >
-            <div className="bg-gradient-to-r from-yellow-400 via-orange-400 to-orange-500 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-[1.01]">
-              <div className="flex items-center gap-4">
-                <div className="bg-white/30 rounded-xl p-3 flex-shrink-0">
-                  <ShoppingBag className="h-8 w-8 text-white" />
-                </div>
-                <div className="text-white">
-                  <p className="text-xs font-bold uppercase tracking-widest text-white/70 mb-0.5">Novidade</p>
-                  <h3 className="text-xl md:text-2xl font-bold leading-tight">Loja Capibots 🛒</h3>
-                  <p className="text-white/90 mt-0.5 text-sm">
-                    Produtos exclusivos da equipe. Apoie e vista a camisa do time!
-                  </p>
-                </div>
-              </div>
-              <div className="flex-shrink-0">
-                <div className="bg-white text-orange-500 font-bold px-6 py-2.5 rounded-full text-sm group-hover:bg-orange-50 transition-colors flex items-center gap-2 whitespace-nowrap">
-                  Acessar a Loja
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </div>
-              </div>
-            </div>
-          </a>
         </div>
       </section>
 
