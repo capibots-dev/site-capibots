@@ -20,7 +20,8 @@ const Imprensa = () => {
     <div className="min-h-screen bg-white text-[#1f2a22]">
       <Header />
       <main className="container mx-auto px-4 py-10 md:py-14">
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-4xl">
+        <div>
           <Selo />
           <h1 className="mt-3 text-3xl md:text-4xl font-bold text-[#1a5c2a]">Sala de Imprensa Capibots</h1>
           <p className="mt-4 text-[17px] leading-[1.6] md:text-lg max-w-[70ch]">
@@ -34,7 +35,7 @@ const Imprensa = () => {
           {releases.length === 0 ? (
             <p className="mt-4">Nenhum release publicado no momento.</p>
           ) : (
-            <ul className="mt-4 grid gap-4 md:grid-cols-2">
+            <ul className={`mt-4 grid gap-4 ${releases.length > 1 ? 'md:grid-cols-2' : ''}`}>
               {releases.map((r) => (
                 <li key={r.slug} className="rounded-lg border border-[#1a5c2a]/20 p-5 bg-white">
                   <time dateTime={r.dataPublicacao} className="text-sm text-[#1f2a22]/70">{formatarData(r.dataPublicacao)}</time>
@@ -84,6 +85,7 @@ const Imprensa = () => {
             <ListaNaMidia materias={materias} />
           </section>
         )}
+        </div>
       </main>
       <Footer />
     </div>
