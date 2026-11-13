@@ -10,7 +10,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight, Search, X } from 'lucide-react';
 import blogData from '@/data/blog.json';
-import { isNewsPost } from '@/lib/blog';
+import { isNewsPost, MIDIA_POSTS } from '@/lib/blog';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { staticPages } from '@/lib/pageMeta';
 
@@ -27,6 +27,10 @@ const Blog = () => {
     .filter((p) => p.date <= today && isNewsPost(p))
     .sort((a, b) => b.date.localeCompare(a.date));
   const featured = allPosts.filter((p) => p.featured).slice(0, 5);
+  const naMidia = MIDIA_POSTS.flatMap((m) => {
+    const post = allPosts.find((p) => p.id === m.postId);
+    return post ? [{ ...m, post }] : [];
+  });
   const categories = [...new Set(allPosts.map((p) => p.category))];
   const countOf = (category: string) => allPosts.filter((p) => p.category === category).length;
   const termos = normalizar(query).split(/\s+/).filter(Boolean);
@@ -53,6 +57,35 @@ const Blog = () => {
 
       {/* Featured Carousel */}
       <FeaturedCarousel posts={featured} />
+
+      {/* Capibots na mídia */}
+      {naMidia.length > 0 && (
+        <section aria-labelledby="na-midia" className="py-10 bg-muted/30 border-b">
+          <div className="container mx-auto px-4">
+            <h2 id="na-midia" className="text-2xl font-bold text-center mb-2 text-gradient">Capibots na mídia</h2>
+            <p className="text-center text-muted-foreground mb-6">Os veículos que já divulgaram o trabalho da equipe.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+              {naMidia.map(({ post, veiculo, logo }) => (
+                <Card key={post.id} className="hover:shadow-lg transition-shadow">
+                  <CardContent className="p-5 flex gap-4">
+                    <img src={logo} alt="" loading="lazy" width={56} height={56} className="h-14 w-14 shrink-0 rounded-full" />
+                    <div>
+                      <p className="text-xs font-semibold text-primary">{veiculo}</p>
+                      <h3 className="mt-1 font-semibold leading-snug">
+                        <Link to={`/blog/${post.id}`} className="hover:text-primary transition-colors">{post.title}</Link>
+                      </h3>
+                      <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{post.excerpt}</p>
+                      <Button asChild size="sm" variant="outline" className="mt-3">
+                        <Link to={`/blog/${post.id}`}>Ler matéria <ArrowRight className="ml-1 h-3 w-3" /></Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Categories Filter */}
       <section className="py-8 bg-background border-b">

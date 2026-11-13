@@ -66,6 +66,7 @@ const pageMetaTags = (): Plugin => {
           `<meta property="og:url" content="${url}" />`,
           `<meta property="og:image" content="${image}" />`,
           `<meta property="og:locale" content="pt_BR" />`,
+          ...(meta.noindex ? [`<meta name="robots" content="noindex" />`] : []),
           ...(meta.publishedTime ? [`<meta property="article:published_time" content="${meta.publishedTime}" />`] : []),
           `<meta name="twitter:card" content="${isArticle && meta.image ? "summary_large_image" : "summary"}" />`,
           `<meta name="twitter:image" content="${image}" />`,
@@ -112,8 +113,6 @@ const seoFiles = (): Plugin => {
         { loc: "/blog", lastmod: posts[0]?.date ?? today },
         { loc: "/capi-aprende", lastmod: today },
         { loc: "/contato", lastmod: today },
-        { loc: "/imprensa", lastmod: today },
-        ...releasesPublicados().map((r) => ({ loc: `/imprensa/${r.slug}`, lastmod: r.atualizadoEm })),
         ...staticRoutes().filter((r) => r.route.startsWith("/equipe/")).map((r) => ({ loc: r.route, lastmod: today })),
         ...posts.map((p) => ({ loc: `/blog/${p.id}`, lastmod: p.date })),
       ];

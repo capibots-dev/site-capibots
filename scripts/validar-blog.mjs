@@ -71,6 +71,10 @@ for (const post of posts) {
   });
 }
 
+// Posts da seção "Capibots na mídia" do blog (MIDIA_POSTS em src/lib/blog.ts) precisam existir
+const midia = fs.readFileSync(path.join(root, 'src/lib/blog.ts'), 'utf-8');
+for (const [, postId] of midia.matchAll(/postId: '([^']+)'/g)) if (!ids.has(postId)) erro('midia', `post inexistente em MIDIA_POSTS: ${postId}`);
+
 // Posts citados nos projetos precisam existir
 for (const projeto of projects) {
   for (const etapa of projeto.research?.stages ?? []) {
@@ -92,6 +96,7 @@ for (const r of imprensa.releases) {
   const arquivos = [
     ...r.downloads.map((d) => d.arquivo),
     ...r.fotos.destaques.map((f) => f.miniatura),
+    ...r.naMidia.map((m) => m.logo),
     r.imagemCompartilhamento,
   ].filter(Boolean);
   for (const arquivo of arquivos) if (!existeEmPublic(arquivo)) erro(id, `arquivo não encontrado em public/: ${arquivo}`);

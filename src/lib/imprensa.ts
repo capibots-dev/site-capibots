@@ -7,9 +7,10 @@ export type Bloco = { tipo: 'paragrafo' | 'intertitulo' | 'aspas'; texto: string
 export type Etapa = { quando?: string; titulo: string; texto: string };
 export type Download = { rotulo: string; arquivo: string; tamanho: string };
 export type Foto = { miniatura: string; legenda: string; credito: string; alt?: string };
-export type Materia = { veiculo: string; titulo: string; data: string; url: string };
+export type Materia = { veiculo: string; logo?: string; titulo: string; data: string; url: string };
 export type Release = {
   slug: string;
+  tema?: string;
   publicado: boolean;
   dataPublicacao: string;
   atualizadoEm: string;
@@ -26,9 +27,12 @@ export type Release = {
   imagemCompartilhamento: string;
   historico: { data: string; mudanca: string }[];
 };
-export type Contato = { nome: string; papel: string; email: string };
+export type Contato = { nome: string; papel: string; whatsapp: string; telefone: string; email: string };
+
+export type Equipe = { texto: string; numeros: { valor: string; rotulo: string }[] };
 
 export const contato = data.contato as Contato;
+export const equipe = data.equipe as Equipe;
 
 // Só os publicados, do mais recente para o mais antigo
 export const releasesPublicados = (): Release[] =>
@@ -36,10 +40,14 @@ export const releasesPublicados = (): Release[] =>
 
 export const getRelease = (slug: string) => releasesPublicados().find((r) => r.slug === slug);
 
-export const todasMaterias = (): (Materia & { release: string })[] =>
-  releasesPublicados()
+// Matérias de todos os releases, sem repetir a mesma URL, da mais recente para a mais antiga
+export const todasMaterias = (): (Materia & { release: string })[] => {
+  const vistas = new Set<string>();
+  return releasesPublicados()
     .flatMap((r) => r.naMidia.map((m) => ({ ...m, release: r.slug })))
+    .filter((m) => !vistas.has(m.url) && vistas.add(m.url))
     .sort((a, b) => b.data.localeCompare(a.data));
+};
 
 // Texto puro do release: é o que "Copiar release" entrega e o que deve estar idêntico no .docx
 export const textoCorpo = (r: Release) =>
@@ -51,21 +59,27 @@ export const textoRelease = (r: Release) => `${r.titulo}\n\n${r.linhaFina}\n\n${
 
 export const textoLegenda = (f: Foto) => `${f.legenda} ${f.credito}`;
 
-export const mailtoContato = (assunto: string) =>
-  `mailto:${contato.email}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(
-    'Olá, sou jornalista do veículo ___ e gostaria de falar sobre o Capi-Aprende.'
-  )}`;
+const mensagemJornalista = (tema: string) => `Olá, sou jornalista do veículo ___ e gostaria de falar sobre ${tema}.`;
+
+export const mailtoContato = (assunto: string, tema = 'a Capibots') =>
+  `mailto:${contato.email}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(mensagemJornalista(tema))}`;
+
+export const whatsappContato = (tema = 'a Capibots') =>
+  `https://wa.me/${contato.whatsapp}?text=${encodeURIComponent(mensagemJornalista(tema))}`;
 
 export const formatarData = (iso: string) =>
   new Date(`${iso}T12:00:00Z`).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
+// As páginas da Sala de Imprensa não entram em buscadores nem no sitemap: o link é enviado direto aos veículos
 export const indexMeta: PageMeta = {
+  noindex: true,
   title: 'Sala de Imprensa | Capibots',
   description:
     'Releases, fotos, contato e materiais da Capibots, equipe de robótica de crianças de 10 anos de Uberlândia (MG), para jornalistas e veículos de comunicação.',
 };
 
 export const releaseMeta = (r: Release): PageMeta => ({
+  noindex: true,
   title: `${r.titulo} | Capibots`,
   description: r.linhaFina,
   image: r.imagemCompartilhamento || undefined,
@@ -103,4 +117,4 @@ export const indexStaticBody = () =>
   releasesPublicados()
     .map((r) => `<li><a href="/imprensa/${r.slug}">${esc(r.titulo)}</a> <p>${esc(r.linhaFina)}</p></li>`)
     .join('') +
-  `</ul></main>`;
+  `</ul><h2>Sobre a Capibots</h2><p>${esc(equipe.texto)}</p></main>`;

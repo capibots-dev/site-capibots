@@ -2,7 +2,30 @@
   "contato": {
     "nome": "Luciana Rezende",
     "papel": "Mentora da equipe Capibots",
-    "email": "equipecapibots@gmail.com"
+    "whatsapp": "5534999291209",
+    "telefone": "(34) 99929-1209",
+    "email": "lucianacomp@gmail.com"
+  },
+  "equipe": {
+    "texto": "A Capibots é a equipe de robótica do Colégio Batista Mineiro, Unidade Martins, em Uberlândia (MG), formada por nove estudantes do 5º ano. Estreou no Torneio Brasil de Robótica em 2025 e terminou a temporada como a 3ª melhor equipe do país na categoria Kids 2. Em 2026, desenvolve o Capi-Aprende, tutor de inteligência artificial que funciona no celular sem internet. Lema: “Unidos como capivaras, espertos como robôs.”",
+    "numeros": [
+      {
+        "valor": "9",
+        "rotulo": "estudantes do 5º ano"
+      },
+      {
+        "valor": "3ª",
+        "rotulo": "melhor equipe do Brasil na Kids 2, em 2025"
+      },
+      {
+        "valor": "3º",
+        "rotulo": "lugar geral no Regional de 2026"
+      },
+      {
+        "valor": "2",
+        "rotulo": "temporadas no TBR"
+      }
+    ]
   },
   "releases": [
     {
@@ -122,8 +145,13 @@
       "downloads": [
         {
           "rotulo": "Release (.docx)",
-          "arquivo": "",
-          "tamanho": ""
+          "arquivo": "/imprensa/arquivos/capibots-release-capi-aprende.docx",
+          "tamanho": "14 KB"
+        },
+        {
+          "rotulo": "Release (PDF)",
+          "arquivo": "/imprensa/arquivos/capibots-release-capi-aprende.pdf",
+          "tamanho": "126 KB"
         },
         {
           "rotulo": "Ficha da pesquisa (PDF)",
@@ -139,21 +167,120 @@
       "naMidia": [
         {
           "veiculo": "Rádio Líder FM 93,1",
-          "titulo": "Líder FM visita o laboratório de robótica para conhecer a equipe e o Capi-Aprende",
+          "logo": "/imprensa/veiculos/lider-fm.png",
+          "titulo": "Líder FM mostra a visita ao laboratório de robótica e o Capi-Aprende (Instagram)",
           "data": "2026-11-06",
-          "url": "https://capibots.com.br/blog/capibots-radio-lider-fm-a-manha-e-nossa/"
+          "url": "https://www.instagram.com/reel/DfmqEi-tZIi/"
         },
         {
           "veiculo": "Revista Soberana",
-          "titulo": "Revista Soberana destaca a Capibots e a vaga na Final Nacional do TBR",
+          "titulo": "Capibots: jovens talentos de Uberlândia conquistam vaga no Torneio Brasil de Robótica em Curitiba",
           "data": "2026-11-04",
-          "url": "https://capibots.com.br/blog/capibots-revista-soberana-torneio-brasil-de-robotica/"
+          "url": "https://revistasoberana.com.br/2026/11/04/capibots-jovens-talentos-de-uberlandia-conquistam-vaga-no-torneio-brasil-de-robotica-em-curitiba/",
+          "logo": "/imprensa/veiculos/revista-soberana.png"
         }
       ],
       "imagemCompartilhamento": "",
       "historico": [
         {
           "data": "2026-11-13",
+          "mudanca": "Publicação do release"
+        }
+      ],
+      "tema": "o Capi-Aprende"
+    },
+    {
+      "slug": "regional-tbr-2026",
+      "publicado": true,
+      "dataPublicacao": "2026-11-12",
+      "atualizadoEm": "2026-11-12",
+      "tema": "a classificação da Capibots para a Final Nacional do TBR",
+      "titulo": "Equipe de robótica de Uberlândia fica em 3º lugar no Regional do TBR e se classifica para a Final Nacional, em Curitiba",
+      "linhaFina": "A Capibots, formada por nove estudantes do 5º ano do Colégio Batista Mineiro, disputou a categoria Kids 2 em Ituiutaba (MG) e volta à etapa nacional, onde estreou em 2025 com o 3º lugar.",
+      "resumo": "A Capibots, equipe de robótica do Colégio Batista Mineiro, em Uberlândia (MG), terminou em 3º lugar geral no Regional do Torneio Brasil de Robótica, em Ituiutaba, nos dias 31 de outubro e 1º de novembro. A vaga leva os nove estudantes do 5º ano à Final Nacional, de 11 a 13 de dezembro, em Curitiba. Na estreia, em 2025, a equipe foi a 3ª melhor da Kids 2 no país.",
+      "numeros": [
+        {
+          "valor": "3º",
+          "rotulo": "lugar geral no Regional, categoria Kids 2"
+        },
+        {
+          "valor": "2",
+          "rotulo": "dias de provas e apresentações"
+        },
+        {
+          "valor": "9",
+          "rotulo": "estudantes do 5º ano"
+        },
+        {
+          "valor": "11 a 13/12",
+          "rotulo": "Final Nacional em Curitiba"
+        }
+      ],
+      "corpo": [
+        {
+          "tipo": "paragrafo",
+          "texto": "A equipe de robótica Capibots, do Colégio Batista Mineiro, Unidade Martins, em Uberlândia (MG), terminou em 3º lugar geral no Regional do Torneio Brasil de Robótica (TBR), na categoria Kids 2, e garantiu vaga na Final Nacional, marcada para 11 a 13 de dezembro de 2026, em Curitiba (PR). A etapa regional aconteceu em Ituiutaba (MG), nos dias 31 de outubro e 1º de novembro."
+        },
+        {
+          "tipo": "intertitulo",
+          "texto": "Dois dias de provas e apresentações"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Diante da banca de jurados, as crianças defenderam a pesquisa que fizeram ao longo da temporada: por que tantos estudantes não conseguem estudar pela internet em casa, mesmo quando a escola está conectada, e que solução dá para propor a partir disso. Também mostraram como a equipe se organiza para treinar, divide as funções e registra cada etapa do trabalho, além de disputar as provas com o robô."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O conjunto desses trabalhos colocou a Capibots entre as três melhores equipes do regional, que reuniu mais de 40 equipes do Triângulo Mineiro, segundo a Revista Soberana. A solução que nasceu da pesquisa é o Capi-Aprende, aplicativo de estudo com tutor de inteligência artificial que funciona no celular sem internet; o protótipo está aberto ao público."
+        },
+        {
+          "tipo": "intertitulo",
+          "texto": "Uma equipe que volta à Final Nacional"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A Capibots estreou no TBR em 2025 e, na primeira Final Nacional, em Belo Horizonte, terminou como a 3ª melhor equipe do país na Kids 2. Em 2026, os mesmos nove estudantes, agora no 5º ano, chegam a Curitiba com uma pesquisa própria e um aplicativo funcionando. O trabalho também foi selecionado para a 31ª Feira Ciência Viva da UFU, de 16 a 20 de novembro."
+        },
+        {
+          "tipo": "intertitulo",
+          "texto": "Próximos passos"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Até dezembro, a equipe segue treinando, vai publicar o artigo científico do projeto e reforçar a apresentação que fará aos jurados em Curitiba. Levar nove crianças e as famílias até lá custa deslocamento, hospedagem e inscrição, e por isso a Capibots promove ações no colégio e na comunidade para arrecadar recursos; as datas saem no Instagram @equipecapibots."
+        }
+      ],
+      "etapasPesquisa": [],
+      "downloads": [
+        {
+          "rotulo": "Release (.docx)",
+          "arquivo": "/imprensa/arquivos/capibots-release-regional-tbr-2026.docx",
+          "tamanho": "12 KB"
+        },
+        {
+          "rotulo": "Release (PDF)",
+          "arquivo": "/imprensa/arquivos/capibots-release-regional-tbr-2026.pdf",
+          "tamanho": "120 KB"
+        }
+      ],
+      "fotos": {
+        "pastaDrive": "",
+        "destaques": []
+      },
+      "prototipo": "https://capiaprende.capibots.com.br",
+      "naMidia": [
+        {
+          "veiculo": "Revista Soberana",
+          "titulo": "Capibots: jovens talentos de Uberlândia conquistam vaga no Torneio Brasil de Robótica em Curitiba",
+          "data": "2026-11-04",
+          "url": "https://revistasoberana.com.br/2026/11/04/capibots-jovens-talentos-de-uberlandia-conquistam-vaga-no-torneio-brasil-de-robotica-em-curitiba/",
+          "logo": "/imprensa/veiculos/revista-soberana.png"
+        }
+      ],
+      "imagemCompartilhamento": "",
+      "historico": [
+        {
+          "data": "2026-11-12",
           "mudanca": "Publicação do release"
         }
       ]

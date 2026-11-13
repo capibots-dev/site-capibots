@@ -1,13 +1,13 @@
 import { Link, useParams } from 'react-router-dom';
-import { Copy, Download, FileText, FolderOpen, Mail } from 'lucide-react';
+import { Copy, Download, FileText, FolderOpen, MessageCircle } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { useCopiar } from '@/components/imprensa/useCopiar';
-import { ContatoImprensa, ListaNaMidia, Selo } from '@/components/imprensa/Blocos';
+import { ContatoImprensa, ListaNaMidia, Selo, SobreEquipe } from '@/components/imprensa/Blocos';
 import { trackEvent } from '@/lib/analytics';
 import { notFoundMeta } from '@/lib/pageMeta';
-import { formatarData, getRelease, mailtoContato, releaseMeta, textoLegenda, textoRelease } from '@/lib/imprensa';
+import { formatarData, getRelease, releaseMeta, textoLegenda, textoRelease, whatsappContato } from '@/lib/imprensa';
 
 const FOCO = 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a5c2a]';
 const BTN_PRIMARIO = `inline-flex items-center justify-center gap-2 rounded-md bg-[#1a5c2a] px-4 py-2 text-sm font-semibold text-white ${FOCO}`;
@@ -88,8 +88,8 @@ const ImprensaRelease = () => {
                   <FolderOpen className="h-4 w-4" aria-hidden="true" /> Fotos em alta (Drive)
                 </a>
               )}
-              <a href={mailtoContato(`Imprensa: ${release.titulo}`)} className={`${BTN_SECUNDARIO} shrink-0`} onClick={() => track('falar_com_a_equipe')}>
-                <Mail className="h-4 w-4" aria-hidden="true" /> Falar com a equipe
+              <a href={whatsappContato(release.tema)} target="_blank" rel="noopener noreferrer" className={`${BTN_SECUNDARIO} shrink-0`} onClick={() => track('falar_com_a_equipe')}>
+                <MessageCircle className="h-4 w-4" aria-hidden="true" /> Falar com a equipe
               </a>
             </div>
           </section>
@@ -142,19 +142,21 @@ const ImprensaRelease = () => {
             </section>
           )}
 
-          <section aria-labelledby="pesquisa" className="mt-12">
-            <h2 id="pesquisa" className={H2}>A pesquisa passo a passo</h2>
-            <ol className="mt-5 space-y-6 border-l-2 border-[#1a5c2a]/30 pl-6 md:grid md:grid-cols-3 md:gap-6 md:space-y-0 md:border-l-0 md:pl-0 lg:grid-cols-6">
-              {release.etapasPesquisa.map((e, i) => (
-                <li key={e.titulo} className="relative md:border-t-2 md:border-[#1a5c2a]/30 md:pt-5">
-                  <span className="absolute -left-[33px] top-1 h-3 w-3 rounded-full bg-[#e05c00] md:-top-[7px] md:left-0" aria-hidden="true" />
-                  <p className="text-xs font-bold text-[#e05c00]">{e.quando ?? `Etapa ${i + 1}`}</p>
-                  <h3 className="font-bold">{e.titulo}</h3>
-                  <p className="mt-1 text-sm leading-[1.5]">{e.texto}</p>
-                </li>
-              ))}
-            </ol>
-          </section>
+          {release.etapasPesquisa.length > 0 && (
+            <section aria-labelledby="pesquisa" className="mt-12">
+              <h2 id="pesquisa" className={H2}>A pesquisa passo a passo</h2>
+              <ol className="mt-5 space-y-6 border-l-2 border-[#1a5c2a]/30 pl-6 md:grid md:grid-cols-3 md:gap-6 md:space-y-0 md:border-l-0 md:pl-0 lg:grid-cols-6">
+                {release.etapasPesquisa.map((e, i) => (
+                  <li key={e.titulo} className="relative md:border-t-2 md:border-[#1a5c2a]/30 md:pt-5">
+                    <span className="absolute -left-[33px] top-1 h-3 w-3 rounded-full bg-[#e05c00] md:-top-[7px] md:left-0" aria-hidden="true" />
+                    <p className="text-xs font-bold text-[#e05c00]">{e.quando ?? `Etapa ${i + 1}`}</p>
+                    <h3 className="font-bold">{e.titulo}</h3>
+                    <p className="mt-1 text-sm leading-[1.5]">{e.texto}</p>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          )}
 
           {release.prototipo && (
             <section aria-labelledby="experimente" className="mt-12 max-w-[70ch]">
@@ -175,19 +177,9 @@ const ImprensaRelease = () => {
             </section>
           )}
 
-          <section aria-labelledby="sobre" className="mt-12 max-w-[70ch]">
-            <h2 id="sobre" className={H2}>Sobre a Capibots</h2>
-            <p className="mt-3 text-[17px] leading-[1.6]">
-              A Capibots é a equipe de robótica do Colégio Batista Mineiro, Unidade Martins, em Uberlândia (MG), formada por nove estudantes do 5º ano. Estreou no Torneio Brasil de Robótica em 2025 e terminou a temporada como a 3ª melhor equipe do país na categoria Kids 2. Em 2026, desenvolve o Capi-Aprende, tutor de inteligência artificial que funciona no celular sem internet. Lema: “Unidos como capivaras, espertos como robôs.”
-            </p>
-            <p className="mt-3 text-[17px]">
-              <a href="https://capibots.com.br" className="font-semibold text-[#1a5c2a] underline underline-offset-4">capibots.com.br</a>
-              {' · '}
-              <a href="https://instagram.com/equipecapibots" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#1a5c2a] underline underline-offset-4">@equipecapibots</a>
-            </p>
-          </section>
+          <SobreEquipe className="mt-12" aoCopiar={copiar} />
 
-          <ContatoImprensa className="mt-12" assunto={`Imprensa: ${release.titulo}`} />
+          <ContatoImprensa className="mt-12" assunto={`Imprensa: ${release.titulo}`} tema={release.tema} />
 
           <section aria-labelledby="imagem" className="mt-12 max-w-[70ch] rounded-lg bg-[#f7f5ef] p-4 text-sm leading-[1.6]">
             <h2 id="imagem" className="font-bold flex items-center gap-2"><FileText className="h-4 w-4" aria-hidden="true" /> Direito de imagem</h2>

@@ -28,3 +28,9 @@ export const categoriaEstilo: Record<string, { icon: LucideIcon; color: string }
 
 // Seções de "Notícias da temporada": estas categorias têm seção própria; as demais ficam agrupadas em "Notícias"
 export const SEASON_SECTION_CATEGORIES = ['Ações Empreendedoras', 'Mérito Científico', 'Tecnologia & Engenharia'];
+
+// Posts em destaque na seção "Capibots na mídia" do blog (veículos que divulgaram a equipe)
+export const MIDIA_POSTS = [
+  { postId: 'capibots-radio-lider-fm-a-manha-e-nossa', veiculo: 'Rádio Líder FM 93,1', logo: '/imprensa/veiculos/lider-fm.png' },
+  { postId: 'capibots-revista-soberana-torneio-brasil-de-robotica', veiculo: 'Revista Soberana', logo: '/imprensa/veiculos/revista-soberana.png' },
+];
