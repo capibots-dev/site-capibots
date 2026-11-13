@@ -15,6 +15,9 @@ import CardapioFutsal from "./pages/CardapioFutsal";
 import TeamMember from "./pages/TeamMember";
 import CapiAprende from "./pages/CapiAprende";
 import CadernosTecnicos from "./pages/CadernosTecnicos";
+import Rifa from "./pages/Rifa";
+import RifaPedido from "./pages/RifaPedido";
+import RifaAdmin from "./pages/RifaAdmin";
 import Imprensa from "./pages/Imprensa";
 import ImprensaRelease from "./pages/ImprensaRelease";
 import NotFound from "./pages/NotFound";
@@ -45,6 +48,9 @@ const App = () => (
           <Route path="/2026/cadernos-tecnicos" element={<CadernosTecnicos />} />
           <Route path="/imprensa" element={<Imprensa />} />
           <Route path="/imprensa/:slug" element={<ImprensaRelease />} />
+          <Route path="/rifa" element={<Rifa />} />
+          <Route path="/rifa/pedido/:id" element={<RifaPedido />} />
+          <Route path="/rifa/admin" element={<RifaAdmin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

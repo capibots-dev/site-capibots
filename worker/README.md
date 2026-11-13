@@ -47,6 +47,28 @@ npx wrangler kv key put --binding CADASTROS --remote "beta:fulano@exemplo.com" '
 
 Para remover alguém (pedido de exclusão dos dados): `npx wrangler kv key delete --binding CADASTROS --remote "beta:fulano@exemplo.com"`.
 
+## Rifa digital
+
+Vende bilhetes a partir do número 501 (depois dos canhotos físicos), em `/rifa` no site. A pessoa escolhe a quantidade, informa nome e telefone, e recebe os números já reservados e um Pix copia e cola com o valor certo. O pagamento é confirmado à mão pela equipe em `/rifa/admin`. O código está em `src/rifa.js` e os dados ficam num banco D1.
+
+Configurar (uma vez), dentro de `worker/`:
+
+```bash
+npx wrangler d1 create capibots-rifa                                  # cole o database_id em wrangler.toml
+npx wrangler d1 execute capibots-rifa --remote --file schema.sql
+npx wrangler secret put RIFA_ADMIN_TOKEN                              # a senha da página /rifa/admin
+```
+
+Em `wrangler.toml`, preencha `PIX_CHAVE` (a chave Pix que recebe), confira `PIX_NOME`/`PIX_CIDADE` e ajuste `RIFA_PRECO_CENTAVOS`, `RIFA_PRIMEIRO` e `RIFA_ULTIMO` (faixa de números à venda). Depois `npx wrangler deploy`. O prêmio e a data do sorteio aparecem na página se forem preenchidos em `src/lib/rifa.ts`.
+
+Como funciona:
+
+- Cada pedido ocupa uma faixa contínua (ex.: 501 a 505). O contador avança de forma atômica, então dois pedidos nunca recebem o mesmo número.
+- Os números não expiram. Se alguém desistir, cancele o pedido em `/rifa/admin`; os números cancelados ficam de fora do sorteio e não são reaproveitados.
+- O Pix é estático: o banco não avisa o site. Para conferir, compare nome e valor no extrato com a lista de "Aguardando".
+- O comprador acompanha o bilhete por um endereço com código aleatório (`/rifa/pedido/<id>`); ele só vê o primeiro nome, nunca telefone ou e-mail.
+- Dados de contato: ver `/rifa/admin` (botão "Exportar CSV") ou `npx wrangler d1 execute capibots-rifa --remote --command "SELECT * FROM rifa_pedidos"`. Para apagar os dados de alguém: `DELETE FROM rifa_pedidos WHERE id = '...'`.
+
 ## Cuidados
 
 - Os PDFs nunca entram no Git nem em `public/`. Só vão para o R2 pelo comando acima.

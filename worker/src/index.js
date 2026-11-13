@@ -6,6 +6,9 @@
 //   POST /cadastro  { nome, email, equipe, consentimento, site }  ->  { cadernos: [{ id, titulo, url }] }
 //   GET  /baixar?t=<token>                                         ->  o PDF
 //   POST /beta-capi-aprende  { nome, email, perfil, cidade, consentimento, site }  ->  { ok: true }
+//   /rifa/*                                                        ->  rifa digital (ver src/rifa.js)
+
+import { rifa } from './rifa.js';
 
 // Só as versões resumidas passam por aqui; os cadernos oficiais entregues ao torneio não ficam no bucket.
 // Para trocar a lista, rode `npx wrangler deploy`
@@ -27,8 +30,8 @@ const cors = (request, env) => {
   const permitida = origem && origensPermitidas(env).includes(origem);
   return {
     'Access-Control-Allow-Origin': permitida ? origem : 'null',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     Vary: 'Origin',
   };
 };
@@ -44,11 +47,11 @@ const novoToken = () => {
 };
 
 // Limite por IP, para dificultar cadastros em massa
-async function dentroDoLimite(request, env, prefixo) {
+async function dentroDoLimite(request, env, prefixo, maximo = MAX_CADASTROS_POR_HORA) {
   const ip = request.headers.get('CF-Connecting-IP') ?? 'desconhecido';
   const chave = `${prefixo}:${ip}`;
   const usados = Number(await env.CADASTROS.get(chave)) || 0;
-  if (usados >= MAX_CADASTROS_POR_HORA) return false;
+  if (usados >= maximo) return false;
   await env.CADASTROS.put(chave, String(usados + 1), { expirationTtl: 3600 });
   return true;
 }
@@ -166,6 +169,8 @@ export default {
     if (request.method === 'POST' && pathname === '/cadastro') return cadastro(request, env);
     if (request.method === 'POST' && pathname === '/beta-capi-aprende') return betaCapiAprende(request, env);
     if (request.method === 'GET' && pathname === '/baixar') return baixar(request, env);
+    const resposta = await rifa(request, env, { cors, json, origensPermitidas, dentroDoLimite });
+    if (resposta) return resposta;
     return new Response('Não encontrado.', { status: 404 });
   },
 };

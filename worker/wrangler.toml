@@ -6,6 +6,15 @@ compatibility_date = "2026-10-01"
 # Páginas autorizadas a chamar o Worker (o localhost é só para testar)
 ALLOWED_ORIGINS = "https://capibots.com.br,https://www.capibots.com.br,http://localhost:8080,http://localhost:5173,http://127.0.0.1:8080,http://127.0.0.1:5173"
 
+# Rifa digital: valor do bilhete e faixa de números vendida no site (os canhotos físicos vão até RIFA_PRIMEIRO - 1)
+RIFA_PRECO_CENTAVOS = "1000"
+RIFA_PRIMEIRO = "501"
+RIFA_ULTIMO = "3000"
+# Pix que recebe os pagamentos (confira com a equipe antes de publicar)
+PIX_CHAVE = "+5534999924899"
+PIX_NOME = "Tatiane Pereira M Souza"
+PIX_CIDADE = "UBERLANDIA"
+
 # Pasta privada com os PDFs. Crie com: npx wrangler r2 bucket create capibots-cadernos
 [[r2_buckets]]
 binding = "CADERNOS"
@@ -16,3 +25,10 @@ bucket_name = "capibots-cadernos"
 [[kv_namespaces]]
 binding = "CADASTROS"
 id = "db203ea20d8c4a41a813431fcef4b074"
+
+# Rifa digital. Crie com: npx wrangler d1 create capibots-rifa
+# e cole o database_id que o comando mostrar no lugar de COLE_O_ID_AQUI
+[[d1_databases]]
+binding = "RIFA"
+database_name = "capibots-rifa"
+database_id = "282da323-64d8-48d6-b303-5230d8c0529d"
