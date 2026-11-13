@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, FolderOpen } from 'lucide-react';
+import { ArrowRight, FolderOpen, Presentation } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { trackEvent } from '@/lib/analytics';
@@ -186,6 +186,15 @@ const Imprensa = () => {
                     className={`inline-block rounded-md border-2 border-[#1a5c2a] px-4 py-2 font-semibold text-[#1a5c2a] ${FOCO}`}
                   >
                     Baixar logomarca (PNG)
+                  </a>
+                  <a
+                    href="/mediakit/2026/mediakit_capibots_2026_institucional.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent('press_action', { action: 'mediakit_institucional', release: 'indice' })}
+                    className={`ml-0 mt-3 inline-flex items-center gap-2 rounded-md border-2 border-[#1a5c2a] px-4 py-2 font-semibold text-[#1a5c2a] sm:ml-3 sm:mt-0 ${FOCO}`}
+                  >
+                    <Presentation className="h-4 w-4" aria-hidden="true" /> Media kit institucional
                   </a>
                   <ul className="mt-4 flex flex-wrap gap-3">
                     {CORES.map((c) => (
