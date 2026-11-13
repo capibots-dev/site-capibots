@@ -101,11 +101,35 @@
         },
         {
           "tipo": "intertitulo",
+          "texto": "O primeiro teste em sala de aula"
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Em 10 de novembro, 16 estudantes do 5º ano da Escola de Educação Básica da UFU (ESEBA) passaram uma aula com a equipe. O conteúdo foi sentido figurado em Língua Portuguesa (metáfora, hipérbole, ironia e onomatopeia), escolhido com a professora da turma entre os assuntos que ainda não tinham sido ensinados."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "O desenho foi este: toda a turma fez um pré-teste de dez itens; depois, dois grupos de oito crianças estudaram por 15 minutos, cada uma sozinha e em silêncio, o mesmo conteúdo, um grupo com o aplicativo num tablet e o outro com uma apostila impressa; por fim, todos fizeram um pós-teste de dez itens, com as mesmas habilidades e frases diferentes. As provas foram identificadas por código, sem nome, e o grupo da apostila só conheceu o aplicativo depois do pós-teste."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Os dois grupos melhoraram na mesma medida: 0,75 ponto numa escala de 0 a 10 (de 6,50 para 7,25 com a apostila e de 6,00 para 6,75 com o aplicativo). Os maiores ganhos vieram dos itens mais difíceis, metáfora e hipérbole, nos dois grupos. Com oito crianças por grupo, só uma diferença de cerca de dois pontos se distinguiria do acaso, então o teste não permite dizer que um método supera o outro; mostra que, em quinze minutos, o aplicativo rendeu o mesmo ganho médio que o material impresso."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "A equipe também registra o que mudou em relação ao desenho previsto: dois grupos em vez de três, Língua Portuguesa em vez de Matemática e uma única sessão em vez de várias, por causa do tamanho da turma e do horário cedido pela escola. O próximo passo é levar o aplicativo a crianças que enfrentam falta de equipamento e de conexão, o público para o qual a pesquisa aponta."
+        },
+        {
+          "tipo": "intertitulo",
           "texto": "Onde o projeto está"
         },
         {
           "tipo": "paragrafo",
           "texto": "O protótipo navegável do Capi-Aprende está aberto ao público em capiaprende.capibots.com.br. Na apresentação aos jurados da Final Nacional, a equipe pretende demonstrar o tutor ao vivo, com o celular em modo avião; a mesma demonstração está à disposição dos repórteres."
+        },
+        {
+          "tipo": "paragrafo",
+          "texto": "Na segunda-feira, 9 de novembro, a equipe foi recebida por um gabinete da Câmara Municipal de Uberlândia, a convite do próprio gabinete, para apresentar o Capi-Aprende e conversar sobre um projeto de robótica que possa virar política pública na cidade. A conversa foi conduzida pelo assessor Rafael Lopes."
         },
         {
           "tipo": "paragrafo",
@@ -139,19 +163,19 @@
         },
         {
           "titulo": "Validação com estudantes",
-          "texto": "A equipe segue testando o aplicativo com estudantes e ajustando o que encontra."
+          "texto": "Estudantes do 5º ano da ESEBA/UFU usaram o aplicativo em sala de aula, com pré-teste e pós-teste; a equipe segue analisando os resultados."
         }
       ],
       "downloads": [
         {
           "rotulo": "Release (.docx)",
           "arquivo": "/imprensa/arquivos/capibots-release-capi-aprende.docx",
-          "tamanho": "14 KB"
+          "tamanho": "15 KB"
         },
         {
           "rotulo": "Release (PDF)",
           "arquivo": "/imprensa/arquivos/capibots-release-capi-aprende.pdf",
-          "tamanho": "126 KB"
+          "tamanho": "131 KB"
         },
         {
           "rotulo": "Ficha da pesquisa (PDF)",
@@ -185,6 +209,10 @@
         {
           "data": "2026-11-13",
           "mudanca": "Publicação do release"
+        },
+        {
+          "data": "2026-11-13",
+          "mudanca": "Inclusão do teste em sala de aula (pré-teste e pós-teste) e da visita ao gabinete da Câmara Municipal"
         }
       ],
       "tema": "o Capi-Aprende"
