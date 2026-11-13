@@ -1,4 +1,5 @@
 import data from '../data/imprensa/releases.json';
+import team from '../data/team.json';
 import { SITE_URL, type PageMeta } from './pageMeta';
 
 // Tipos e funções da Sala de Imprensa. Sem React, porque o vite.config.ts também importa este
@@ -37,6 +38,9 @@ export const equipe = data.equipe as Equipe;
 // Só os publicados, do mais recente para o mais antigo
 export const releasesPublicados = (): Release[] =>
   (data.releases as Release[]).filter((r) => r.publicado).sort((a, b) => b.dataPublicacao.localeCompare(a.dataPublicacao));
+
+// Pasta de fotos em alta: a mesma em todos os releases; usa a do mais recente que tiver
+export const pastaFotosDrive = (): string => releasesPublicados().find((r) => r.fotos.pastaDrive)?.fotos.pastaDrive ?? '';
 
 export const getRelease = (slug: string) => releasesPublicados().find((r) => r.slug === slug);
 
@@ -118,3 +122,29 @@ export const indexStaticBody = () =>
     .map((r) => `<li><a href="/imprensa/${r.slug}">${esc(r.titulo)}</a> <p>${esc(r.linhaFina)}</p></li>`)
     .join('') +
   `</ul><h2>Sobre a Capibots</h2><p>${esc(equipe.texto)}</p></main>`;
+
+// Ficha rápida: o quadro que o repórter copia. Só primeiro nome, nunca sobrenome.
+export const fichaRapida = () => {
+  const integrantes = (team as { name: string; roles: string[] }[])
+    .map((m) => `${m.name.split(' ')[0]} (${m.roles.join(' e ').toLowerCase()})`)
+    .join(', ');
+  const linhas: { rotulo: string; valor: string }[] = [
+    { rotulo: 'Equipe', valor: 'Capibots, equipe de robótica' },
+    { rotulo: 'Integrantes', valor: integrantes },
+    { rotulo: 'Escola', valor: 'Colégio Batista Mineiro, Unidade Martins' },
+    { rotulo: 'Cidade', valor: 'Uberlândia (MG)' },
+    { rotulo: 'Torneio e categoria', valor: 'Torneio Brasil de Robótica (TBR), categoria Kids 2' },
+    { rotulo: 'Final Nacional', valor: '11 a 13 de dezembro de 2026, em Curitiba (PR)' },
+    { rotulo: 'Resultado no Regional', valor: '3º lugar geral, em Ituiutaba (31/10 e 1º/11)' },
+    { rotulo: 'Pesquisa em números', valor: '46 estudantes ouvidos em campo, 8 soluções comparadas e 16 estudantes no primeiro teste em sala de aula' },
+    {
+      rotulo: 'O aplicativo',
+      valor:
+        'O Capi-Aprende é um aplicativo de estudo com tutor de inteligência artificial que roda no próprio celular, sem internet. O professor cadastra o conteúdo numa plataforma; o aluno baixa uma vez, quando há conexão, e estuda em casa. O tutor conversa com a criança e orienta o raciocínio em vez de entregar a resposta. O protótipo navegável está aberto em capiaprende.capibots.com.br.',
+    },
+  ];
+  return {
+    linhas,
+    texto: linhas.map((l) => `${l.rotulo}: ${l.valor}`).join('\n'),
+  };
+};

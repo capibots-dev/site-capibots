@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Copy, Mail, MessageCircle } from 'lucide-react';
 import { trackEvent } from '@/lib/analytics';
-import { contato, equipe, formatarData, mailtoContato, whatsappContato, type Materia } from '@/lib/imprensa';
+import { contato, equipe, fichaRapida, formatarData, mailtoContato, whatsappContato, type Materia } from '@/lib/imprensa';
 
 export const Selo = () => (
   <span className="inline-block rounded-full bg-[#e05c00] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
@@ -102,3 +102,30 @@ export const SobreEquipe = ({
     </div>
   </section>
 );
+
+// Quadro de consulta rápida; o botão copia tudo como texto puro
+export const FichaRapida = ({ className = '', aoCopiar }: { className?: string; aoCopiar?: (texto: string, rotulo: string) => void }) => {
+  const { linhas, texto } = fichaRapida();
+  return (
+    <section aria-labelledby="ficha-rapida" className={className}>
+      <h2 id="ficha-rapida" className="text-2xl font-bold text-[#1a5c2a]">Ficha rápida</h2>
+      <dl className="mt-4 max-w-[70ch] divide-y divide-[#1a5c2a]/15 rounded-lg border border-[#1a5c2a]/20 bg-[#f7f5ef]">
+        {linhas.map((l) => (
+          <div key={l.rotulo} className="px-4 py-3 sm:grid sm:grid-cols-[11rem_1fr] sm:gap-4">
+            <dt className="text-sm font-bold text-[#1a5c2a]">{l.rotulo}</dt>
+            <dd className="mt-1 text-[15px] leading-[1.6] sm:mt-0">{l.valor}</dd>
+          </div>
+        ))}
+      </dl>
+      {aoCopiar && (
+        <button
+          type="button"
+          onClick={() => aoCopiar(texto, 'ficha_rapida')}
+          className={`mt-4 inline-flex items-center gap-2 rounded-md bg-[#1a5c2a] px-4 py-2 text-sm font-semibold text-white print:hidden ${FOCO}`}
+        >
+          <Copy className="h-4 w-4" aria-hidden="true" /> Copiar ficha rápida
+        </button>
+      )}
+    </section>
+  );
+};

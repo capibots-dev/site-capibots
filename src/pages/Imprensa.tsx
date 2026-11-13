@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, FolderOpen } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { trackEvent } from '@/lib/analytics';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { useCopiar } from '@/components/imprensa/useCopiar';
-import { ContatoImprensa, ListaNaMidia, Selo, SobreEquipe } from '@/components/imprensa/Blocos';
-import { formatarData, indexMeta, releasesPublicados, todasMaterias, type Release } from '@/lib/imprensa';
+import { ContatoImprensa, FichaRapida, ListaNaMidia, Selo, SobreEquipe } from '@/components/imprensa/Blocos';
+import { formatarData, indexMeta, pastaFotosDrive, releasesPublicados, todasMaterias, type Release } from '@/lib/imprensa';
 
 const FOCO = 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1a5c2a]';
 
@@ -48,10 +49,13 @@ const Imprensa = () => {
   const { aviso, copiar } = useCopiar();
   const releases = releasesPublicados();
   const materias = todasMaterias();
+  const drive = pastaFotosDrive();
 
   const secoes = [
     { id: 'releases', rotulo: 'Releases' },
+    { id: 'ficha', rotulo: 'Ficha rápida' },
     { id: 'sobre', rotulo: 'Sobre a Capibots' },
+    ...(drive ? [{ id: 'fotos', rotulo: 'Fotos' }] : []),
     ...(materias.length > 0 ? [{ id: 'na-midia', rotulo: 'Na mídia' }] : []),
     { id: 'marca', rotulo: 'Kit da marca' },
     { id: 'contato', rotulo: 'Contato' },
@@ -73,7 +77,7 @@ const Imprensa = () => {
     });
     return () => observer.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [materias.length]);
+  }, [materias.length, drive]);
 
   const classeLink = (id: string) =>
     `block rounded-md px-3 py-2 text-sm font-semibold ${FOCO} ${
@@ -138,9 +142,31 @@ const Imprensa = () => {
               )}
             </section>
 
+            <div id="ficha" className="scroll-mt-36 md:scroll-mt-28">
+              <FichaRapida aoCopiar={copiar} />
+            </div>
+
             <div id="sobre" className="scroll-mt-36 md:scroll-mt-28">
               <SobreEquipe mostrarNumeros aoCopiar={copiar} />
             </div>
+
+            {drive && (
+              <section id="fotos" aria-labelledby="titulo-fotos" className="scroll-mt-36 md:scroll-mt-28">
+                <h2 id="titulo-fotos" className="text-2xl font-bold text-[#1a5c2a]">Fotos</h2>
+                <p className="mt-3 max-w-[70ch] text-[17px] leading-[1.6]">
+                  As fotos em alta resolução estão numa pasta do Google Drive, liberadas para a imprensa.
+                </p>
+                <a
+                  href={drive}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackEvent('press_action', { action: 'fotos_drive', release: 'indice' })}
+                  className={`mt-4 inline-flex items-center gap-2 rounded-md border-2 border-[#1a5c2a] px-4 py-2 font-semibold text-[#1a5c2a] ${FOCO}`}
+                >
+                  <FolderOpen className="h-4 w-4" aria-hidden="true" /> Fotos em alta (Drive)
+                </a>
+              </section>
+            )}
 
             {materias.length > 0 && (
               <section id="na-midia" aria-labelledby="titulo-midia" className="scroll-mt-36 md:scroll-mt-28">

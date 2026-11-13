@@ -1,10 +1,10 @@
 import { Link, useParams } from 'react-router-dom';
-import { Copy, Download, FileText, FolderOpen, MessageCircle } from 'lucide-react';
+import { ArrowLeft, Copy, Download, FileText, FolderOpen, MessageCircle } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { useCopiar } from '@/components/imprensa/useCopiar';
-import { ContatoImprensa, ListaNaMidia, Selo, SobreEquipe } from '@/components/imprensa/Blocos';
+import { ContatoImprensa, FichaRapida, ListaNaMidia, Selo, SobreEquipe } from '@/components/imprensa/Blocos';
 import { trackEvent } from '@/lib/analytics';
 import { notFoundMeta } from '@/lib/pageMeta';
 import { formatarData, getRelease, releaseMeta, textoLegenda, textoRelease, whatsappContato } from '@/lib/imprensa';
@@ -52,6 +52,12 @@ const ImprensaRelease = () => {
 
       <main className="container mx-auto px-4 pt-10 pb-28 md:pb-14">
         <article className="mx-auto max-w-4xl">
+          <nav aria-label="Navegação" className="mb-6 print:hidden">
+            <Link to="/imprensa" className={`inline-flex items-center gap-2 text-sm font-semibold text-[#1a5c2a] underline underline-offset-4 ${FOCO}`}>
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Voltar à Sala de Imprensa
+            </Link>
+          </nav>
+
           <header>
             <Selo />
             <p className="mt-3 text-sm text-[#1f2a22]/70">
@@ -176,6 +182,8 @@ const ImprensaRelease = () => {
               <ListaNaMidia materias={[...release.naMidia].sort((a, b) => b.data.localeCompare(a.data))} />
             </section>
           )}
+
+          <FichaRapida className="mt-12" aoCopiar={copiar} />
 
           <SobreEquipe className="mt-12" aoCopiar={copiar} />
 
