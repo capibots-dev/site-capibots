@@ -179,8 +179,7 @@ const Index = () => {
               items: [
                 { value: '🏆 Campeã Geral', label: 'Torneio Interno · Jun/2026' },
                 { value: '🥇 Campeã do Desafio Prático', label: 'Torneio Interno · Jun/2026' },
-                { value: '🥉 3º lugar geral', label: 'Etapa Regional · Nov/2026' },
-                { value: '🎟️ Vaga na Final Nacional', label: 'Curitiba · 11 a 13/Dez/2026' },
+                { value: '🥉 3º lugar geral', label: 'Etapa Regional · Nov/2026' }
               ],
             },
             {
@@ -198,7 +197,7 @@ const Index = () => {
                 <Trophy className="h-3 w-3 text-primary" />
                 Conquistas da Temporada {group.season}
               </p>
-              <div className={`grid grid-cols-2 gap-4 text-center ${group.items.length === 4 ? 'md:grid-cols-4' : 'md:grid-cols-2 max-w-xl mx-auto'}`}>
+              <div className={`grid grid-cols-2 gap-4 text-center ${group.items.length >= 4 ? 'md:grid-cols-4' : group.items.length === 3 ? 'md:grid-cols-3 max-w-3xl mx-auto' : 'md:grid-cols-2 max-w-xl mx-auto'}`}>
                 {group.items.map((s) => (
                   <div key={s.value + s.label}>
                     <p className="text-sm md:text-base font-bold text-primary leading-snug">{s.value}</p>
