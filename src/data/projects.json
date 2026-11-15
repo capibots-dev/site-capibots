@@ -147,7 +147,7 @@
       ]
     },
     "timeline": [
-      { "label": "Formação do Time e Início da Temporada", "date": "Abril 2026", "completed": true  },
+      { "label": "Formação do Time e Início da Temporada", "date": "Abril 2026", "completed": true},
       { "label": "Expotech CBM Uberlândia - Interno TBR", "date": "Junho 2026", "completed": true },
       { "label": "Esquenta TBR - Pré-Regional - CBM Uberlândia", "date": "Outubro 2026", "completed": true },
       { "label": "TBR - Etapa Regional Triângulo Mineiro", "date": "31 de Outubro de 2026 · Ituiutaba (MG)","completed": true },

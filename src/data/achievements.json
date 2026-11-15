@@ -49,5 +49,18 @@
     "description": "Na primeira competição da temporada 2026, os Capibots conquistaram o título geral e o do Desafio Prático no torneio interno, abrindo o ano com o pé direito rumo à etapa regional.",
     "image": "/images/achievments/2026/premiacao-capibots-interno-2026.jpg",
     "highlight": true
+  },
+  {
+    "id": "etapa-regional-2026",
+    "year": "2026",
+    "date": "Novembro 2026",
+    "title": "Etapa Regional do TBR 2026 — Ituiutaba",
+    "awards": [
+      "3º lugar geral — categoria Kids 2",
+      "Vaga na Final Nacional"
+    ],
+    "description": "No Regional do TBR em Ituiutaba (MG), nos dias 31 de outubro e 1º de novembro, os Capibots terminaram em 3º lugar geral na Kids 2 e garantiram a vaga na Final Nacional, que acontece de 11 a 13 de dezembro, em Curitiba (PR).",
+    "image": "/images/blog/regional-tbr-2026-equipe.jpg",
+    "highlight": true
   }
 ]

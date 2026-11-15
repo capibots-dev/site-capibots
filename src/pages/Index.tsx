@@ -179,6 +179,8 @@ const Index = () => {
               items: [
                 { value: '🏆 Campeã Geral', label: 'Torneio Interno · Jun/2026' },
                 { value: '🥇 Campeã do Desafio Prático', label: 'Torneio Interno · Jun/2026' },
+                { value: '🥉 3º lugar geral', label: 'Etapa Regional · Nov/2026' },
+                { value: '🎟️ Vaga na Final Nacional', label: 'Curitiba · 11 a 13/Dez/2026' },
               ],
             },
             {
@@ -539,8 +541,8 @@ const Index = () => {
           </div>
 
           <div className="max-w-5xl mx-auto relative">
-            <div className="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-primary via-secondary to-primary" />
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="hidden md:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary via-secondary to-primary" />
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
               {achievementsData.map((ach) => (
                 <div key={ach.id} className="flex flex-col items-center text-center">
                   <div className="relative z-10 h-16 w-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg mb-3">
