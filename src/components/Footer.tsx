@@ -80,7 +80,7 @@ const Footer = () => {
 
         <div className="border-t pt-8 mt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2025 Equipe Capibots. Todos os direitos reservados.
+            © 2026 Equipe Capibots. Todos os direitos reservados.
           </p>
           <div className="mt-2 flex flex-col items-center gap-1 sm:flex-row sm:justify-center sm:gap-4">
           <a
