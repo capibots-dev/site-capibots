@@ -72,8 +72,8 @@
     "image": "/images/projects/logo-tbr-2026.png",
     "title": "TBR 2026",
     "subtitle": "Torneio Brasil de Robótica 2026",
-    "summary": "Nova temporada dos Capibots no TBR 2026 — tema ODS 4, Educação, Trabalho e Sustentabilidade.",
-    "description": "Desenvolvimento de uma solução inovadora voltada à garantia de uma educação inclusiva e de qualidade para crianças e jovens, cobrindo a proposta de Mérito Científico do TBR alinhada ao ODS 4 — Educação de Qualidade. Além do projeto científico, utilizamos o robô Lego Spike Prime para cumprir com as missões do Desafio Prático da categoria Kids 2, cujo tapete desta temporada representa um ambiente escolar com desafios ligados ao acesso e à qualidade da educação.",
+    "summary": "Temporada 2026 dos Capibots no TBR, com o tema ODS 4. A pesquisa mostrou que conectar a escola não conecta o aluno, e a resposta foi o Capi-Aprende.",
+    "description": "O Capi-Aprende é um aplicativo de estudo offline com conteúdos de Matemática e Português do 5º ano, pensado para quem tem escola conectada, mas não tem internet de qualidade em casa. Nasceu da pesquisa com 46 crianças, em que 16 não tinham computador nem tablet em casa, e foi testado em sala de aula na ESEBA/UFU. Em paralelo, o robô Lego Spike Prime cumpre as missões do Desafio Prático da categoria Kids 2, num tapete que representa um ambiente escolar.",
     "status": "Em desenvolvimento",
     "period": "Abr/2026 a Dez/2026",
     "startDate": "Abril 2026",
@@ -88,7 +88,7 @@
       "Canva"
     ],
     "category": "Kids 2",
-    "progress": 80,
+    "progress": 85,
     "challenges": [
       "Compreender e pesquisar um tema novo com profundidade (ODS 4)",
       "Desenvolver uma solução científica inovadora para o contexto educacional",

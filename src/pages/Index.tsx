@@ -243,7 +243,7 @@ const Index = () => {
                 <div className="p-3.5 bg-orange-50 border border-orange-200 rounded-lg">
                   <p className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-1">O Problema</p>
                   <p className="text-sm text-foreground leading-relaxed">
-                    Como garantir educação inclusiva e de qualidade para crianças e jovens? O ODS 4 aponta que milhões ainda enfrentam barreiras de acesso, permanência e aprendizagem.
+                    Conectar a escola não é o mesmo que conectar o aluno. Das 46 crianças ouvidas na pesquisa, 16 não têm computador nem tablet em casa, e 15 delas estudam na escola rural.
                   </p>
                 </div>
                 <div className="p-3.5 bg-green-50 border border-green-200 rounded-lg">
