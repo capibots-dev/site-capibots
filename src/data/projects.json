@@ -88,7 +88,7 @@
       "Canva"
     ],
     "category": "Kids 2",
-    "progress": 70,
+    "progress": 80,
     "challenges": [
       "Compreender e pesquisar um tema novo com profundidade (ODS 4)",
       "Desenvolver uma solução científica inovadora para o contexto educacional",
@@ -150,7 +150,7 @@
       { "label": "Formação do Time e Início da Temporada", "date": "Abril 2026", "completed": true  },
       { "label": "Expotech CBM Uberlândia - Interno TBR", "date": "Junho 2026", "completed": true },
       { "label": "Esquenta TBR - Pré-Regional - CBM Uberlândia", "date": "Outubro 2026", "completed": true },
-      { "label": "TBR - Etapa Regional Triângulo Mineiro", "date": "Outubro 2026","completed": false },
+      { "label": "TBR - Etapa Regional Triângulo Mineiro", "date": "Outubro 2026","completed": true },
       { "label": "Feira Ciência Viva", "date": "Novembro 2026","completed": false },
       { "label": "TBR - Etapa Nacional", "date": "Dezembro 2026","completed": false }
     ]
